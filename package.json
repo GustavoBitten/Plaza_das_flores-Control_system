@@ -4,6 +4,7 @@
   "description": "Sistema desenvolvido pela equipe da turma 5 do Santander Coders by Digital House",
   "main": "app.js",
   "dependencies": {
+    "bootstrap": "^4.4.1",
     "ejs": "^3.0.1",
     "express": "^4.17.1"
   },
