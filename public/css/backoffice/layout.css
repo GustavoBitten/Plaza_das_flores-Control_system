@@ -1,0 +1,24 @@
+div.row {
+  width: 100vw;
+}
+
+div#user a:hover {
+  text-decoration: none;
+}
+
+div#user span {
+  color: #E8751C;
+}
+
+div#user span:hover {
+  color: #FFA62B;
+}
+
+span#logout {
+  font-weight: bold;
+}
+
+i.fa-user-circle {
+  font-size: 2em;
+  margin: 0 10px;
+}
