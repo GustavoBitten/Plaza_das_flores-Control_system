@@ -1,5 +1,6 @@
 body {
-  margin: 0;
+  padding: 59px 0 0 0;
+  min-height: 100vh;
 }
 
 nav.navbar {
@@ -36,4 +37,12 @@ nav > div.container-fluid > div.row {
 span#acessar {
   color: #E8751C !important;
   font-weight: bolder;
+}
+
+footer > div.container-fluid {
+  background-color: lightgrey;
+}
+
+footer > div.container-fluid:first-child {
+  padding: 5px 15px;
 }
