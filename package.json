@@ -1,0 +1,24 @@
+{
+  "name": "sistema_de_condominio",
+  "version": "1.0.0",
+  "description": "Sistema desenvolvido pela equipe da turma 5 do Santander Coders by Digital House",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GustavoBitten/sistema_de_condominio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GustavoBitten/sistema_de_condominio/issues"
+  },
+  "homepage": "https://github.com/GustavoBitten/sistema_de_condominio#readme"
+}
