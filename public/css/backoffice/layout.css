@@ -1,24 +1,66 @@
-div.row {
+body {
+  padding-left: 14vw;
+}
+
+nav div.container-fluid {
+  height: 43px;
+}
+
+nav div.row {
   width: 100vw;
 }
 
-div#user a:hover {
+nav div#user a:hover {
   text-decoration: none;
 }
 
-div#user span {
+nav div#user span {
   color: #E8751C;
 }
 
-div#user span:hover {
+nav div#user span:hover {
   color: #FFA62B;
 }
 
-span#logout {
+nav span#logout {
   font-weight: bold;
 }
 
 i.fa-user-circle {
   font-size: 2em;
   margin: 0 10px;
+}
+
+aside {
+  background-color: #E8751C;
+  height: 100vh;
+  width: 14vw;
+  border-right: 1px solid grey;
+  position: fixed;
+  left: 0;
+}
+
+aside ul.nav {
+  padding: 0 10px;
+}
+
+aside li.nav-item {
+  border-bottom: 1px solid white;
+}
+
+aside li.nav-item:last-child {
+  border-bottom: none;
+}
+
+aside a.nav-link {
+  color: white;
+  font-weight: bold;
+}
+
+aside a.nav-link:hover {
+  color: #06B600;
+}
+
+aside a.nav-link i {
+  margin-right: 0.5em;
 }
