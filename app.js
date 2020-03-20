@@ -1,11 +1,14 @@
 const express = require('express')
-let app = express()
-app.set('view engine', 'ejs');
 
 
 let homePageRouter = require('./routes/homePageRouter')
 
+let app = express()
+app.set('view engine', 'ejs');
 
+
+app.use(express.static("public"))
+app.use(express.static("node_modules"))
 
 app.use('/', homePageRouter);
 
