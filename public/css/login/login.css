@@ -52,3 +52,24 @@ img{
 }
 
  
+
+/* Inicio = CSS de botões temporário */
+
+#provisorio{
+    border: black 1px solid;
+    position: fixed;
+    bottom: 15px;
+    left:30%;
+    right: 30%;
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#provisorio p {
+    text-align: center;
+}
+
+/* Fim = CSS de botões temporário */
+
