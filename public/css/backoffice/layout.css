@@ -38,6 +38,7 @@ aside {
   border-right: 1px solid grey;
   position: fixed;
   left: 0;
+  width: 25vw;
 }
 
 aside ul.nav {
@@ -64,3 +65,25 @@ aside a.nav-link:hover {
 aside a.nav-link i {
   margin-right: 0.5em;
 }
+
+.sidebar {
+    padding-left: 0;
+    padding-right: 0;
+}
+.sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: min-content;
+}
+@media (max-width: 678px){
+  .hidden-xs-down {
+      display: none!important;
+  }}
+
+
