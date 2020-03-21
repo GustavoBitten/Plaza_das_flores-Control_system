@@ -1,0 +1,46 @@
+.corpo {
+   background-color: #06B600;
+    
+}
+.form-control {
+    margin-top: 10px;
+    border-color:  #E8751C ;
+    border-radius: 15px;
+    border-width:2px;
+}
+.formulario {
+    width: 300px;
+    height: 300px;
+}
+.container {
+    background-color: white;
+    padding: 20px;
+    width:400px ;
+    height: 400px;
+    border-radius: 20px;
+    margin-top: 10vh;
+
+}
+.btn {
+    display: flex;
+    color: #fff;
+    background-color: #E8751C;
+    border-color: #E8751C;
+    width: 30%;
+    display: table-column;
+    border-radius: 20px;
+}
+.remember {
+    text-align: center;
+    align-content: center;
+    margin-top: 30px;
+    
+}
+a{
+    color: black;
+    text-decoration: underline;
+}
+.ckBottom {
+    margin-top: 20px;
+    
+}

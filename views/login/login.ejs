@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../includes/head', {titulo: titulo}) %>
+  
+  <link href="/css/login/login.css" rel="stylesheet">
+</head>
+   
+<body class="corpo">
+
+  <div class="container">
+    <div class="d-flex justify-content-center h-100">  
+
+    <form class="formulario">
+     
+        <h1 class="h3 mb-3 font-weight-normal">Faça o Login!</h1>
+        <div class="row">
+        <label for="ap" class="sr-only col-2">Bloco + Apartamento</label>
+        <input type="text" id="ap" class="form-control col-12" placeholder="Bloco + Apartamento (ex: A01)" required autofocus>
+      </div>
+      <div class="row">
+        <label for="inputPassword" class="sr-only col-2">Senha</label>
+        <input type="password" id="inputPassword" class="form-control col-12" placeholder="Senha" required>
+      </div>
+        <div class="ckBottom row">
+          <label class="checkbox col align-self-end">
+            <input type="checkbox" value="remember-me"> Manter conectado
+          </label>
+        
+        <button class="btn" type="submit">Entrar</button>
+      </div>
+
+        <div class="remember row" > 
+        <a  class="col-md"  href="">Esqueci minha Senha</a>
+      </div>
+      
+      </form>
+    </div>
+    </div>
+    
+</body>
+</html>
