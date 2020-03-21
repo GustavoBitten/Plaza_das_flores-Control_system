@@ -10,6 +10,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + "/public"))
 app.use(express.static(__dirname + "/node_modules"))
+app.use(express.static(__dirname + "/source"))
 
 app.use('/', homePageRouter);
 app.use('/backoffice', backofficePageRouter);

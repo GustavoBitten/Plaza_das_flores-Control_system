@@ -28,6 +28,7 @@ nav > div.container-fluid > div.row {
 span#acessar {
   color: #E8751C !important;
   font-weight: bolder;
+  align-self: center;
 }
 
 footer > div.container-fluid, footer > section.container-fluid {
@@ -36,4 +37,24 @@ footer > div.container-fluid, footer > section.container-fluid {
 
 footer > div.container-fluid:first-child {
   padding: 5px 15px;
+}
+
+.logo{
+  width: 11em;
+}
+
+#nav * , #nav {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+
+}
+
+#nav > div > div > div {
+  padding-left: 0px;
+}
+
+#btnAcessar{
+  padding: 1.5% 0 1.5% 0 ;
 }
