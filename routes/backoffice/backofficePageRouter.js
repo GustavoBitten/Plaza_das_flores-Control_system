@@ -6,6 +6,6 @@ let route = express.Router()
 
 route.get('/morador', backofficePageController.moradorDashboard)
 route.get('/morador/dashboard', backofficePageController.moradorDashboard)
-
+route.get('/morador/perfil', backofficePageController.moradorPerfil)
 
 module.exports = route
