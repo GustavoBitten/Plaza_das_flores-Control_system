@@ -2,19 +2,15 @@ body {
   padding: 59px 0 0 14vw;
 }
 
-nav div.container-fluid {
-  height: 43px;
-}
-
-nav div.row {
-  width: 100vw;
+.logo{
+  width: 9em;
 }
 
 nav div#user a:hover {
   text-decoration: none;
 }
 
-nav div#user span {
+nav div#user span, nav div#user i {
   color: #E8751C;
 }
 
@@ -71,6 +67,7 @@ aside a.nav-link i {
     padding-left: 0;
     padding-right: 0;
 }
+
 .sidebar {
     position: fixed;
     top: 51px;
@@ -82,9 +79,27 @@ aside a.nav-link i {
     overflow-y: auto;
     width: min-content;
 }
+
 @media (max-width: 678px){
   .hidden-xs-down {
-      display: none!important;
-  }}
+      display: none !important;
+  }
+}
 
+@media (max-width: 436px) {
+  a#perfil {
+    display: none;
+  }
+}
 
+@media (min-width: 437px) {
+  a#perfilSm {
+    display: none;
+  }
+}
+
+@media (max-width: 328px) {
+  body {
+    padding: 109px 0 0 0;
+  }
+}

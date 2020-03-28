@@ -1,30 +1,31 @@
 <header>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <div class="row d-flex justify-content-between align-items-center">
-        <div id="logo">
-          <a class="navbar-brand" href="#"><img src="source/img/logo.jpg" alt="Logo do Condomínio"></a>
-        </div>
-        <!-- /#logo -->
-
-        <div id="user" class="d-flex align-items-center">
-          <a href="#">
-            <span id="perfil" class="navbar-text d-flex align-items-center">
-              Fulano de Tal - Ap./Bl.
-              <i class="far fa-user-circle"></i>
-            </span>
-          </a>
-          
-          <a id="logoutLink" href="#">
-            <span id="logout" class="navbar-text">
-              Sair
-            </span>
-          </a>
-        </div>
-        <!-- /#user -->
-      </div>
-      <!-- /.row -->
+  <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light d-flex justify-content-between p-0">
+    <div id="brand" class="d-flex justify-content-start align-items-center pl-0">
+      <a class="navbar-brand" href="#"><img class="logo" src="/img/Logo.png" alt="Logo do Condomínio"></a>
     </div>
-    <!-- /.container-fluid -->
+    <!-- /#logo -->
+
+    <div id="user" class="d-flex align-items-center pr-2">
+      <a id="perfil" href="/backoffice/morador/perfil">
+        <span class="navbar-text d-flex align-items-center">
+          Fulano de Tal - Ap./Bl.
+          <i class="far fa-user-circle"></i>
+        </span>
+      </a>
+
+      <a id="perfilSm" href="/backoffice/morador/perfil">
+        <span class="navbar-text d-flex align-items-center">
+          Ap./Bl.
+          <i class="far fa-user-circle"></i>
+        </span>
+      </a>
+      
+      <a id="logoutLink" href="#">
+        <span id="logout" class="navbar-text">
+          Sair
+        </span>
+      </a>
+    </div>
+    <!-- /#user -->
   </nav>
 </header>
