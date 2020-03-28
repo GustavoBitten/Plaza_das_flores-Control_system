@@ -1,45 +1,49 @@
 <header>
-    <nav id="nav" class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-2">
-            <a class="navbar-brand" href="/"><img class="logo" src="/img/Logo.png" ></a>
-          </div>
-          <!-- /.col-2 -->
-
-          <div id="nav" class="col-4 offset-2 d-flex justify-content-center align-items-center">
-            <ul class="navbar-nav my-auto">
-              <li class="nav-item d-flex">
-                <a class="nav-link" href="#">Sobre</a>
-              </li>
-              <li class="nav-item d-flex">
-                <a class="nav-link" href="#">Apartamento</a>
-              </li>
-              <li class="nav-item d-flex">
-                <a class="nav-link" href="#">Lazer</a>
-              </li>
-              <li class="nav-item d-flex">
-                <a class="nav-link" href="#">Localização</a>
-              </li>
-              <li class="nav-item d-flex">
-                <a class="nav-link" href="#">Contato</a>
-              </li>
-            </ul>
-          </div>
-          <!-- /#nav -->
-
-          <div id="btnAcessar" class="col-1 offset-3" >
-            <a href="/login">
-              <span class="navbar-text" id="acessar">
-                <i class="fas fa-lock"></i>
-                Acessar
-              </span>
-            </a>
-          </div>
-          <!-- /#btnAcessar -->
-        </div>
-        <!-- /.row -->
+    <nav id="nav" class="navbar fixed-top navbar-expand-md navbar-light bg-light px-0">
+      <div id="brand" class="d-flex justify-content-start align-items-center pl-0">
+        <a class="navbar-brand" href="/"><img class="logo" src="/img/Logo.png" ></a>
       </div>
-      <!-- /.container-fluid -->
+      <!-- /#brand -->
+
+      <div id="toggler" class="order-1 order-md-0 d-flex">
+        <button id="btnToggle" class="navbar-toggler border-0" type="button" data-toggle="collapse"
+          data-target="#navCollapse" aria-controls="navCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      <!-- /#toggler -->
+
+      <div id="navCollapse" class="collapse navbar-collapse order-1 order-md-0 pl-0">
+        <div class="w-100 d-flex justify-content-between align-items-center">
+          <ul class="navbar-nav my-auto flex-md-grow-1 d-flex justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link text-body" href="/home/sobre">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-body" href="/home/apartamento">Apartamento</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-body" href="/home/lazer">Lazer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-body" href="/home/localizacao">Localização</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-body" href="/home/contato">Contato</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /#navCollapse -->
+
+      <div id="acessar" class="flex-grow-1 flex-md-grow-0 d-flex justify-content-end justify-content-md-center align-items-center">
+        <a href="/login">
+          <span id="btnAcessar" class="navbar-text font-weight-bolder pr-md-2">
+            <i class="fas fa-lock"></i>
+            Acessar
+          </span>
+        </a>
+      </div>
+      <!-- /#acessar -->
     </nav>
   </header>

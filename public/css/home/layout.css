@@ -1,46 +1,17 @@
-ul.navbar-nav {
-  border-top: 2px solid #06B600;
-  border-bottom: 2px solid #06B600;
-  height: 2em;
-}
-
-ul.navbar-nav > li {
-  align-items: center;
-}
-
-ul.navbar-nav > li > a {
-  padding: 0;
-  color: black !important;
-}
-
-ul.navbar-nav > li > a:hover {
-  color: #E8751C !important;
-}
-
-nav > div.container-fluid {
-  padding: 0;
-}
-
-nav > div.container-fluid > div.row {
-  width: 100vw;
-}
-
-span#acessar {
-  color: #E8751C !important;
-  font-weight: bolder;
-  align-self: center;
-}
-
-footer > div.container-fluid, footer > section.container-fluid {
-  background-color: lightgrey;
-}
-
-footer > div.container-fluid:first-child {
-  padding: 5px 15px;
+body {
+  padding: 62px 0 0 0;
 }
 
 .logo{
   width: 11em;
+}
+
+.fa-bars, ul.navbar-nav > li > a:hover, span#btnAcessar {
+  color: #E8751C !important;
+}
+
+footer > div.container-fluid, footer > section.container-fluid {
+  background-color: lightgrey;
 }
 
 #nav * , #nav {
@@ -51,10 +22,29 @@ footer > div.container-fluid:first-child {
 
 }
 
-#nav > div > div > div {
-  padding-left: 0px;
+@media (min-width: 768px) {
+  ul.navbar-nav > li {
+    border-top: 2px solid #06B600;
+    border-bottom: 2px solid #06B600;
+    height: 2em;
+  }
 }
 
-#btnAcessar{
-  padding: 1.5% 0 1.5% 0 ;
+@media (min-width: 365px) and (max-width: 767px) {
+  button#btnToggle > i {
+    padding-left: 8px;
+    border-left: 1.5px solid #E8751C;
+  }
+}
+
+@media (max-width: 354px) {
+  div#acessar {
+    padding-right: 8px;
+  }
+}
+
+@media (min-width: 1180px) {
+  div#acessar {
+    padding-left: 153px;
+  }
 }
