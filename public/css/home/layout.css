@@ -48,3 +48,25 @@ footer > div.container-fluid, footer > section.container-fluid {
     padding-left: 153px;
   }
 }
+
+#imgInicial{
+  background-image: url("/img/Portaria.jpg");
+  background-repeat: no-repeat;
+  height: 93vh;
+  background-size: cover;
+  filter: brightness(80%);
+  text-align: center;
+  
+}
+
+#imgInicial div{
+display: flex;
+justify-content: center; 
+}
+
+#imgInicial h1{
+  border: 5px solid blanchedalmond;
+  margin-top: 50px;
+  
+}
+

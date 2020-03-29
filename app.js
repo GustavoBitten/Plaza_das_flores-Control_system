@@ -16,7 +16,7 @@ app.use(express.static(__dirname + "/source"))
 
 app.use('/', homePageRouter);
 app.use('/backoffice', backofficePageRouter);
-app.use('/', loginPageRouter);
+app.use('/login', loginPageRouter);
 
 
 app.listen(3000, ()=>console.log("Esse servidor tá livre de corona virus"))
