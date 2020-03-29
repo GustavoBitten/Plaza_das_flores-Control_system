@@ -1,5 +1,98 @@
-.container-flex {
+.conteudo {
     border-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+h1{
+       color:#E8751C;
+
+    
+}
+
+/* classe pai caixas da dashboard*/
+.caixa {
+    border: 1px solid #E8751C;
+    margin-top: 30px;
+    margin: 10px;
+    
+    border-radius: 10px;
+    align-content: center;
+    justify-content: space-around;
    
 }
 
+/* div pai do subtitulo  */
+.head {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #FFA62B;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    justify-content: space-between;
+
+}
+
+.subtitulo {
+
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* class representa o numero  */
+.qtd {
+    background-color: #E8751C;
+    border-radius: 10px;
+    color: white;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn {
+    background-color: #E8751C;
+    color: white;
+    text-align: center;
+    border-radius: 18px;
+    border-color: #E8751C;
+    width: auto;
+}
+
+.corpo {
+    padding: 10px;
+    max-width: max-content;
+    height: 20vh;
+    max-height: max-content;
+}
+.rodape{
+    text-align: center;
+    justify-content: space-around;
+    
+}
+.rodape a{
+    text-decoration: none;
+    color: #E8751C;
+
+}
+/* espec telas menores */
+@media (max-width: 900px) {
+    .caixa {
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -ms-flex-positive: 1;
+        flex-grow: 0;
+        max-width: 100%;
+
+    }
+
+}
+/* espec telas menores */
+
+@media (max-width: 400px) {
+    .conteudo {
+        flex-direction: column;
+        
+    }
+
+}

@@ -30,12 +30,10 @@ i.fa-user-circle {
 aside {
   background-color: #E8751C;
   height: 100vh;
-  width: 8vw;
+  width: 14vw;
   border-right: 1px solid grey;
   position: fixed;
   left: 0;
-  width: 25vw;
-  
 }
 
 aside ul.nav {
