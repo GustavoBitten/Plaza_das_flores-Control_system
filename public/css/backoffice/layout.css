@@ -34,6 +34,11 @@ aside {
   border-right: 1px solid grey;
   position: fixed;
   left: 0;
+<<<<<<< HEAD
+  /*width: 25vw; */
+  
+=======
+>>>>>>> 7c95a2e254fbd36d5abd0da9b95b1caa5bd48e22
 }
 
 aside ul.nav {
