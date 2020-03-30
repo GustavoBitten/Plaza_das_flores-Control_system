@@ -1,12 +1,16 @@
 body {
-  padding: 62px 0 0 0;
+  padding: 10vh 0 0 0;
 }
 
 .logo{
   width: 11em;
 }
 
-.fa-bars, ul.navbar-nav > li > a:hover, span#btnAcessar {
+ul.navbar-nav > li > button{
+  border: none;
+
+}
+.fa-bars, ul.navbar-nav > li > button:hover, span#btnAcessar {
   color: #E8751C !important;
 }
 
@@ -20,6 +24,11 @@ footer > div.container-fluid, footer > section.container-fluid {
   padding-top: 0;
   padding-bottom: 0;
 
+}
+
+#nav{
+  border-bottom: 2px solid #06b600;
+  height: 10vh;
 }
 
 @media (min-width: 768px) {
@@ -49,24 +58,54 @@ footer > div.container-fluid, footer > section.container-fluid {
   }
 }
 
-#imgInicial{
-  background-image: url("/img/Portaria.jpg");
+/* #imgInicial{
+   background-image: url("/img/Portaria.jpg"); 
   background-repeat: no-repeat;
   height: 93vh;
   background-size: cover;
-  filter: brightness(80%);
+   filter: brightness(80%); 
   text-align: center;
   
 }
 
-#imgInicial div{
+/* #imgInicial div{
 display: flex;
 justify-content: center; 
 }
 
-#imgInicial h1{
-  border: 5px solid blanchedalmond;
-  margin-top: 50px;
-  
+#imgInicial img {
+  width: 500px;
 }
 
+#imgInicial h1{
+  
+  margin-top: 30px;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 5px;
+  box-shadow:0 0 10px black; 
+  text-shadow: 0 0 3px rgba(1, 1, 1, 0.5);
+  font-weight: 700;
+  font-family: 'Bebas Neue';
+  color: #E8751C;
+}
+
+#banner-acesse{
+  background-color: orange;
+  position: absolute;
+  bottom: -4px;
+  width: 100%;
+ 
+} 
+*/
+
+#main{
+  background-color:#efefef;
+}
+
+#pFirst{
+  height: 90vh;
+}
+
+#pSecond{
+  height: 90vh;
+}

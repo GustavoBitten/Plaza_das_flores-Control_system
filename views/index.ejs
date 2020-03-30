@@ -4,26 +4,101 @@
   <%- include('includes/head', {titulo:titulo})%>
 
   <link rel="stylesheet" href="/css/home/layout.css">
+  <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
   
 <body class="d-flex flex-column">
 
   <%- include('includes/home/header')%>
 
-  <main>
-    <section id="imgInicial" >
+  <main id="main" >
+    <section id="pFirst" class="flex-column d-flex justify-content-between">
+      <div class="container border border-primary flex-fill">
+        <div class="row ">
+          <div class="col-12 d-flex justify-content-center border border-primary bg-white ">
+            <h1>Plaza das Flores, o residencial perfeito para você</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1 border border-primary bg-white">
+            1 of 3
+          </div>
+          <div class="col-10 d-flex flex-column align-items-center border border-primary bg-white">
+            <img src="img/Portaria.jpg" alt="Portaria" class="w-50">
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            </p>
+          </div>
+          <div class="col-1 border border-primary bg-white">
+            3 of 3
+          </div>
+        </div>
+      </div>
+      <div class=".container-fluid border border-primary bg-white "   >
+        <h2>Se você já é morador, Acesse sua área exclusiva</h2>
+      </div>
+    </section>
+    <section id="pSecond">
+      <div class="container border border-primary ">
+        
+        <div class="row ">
+          <div class="col-6 d-flex justify-content-center border border-primary bg-white ">
+            <h1>Plaza das Flores, o residencial perfeito para você</h1>
+          </div>
+          <div class="col-6 d-flex justify-content-center border border-primary bg-white ">
+            <h1>Plaza das Flores, o residencial perfeito para você</h1>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- <section id="imgInicial" >
       <div>
 
-        <h1>Plaza das Flores, o residencial perfeito para você</h1>
+        <h1>Plaza das Flores, o residencial perfeito para você</h1>      
         
       </div>
-  
+      <img src="img/Portaria.jpg" alt="Portaria">
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
+      
+      
+      
+        <div id="banner-acesse">
+        <h2>Se você já é morador, Acesse sua área exclusiva</h2>
+        
+      </div>
     </section>
-    <h1>Inserir conteúdo da página aqui</h1>
+    <div>Inserir conteúdo da página aqui
+
+    </div> -->
   </main>
 
+  
   <%- include('includes/footer')%>
 
-  <%- include('includes/scriptJS')%>
+  <script>
+
+    console.log(window.screen.availHeight)
+    
+    function clickScroll(y) {
+      let a = ((window.screen.availHeight-103)*0.84)*y
+      window.scrollTo(0,a)
+      
+    }
+    
+
+
+  </script>
+  
+    <%- include('includes/scriptJS')%>
 </body>
 </html>
