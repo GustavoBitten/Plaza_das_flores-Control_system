@@ -1,5 +1,5 @@
 body {
-  padding: 59px 0 0 14vw;
+  padding: 61px 0 0 14vw;
 }
 
 .logo{
@@ -24,68 +24,58 @@ nav span#logout {
 
 i.fa-user-circle {
   font-size: 2em;
-  margin: 0 10px;
 }
 
 aside {
   background-color: #E8751C;
-  height: 100vh;
   width: 14vw;
-  border-right: 1px solid grey;
   position: fixed;
   left: 0;
-<<<<<<< HEAD
-  /*width: 25vw; */
-  
-=======
->>>>>>> 7c95a2e254fbd36d5abd0da9b95b1caa5bd48e22
 }
 
 aside ul.nav {
   padding: 0 10px;
 }
 
-aside li.nav-item {
+aside a.nav-link {
   border-bottom: 1px solid white;
 }
 
-aside li.nav-item:last-child {
+aside a.nav-link:last-child {
   border-bottom: none;
 }
 
-aside a.nav-link {
-  color: white;
-  font-weight: bold;
-}
-
 aside a.nav-link:hover {
-  color: #06B600;
-}
-
-aside a.nav-link i {
-  margin-right: 0.5em;
-}
-
-.sidebar {
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.sidebar {
-    position: fixed;
-    top: 51px;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    padding: 20px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    width: min-content;
+  color: #FFA62B !important;
 }
 
 @media (max-width: 678px){
   .hidden-xs-down {
       display: none !important;
+  }
+}
+
+@media (max-width: 1060px) {
+  body {
+    padding-left: 150px;
+  }
+
+  aside {
+    width: 150px;
+  }
+}
+
+@media (max-width: 449px) {
+  body {
+    padding-left: 60px;
+  }
+  
+  span.text-link {
+    display: none;
+  }
+
+  aside {
+    width: 60px;
   }
 }
 
@@ -101,8 +91,13 @@ aside a.nav-link i {
   }
 }
 
-@media (max-width: 328px) {
+@media (max-width: 314px) {
   body {
-    padding: 109px 0 0 0;
+    padding-top: 109px;
+  }
+
+  div#brand, div#user {
+    width: 100%;
+    justify-content: center !important;
   }
 }
