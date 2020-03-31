@@ -29,6 +29,8 @@ footer > div.container-fluid, footer > section.container-fluid {
 #nav{
   border-bottom: 2px solid #06b600;
   height: 10vh;
+  box-shadow: 0 -3px 20px 0px  rgba(0, 0, 0, 0.4);
+
 }
 
 @media (min-width: 768px) {
@@ -105,7 +107,50 @@ justify-content: center;
 #pFirst{
   height: 90vh;
 }
+#pFirst * {
+  background-color: #1b9017;
+  
+}
+
+
+#pFirst h1{
+  color: #e8751c;
+  /* text-shadow: 0 0px 8px rgba(0, 0, 0, 0.3); */
+  background-color: #efefef;
+  padding: 2px 7px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  margin-top: 24px;
+}
+
+#pFirst .part1{
+  height: 13vh
+}
+
+#pFirst div>h2{
+  height: 7vh;
+  margin:0
+}
+
+#pFirst .part2{
+  height: 69vh
+
+}
+
+#alertBox{
+  box-shadow: 0px 3px 10px 0px  rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+#alertBox,#alertBox h2{
+  background-color: rgba(232, 150, 28, 0.92);
+}
+
+
+
+
 
 #pSecond{
   height: 90vh;
 }
+
