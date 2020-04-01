@@ -19,4 +19,4 @@ app.use('/backoffice', backofficePageRouter);
 app.use('/login', loginPageRouter);
 
 
-app.listen(3000, ()=>console.log("Esse servidor tá livre de corona virus"))
+app.listen(3000, ()=>console.log("Esse servidor funcionando corretamente"))

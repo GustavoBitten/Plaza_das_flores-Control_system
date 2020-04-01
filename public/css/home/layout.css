@@ -1,7 +1,9 @@
 body {
   padding: 10vh 0 0 0;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 .logo{
   width: 11em;
 }
@@ -128,23 +130,37 @@ justify-content: center;
 }
 
 #pFirst div>h2{
-  height: 7vh;
   margin:0
 }
 
 #pFirst .part2{
-  height: 69vh
+  height: 67vh
+  
+}
+
+#pFirst .part2 p{
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
 
 }
+#pFirst .part2 img{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
 
 #alertBox{
   box-shadow: 0px 3px 10px 0px  rgba(0, 0, 0, 0.5);
   z-index: 10;
+  height: 10vh;
+  
 }
 
 #alertBox,#alertBox h2{
   background-color: rgba(232, 150, 28, 0.92);
 }
+
 
 
 
