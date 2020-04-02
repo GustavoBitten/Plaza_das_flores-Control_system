@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../../includes/head', {titulo: titulo}) %>
+
+  <link rel="stylesheet" href="/css/backoffice/layout.css">
+  <link rel="stylesheet" href="/css/backoffice/sindicoMoradores.css">
+</head>
+
+<body>
+  <%- include('../../includes/backoffice/header') %>
+  <%- include('../../includes/backoffice/aside') %>
+
+  <div class="container-flex">
+    <main class="conteudo container-flex justify-content-center">
+      <h1 class="col-md-12">Consulta moradores e visitantes</h1>
+
+
+
+
+
+      <div class="submenu row justify-content-center justify-content-md-center">
+
+        <button type="button" class="btn col-4 col-md-auto" data-toggle="modal" data-target="#staticBackdrop">Lista de
+          moradores</button>
+
+        <button class="btn col-4 col-md-auto">Lista de Visitantes</button>
+
+        
+      </div>
+
+
+
+
+      <table class="table table-borderless justify-content-center">
+
+        <thead class="tituloTabela justify-content-center">
+          <tr>
+            <th class="thTitulo nome">Lista de moradores</th>
+            <th class="thTitulo"></th>
+            <th class="thTitulo vazio"></th>
+            <th class="thTitulo vazio"></th>
+            <th class="thTitulo filtrar"><i class="fas fa-search"></i> Filtrar</th>
+          </tr>
+        </thead>
+        <thead class="justify-content-center">
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col" id="bloco">Bloco</th>
+            <th scope="col" id="andar">Andar</th>
+            <th scope="col" id="ap">Ap</th>
+            <th scope="col" id="tipo">Tipo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="nome">Rafael Bezerra Cena</th>
+            <td id="bloco">A</td>
+            <td id="andar">2ª</td>
+            <td>201</td>
+          </tr>
+          <tr>
+            <th scope="row" class="nome">Rafael</th>
+            <td id="bloco" class="nome">A</td>
+            <td id="andar">2ª</td>
+            <td>201</td>
+          </tr>
+          <tr>
+            <th scope="row" class="nome">Rafael</th>
+            <td id="bloco">A</td>
+            <td id="andar">2ª</td>
+            <td>201</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+
+  </div>
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">
+            <h2>Cadastro de novo Morador</h2</h5> <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="row">
+              <div class="col">
+                <label for="inputNome">Nome:</label>
+                <input id="inputNome" type="text" class="form-control" placeholder="Nome completo">
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="inputRG">RG:</label>
+                <input id="inputRG" type="number" class="form-control" placeholder="RG">
+              </div>
+              <div class="col">
+                <label for="inputCPF">CPF:</label>
+                <input id="inputCPF" type="number" class="form-control" placeholder="CPF">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="inputEmail">Email:</label>
+                <input id="inputEmail" type="email" class="form-control" placeholder="morador@email.com.br">
+              </div>
+              <div class="col">
+                <label for="inputFone">Contato:</label>
+                <input id="inputFone" type="text" class="form-control" placeholder="(XX)XXXXX-XXXX">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <label for="inputBloco">Bloco:</label>
+                <select id="inputBloco" class="form-control">
+                  <option disabled selected>Informe</option>
+                  <option>Bloco A</option>
+                  <option>Bloco B</option>
+                  <option>Bloco C</option>
+                </select>
+              </div>
+              <div class="col">
+                <label for="inputAndar">Andar:</label>
+                <select id="inputAndar" class="form-control">
+                  <option disabled selected>Informe</option>
+                  <option>1ª</option>
+                  <option>2ª</option>
+                  <option>3ª</option>
+                </select>
+              </div>
+              <div class="col">
+                <label for="inputAp">Ap</label>
+                <select id="inputAp" class="form-control">
+                  <option disabled selected>Informe</option>
+                  <option>101</option>
+                  <option>102</option>
+                  <option>103</option>
+                </select>
+              </div>
+            </div>
+
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Gravar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+</body>
+
+</html>

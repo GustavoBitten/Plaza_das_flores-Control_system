@@ -8,6 +8,9 @@ let backofficePageController = {
   },
   sindicoMoradores: (req,res) => {
     res.render("backoffice/sindico/moradores", {titulo:"Sindico - Moradores"})
+  },
+  portariaMoradores: (req,res) => {
+    res.render("backoffice/portaria/moradores", {titulo:"Portaria - Moradores"})
   }
 
 

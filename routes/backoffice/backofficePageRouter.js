@@ -10,4 +10,8 @@ route.get('/morador/perfil', backofficePageController.moradorPerfil)
 
 route.get('/sindico/moradores', backofficePageController.sindicoMoradores)
 
+
+route.get('/portaria/moradores', backofficePageController.portariaMoradores)
+
+
 module.exports = route
