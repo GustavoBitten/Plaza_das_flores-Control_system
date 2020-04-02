@@ -1,12 +1,18 @@
 body {
     background-color: #eee; 
 }
+
+.container-flex{
+    display: inline-block;
+
+}
+
   
 main{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row ;
-    justify-content: center ;
+    justify-content: center;
     align-items: center;
 }
 
@@ -16,8 +22,9 @@ main{
     color: #E8751C; 
 }
 .breadcrumb{
-    padding-left: 0;  
+    padding-left: 0px;  
     margin-top: 10px;
+    background-color: #eee; 
 }
 
 
@@ -27,23 +34,25 @@ main{
     flex-wrap: wrap;
     flex-direction: column ;
     justify-content: center ;
-    align-items: center; 
-   
-    
+    align-items: center;  
+     
 }
 
 #col-fotoPerfil img{
-    object-fit: fill;
-    width: 100%;
-    height: 200px;
+    object-fit: cover;
+    
 }
 
-
-
-
+.cardPrincipal{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center ;
+    align-items: center; 
+}
 .card{
     border-color: #FFA62B;
     border: solid 1px #FFA62B;
+    
 }
 
 .card-body{
@@ -78,7 +87,7 @@ main{
     background-color:#E8751C;
     border: solid 2px #FFA62B;
     border-radius: 20px;
-    width: 200px;
+    width: 140px;
 
 }
 #btn-alterar{
@@ -89,19 +98,28 @@ main{
 
 
 
-/* Meunus caixas*/
-.caixa {
-    border: 1px solid #E8751C;
-    margin-top: 20px;
+/* Caixas Moradores*/
+
+
+.caixasPrincipal{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row ;
+    align-items: center;
+    margin-left: 140px ;
+
     
-    border-radius: 10px;
-    align-content: center;
-    justify-content: flex-start;
-    background-color: white;
-   
 }
 
-/* div pai do subtitulo  */
+.caixa {
+    border: 1px solid #E8751C;
+    border-radius: 10px;
+    background-color: white;
+    margin:20px 22px 10px 10px;
+
+    
+}
+
 .head {
     display: flex;
     flex-wrap: wrap;
@@ -110,17 +128,16 @@ main{
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     justify-content: space-between;
-
+    
 }
 
 .subtitulo {
-
     color: white;
     text-align: center;
     border-radius: 10px;
 }
 
-/* class representa o numero  */
+/* numero  */
 .qtd {
     background-color: #E8751C;
     border-radius: 10px;
@@ -147,8 +164,7 @@ main{
     flex-wrap: wrap;
     flex-direction: row ;
     justify-content: center ;
-    align-items: center;
-    
+    align-items: center;  
 }
 
 .corpoCaixa img{
@@ -166,6 +182,13 @@ main{
 }
 
 
+
+
+
+
+
+
+
 @media (max-width: 678px){
     main{
         display: flex;
@@ -174,6 +197,10 @@ main{
         justify-content: flex-start ;
         align-items: flex-start;
         padding-right: 50px;
+        
+    }
+    .cardPrincipal{
+        margin-left: 10px;
         
     }
 
@@ -192,6 +219,13 @@ main{
         object-fit: cover;
     }
 
+    .caixasPrincipal{
+    
+        margin:0 ;
+    
+        
+    }
+
 
 }
 
@@ -205,6 +239,10 @@ main{
         align-items: flex-start;
         margin-left: 20px;
         
+    }
+
+    .caixa {
+        margin-right: 0px;
     }
     .corpoCaixa{
         display: flex;

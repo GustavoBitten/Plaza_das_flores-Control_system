@@ -1,0 +1,180 @@
+[33mcommit f23675e4d1195500a2ae9c0f5f1dbc494a402ce5[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: GustavoBitten <gustavoduarte1999@hotmail.com>
+Date:   Tue Mar 31 02:03:49 2020 -0300
+
+    HomePage v1
+
+[33mcommit fea5bbbf34f4328c9f8581873c501bd863b40b96[m
+Author: Luiz Alexandre Wendel Balbino <alexandre.lawb@gmail.com>
+Date:   Mon Mar 30 19:27:33 2020 -0300
+
+    Responsividade do aside das páginas de backoffice
+
+[33mcommit 3132fb8dd8fd0dc4e64b7752f129a97fe9c64d8c[m
+Author: GustavoBitten <gustavoduarte1999@hotmail.com>
+Date:   Mon Mar 30 01:42:50 2020 -0300
+
+    continuando a homePage
+
+[33mcommit 35332219a8bca6c0db99a5e61ad1b81f0e911be8[m
+Author: Marcelo Franchini <marcelo_franchini@hotmail.com>
+Date:   Sun Mar 29 21:49:20 2020 -0300
+
+    perfil-morador v2
+
+[33mcommit 7c95a2e254fbd36d5abd0da9b95b1caa5bd48e22[m
+Author: DevRafaelCena <rafael.cena@hotmail.com>
+Date:   Sun Mar 29 11:25:53 2020 -0300
+
+    Tela dashboard criada
+
+[33mcommit 3b6e843d50647508f4ccfd217dc95e1dc1cda9ad[m
+Author: GustavoBitten <gustavoduarte1999@hotmail.com>
+Date:   Sun Mar 29 04:11:12 2020 -0300
+
+    Montando a pagina HOME
+
+[33mcommit 2b07d3da4840f29bb4c14272904d305b21b2909e[m
+Author: Luiz Alexandre Wendel Balbino <alexandre.lawb@gmail.com>
+Date:   Sat Mar 28 17:03:09 2020 -0300
+
+    Responsividade do header das páginas de Backoffice
+
+[33mcommit 568c0befe1a79041626afc41c7f77f37d996c6ee[m
+Author: Luiz Alexandre Wendel Balbino <alexandre.lawb@gmail.com>
+Date:   Fri Mar 27 21:48:03 2020 -0300
+
+    Responsividade do header da página Home
+
+[33mcommit b052c4cdcb0fb1c06050ebe1c504a8faaabaf89c[m
+Author: Marcelo Franchini <marcelo_franchini@hotmail.com>
+Date:   Thu Mar 26 16:30:01 2020 -0300
+
+    Inicio do perfil, inclusao perfil.css e Scripts js do bootstrap no include/head.
+
+[33mcommit 68b4297cc2e778f54beaf28fe1b3db84e56ace42[m
+Author: Marcelo Franchini <marcelo_franchini@hotmail.com>
+Date:   Wed Mar 25 15:35:52 2020 -0300
+
+    Ejs morador/perfil Configurado
+
+[33mcommit 80580503242b16506c182c526619d6bfe662a85d[m
+Author: GustavoBitten <gustavoduarte1999@hotmail.com>
+Date:   Sat Mar 21 17:45:04 2020 -0300
+
+    correções de problemas
+
+[33mcommit a4b18783c65a4e7f7e73ab443131dec12b2a4069[m
+Author: GustavoBitten <gustavoduarte1999@hotmail.com>
+Date:   Sat Mar 21 16:37:09 2020 -0300
+
+    Conectanto páginas
+
+[33mcommit b9ac76a47af90af6b16fbe6216a3e8aeb7d29c10[m
+Author: DevRafaelCena <rafael.cena@hotmail.com>
+Date:   Sat Mar 21 15:21:44 2020 -0300
+
+    Correção logo Login
+
+[33mcommit 2301851ade27de16e59fa9c1a3c8b4012c6d2100[m
+Author: DevRafaelCena <rafael.cena@hotmail.com>
+Date:   Sat Mar 21 15:16:43 2020 -0300
+
+    Logo adcionado na pagina login
+
+[33mcommit 8391c14f6341d757ccc9954048e439d8a890c571[m
+Merge: 6cfc4f0 b0fdcdf
+Author: GustavoBitten <gustavoduarte1999@hotmail.com>
+Date:   Sat Mar 21 11:09:24 2020 -0300
+
+    Merge branch 'master' of https://github.com/GustavoBitten/sistema_de_condominio
+
+[33mcommit 6cfc4f0b5c728f9f4b3c34cba31e7bf35b16122a[m
+Author: GustavoBitten <gustavoduarte1999@hotmail.com>
+Date:   Sat Mar 21 11:09:13 2020 -0300
+
+    Adiconando o logo
+
+[33mcommit b0fdcdf0052ef1d63798ff5a6dd57faaf5d2eccc[m
+Author: DevRafaelCena <rafael.cena@hotmail.com>
+Date:   Sat Mar 21 09:39:22 2020 -0300
+
+    Realizado a Tela de login
+
+[33mcommit bd0cba5b370ce4e8b71b0f9c72edcf7d5551c961[m
+Author: Luiz Alexandre Wendel Balbino <alexandre.lawb@gmail.com>
+Date:   Fri Mar 20 18:27:01 2020 -0300
+
+    Aside das páginas de backoffice
+
+[33mcommit c0d3a2e81bf30d883d7f525f36847d09a95a3552[m
+Author: Luiz Alexandre Wendel Balbino <alexandre.lawb@gmail.com>
+Date:   Fri Mar 20 16:42:45 2020 -0300
+
+    Header das páginas de backoffice
+
+[33mcommit d3eac47e22867d49f2df9e3b97af16bcb7f86f39[m
+Author: Luiz Alexandre Wendel Balbino <alexandre.lawb@gmail.com>
+Date:   Fri Mar 20 14:44:07 2020 -0300
+
+    Adicionando a biblioteca fontawesome-free
+
+[33mcommit 765a4e08e3eafbfc0ccd041dc1b138e87a2dab8e[m
+Author: Luiz Alexandre Wendel Balbino <alexandre.lawb@gmail.com>
+Date:   Fri Mar 20 13:50:35 2020 -0300
+
+    Pequenas refinarias
+
+[33mcommit 65a9ada4a82c8c8cb897f5047b941431ed223be3[m
+Author: GustavoBitten <gustavoduarte1999@hotmail.com>
+Date:   Fri Mar 20 00:57:18 2020 -0300
+
+    tudo organizado
+
+[33mcommit eeb8d7495a5a2b237569a988ec8fd615715e6166[m
+Author: GustavoBitten <gustavoduarte1999@hotmail.com>
+Date:   Thu Mar 19 21:56:32 2020 -0300
+
+    add bootstrap npm
+
+[33mcommit c832de2dbfde492563425ed820ccd0924aa4f37d[m
+Author: GustavoBitten <gustavoduarte1999@hotmail.com>
+Date:   Thu Mar 19 21:54:08 2020 -0300
+
+    sem modulos
+
+[33mcommit 5e88eaf19d6dbd0737e2e9f1daab03e2da8fde48[m
+Author: GustavoBitten <gustavoduarte1999@hotmail.com>
+Date:   Thu Mar 19 21:48:52 2020 -0300
+
+    organização incompleta dos arquivos
+
+[33mcommit ce0dca90b5d8b0b8b1b32bde4cb1f1978d95363b[m
+Author: Luiz Alexandre Wendel Balbino <alexandre.lawb@gmail.com>
+Date:   Thu Mar 19 21:37:09 2020 -0300
+
+    Adicionando o footer
+
+[33mcommit f1e8d0325bb88307ba9706ae782aac45b608a582[m
+Author: Luiz Alexandre Wendel Balbino <alexandre.lawb@gmail.com>
+Date:   Thu Mar 19 12:33:01 2020 -0300
+
+    Adicionando o Header
+
+[33mcommit a4c7399b52537aed409e456c33c93984b7fe9325[m
+Author: Gustavo Duarte <gustavoduarte1999@hotmail.com>
+Date:   Tue Mar 3 01:39:17 2020 -0300
+
+    Adicionado o README
+
+[33mcommit ea197842c34f5dbe668a98ea4b0846e5a20636b6[m
+Author: Gustavo Duarte <gustavoduarte1999@hotmail.com>
+Date:   Tue Mar 3 01:28:39 2020 -0300
+
+    Organizando
+
+[33mcommit bf5867079b0a93b1879e21bd6b4e280b2b35dc58[m
+Author: Gustavo Duarte <gustavoduarte1999@hotmail.com>
+Date:   Tue Mar 3 01:11:02 2020 -0300
+
+    Add PNG
