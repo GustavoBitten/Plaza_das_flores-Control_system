@@ -29,6 +29,7 @@ i.fa-user-circle {
 aside {
   background-color: #E8751C;
   width: 14vw;
+  max-width: 201px;
   position: fixed;
   left: 0;
 }
@@ -49,9 +50,28 @@ aside a.nav-link:hover {
   color: #FFA62B !important;
 }
 
+h1 {
+  color: #E8751C;
+}
+
+.card, .card-header {
+  border-color: #FFA62B;
+}
+
+.card-header, div.modal-header {
+  background-color: #FFA62B;
+  color: white;
+}
+
 @media (max-width: 678px){
   .hidden-xs-down {
       display: none !important;
+  }
+}
+
+@media (min-width: 1436px) {
+  body {
+    padding-left: 200px;
   }
 }
 
@@ -91,7 +111,7 @@ aside a.nav-link:hover {
   }
 }
 
-@media (max-width: 314px) {
+@media (max-width: 325px) {
   body {
     padding-top: 109px;
   }

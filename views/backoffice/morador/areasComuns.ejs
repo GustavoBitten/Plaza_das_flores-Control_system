@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <%- include('../../includes/head', {titulo: titulo}) %>
+
+    <link rel="stylesheet" href="/css/backoffice/layout.css">
+    <link rel="stylesheet" href="/css/backoffice/areasComuns.css">
+  </head>
+
+  <body>
+    <%- include('../../includes/backoffice/header') %>
+    <%- include('../../includes/backoffice/aside') %>
+
+    <main class="container-fluid mx-0 pt-2">
+
+      <div class="row">
+        <h1 class="pl-3">Áreas Comuns</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-10 col-md-8 offset-1 offset-md-2 mb-3 p-0">
+          <!-- <button id="btnNovaReserva" type="button" class="btn-sm border-0 rounded-pill">Nova Reserva</button> -->
+          <button id="btnMinhasReservas" type="button" class="btn-sm border-0 rounded-pill"
+           data-toggle="modal" data-target="#modalMinhasReservas">Minhas Reservas</button>
+          <!-- Caso for usar o outro btn adicionar a classe 'ml-5'-->
+        </div>
+      </div>
+
+      <section class="row">
+
+        <div class="card col-10 col-md-8 offset-1 offset-md-2 px-0">
+          <div class="card-header d-flex justify-content-center w-100 p-0">
+            <h5 class="m-0 p-1">Nova Reserva</h5>
+          </div>
+          <div class="card-body row">
+            <div class="col-12 col-sm-6">
+              <form id="formReserva" class="overflow-hidden border-right h-100" action="">
+                
+                <h6>Espaço:</h6>
+
+                <div id="checkboxes" class="d-flex">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="churrasqueira" name="churrasqueira" value="Churrasqueira">
+                    <label class="custom-control-label" for="churrasqueira"> Churrasqueira</label>
+                  </div>
+
+                  <div class="custom-control custom-checkbox ml-5">
+                    <input type="checkbox" class="custom-control-input" id="salao" name="salao" value="Salão">
+                    <label class="custom-control-label" for="salao"> Salão de Festas</label>
+                  </div>
+                </div>
+                <!-- /.d-flex -->
+
+                <div class="custom-control d-flex flex-column pt-3 pl-0">
+                  <label for="diaReserva">Dia:</label>
+                  <input type="date" class="border rounded-pill" id="diaReserva" name="diaReserva">
+                </div>
+
+                <div id="divBtn" class="custom-control position-absolute bottom-0 w-80 pl-0">
+                  <span class="d-flex justify-content-center">
+                    <button type="submit" class="btn-sm border-0 rounded-pill px-3" id="btnReservar">Reservar</button>
+                  </span>
+                </div>
+                
+              </form>
+            </div>
+            <!-- /.col-6 -->
+
+            <div id="infos" class="col-12 col-sm-6">
+              <h6>Regras:</h6>
+              <p class="text-sm">Min 5 dias de antecedência;
+                Taxa de 5% do condomínio;
+                Até 60 convidados.
+              </p>
+
+              <h6>Churrasqueira:</h6>
+              <p>Churrasqueira, pia, geladeira, freezer, 5 mesas com 4 cadeiras cada.</p>
+
+              <h6>Salão de Festas:</h6>
+              <p>2 Geladeiras, freezer, 6 mesas com 6 cadeiras cada, pista de dança com jogos de luzes, tv.</p>
+            </div>
+            <!-- /.col-6 -->
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+      </section>
+
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalMinhasReservas" tabindex="-1" role="dialog" aria-labelledby="modalMinhasReservasTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header d-flex justify-content-center">
+            <h5 class="modal-title" id="modalMinhasReservasTitle">Minhas Reservas</h5>
+          </div>
+          <div class="modal-body">
+            <!-- Puxar as reservas do usuário aqui -->
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Nullam eget felis eget nunc lobortis mattis. Accumsan sit amet nulla facilisi morbi. Pulvinar etiam non quam lacus suspendisse faucibus. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Fusce id velit ut tortor pretium viverra suspendisse potenti nullam. Morbi tristique senectus et netus et malesuada fames ac turpis. Consectetur adipiscing elit ut aliquam purus sit amet. Enim lobortis scelerisque fermentum dui faucibus in. Suspendisse interdum consectetur libero id. Sagittis orci a scelerisque purus. Volutpat blandit aliquam etiam erat velit scelerisque in. Ornare quam viverra orci sagittis eu volutpat odio facilisis. Dui nunc mattis enim ut tellus elementum sagittis vitae et. Pharetra magna ac placerat vestibulum lectus mauris. Phasellus egestas tellus rutrum tellus pellentesque. Ornare arcu dui vivamus arcu felis bibendum ut tristique et. Eleifend donec pretium vulputate sapien. Porttitor eget dolor morbi non.
+
+              Tortor posuere ac ut consequat semper viverra. Viverra justo nec ultrices dui sapien eget. Elementum tempus egestas sed sed risus pretium quam vulputate. Justo laoreet sit amet cursus sit. Auctor eu augue ut lectus arcu bibendum at. In vitae turpis massa sed elementum tempus egestas sed sed. Faucibus in ornare quam viverra orci sagittis eu. Lorem dolor sed viverra ipsum nunc. Pellentesque diam volutpat commodo sed. Vulputate ut pharetra sit amet aliquam id. Et sollicitudin ac orci phasellus egestas. Amet mauris commodo quis imperdiet massa tincidunt nunc. Enim ut tellus elementum sagittis vitae et leo duis ut. Sapien eget mi proin sed. Malesuada pellentesque elit eget gravida cum sociis. Mus mauris vitae ultricies leo integer malesuada nunc vel risus. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. A diam sollicitudin tempor id eu. Elementum nisi quis eleifend quam adipiscing vitae proin.
+              
+              Egestas sed sed risus pretium quam vulputate. Ut consequat semper viverra nam libero justo laoreet. Tempus imperdiet nulla malesuada pellentesque elit eget gravida. Iaculis eu non diam phasellus vestibulum lorem sed risus ultricies. Sodales ut eu sem integer vitae justo eget. Fringilla ut morbi tincidunt augue interdum velit euismod in. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc. Bibendum est ultricies integer quis. Elit sed vulputate mi sit amet mauris commodo. Bibendum at varius vel pharetra vel. Amet nisl purus in mollis nunc. Purus sit amet luctus venenatis lectus magna. Tellus cras adipiscing enim eu. Placerat in egestas erat imperdiet sed euismod nisi. Risus commodo viverra maecenas accumsan lacus vel facilisis. In metus vulputate eu scelerisque felis imperdiet. Neque vitae tempus quam pellentesque nec nam aliquam sem et. At ultrices mi tempus imperdiet nulla malesuada. Tincidunt eget nullam non nisi est sit amet.
+              
+              Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Fringilla ut morbi tincidunt augue interdum velit. Non diam phasellus vestibulum lorem sed risus ultricies tristique. Vulputate eu scelerisque felis imperdiet. Volutpat est velit egestas dui id ornare arcu odio ut. Justo donec enim diam vulputate ut pharetra. Venenatis cras sed felis eget velit aliquet. Amet consectetur adipiscing elit ut aliquam purus sit amet. Velit laoreet id donec ultrices tincidunt arcu non sodales neque. Vel fringilla est ullamcorper eget nulla facilisi etiam. Libero enim sed faucibus turpis in eu mi bibendum neque.
+              
+              Eget mi proin sed libero enim sed. Neque viverra justo nec ultrices dui sapien eget. Risus at ultrices mi tempus. Est velit egestas dui id ornare. Est ultricies integer quis auctor elit sed vulputate mi sit. Lacus viverra vitae congue eu consequat ac felis donec et. Id aliquet lectus proin nibh nisl condimentum id venenatis a. Elit sed vulputate mi sit amet mauris. Neque laoreet suspendisse interdum consectetur libero id faucibus nisl. Scelerisque viverra mauris in aliquam sem fringilla. Pulvinar pellentesque habitant morbi tristique senectus et netus. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Adipiscing commodo elit at imperdiet. Urna molestie at elementum eu facilisis sed odio morbi quis.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-sm border-0 rounded-pill" data-dismiss="modal">Voltar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('../../includes/scriptJS') %> 
+  </body>
+</html>

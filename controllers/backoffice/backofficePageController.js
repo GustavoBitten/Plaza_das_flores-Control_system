@@ -6,11 +6,14 @@ let backofficePageController = {
   moradorPerfil: (req,res) => {
     res.render("backoffice/morador/perfil", {titulo:"Perfil - Morador"})
   },
+  moradorAreasComuns: (req,res) => {
+    res.render("backoffice/morador/areasComuns", {titulo: "Áreas Comuns - Morador"})
+  },
   sindicoMoradores: (req,res) => {
-    res.render("backoffice/sindico/moradores", {titulo:"Sindico - Moradores"})
+    res.render("backoffice/sindico/moradores", {titulo:"Moradores - Síndico"})
   },
   portariaMoradores: (req,res) => {
-    res.render("backoffice/portaria/moradores", {titulo:"Portaria - Moradores"})
+    res.render("backoffice/portaria/moradores", {titulo:"Moradores - Portaria"})
   }
 
 

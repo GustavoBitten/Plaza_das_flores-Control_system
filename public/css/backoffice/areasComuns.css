@@ -1,0 +1,70 @@
+label[for="diaReserva"] {
+  font-weight: 500;
+}
+
+input#diaReserva {
+  width: fit-content;
+}
+
+p {
+  white-space: pre-line;
+  font-size: 0.8rem;
+}
+
+.bottom-0 {
+  bottom: 0
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.btn, .btn-sm, .btn-lg {
+  background-color: #E8751C;
+  color: white;
+  font-weight: 600;
+}
+
+@media (max-width: 1210px) {
+  div#checkboxes {
+    flex-direction: column;
+  }
+
+  div#checkboxes div.ml-5 {
+    margin-left: 0 !important;
+  }
+}
+
+@media (min-width: 576px) {
+  div.card {
+    min-width: 402px;
+  }
+}
+
+@media (max-width: 576px) {
+  form#formReserva {
+    border-right: none !important;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  div#divBtn {
+    position: relative !important;
+    padding: 0.5rem 0;
+  }
+
+  div#infos {
+    padding-top: 0.5rem;
+  }
+}
+
+/* @media (max-width: 481px) {
+  button#btnMinhasReservas {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 400px) {
+  button#btnMinhasReservas {
+    margin-top: 0.5rem !important;
+  }
+} */
