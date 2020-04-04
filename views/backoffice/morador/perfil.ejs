@@ -1,277 +1,1051 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <%- include('../../includes/head', {titulo: titulo}) %>
 
   <link rel="stylesheet" href="/css/backoffice/layout.css">
   <link rel="stylesheet" href="/css/backoffice/perfil.css">
 </head>
+
 <body>
   <%- include('../../includes/backoffice/header') %>
   <%- include('../../includes/backoffice/aside') %>
 
   <main>
 
-  <div class="container-flex" >
-    <nav aria-label="breadcrumb col-12">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Morador</a></li>
-        <li class="breadcrumb-item"><a href="#">Perfil</a></li>
-      </ol>
-    </nav>
-    <!-- Caminho -->
+    <div class="container-flex">
+      <nav aria-label="breadcrumb col-12">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Morador</a></li>
+          <li class="breadcrumb-item"><a href="#">Perfil</a></li>
+        </ol>
+      </nav>
+      <!-- Caminho -->
 
-    <div class="cardPrincipal" >
-    <div class="card mb-2"style="max-width: 60vw;">
-      <div class="row no-gutters">
-        <div id="col-fotoPerfil" class="col-md-3">
-          <img src="https://avatars2.githubusercontent.com/u/37584505?s=400&u=73100f3df6d155544e9bc50b7fb9f83410d0b308&v=4" max-width="100" height="250" class="card-img" alt="...">
-          <div class="position-absolute bg-gray-dark rounded-2 text-white px-2 py-1 left-0 bottom-0 ml-2 mb-2">
-            <sv TESTE height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 011.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"></path></svg>
-            
-          </div>
-        </div>
+      <div class="cardPrincipal">
+        <div class="card mb-2" style="max-width: 60vw;">
+          <div class="row no-gutters">
+            <div id="col-fotoPerfil" class="col-md-3">
+              <img
+                src="https://avatars2.githubusercontent.com/u/37584505?s=400&u=73100f3df6d155544e9bc50b7fb9f83410d0b308&v=4"
+                max-width="100" height="250" class="card-img" alt="...">
+              <div class="position-absolute bg-gray-dark rounded-2 text-white px-2 py-1 left-0 bottom-0 ml-2 mb-2">
+                <sv TESTE height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1"
+                  aria-hidden="true">
+                  <path fill-rule="evenodd"
+                    d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 011.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
+                  </path></svg>
 
-        <div class="col-md-6">
-          <div class="card-body">
-            <h5 class="card-title">Marcelo Franchini</h5>
-            <span id="cpf"><svg class="bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5zm-13-1A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13z" clip-rule="evenodd"/>
-              <path fill-rule="evenodd" d="M3 8.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zm0 2a.5.5 0 01.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
-              <path d="M3 5.5a.5.5 0 01.5-.5h9a.5.5 0 01.5.5v1a.5.5 0 01-.5.5h-9a.5.5 0 01-.5-.5v-1z"/>
-            </svg> 333.222.111-02</span>
-            <span id="email"><svg class="bi bi-envelope" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M14 3H2a1 1 0 00-1 1v8a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1zM2 2a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H2z" clip-rule="evenodd"/>
-              <path fill-rule="evenodd" d="M.071 4.243a.5.5 0 01.686-.172L8 8.417l7.243-4.346a.5.5 0 01.514.858L8 9.583.243 4.93a.5.5 0 01-.172-.686z" clip-rule="evenodd"/>
-              <path d="M6.752 8.932l.432-.252-.504-.864-.432.252.504.864zm-6 3.5l6-3.5-.504-.864-6 3.5.504.864zm8.496-3.5l-.432-.252.504-.864.432.252-.504.864zm6 3.5l-6-3.5.504-.864 6 3.5-.504.864z"/>
-            </svg> marcelo_franchini@condominio.com.br   </span>
-            <span id="tel"><svg class="bi bi-chat-dots" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M2.678 11.894a1 1 0 01.287.801 10.97 10.97 0 01-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 01.71-.074A8.06 8.06 0 008 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 01-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 00.244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 01-2.347-.306c-.52.263-1.639.742-3.468 1.105z" clip-rule="evenodd"/>
-              <path d="M5 8a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0z"/>
-            </svg> (11) 99999-1234</span>
-            <span id="ap"><svg class="bi bi-house" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 00.5.5h9a.5.5 0 00.5-.5V7h1v6.5a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 012 13.5zm11-11V6l-2-2V2.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd"/>
-              <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 011.414 0l6.647 6.646a.5.5 0 01-.708.708L8 2.207 1.354 8.854a.5.5 0 11-.708-.708L7.293 1.5z" clip-rule="evenodd"/>
-            </svg> 13 A</span>
+              </div>
+            </div>
 
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <!-- Colonuna Principal Cartão -->
+            <div class="col-md-6">
+              <div class="card-body">
+                <h5 class="card-title">Marcelo Franchini</h5>
+                <span id="cpf"><svg class="bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M14.5 3h-13a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5zm-13-1A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13z"
+                      clip-rule="evenodd" />
+                    <path fill-rule="evenodd"
+                      d="M3 8.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zm0 2a.5.5 0 01.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5z"
+                      clip-rule="evenodd" />
+                    <path d="M3 5.5a.5.5 0 01.5-.5h9a.5.5 0 01.5.5v1a.5.5 0 01-.5.5h-9a.5.5 0 01-.5-.5v-1z" />
+                  </svg> 333.222.111-02</span>
+                <span id="email"><svg class="bi bi-envelope" width="1em" height="1em" viewBox="0 0 16 16"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M14 3H2a1 1 0 00-1 1v8a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1zM2 2a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H2z"
+                      clip-rule="evenodd" />
+                    <path fill-rule="evenodd"
+                      d="M.071 4.243a.5.5 0 01.686-.172L8 8.417l7.243-4.346a.5.5 0 01.514.858L8 9.583.243 4.93a.5.5 0 01-.172-.686z"
+                      clip-rule="evenodd" />
+                    <path
+                      d="M6.752 8.932l.432-.252-.504-.864-.432.252.504.864zm-6 3.5l6-3.5-.504-.864-6 3.5.504.864zm8.496-3.5l-.432-.252.504-.864.432.252-.504.864zm6 3.5l-6-3.5.504-.864 6 3.5-.504.864z" />
+                  </svg> marcelo_franchini@condominio.com.br </span>
+                <span id="tel"><svg class="bi bi-chat-dots" width="1em" height="1em" viewBox="0 0 16 16"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M2.678 11.894a1 1 0 01.287.801 10.97 10.97 0 01-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 01.71-.074A8.06 8.06 0 008 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 01-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 00.244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 01-2.347-.306c-.52.263-1.639.742-3.468 1.105z"
+                      clip-rule="evenodd" />
+                    <path
+                      d="M5 8a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                  </svg> (11) 99999-1234</span>
+                <span id="ap"><svg class="bi bi-house" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M2 13.5V7h1v6.5a.5.5 0 00.5.5h9a.5.5 0 00.5-.5V7h1v6.5a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 012 13.5zm11-11V6l-2-2V2.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z"
+                      clip-rule="evenodd" />
+                    <path fill-rule="evenodd"
+                      d="M7.293 1.5a1 1 0 011.414 0l6.647 6.646a.5.5 0 01-.708.708L8 2.207 1.354 8.854a.5.5 0 11-.708-.708L7.293 1.5z"
+                      clip-rule="evenodd" />
+                  </svg> 13 A</span>
 
-        <nav class="edicao col-md-3">
-         <div class="dropdown  btn-group dropleft">
-          <button class="btn btn-secondary dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Editar Perfil
-          </button>
-          <div class="dropdown-menu">
-            <form class="px-4 py-3">
-              <div class="form-group">
-                <label for="novoEmail">Editar Email</label>
-                <input type="email" class="form-control" id="novoEmail" placeholder="Novo Email">
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
               </div>
-              <div class="form-group">
-                <label for="novoTel">Editar Telefone</label>
-                <input type="tel" class="form-control" id="novoTel" placeholder="Novo Telefone">
-              </div>
-              <div class="form-group">
-                <label for="alterarFoto">Alterar Foto</label>
-                <input type="file" class="form" name="alterarFoto" id="alterarFoto">
-              </div>
-              <div class="form-group">
-                <label for="senha">Senha </label>
-                <input type="password" class="form-control" id="senha" placeholder="Senha Atual">
-              </div>
-                <div class="dropdown-divider"></div>
-              <button id="btn-alterar" type="submit" class="btn btn-primary">Alterar</button>
-            </form>
+            </div>
+            <!-- Card Principal Fim -->
+
+
+            <nav class="edicao col-md-3">
+              <button type="button" class="btnCard btn btn-primary" data-toggle="modal" data-target="#btnEditarPerfil"
+                data-whatever="@mdo">
+                Editar Perfil   </button>
+
+              <button type="button" class="btnCard btn btn-primary" data-toggle="modal" data-target="#btnAlterarSenha"
+                data-whatever="@mdo">
+                Alterar Senha</button>
+            </nav>
+            <!-- Nav Modal Btn -->
           </div>
-        </div>
-        <!-- Dropdwns Perfil -->
-        
-        <div class="dropdown btn-group dropleft">
-          <button  class="btn btn-secondary dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Alterar Senha
-          </button>
-          <div class="dropdown-menu">
-            <form class="px-4 py-3">
-              <div class="form-group">
-                <label for="novaSenha">Nova Senha</label>
-                <input type="password" class="form-control" id="novaSenha" placeholder="Nova senha">
-              </div>
-              <div class="form-group">
-                <label for="repetirSenha">Senha Atual</label>
-                <input type="password" class="form-control" id="repetirSenha" placeholder="Senha Atual">
-              </div>
-                <div class="dropdown-divider"></div>
-              <button id="btn-alterar" type="submit" class="btn btn-primary">Alterar</button>
-            </form>
-          </div>
-        </div>
-        <!-- Dropdwn Senha -->
-        </nav>
-        <!-- Nav Dropdwns -->
-        
-         </div>
           <!-- Row -->
-       </div>
-        <!-- Card -->
-      
+        </div>
+        <!-- Cartão Perfil -->
 
-            <div class="caixasPrincipal"  > 
 
-            <div class="col-md-3 caixa">
+
+        <div class="caixasPrincipal">
+
+          <div class="col-md-3 caixa">
             <span class="head row">
               <div class="subtitulo col-1 col-md-10">Dependentes</div>
               <div class="qtd col-1 col-md-2">2</div>
             </span>
-            
-            <div class="corpoCaixa col-6">
-            <img src="https://static1.purebreak.com.br/articles/5/85/10/5/@/317506--bob-esponja-calca-quadrada-e-as-maiore-diapo-2.jpg" alt="..."   class="img-thumbnail col-md-4" >
-            <div class="col-md-6">
-               <p>Morador2 Filho       Rg: 33456874-x</p>
+
+            <div class=" corpoCaixa ">
+                <img
+                  src="https://avatars2.githubusercontent.com/u/37584505?s=400&u=73100f3df6d155544e9bc50b7fb9f83410d0b308&v=4"
+                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="">
+                 
+              <div class=" textoCaixa ">
+                <p style="margin: 0;">Pedro Sobrenome</p>
+                <p style="margin: 0;">Filho</p>
+                <p style="margin: 0;">RG: 34678564-908</p>
               </div>
             </div>
+            <!-- corpo caixa-->
 
+            <div class="botoesCaixa row ">
 
-            <div class="row justify-content-center">
-              <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
+              <nav class="btnEditar">
+                <svg type="button"  data-toggle="modal" data-target="#editarDependenteModal"
+                  class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
+                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
+                </svg>
+                <p>editar</p>
+              </nav>
+
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDependenteModal"
+                data-whatever="@mdo">Novo</button>
+
+                <nav class="btnExcluir">
+                  <svg type="button" data-toggle="modal" data-target="#excluirDependenteModal"
+                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
+                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
+                  </svg>
+                  <p>excluir</p>
+
+                </nav>
+
             </div>
+
+            
 
             <div class="rodape row ">
               <div class="rotape col-1 col-md-4"><a href="/"><-</a></div>
               <div class="rotape col-1 col-md-4"><a href="/">O</a></div>
-              <div class="rotape col-1 col-md-4"><a href="/">></a></div>
+              <div class="rotape col-1 col-md-4"><a href="/">-></a></div>
             </div>
-          </div> 
-
+          </div>
           <!-- caixa1 -->
 
-          
           <div class="col-md-3 caixa">
             <span class="head row">
               <div class="subtitulo col-1 col-md-10">Visitantes</div>
               <div class="qtd col-1 col-md-2">2</div>
             </span>
-            
-            <div class="corpoCaixa col-6">
-            <img src="https://static1.purebreak.com.br/articles/5/85/10/5/@/317506--bob-esponja-calca-quadrada-e-as-maiore-diapo-2.jpg" alt="..." class="img-thumbnail col-md-4" >
-            <div class="col-md-6">
-               <p>Marcelo Primo       Rg: 33456874-x</p>
+
+            <div class=" corpoCaixa ">
+                <img
+                  src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="foto visitante">
+                 
+              <div class=" textoCaixa ">
+                <p style="margin: 0;">Visitante</p>
+                <p style="margin: 0;">Amigo</p>
+                <p style="margin: 0;">RG: 34678564-90</p>
               </div>
             </div>
+            <!-- corpo caixa-->
 
+            <div class="botoesCaixa row ">
 
-            <div class="row justify-content-center">
-              <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
+              <nav class="btnEditar">
+                <svg type="button"  data-toggle="modal" data-target="#editarVisitanteModal"
+                  class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
+                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
+                </svg>
+                <p>editar</p>
+              </nav>
+
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addVisitanteModal"
+                data-whatever="@mdo">Novo</button>
+
+                <nav class="btnExcluir">
+                  <svg type="button" data-toggle="modal" data-target="#excluirVisitanteModal"
+                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
+                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
+                  </svg>
+                  <p>excluir</p>
+
+                </nav>
+
             </div>
+
+            
 
             <div class="rodape row ">
               <div class="rotape col-1 col-md-4"><a href="/"><-</a></div>
               <div class="rotape col-1 col-md-4"><a href="/">O</a></div>
-              <div class="rotape col-1 col-md-4"><a href="/">></a></div>
+              <div class="rotape col-1 col-md-4"><a href="/">-></a></div>
             </div>
-          </div> 
-
+          </div>
           <!-- caixa2 -->
 
-          
           <div class="col-md-3 caixa">
             <span class="head row">
               <div class="subtitulo col-1 col-md-10">Funcionários</div>
-              <div class="qtd col-1 col-md-2">2</div>
+              <div class="qtd col-1 col-md-2">1</div>
             </span>
-            
-            <div class="corpoCaixa col-6">
-            <img src="https://static1.purebreak.com.br/articles/5/85/10/5/@/317506--bob-esponja-calca-quadrada-e-as-maiore-diapo-2.jpg" alt="..." class="img-thumbnail col-md-4" >
-            <div class="col-md-6">
-               <p>Nome  Função       Rg: 33456874-x</p>
+
+            <div class=" corpoCaixa ">
+                <img
+                  src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="">
+                 
+              <div class=" textoCaixa ">
+                <p style="margin: 0;">Funcionário</p>
+                <p style="margin: 0;">Diárista</p>
+                <p style="margin: 0;">RG: 34678564-908</p>
               </div>
             </div>
+            <!-- corpo caixa-->
 
+            <div class="botoesCaixa row ">
 
-            <div class="row justify-content-center">
-              <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
+              <nav class="btnEditar">
+                <svg type="button"  data-toggle="modal" data-target="#editarFuncionarioModal"
+                  class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
+                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
+                </svg>
+                <p>editar</p>
+              </nav>
+
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addFuncionarioModal"
+                data-whatever="@mdo">Novo</button>
+
+                <nav class="btnExcluir">
+                  <svg type="button" data-toggle="modal" data-target="#excluirFuncionarioModal"
+                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
+                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
+                  </svg>
+                  <p>excluir</p>
+
+                </nav>
+
             </div>
+
+            
 
             <div class="rodape row ">
               <div class="rotape col-1 col-md-4"><a href="/"><-</a></div>
               <div class="rotape col-1 col-md-4"><a href="/">O</a></div>
-              <div class="rotape col-1 col-md-4"><a href="/">></a></div>
+              <div class="rotape col-1 col-md-4"><a href="/">-></a></div>
             </div>
-          </div> 
-
+          </div>
           <!-- caixa3 -->
 
-          
           <div class="col-md-3 caixa">
             <span class="head row">
               <div class="subtitulo col-1 col-md-10">Veículos</div>
               <div class="qtd col-1 col-md-2">2</div>
             </span>
-            
-            <div class="corpoCaixa col-6">
-            <img src="https://static1.purebreak.com.br/articles/5/85/10/5/@/317506--bob-esponja-calca-quadrada-e-as-maiore-diapo-2.jpg" alt="..." class="img-thumbnail col-md-4" >
-            <div class="col-md-6">
-               <p>Gol Placa xxx-xxxx  </p>
+
+            <div class=" corpoCaixa ">
+                <img
+                  src="https://img.olx.com.br/images/93/934924094115559.jpg"
+                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="foto veiculo">
+                 
+              <div class=" textoCaixa ">
+                <p style="margin: 0;">Gol 2010</p>
+                <p style="margin: 0;">Placa: EPP-2510</p>
+                <p style="margin: 0;">Cor: Prata</p>
               </div>
             </div>
+            <!-- corpo caixa-->
 
+            <div class="botoesCaixa row ">
 
-            <div class="row justify-content-center">
-              <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
+              <nav class="btnEditar">
+                <svg type="button"  data-toggle="modal" data-target="#editarVeiculoModal"
+                  class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
+                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
+                </svg>
+                <p>editar</p>
+              </nav>
+
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addVeiculoModal"
+                data-whatever="@mdo">Novo</button>
+
+                <nav class="btnExcluir">
+                  <svg type="button" data-toggle="modal" data-target="#excluirVeiculoModal"
+                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
+                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
+                  </svg>
+                  <p>excluir</p>
+
+                </nav>
+
             </div>
+
+            
 
             <div class="rodape row ">
               <div class="rotape col-1 col-md-4"><a href="/"><-</a></div>
               <div class="rotape col-1 col-md-4"><a href="/">O</a></div>
-              <div class="rotape col-1 col-md-4"><a href="/">></a></div>
+              <div class="rotape col-1 col-md-4"><a href="/">-></a></div>
             </div>
-          </div> 
+          </div>
+          <!-- caixa4 -->
 
-          <!-- caixa 4-->
-
-          
           <div class="col-md-3 caixa">
             <span class="head row">
               <div class="subtitulo col-1 col-md-10">Pets</div>
-              <div class="qtd col-1 col-md-2">2</div>
+              <div class="qtd col-1 col-md-2">1</div>
             </span>
-            
-            <div class="corpoCaixa col-6">
-            <img src="https://static1.purebreak.com.br/articles/5/85/10/5/@/317506--bob-esponja-calca-quadrada-e-as-maiore-diapo-2.jpg" alt="..." class="img-thumbnail col-md-4" >
-            <div class="col-md-6">
-               <p>Cão Bob Pequeno</p>
+
+            <div class=" corpoCaixa ">
+                <img
+                  src="https://www.purina.pt/sites/g/files/mcldtz1671/files/2018-03/cao-em-casa.jpg"
+                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="fotoPet">
+                 
+              <div class=" textoCaixa ">
+                <p style="margin: 0;">Bob</p>
+                <p style="margin: 0;">Cão</p>
+                <p style="margin: 0;">Médio Porte</p>
               </div>
             </div>
+            <!-- corpo caixa-->
 
+            <div class="botoesCaixa row ">
 
-            <div class="row justify-content-center">
-              <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
+              <nav class="btnEditar">
+                <svg type="button"  data-toggle="modal" data-target="#editarPetModal"
+                  class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
+                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
+                </svg>
+                <p>editar</p>
+              </nav>
+
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPetModal"
+                data-whatever="@mdo">Novo</button>
+
+                <nav class="btnExcluir">
+                  <svg type="button" data-toggle="modal" data-target="#excluirPetModal"
+                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
+                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
+                  </svg>
+                  <p>excluir</p>
+
+                </nav>
+
             </div>
+
+            
 
             <div class="rodape row ">
               <div class="rotape col-1 col-md-4"><a href="/"><-</a></div>
               <div class="rotape col-1 col-md-4"><a href="/">O</a></div>
-              <div class="rotape col-1 col-md-4"><a href="/">></a></div>
+              <div class="rotape col-1 col-md-4"><a href="/">-></a></div>
             </div>
-          </div> 
-
+          </div>
           <!-- caixa5 -->
 
 
-      
-
-         
-
-        </div>   
-         <!-- Caixas -->
         </div>
-        <!-- CardPrincipal -->
+        <!-- Caixas -->
       </div>
-       <!-- Container -->
-    </main>
+      <!-- CardPrincipal -->
+    </div>
+    <!-- Container -->
+  </main>
 
-    <%- include('../../includes/scriptJS')%>
-  </body>
+  <%- include('../../includes/scriptJS')%>
+</body>
 
+
+
+
+<!-- Modais -->
+
+
+<div class="modal fade " id="btnEditarPerfil" tabindex="-1" role="dialog"
+                aria-labelledby="btnEditarPerfil" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="btnEditarPerfil">Editar Perfil</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="editarEmailPerfil" class="col-form-label">Novo Email</label>
+                          <input type="email" class="form-control" name="editarEmailPerfil" id="editarEmailPerfil"
+                            placeholder="Novo Email">
+                        </div>
+                        <div class="form-group">
+                          <label for="editarTelPerfil" class="col-form-label">Novo Tel</label>
+                          <input type="tel" class="form-control" name="editarTelPerfil" id="editarTelPerfil"
+                            placeholder="Novo Telefone">
+                        </div>
+                        <div class="form-group">
+                          <label for="editarFotoPerfil">Foto</label>
+                          <input type="file" class="form" name="editarFotoPerfil" id="editarFotoPerfil">
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                      <button type="submit" class="btn btn-primary">Salvar</button>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+               <!-- Modal Editar Perfil Cartao fim -->
+
+              <div class="modal fade" id="btnAlterarSenha" tabindex="-1" role="dialog" aria-labelledby="btnAlterarSenha"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="btnAlterarSenha">Alterar Senha</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="novaSenha" class="col-form-label">Nova Senha</label>
+                        <input type="password" class="form-control" name="novaSenha" id="novaSenha"
+                          placeholder="Nova Senha">
+                      </div>
+                      <div class="form-group">
+                        <label for="senhaAtual" class="col-form-label">Senha Atual</label>
+                        <input type="password" class="form-control" name="senhaAtuale" id="senhaAtual"
+                          placeholder="Senha Atual">
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal Alterar Senha Cartao fim -->
+
+
+
+<div class="modal fade" id="addDependenteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Novo Dependente</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="nomeDependente" class="col-form-label">Nome</label>
+          <input type="text" class="form-control" name="nomeDependente" id="nomeDependente"
+            placeholder="Nome">
+        </div>
+        <div class="form-group">
+          <label for="tipoDependente" class="col-form-label">Tipo</label>
+          <input type="text" class="form-control" name="tipoDependente" id="tipoDependente"
+            placeholder="Ex: filho, mãe, etc.">
+        </div>
+        <div class="form-group">
+          <label for="rgDependente" class="col-form-label">RG</label>
+          <input type="text" class="form-control" name="rgDependente" id="rgDependente"
+            placeholder="Rg">
+        </div>
+        <div class="form-group">
+          <label for="fotoDependente">Foto</label>
+          <input type="file" class="form" name="fotoDependente" id="fotoDependente">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      <button type="submit" class="btn btn-primary">Incluir</button>
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- Modal Add Fim-->
+
+<div class="modal fade" id="editarDependenteModal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Editar Dependente</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="nomeDependente" class="col-form-label">Editar Nome</label>
+          <input type="text" class="form-control" name="nomeDependente" id="nomeDependente"
+            placeholder="Nome">
+        </div>
+        <div class="form-group">
+          <label for="tipoDependente" class="col-form-label">Editar Tipo</label>
+          <input type="text" class="form-control" name="tipoDependente" id="tipoDependente"
+            placeholder="Ex: filho, mãe, etc.">
+        </div>
+        <div class="form-group">
+          <label for="rgDependente" class="col-form-label">Editar RG</label>
+          <input type="text" class="form-control" name="rgDependente" id="rgDependente"
+            placeholder="Rg">
+        </div>
+        <div class="form-group">
+          <label for="fotoDependente">Alterar Foto</label>
+          <input type="file" class="form" name="fotoDependente" id="fotoDependente">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      <button type="submit" class="btn btn-primary">Incluir</button>
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- Modal Editar Fim-->
+
+
+<div class="modal fade" id="excluirDependenteModal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exempleModalLabel">Excluir Dependente</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Você tem certeza que deseja excluir este dependente?
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+      <button type="button" class="btn btn-primary">Sim</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal Excluir Fim-->
+
+<!-- Modais Dependentes Fim-->
+
+
+
+<div class="modal fade" id="addVisitanteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="addVisitanteModal">Novo Visitante</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="nomeVisitante" class="col-form-label">Nome</label>
+          <input type="text" class="form-control" name="nomeVisitante" id="nomeVisitante"
+            placeholder="Nome">
+        </div>
+        <div class="form-group">
+          <label for="tipoVisitante" class="col-form-label">Tipo</label>
+          <input type="text" class="form-control" name="tipoVisitante" id="tipoVisitante"
+            placeholder="Ex: filho, mãe, etc.">
+        </div>
+        <div class="form-group">
+          <label for="rgVisitante" class="col-form-label">RG</label>
+          <input type="text" class="form-control" name="rgVisitante" id="rgVisitante"
+            placeholder="Rg">
+        </div>
+        <div class="form-group">
+          <label for="fotoVisitante">Foto</label>
+          <input type="file" class="form" name="fotoVisitante" id="fotoVisitante">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      <button type="submit" class="btn btn-primary">Incluir</button>
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- Modal Add Fim-->
+
+<div class="modal fade" id="editarVisitanteModal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Editar Visitante</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="nomeVisitante" class="col-form-label">Editar Nome</label>
+          <input type="text" class="form-control" name="nomeVisitante" id="nomeVisitante"
+            placeholder="Nome">
+        </div>
+        <div class="form-group">
+          <label for="tipoVisitante" class="col-form-label">Editar Tipo</label>
+          <input type="text" class="form-control" name="tipoVisitante" id="tipoVisitante"
+            placeholder="Ex: filho, mãe, etc.">
+        </div>
+        <div class="form-group">
+          <label for="rgVisitante" class="col-form-label">Editar RG</label>
+          <input type="text" class="form-control" name="rgVisitante" id="rgVisitante"
+            placeholder="Rg">
+        </div>
+        <div class="form-group">
+          <label for="fotoVisitante">Alterar Foto</label>
+          <input type="file" class="form" name="fotoVisitante" id="fotoVisitante">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      <button type="submit" class="btn btn-primary">Incluir</button>
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- Modal Editar Fim-->
+
+
+<div class="modal fade" id="excluirVisitanteModal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exempleModalLabel">Excluir Visitante</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Você tem certeza que deseja excluir este Visitante?
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+      <button type="button" class="btn btn-primary">Sim</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal Excluir Fim-->
+
+<!-- Modais Visitantes Fim-->
+
+
+<div class="modal fade" id="addFuncionarioModal" tabindex="-1" role="dialog" aria-labelledby="addFuncionarioModal"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="addFuncionarioModal">Novo Funcionário</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="nomeFuncionario" class="col-form-label">Nome</label>
+          <input type="text" class="form-control" name="nomeFuncionario" id="nomeFuncionario"
+            placeholder="Nome">
+        </div>
+        <div class="form-group">
+          <label for="tipoFuncionario" class="col-form-label">Tipo</label>
+          <input type="text" class="form-control" name="tipoFuncionario" id="tipoFuncionario"
+            placeholder="Ex: Diárista Seg ">
+        </div>
+        <div class="form-group">
+          <label for="rgFuncionario" class="col-form-label">RG</label>
+          <input type="text" class="form-control" name="rgFuncionario" id="rgFuncionario"
+            placeholder="Rg">
+        </div>
+        <div class="form-group">
+          <label for="fotoFuncionario">Foto</label>
+          <input type="file" class="form" name="fotoFuncionario" id="fotoFuncionario">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      <button type="submit" class="btn btn-primary">Incluir</button>
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- Modal Add Fim-->
+
+<div class="modal fade" id="editarFuncionarioModal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Editar Funcionário</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="nomeFuncionario" class="col-form-label">Editar Nome</label>
+          <input type="text" class="form-control" name="nomeFuncionario" id="nomeFuncionario"
+            placeholder="Nome">
+        </div>
+        <div class="form-group">
+          <label for="tipoFuncionario" class="col-form-label">Editar Tipo</label>
+          <input type="text" class="form-control" name="tipoFuncionario" id="tipoFuncionario"
+            placeholder="Ex: filho, mãe, etc.">
+        </div>
+        <div class="form-group">
+          <label for="rgFuncionario" class="col-form-label">Editar RG</label>
+          <input type="text" class="form-control" name="rgFuncionario" id="rgFuncionario"
+            placeholder="Rg">
+        </div>
+        <div class="form-group">
+          <label for="fotoFuncionario">Alterar Foto</label>
+          <input type="file" class="form" name="fotoFuncionario" id="fotoFuncionario">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      <button type="submit" class="btn btn-primary">Incluir</button>
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- Modal Editar Fim-->
+
+
+<div class="modal fade" id="excluirFuncionarioModal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exempleModalLabel">Excluir Funcionário</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Você tem certeza que deseja excluir este Funcionário?
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+      <button type="button" class="btn btn-primary">Sim</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal Excluir Fim-->
+
+<!-- Modais Funcionarios Fim-->
+
+
+<div class="modal fade" id="addVeiculoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="addVeiculoModal">Novo Veículo</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="ModeloVeiculo" class="col-form-label">Modelo</label>
+          <input type="text" class="form-control" name="ModeloVeiculo" id="ModeloVeiculo"
+            placeholder="Modelo">
+        </div>
+        <div class="form-group">
+          <label for="PlacaVeiculo" class="col-form-label">Placa</label>
+          <input type="text" class="form-control" name="PlacaVeiculo" id="PlacaVeiculo"
+            placeholder="Ex: AAA-XXXX">
+        </div>
+        <div class="form-group">
+          <label for="CorVeiculo" class="col-form-label">Cor</label>
+          <input type="text" class="form-control" name="corVeiculo" id="corVeiculo"
+            placeholder="Cor">
+        </div>
+        <div class="form-group">
+          <label for="fotoVeiculo">Foto</label>
+          <input type="file" class="form" name="fotoVeiculo" id="fotoVeiculo">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      <button type="submit" class="btn btn-primary">Incluir</button>
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- Modal Add Fim-->
+
+<div class="modal fade" id="editarVeiculoModal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Editar Veiculo</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="modeloVeiculo" class="col-form-label">Editar Modelo</label>
+          <input type="text" class="form-control" name="modeloVeiculo" id="modeloVeiculo"
+            placeholder="modeloVeiculo">
+        </div>
+        <div class="form-group">
+          <label for="placaVeiculo" class="col-form-label">Editar Placa</label>
+          <input type="text" class="form-control" name="placaVeiculo" id="placaVeiculo"
+            placeholder="Ex: AAA-XXXX">
+        </div>
+        <div class="form-group">
+          <label for="corVeiculo" class="col-form-label">Editar Cor</label>
+          <input type="text" class="form-control" name="corVeiculo" id="corVeiculo"
+            placeholder="cor">
+        </div>
+        <div class="form-group">
+          <label for="fotoVeiculo">Alterar Foto</label>
+          <input type="file" class="form" name="fotoVeiculo" id="fotoVeiculo">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      <button type="submit" class="btn btn-primary">Incluir</button>
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- Modal Editar Fim-->
+
+
+<div class="modal fade" id="excluirVeiculoModal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exempleModalLabel">Excluir Veículos</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Você tem certeza que deseja excluir este Veiculos?
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+      <button type="button" class="btn btn-primary">Sim</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal Excluir Fim-->
+
+<!-- Modais Veiculos Fim-->
+
+
+<div class="modal fade" id="addPetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Novo Pet</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="nomePet" class="col-form-label">Nome</label>
+          <input type="text" class="form-control" name="nomePet" id="nomePet"
+            placeholder="Nome">
+        </div>
+        <div class="form-group">
+          <label for="tipoPet" class="col-form-label">Tipo</label>
+          <input type="text" class="form-control" name="tipoPet" id="tipoPet"
+            placeholder="Ex: filho, mãe, etc.">
+        </div>
+        <div class="form-group">
+          <label for="rgPet" class="col-form-label">RG</label>
+          <input type="text" class="form-control" name="rgPet" id="rgPet"
+            placeholder="Rg">
+        </div>
+        <div class="form-group">
+          <label for="fotoPet">Foto</label>
+          <input type="file" class="form" name="fotoPet" id="fotoPet">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      <button type="submit" class="btn btn-primary">Incluir</button>
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- Modal Add Fim-->
+
+<div class="modal fade" id="editarPetModal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Editar Pet</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="nomePet" class="col-form-label">Editar Nome</label>
+          <input type="text" class="form-control" name="nomePet" id="nomePet"
+            placeholder="Nome">
+        </div>
+        <div class="form-group">
+          <label for="tipoPet" class="col-form-label">Editar Tipo</label>
+          <input type="text" class="form-control" name="tipoPet" id="tipoPet"
+            placeholder="Ex: filho, mãe, etc.">
+        </div>
+        <div class="form-group">
+          <label for="rgPet" class="col-form-label">Editar RG</label>
+          <input type="text" class="form-control" name="rgPet" id="rgPet"
+            placeholder="Rg">
+        </div>
+        <div class="form-group">
+          <label for="fotoPet">Alterar Foto</label>
+          <input type="file" class="form" name="fotoPet" id="fotoPet">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      <button type="submit" class="btn btn-primary">Incluir</button>
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- Modal Editar Fim-->
+
+
+<div class="modal fade" id="excluirPetModal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exempleModalLabel">Excluir Pet</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Você tem certeza que deseja excluir este Pet?
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+      <button type="button" class="btn btn-primary">Sim</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal Excluir Fim-->
+
+<!-- Modais Pets Fim-->

@@ -82,19 +82,17 @@ main{
     background-color: #FFA62B;
 }
 
-
-#dropdownMenuButton{
+.edicao button{
+    width: 140px;
+}
+ .btnCard{
     background-color:#E8751C;
     border: solid 2px #FFA62B;
     border-radius: 20px;
-    width: 140px;
+    margin: 10px;
 
 }
-#btn-alterar{
-    background-color: #E8751C;
-    border-color: #E8751C;
-    border-radius: 20px;
-}
+
 
 
 
@@ -107,7 +105,6 @@ main{
     flex-direction: row ;
     align-items: center;
     margin-left: 140px ;
-
     
 }
 
@@ -156,19 +153,65 @@ main{
 }
 
 .corpoCaixa {
-    padding: 10px;
+    
     max-width: max-content;
     height: 20vh;
     max-height: max-content;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row ;
-    justify-content: center ;
-    align-items: center;  
+    flex-direction: column;
+    justify-content:flex-start ;
+    align-items: flex-start;
+    
+    
+    
 }
 
+.botoesCaixa{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around ;
+    align-items: center;
+
+}
+
+.textoCaixa {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start ;
+    align-items: flex-start;
+    font-size: 14px;
+    margin: 30px 0 0 5px;
+}
+
+
+
+.btnIcon{
+    font-size: 16px;
+}
+
+.btnEditar, .btnExcluir {
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between ;
+    align-items: center;
+    color: #FFA62B;
+    margin: 0;
+
+}
+
+
 .corpoCaixa img{
-    
+    border-radius: 5px;
+    margin: 30px 0 0 10px;
+    width: 60px;
+    height: 60px;
+    object-fit: fill;
+     
 }
 .rodape{
     text-align: center;
@@ -210,7 +253,7 @@ main{
         flex-direction: row ;
         justify-content: center ;
         align-items: center;
-
+       
     }
 
     .corpoCaixa img{
@@ -222,6 +265,7 @@ main{
     .caixasPrincipal{
     
         margin:0 ;
+        
     
         
     }
@@ -254,12 +298,14 @@ main{
         flex-basis: 0;
         -ms-flex-positive: 1;
         flex-grow: 0;
+
     }
 
     .corpoCaixa img{
         height: 40px;
         width: 40px;
         object-fit: cover;
+       
     }
     #dropdownMenuButton{
         width: 140px;
