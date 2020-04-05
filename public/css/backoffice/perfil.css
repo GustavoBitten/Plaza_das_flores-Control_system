@@ -2,19 +2,21 @@ body {
     background-color: #eee; 
 }
 
-.container-flex{
-    display: inline-block;
-
+.titulo{
+    color: #E8751C;
+    margin:0 0 20px 10px;
 }
 
-  
-main{
+.container-flex{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row ;
     justify-content: center;
     align-items: center;
+
 }
+
+
 
 
 /* caminho morador/perfil */
@@ -52,6 +54,7 @@ main{
 .card{
     border-color: #FFA62B;
     border: solid 1px #FFA62B;
+    width: 60vw;
     
 }
 
@@ -72,7 +75,7 @@ main{
 
 
 
-/* dropdown pai */
+/* modal pai */
 .edicao {
     display: flex;
     flex-wrap: wrap;
@@ -104,7 +107,7 @@ main{
     flex-wrap: wrap;
     flex-direction: row ;
     align-items: center;
-    margin-left: 140px ;
+    margin-left: 160px ;
     
 }
 
@@ -112,7 +115,7 @@ main{
     border: 1px solid #E8751C;
     border-radius: 10px;
     background-color: white;
-    margin:20px 22px 10px 10px;
+    margin:20px 25px 10px 10px;
 
     
 }
@@ -162,8 +165,6 @@ main{
     flex-direction: column;
     justify-content:flex-start ;
     align-items: flex-start;
-    
-    
     
 }
 
@@ -232,85 +233,55 @@ main{
 
 
 
-@media (max-width: 678px){
-    main{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row ;
-        justify-content: flex-start ;
-        align-items: flex-start;
-        padding-right: 50px;
-        
+@media (max-width: 600px){
+    .titulo{
+        font-size: 24px;
+        margin: 0;
+        margin-bottom: 20px;
     }
+    
     .cardPrincipal{
-        margin-left: 10px;
-        
-    }
-
-    .corpoCaixa{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row ;
-        justify-content: center ;
-        align-items: center;
-       
-    }
-
-    .corpoCaixa img{
-        height: 40px;
-        width: 40px;
-        object-fit: cover;
-    }
-
-    .caixasPrincipal{
-    
-        margin:0 ;
-        
-    
-        
-    }
-
-
-}
-
-/* espec telas menores */
-@media (max-width: 900px) {
-    main{
+        font-size: 12px;
         display: flex;
         flex-wrap: wrap;
         flex-direction: row ;
         justify-content: flex-start ;
         align-items: flex-start;
         margin-left: 20px;
-        
     }
 
-    .caixa {
-        margin-right: 0px;
+    .card{
+        width: 70vw;
+        margin:10 10 10 0; 
+        font-size: 12px;
     }
-    .corpoCaixa{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row ;
-        justify-content: center ;
-        align-items: center;
-        -ms-flex-preferred-size: 0;
-        flex-basis: 0;
-        -ms-flex-positive: 1;
-        flex-grow: 0;
-
-    }
-
-    .corpoCaixa img{
-        height: 40px;
-        width: 40px;
-        object-fit: cover;
-       
-    }
-    #dropdownMenuButton{
-        width: 140px;
     
+    .caixa {
+        margin: 0; 
+        margin-bottom: 20px;
     }
+    
+    .caixasPrincipal{
+        margin-left: 35px;
+        width: 70vw;
+    }
+    
+}
+
+
+
+/* telas cel na horizontal */
+@media (max-width: 900px) {
+   
+    
+}
+        
+
+
+
+/* espec telas menores */
+@media (max-width: 900px) {
+ 
 
 }
 

@@ -13,9 +13,11 @@ route.get('/morador/areas-comuns', backofficePageController.moradorAreasComuns)
 
 // Rotas para síndico
 route.get('/sindico/moradores', backofficePageController.sindicoMoradores)
+route.get('/sindico/perfil', backofficePageController.sindicoPerfil)
 
 //Rotas para portaria
 route.get('/portaria/moradores', backofficePageController.portariaMoradores)
+route.get('/portaria/perfil', backofficePageController.portariaPerfil)
 
 
 module.exports = route

@@ -90,6 +90,10 @@
               <button type="button" class="btnCard btn btn-primary" data-toggle="modal" data-target="#btnAlterarSenha"
                 data-whatever="@mdo">
                 Alterar Senha</button>
+
+                <button type="button" class="btnCard btn btn-primary" data-toggle="modal" data-target="#btnAlterarSindico"
+                data-whatever="@mdo">
+                Alterar Síndico</button>
             </nav>
             <!-- Nav Modal Btn -->
           </div>
@@ -105,8 +109,8 @@
 
           <div class="col-md-3 caixa">
             <span class="head row">
-              <div class="subtitulo col-1 col-md-10">Dependentes</div>
-              <div class="qtd col-1 col-md-2">2</div>
+              <div class="subtitulo col-1 col-md-10">Empresas</div>
+              <div class="qtd col-1 col-md-2">4</div>
             </span>
 
             <div class=" corpoCaixa ">
@@ -115,9 +119,9 @@
                   class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="">
                  
               <div class=" textoCaixa ">
-                <p style="margin: 0;">Pedro Sobrenome</p>
-                <p style="margin: 0;">Filho</p>
-                <p style="margin: 0;">RG: 34678564-908</p>
+                <p style="margin: 0;">Piscinas m.e</p>
+                <p style="margin: 0;">RG: 34763299-12</p>
+                <p style="margin: 0;">Seg</p>
               </div>
             </div>
             <!-- corpo caixa-->
@@ -125,7 +129,7 @@
             <div class="botoesCaixa row ">
 
               <nav class="btnEditar">
-                <svg type="button"  data-toggle="modal" data-target="#editarDependenteModal"
+                <svg type="button"  data-toggle="modal" data-target="#editarEmpresaModal"
                   class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg">
                   <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
@@ -134,11 +138,11 @@
                 <p>editar</p>
               </nav>
 
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDependenteModal"
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addEmpresaModal"
                 data-whatever="@mdo">Novo</button>
 
                 <nav class="btnExcluir">
-                  <svg type="button" data-toggle="modal" data-target="#excluirDependenteModal"
+                  <svg type="button" data-toggle="modal" data-target="#excluirEmpresaModal"
                     class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
@@ -162,19 +166,19 @@
 
           <div class="col-md-3 caixa">
             <span class="head row">
-              <div class="subtitulo col-1 col-md-10">Visitantes</div>
-              <div class="qtd col-1 col-md-2">2</div>
+              <div class="subtitulo col-1 col-md-10">Compromissos</div>
+              <div class="qtd col-1 col-md-2">1</div>
             </span>
 
             <div class=" corpoCaixa ">
                 <img
                   src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
-                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="foto visitante">
+                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="fotoCompromisso">
                  
               <div class=" textoCaixa ">
-                <p style="margin: 0;">Visitante</p>
-                <p style="margin: 0;">Amigo</p>
-                <p style="margin: 0;">RG: 34678564-90</p>
+                <p style="margin: 0;">Reunião Cond.</p>
+                <p style="margin: 0;">19/10/2020 19:00h </p>
+                <p style="margin: 0;">Salão de Festas</p>
               </div>
             </div>
             <!-- corpo caixa-->
@@ -182,7 +186,7 @@
             <div class="botoesCaixa row ">
 
               <nav class="btnEditar">
-                <svg type="button"  data-toggle="modal" data-target="#editarVisitanteModal"
+                <svg type="button"  data-toggle="modal" data-target="#editarCompromissoModal"
                   class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg">
                   <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
@@ -191,11 +195,11 @@
                 <p>editar</p>
               </nav>
 
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addVisitanteModal"
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCompromissoModal"
                 data-whatever="@mdo">Novo</button>
 
                 <nav class="btnExcluir">
-                  <svg type="button" data-toggle="modal" data-target="#excluirVisitanteModal"
+                  <svg type="button" data-toggle="modal" data-target="#excluirCompromissoModal"
                     class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
@@ -226,12 +230,12 @@
             <div class=" corpoCaixa ">
                 <img
                   src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
-                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="">
+                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="fotoFuncionario">
                  
               <div class=" textoCaixa ">
                 <p style="margin: 0;">Funcionário</p>
-                <p style="margin: 0;">Diárista</p>
-                <p style="margin: 0;">RG: 34678564-908</p>
+                <p style="margin: 0;">Porteiro Vespertino</p>
+                <p style="margin: 0;">RG:34678564-908</p>
               </div>
             </div>
             <!-- corpo caixa-->
@@ -274,119 +278,6 @@
           </div>
           <!-- caixa3 -->
 
-          <div class="col-md-3 caixa">
-            <span class="head row">
-              <div class="subtitulo col-1 col-md-10">Veículos</div>
-              <div class="qtd col-1 col-md-2">2</div>
-            </span>
-
-            <div class=" corpoCaixa ">
-                <img
-                  src="https://img.olx.com.br/images/93/934924094115559.jpg"
-                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="foto veiculo">
-                 
-              <div class=" textoCaixa ">
-                <p style="margin: 0;">Gol 2010</p>
-                <p style="margin: 0;">Placa: EPP-2510</p>
-                <p style="margin: 0;">Cor: Prata</p>
-              </div>
-            </div>
-            <!-- corpo caixa-->
-
-            <div class="botoesCaixa row ">
-
-              <nav class="btnEditar">
-                <svg type="button"  data-toggle="modal" data-target="#editarVeiculoModal"
-                  class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
-                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
-                </svg>
-                <p>editar</p>
-              </nav>
-
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addVeiculoModal"
-                data-whatever="@mdo">Novo</button>
-
-                <nav class="btnExcluir">
-                  <svg type="button" data-toggle="modal" data-target="#excluirVeiculoModal"
-                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
-                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
-                  </svg>
-                  <p>excluir</p>
-
-                </nav>
-
-            </div>
-
-            
-
-            <div class="rodape row ">
-              <div class="rotape col-2 col-md-4"><a href="/"><-</a></div>
-              <div class="rotape col-2 col-md-4"><a href="/">O</a></div>
-              <div class="rotape col-2 col-md-4"><a href="/">-></a></div>
-            </div>
-          </div>
-          <!-- caixa4 -->
-
-          <div class="col-md-3 caixa">
-            <span class="head row">
-              <div class="subtitulo col-1 col-md-10">Pets</div>
-              <div class="qtd col-1 col-md-2">1</div>
-            </span>
-
-            <div class=" corpoCaixa ">
-                <img
-                  src="https://www.purina.pt/sites/g/files/mcldtz1671/files/2018-03/cao-em-casa.jpg"
-                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="fotoPet">
-                 
-              <div class=" textoCaixa ">
-                <p style="margin: 0;">Bob</p>
-                <p style="margin: 0;">Cão</p>
-                <p style="margin: 0;">Médio Porte</p>
-              </div>
-            </div>
-            <!-- corpo caixa-->
-
-            <div class="botoesCaixa row ">
-
-              <nav class="btnEditar">
-                <svg type="button"  data-toggle="modal" data-target="#editarPetModal"
-                  class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
-                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
-                </svg>
-                <p>editar</p>
-              </nav>
-
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPetModal"
-                data-whatever="@mdo">Novo</button>
-
-                <nav class="btnExcluir">
-                  <svg type="button" data-toggle="modal" data-target="#excluirPetModal"
-                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
-                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
-                  </svg>
-                  <p>excluir</p>
-
-                </nav>
-
-            </div>
-
-            
-
-            <div class="rodape row ">
-              <div class="rotape col-2 col-md-4"><a href="/"><-</a></div>
-              <div class="rotape col-2 col-md-4"><a href="/">O</a></div>
-              <div class="rotape col-2 col-md-4"><a href="/">-></a></div>
-            </div>
-          </div>
-          <!-- caixa5 -->
 
 
         </div>
@@ -401,8 +292,48 @@
 
 
 
+
+
+
+
+
+
 <!-- Modais -->
 
+<div class="modal fade " id="btnAlterarSindico" tabindex="-1" role="dialog"
+                aria-labelledby="btnAlterarSindico" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="btnAlterarSindico">Alterar Síndico</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="emailNovoSindico" class="col-form-label">Email Cadastrado</label>
+                          <input type="email" class="form-control" name="emailNovoSindico" id="emailNovoSindico"
+                            placeholder="Email Cadastrado">
+                        </div>
+                        <div class="form-group">
+                          <label for="cpfNovoSindico" class="col-form-label">CPF Cadastrado</label>
+                          <input type="number" class="form-control" name="cpfNovoSindico" id="cpfNovoSindico"
+                            placeholder="Cpf Cadastrado">
+                        </div>
+        
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                      <button type="submit" class="btn btn-primary">Alterar Síndico</button>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+               <!-- Modal Alterar Sindico Cartao fim -->
 
 <div class="modal fade " id="btnEditarPerfil" tabindex="-1" role="dialog"
                 aria-labelledby="btnEditarPerfil" aria-hidden="true">
@@ -479,12 +410,12 @@
 
 
 
-<div class="modal fade" id="addDependenteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="addEmpresaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Novo Dependente</h5>
+      <h5 class="modal-title" id="exampleModalLabel">Nova Empresa</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -492,23 +423,23 @@ aria-hidden="true">
     <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="nomeDependente" class="col-form-label">Nome</label>
-          <input type="text" class="form-control" name="nomeDependente" id="nomeDependente"
-            placeholder="Nome">
+          <label for="nomeEmpresa" class="col-form-label">Empresa</label>
+          <input type="text" class="form-control" name="nomeEmpresa" id="nomeEmpresa"
+            placeholder="Nome da Empresa">
         </div>
         <div class="form-group">
-          <label for="tipoDependente" class="col-form-label">Tipo</label>
-          <input type="text" class="form-control" name="tipoDependente" id="tipoDependente"
-            placeholder="Ex: filho, mãe, etc.">
+          <label for="tipoEmpresa" class="col-form-label">Rg do Responsável</label>
+          <input type="text" class="form-control" name="tipoEmpresa" id="tipoEmpresa"
+            placeholder="RG">
         </div>
         <div class="form-group">
-          <label for="rgDependente" class="col-form-label">RG</label>
-          <input type="text" class="form-control" name="rgDependente" id="rgDependente"
-            placeholder="Rg">
+          <label for="diaEmpresa" class="col-form-label">Dia do Serviço</label>
+          <input type="text" class="form-control" name="diaEmpresa" id="diaEmpresa"
+            placeholder="Toda Segunda-feira(seg)">
         </div>
         <div class="form-group">
-          <label for="fotoDependente">Foto</label>
-          <input type="file" class="form" name="fotoDependente" id="fotoDependente">
+          <label for="fotoEmpresa">Foto</label>
+          <input type="file" class="form" name="fotoEmpresa" id="fotoEmpresa">
         </div>
       </form>
     </div>
@@ -522,12 +453,12 @@ aria-hidden="true">
 </div>
 <!-- Modal Add Fim-->
 
-<div class="modal fade" id="editarDependenteModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="editarEmpresaModal" tabindex="-1" role="dialog"
 aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Editar Dependente</h5>
+      <h5 class="modal-title" id="exampleModalLabel">Editar Empresa</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -535,23 +466,23 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="nomeDependente" class="col-form-label">Editar Nome</label>
-          <input type="text" class="form-control" name="nomeDependente" id="nomeDependente"
-            placeholder="Nome">
+          <label for="nomeEmpresa" class="col-form-label">Editar Empresa</label>
+          <input type="text" class="form-control" name="nomeEmpresa" id="nomeEmpresa"
+            placeholder="Nome Empresa">
         </div>
         <div class="form-group">
-          <label for="tipoDependente" class="col-form-label">Editar Tipo</label>
-          <input type="text" class="form-control" name="tipoDependente" id="tipoDependente"
-            placeholder="Ex: filho, mãe, etc.">
+          <label for="rgEmpresa" class="col-form-label">Rg</label>
+          <input type="text" class="form-control" name="rgEmpresa" id="rgEmpresa"
+            placeholder="Rg Responsável pelo Serviço">
         </div>
         <div class="form-group">
-          <label for="rgDependente" class="col-form-label">Editar RG</label>
-          <input type="text" class="form-control" name="rgDependente" id="rgDependente"
-            placeholder="Rg">
+          <label for="DiaEmpresa" class="col-form-label">Dia do Serviço</label>
+          <input type="text" class="form-control" name="DiaEmpresa" id="DiaEmpresa"
+            placeholder="Toda Segunda(seg)">
         </div>
         <div class="form-group">
-          <label for="fotoDependente">Alterar Foto</label>
-          <input type="file" class="form" name="fotoDependente" id="fotoDependente">
+          <label for="fotoEmpresa">Alterar Foto</label>
+          <input type="file" class="form" name="fotoEmpresa" id="fotoEmpresa">
         </div>
       </form>
     </div>
@@ -566,18 +497,18 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 <!-- Modal Editar Fim-->
 
 
-<div class="modal fade" id="excluirDependenteModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="excluirEmpresaModal" tabindex="-1" role="dialog"
 aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exempleModalLabel">Excluir Dependente</h5>
+      <h5 class="modal-title" id="exempleModalLabel">Excluir Empresa</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      Você tem certeza que deseja excluir este dependente?
+      Você tem certeza que deseja excluir este Empresa?
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
@@ -589,16 +520,16 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 <!-- Modal Excluir Fim-->
 
-<!-- Modais Dependentes Fim-->
+<!-- Modais Empresas Fim-->
 
 
 
-<div class="modal fade" id="addVisitanteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="addCompromissoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="addVisitanteModal">Novo Visitante</h5>
+      <h5 class="modal-title" id="addCompromissoModal">Novo Compromisso</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -606,23 +537,23 @@ aria-hidden="true">
     <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="nomeVisitante" class="col-form-label">Nome</label>
-          <input type="text" class="form-control" name="nomeVisitante" id="nomeVisitante"
-            placeholder="Nome">
+          <label for="nomeCompromisso" class="col-form-label">Compromisso</label>
+          <input type="text" class="form-control" name="nomeCompromisso" id="nomeCompromisso"
+            placeholder="Ex: Reunião Cond.">
         </div>
         <div class="form-group">
-          <label for="tipoVisitante" class="col-form-label">Tipo</label>
-          <input type="text" class="form-control" name="tipoVisitante" id="tipoVisitante"
-            placeholder="Ex: filho, mãe, etc.">
+          <label for="dataCompromisso" class="col-form-label">Data e Hora</label>
+          <input type="text" class="form-control" name="dataCompromisso" id="dataCompromisso"
+            placeholder="Ex: 20/10/2020 19h">
         </div>
         <div class="form-group">
-          <label for="rgVisitante" class="col-form-label">RG</label>
-          <input type="text" class="form-control" name="rgVisitante" id="rgVisitante"
-            placeholder="Rg">
+          <label for="localCompromisso" class="col-form-label">Local</label>
+          <input type="text" class="form-control" name="localCompromisso" id="localCompromisso"
+            placeholder="Ex: Salão de Festas">
         </div>
         <div class="form-group">
-          <label for="fotoVisitante">Foto</label>
-          <input type="file" class="form" name="fotoVisitante" id="fotoVisitante">
+          <label for="fotoCompromisso">Foto</label>
+          <input type="file" class="form" name="fotoCompromisso" id="fotoCompromisso">
         </div>
       </form>
     </div>
@@ -636,12 +567,12 @@ aria-hidden="true">
 </div>
 <!-- Modal Add Fim-->
 
-<div class="modal fade" id="editarVisitanteModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="editarCompromissoModal" tabindex="-1" role="dialog"
 aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Editar Visitante</h5>
+      <h5 class="modal-title" id="exampleModalLabel">Editar Compromisso</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -649,23 +580,23 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="nomeVisitante" class="col-form-label">Editar Nome</label>
-          <input type="text" class="form-control" name="nomeVisitante" id="nomeVisitante"
+          <label for="nomeCompromisso" class="col-form-label">Editar Compromisso</label>
+          <input type="text" class="form-control" name="nomeCompromisso" id="nomeCompromisso"
             placeholder="Nome">
         </div>
         <div class="form-group">
-          <label for="tipoVisitante" class="col-form-label">Editar Tipo</label>
-          <input type="text" class="form-control" name="tipoVisitante" id="tipoVisitante"
-            placeholder="Ex: filho, mãe, etc.">
+          <label for="tipoCompromisso" class="col-form-label">Editar Data e Hora</label>
+          <input type="text" class="form-control" name="tipoCompromisso" id="tipoCompromisso"
+            placeholder="Ex: 20/10/2020 19h">
         </div>
         <div class="form-group">
-          <label for="rgVisitante" class="col-form-label">Editar RG</label>
-          <input type="text" class="form-control" name="rgVisitante" id="rgVisitante"
-            placeholder="Rg">
+          <label for="rgCompromisso" class="col-form-label">Editar Local</label>
+          <input type="text" class="form-control" name="rgCompromisso" id="rgCompromisso"
+            placeholder="Ex: Churrasqueira">
         </div>
         <div class="form-group">
-          <label for="fotoVisitante">Alterar Foto</label>
-          <input type="file" class="form" name="fotoVisitante" id="fotoVisitante">
+          <label for="fotoCompromisso">Alterar Foto</label>
+          <input type="file" class="form" name="fotoCompromisso" id="fotoCompromisso">
         </div>
       </form>
     </div>
@@ -680,18 +611,18 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 <!-- Modal Editar Fim-->
 
 
-<div class="modal fade" id="excluirVisitanteModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="excluirCompromissoModal" tabindex="-1" role="dialog"
 aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exempleModalLabel">Excluir Visitante</h5>
+      <h5 class="modal-title" id="excluirCompromissoModal">Excluir Compromisso</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      Você tem certeza que deseja excluir este Visitante?
+      Você tem certeza que deseja excluir este Compromisso?
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
@@ -703,7 +634,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 <!-- Modal Excluir Fim-->
 
-<!-- Modais Visitantes Fim-->
+<!-- Modais Compromissos Fim-->
 
 
 <div class="modal fade" id="addFuncionarioModal" tabindex="-1" role="dialog" aria-labelledby="addFuncionarioModal"
@@ -726,7 +657,7 @@ aria-hidden="true">
         <div class="form-group">
           <label for="tipoFuncionario" class="col-form-label">Tipo</label>
           <input type="text" class="form-control" name="tipoFuncionario" id="tipoFuncionario"
-            placeholder="Ex: Diárista Seg ">
+            placeholder="Ex: Porteiro">
         </div>
         <div class="form-group">
           <label for="rgFuncionario" class="col-form-label">RG</label>
@@ -769,7 +700,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="form-group">
           <label for="tipoFuncionario" class="col-form-label">Editar Tipo</label>
           <input type="text" class="form-control" name="tipoFuncionario" id="tipoFuncionario"
-            placeholder="Ex: filho, mãe, etc.">
+            placeholder="Ex: Porteiro, Zelador">
         </div>
         <div class="form-group">
           <label for="rgFuncionario" class="col-form-label">Editar RG</label>
@@ -819,227 +750,10 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 <!-- Modais Funcionarios Fim-->
 
 
-<div class="modal fade" id="addVeiculoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="addVeiculoModal">Novo Veículo</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="form-group">
-          <label for="ModeloVeiculo" class="col-form-label">Modelo</label>
-          <input type="text" class="form-control" name="ModeloVeiculo" id="ModeloVeiculo"
-            placeholder="Modelo">
-        </div>
-        <div class="form-group">
-          <label for="PlacaVeiculo" class="col-form-label">Placa</label>
-          <input type="text" class="form-control" name="PlacaVeiculo" id="PlacaVeiculo"
-            placeholder="Ex: AAA-XXXX">
-        </div>
-        <div class="form-group">
-          <label for="CorVeiculo" class="col-form-label">Cor</label>
-          <input type="text" class="form-control" name="corVeiculo" id="corVeiculo"
-            placeholder="Cor">
-        </div>
-        <div class="form-group">
-          <label for="fotoVeiculo">Foto</label>
-          <input type="file" class="form" name="fotoVeiculo" id="fotoVeiculo">
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-      <button type="submit" class="btn btn-primary">Incluir</button>
-
-    </div>
-  </div>
-</div>
-</div>
-<!-- Modal Add Fim-->
-
-<div class="modal fade" id="editarVeiculoModal" tabindex="-1" role="dialog"
-aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Editar Veiculo</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="form-group">
-          <label for="modeloVeiculo" class="col-form-label">Editar Modelo</label>
-          <input type="text" class="form-control" name="modeloVeiculo" id="modeloVeiculo"
-            placeholder="modeloVeiculo">
-        </div>
-        <div class="form-group">
-          <label for="placaVeiculo" class="col-form-label">Editar Placa</label>
-          <input type="text" class="form-control" name="placaVeiculo" id="placaVeiculo"
-            placeholder="Ex: AAA-XXXX">
-        </div>
-        <div class="form-group">
-          <label for="corVeiculo" class="col-form-label">Editar Cor</label>
-          <input type="text" class="form-control" name="corVeiculo" id="corVeiculo"
-            placeholder="cor">
-        </div>
-        <div class="form-group">
-          <label for="fotoVeiculo">Alterar Foto</label>
-          <input type="file" class="form" name="fotoVeiculo" id="fotoVeiculo">
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-      <button type="submit" class="btn btn-primary">Incluir</button>
-
-    </div>
-  </div>
-</div>
-</div>
-<!-- Modal Editar Fim-->
 
 
-<div class="modal fade" id="excluirVeiculoModal" tabindex="-1" role="dialog"
-aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exempleModalLabel">Excluir Veículos</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      Você tem certeza que deseja excluir este Veiculos?
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-      <button type="button" class="btn btn-primary">Sim</button>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- Modal Excluir Fim-->
-
-<!-- Modais Veiculos Fim-->
 
 
-<div class="modal fade" id="addPetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Novo Pet</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="form-group">
-          <label for="nomePet" class="col-form-label">Nome</label>
-          <input type="text" class="form-control" name="nomePet" id="nomePet"
-            placeholder="Nome">
-        </div>
-        <div class="form-group">
-          <label for="tipoPet" class="col-form-label">Tipo</label>
-          <input type="text" class="form-control" name="tipoPet" id="tipoPet"
-            placeholder="Ex: filho, mãe, etc.">
-        </div>
-        <div class="form-group">
-          <label for="rgPet" class="col-form-label">RG</label>
-          <input type="text" class="form-control" name="rgPet" id="rgPet"
-            placeholder="Rg">
-        </div>
-        <div class="form-group">
-          <label for="fotoPet">Foto</label>
-          <input type="file" class="form" name="fotoPet" id="fotoPet">
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-      <button type="submit" class="btn btn-primary">Incluir</button>
-
-    </div>
-  </div>
-</div>
-</div>
-<!-- Modal Add Fim-->
-
-<div class="modal fade" id="editarPetModal" tabindex="-1" role="dialog"
-aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Editar Pet</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="form-group">
-          <label for="nomePet" class="col-form-label">Editar Nome</label>
-          <input type="text" class="form-control" name="nomePet" id="nomePet"
-            placeholder="Nome">
-        </div>
-        <div class="form-group">
-          <label for="tipoPet" class="col-form-label">Editar Tipo</label>
-          <input type="text" class="form-control" name="tipoPet" id="tipoPet"
-            placeholder="Ex: filho, mãe, etc.">
-        </div>
-        <div class="form-group">
-          <label for="rgPet" class="col-form-label">Editar RG</label>
-          <input type="text" class="form-control" name="rgPet" id="rgPet"
-            placeholder="Rg">
-        </div>
-        <div class="form-group">
-          <label for="fotoPet">Alterar Foto</label>
-          <input type="file" class="form" name="fotoPet" id="fotoPet">
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-      <button type="submit" class="btn btn-primary">Incluir</button>
-
-    </div>
-  </div>
-</div>
-</div>
-<!-- Modal Editar Fim-->
 
 
-<div class="modal fade" id="excluirPetModal" tabindex="-1" role="dialog"
-aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exempleModalLabel">Excluir Pet</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      Você tem certeza que deseja excluir este Pet?
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-      <button type="button" class="btn btn-primary">Sim</button>
-    </div>
-  </div>
-</div>
-</div>
 
-<!-- Modal Excluir Fim-->
-
-<!-- Modais Pets Fim-->
