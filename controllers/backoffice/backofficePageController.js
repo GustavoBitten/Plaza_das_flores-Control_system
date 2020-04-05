@@ -1,25 +1,34 @@
 
 let backofficePageController = {
   moradorDashboard: (req,res) => {
-    res.render("backoffice/morador/dashboard", {titulo:"Dashboard - Morador"})
+    res.render("backoffice/morador/dashboard", {titulo:"Morador - Dashboard"})
   },
   moradorPerfil: (req,res) => {
     res.render("backoffice/morador/perfil", {titulo:"Morador - Perfil"})
   },
+  moradorOcorrencias: (req,res) => {
+    res.render("backoffice/morador/ocorrencias", {titulo:"Morador - Ocorrências"})
+  },
+  moradorAreasComuns: (req,res) => {
+    res.render("backoffice/morador/areasComuns", {titulo: "Morador - Áreas Comuns"})
+  },
   sindicoPerfil: (req,res) => {
     res.render("backoffice/sindico/perfil", {titulo:"Sindico - Perfil"})
   },
-  moradorAreasComuns: (req,res) => {
-    res.render("backoffice/morador/areasComuns", {titulo: "Áreas Comuns - Morador"})
+  sindicoOcorrencias: (req,res) => {
+    res.render("backoffice/sindico/ocorrencias", {titulo:"Sindico - Ocorrências"})
   },
   sindicoMoradores: (req,res) => {
-    res.render("backoffice/sindico/moradores", {titulo:"Moradores - Síndico"})
+    res.render("backoffice/sindico/moradores", {titulo:"Síndico - Moradores"})
   },
   portariaPerfil: (req,res) => {
     res.render("backoffice/portaria/perfil", {titulo:"Portaria - Perfil"})
   },
+  portariaOcorrencias: (req,res) => {
+    res.render("backoffice/portaria/ocorrencias", {titulo:"Portaria - Ocorrências"})
+  },
   portariaMoradores: (req,res) => {
-    res.render("backoffice/portaria/moradores", {titulo:"Moradores - Portaria"})
+    res.render("backoffice/portaria/moradores", {titulo:"Portaria - Moradores"})
   }
 
 
