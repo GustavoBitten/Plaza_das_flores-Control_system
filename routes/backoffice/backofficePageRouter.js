@@ -10,17 +10,20 @@ route.get('/morador/dashboard', backofficePageController.moradorDashboard)
 route.get('/morador/perfil', backofficePageController.moradorPerfil)
 route.get('/morador/ocorrencias', backofficePageController.moradorOcorrencias)
 route.get('/morador/areas-comuns', backofficePageController.moradorAreasComuns)
+route.get('/morador/portaria', backofficePageController.moradorPortaria)
 
 
 // Rotas para síndico
 route.get('/sindico/moradores', backofficePageController.sindicoMoradores)
 route.get('/sindico/perfil', backofficePageController.sindicoPerfil)
 route.get('/sindico/ocorrencias', backofficePageController.sindicoOcorrencias)
+route.get('/sindico/portaria', backofficePageController.sindicoPortaria)
 
 //Rotas para portaria
 route.get('/portaria/moradores', backofficePageController.portariaMoradores)
 route.get('/portaria/perfil', backofficePageController.portariaPerfil)
 route.get('/portaria/ocorrencias', backofficePageController.portariaOcorrencias)
+route.get('/portaria/correspondencias', backofficePageController.portariaCorrespondencias)
 
 
 module.exports = route

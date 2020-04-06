@@ -1,0 +1,22 @@
+.btn, .btn-sm, .btn-lg {
+    background-color: #E8751C;
+    color: white;
+    font-weight: 600;
+  }
+
+.painel{
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border: solid 2px #FFA62B;
+}
+
+.painel-titulo{
+    background-color: #FFA62B;
+    color: white;
+    font-weight: 600;
+}
+
+.botao-correspondencia{
+    margin-right: 5%;
+}

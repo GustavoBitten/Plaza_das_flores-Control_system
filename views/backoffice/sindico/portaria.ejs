@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <%- include('../../includes/head', {titulo: titulo}) %>
+
+  <link rel="stylesheet" href="/css/backoffice/layout.css">
+  <link rel="stylesheet" href="/css/backoffice/sindicoPortaria.css">
+</head>
+
+<body>
+  <%- include('../../includes/backoffice/header') %>
+  <%- include('../../includes/backoffice/aside') %>
+
+  <main class="container-fluid mx-0 pt-2">
+      
+    <h1 class="titulo">Portaria</h1>
+
+    <div class="row">
+        <div class="col-1 botao-correspondencia" >
+            <button id="btnCorrespondencias" type="button" class="btn-sm border-0 rounded-pill"
+            data-toggle="modal" data-target="#modalCorrespondencias">Correspondências</button>
+        </div>
+        <div class="col-1">
+            <button id="btnVisitantes" type="button" class="btn-sm border-0 rounded-pill"
+            data-toggle="modal" data-target="#modalVisitantes">Visitantes</button>
+        </div>
+        <div class="col-1">
+            <button id="btnServicos" type="button" class="btn-sm border-0 rounded-pill"
+            data-toggle="modal" data-target="#modalServicos">Serviços</button>
+        </div>
+    </div>
+
+    <section class="row">
+        
+        <div class="panel panel-default painel">
+            <!-- Default panel contents -->
+            <div class="panel-heading painel-titulo">Correspondências</div>
+            <!-- Table -->
+            <table class="table tabela">
+                <tr>
+                    <th>Tipo</th>
+                    <th>Recebido</th>
+                    <th>Status</th>
+                    <th>Data</th>
+                    <th>Retirado</th>
+                    <th>Data</th>
+                  </tr>
+                  <tr>
+                    <td>Encomenda</td>
+                    <td>Pedro</td>
+                    <td>Retirado</td>
+                    <td>01/01/2020</td>
+                    <td>Rubão</td>
+                    <td>02/01/2020</td>
+                  </tr>
+                  <tr>
+                    <td>Encomenda</td>
+                    <td>Pedro</td>
+                    <td>Retirado</td>
+                    <td>01/01/2020</td>
+                    <td>Rubão</td>
+                    <td>02/01/2020</td>
+                  </tr>
+                  <tr>
+                    <td>Encomenda</td>
+                    <td>Pedro</td>
+                    <td>Retirado</td>
+                    <td>01/01/2020</td>
+                    <td>Rubão</td>
+                    <td>02/01/2020</td>
+                  </tr>
+                  <tr>
+                    <td>Encomenda</td>
+                    <td>Pedro</td>
+                    <td>Retirado</td>
+                    <td>01/01/2020</td>
+                    <td>Rubão</td>
+                    <td>02/01/2020</td>
+                  </tr>
+                  <tr>
+                    <td>Encomenda</td>
+                    <td>Pedro</td>
+                    <td>Retirado</td>
+                    <td>01/01/2020</td>
+                    <td>Rubão</td>
+                    <td>02/01/2020</td>
+                  </tr>
+                  <tr>
+                    <td>Encomenda</td>
+                    <td>Pedro</td>
+                    <td>Retirado</td>
+                    <td>01/01/2020</td>
+                    <td>Rubão</td>
+                    <td>02/01/2020</td>
+                  </tr>
+                  <tr>
+                    <td>Encomenda</td>
+                    <td>Pedro</td>
+                    <td>Retirado</td>
+                    <td>01/01/2020</td>
+                    <td>Rubão</td>
+                    <td>02/01/2020</td>
+                  </tr>
+                  <tr>
+                    <td>Encomenda</td>
+                    <td>Pedro</td>
+                    <td>Retirado</td>
+                    <td>01/01/2020</td>
+                    <td>Rubão</td>
+                    <td>02/01/2020</td>
+                  </tr>
+                  <tr>
+                    <td>Encomenda</td>
+                    <td>Pedro</td>
+                    <td>Retirado</td>
+                    <td>01/01/2020</td>
+                    <td>Rubão</td>
+                    <td>02/01/2020</td>
+                  </tr>
+                  <tr>
+                    <td>Encomenda</td>
+                    <td>Pedro</td>
+                    <td>Retirado</td>
+                    <td>01/01/2020</td>
+                    <td>Rubão</td>
+                    <td>02/01/2020</td>
+                  </tr>
+                  <tr>
+                    <td>Encomenda</td>
+                    <td>Pedro</td>
+                    <td>Retirado</td>
+                    <td>01/01/2020</td>
+                    <td>Rubão</td>
+                    <td>02/01/2020</td>
+                  </tr>
+            </table>
+        </div>
+
+    </section>
+
+  </main>
+
+  <%- include('../../includes/scriptJS') %> 
+</body>
+</html>
