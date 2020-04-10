@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <%- include('../../includes/head', {titulo: titulo}) %>
+
+    <link rel="stylesheet" href="/css/backoffice/layout.css">
+    <link rel="stylesheet" href="/css/backoffice/areasComuns.css">
+  </head>
+
+  <body>
+    <%- include('../../includes/backoffice/header') %>
+    <%- include('../../includes/backoffice/aside') %>
+
+    <main class="container-fluid mx-0 pt-2">
+
+      <div class="row">
+        <h1 class="pl-3">Áreas Comuns</h1>
+      </div>
+
+      <section class="row">
+
+        <div class="card col-10 col-md-8 offset-1 offset-md-2 px-0">
+          <div class="card-header d-flex justify-content-center w-100 p-0">
+            <h5 class="m-0 p-1">Reservas</h5>
+          </div>
+          <div class="card-body row">
+            <div class="col-12">
+              <table class="table table-borderless table-striped table-hover table-responsive-lg">
+                <caption>Lista de reservas - Áreas Comuns</caption>
+
+                <thead>
+                  <tr class="text-center">
+                    <th scope="col">
+                      Data
+                    </th>
+                    <th scope="col">
+                      Nome
+                    </th>
+                    <th scope="col">
+                      Ap./Bl.
+                    </th>
+                    <th scope="col">
+                      Área
+                    </th>
+                    <th scope="col">
+                      Convidados
+                    </th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                  <!-- Inserir condicional (se for o dia atual table-success) -->
+                  <tr class="table-success text-center">
+                    <th scope="row">
+                      10/04
+                    </th>
+                    <td>
+                      Mark
+                    </td>
+                    <td>
+                      13/A
+                    </td>
+                    <td>
+                      Churrasqueira
+                    </td>
+                    <td>
+                      <a class="text-dark-orange" href="<%# listaDeConvidados %> "><i class="fas fa-user-check"></i></a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <th scope="row">
+                      12/04
+                    </th>
+                    <td>
+                      Jacob
+                    </td>
+                    <td>
+                      32/B
+                    </td>
+                    <td>
+                      Churrasqueira
+                    </td>
+                    <td>
+                      <a class="text-dark-orange" href="<%# listaDeConvidados %> "><i class="fas fa-user-check"></i></a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <th scope="row">
+                      12/04
+                    </th>
+                    <td>
+                      Larry the Bird
+                    </td>
+                    <td>
+                      23/G
+                    </td>
+                    <td>
+                      Salão de Festas
+                    </td>
+                    <td>
+                      <a class="text-dark-orange" href="<%# listaDeConvidados %> "><i class="fas fa-user-check"></i></a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <th scope="row">
+                      23/04
+                    </th>
+                    <td>
+                      Joãozinho
+                    </td>
+                    <td>
+                      14/C
+                    </td>
+                    <td>
+                      Churrasqueira
+                    </td>
+                    <td>
+                      <a class="text-dark-orange" href="<%# listaDeConvidados %> "><i class="fas fa-user-check"></i></a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <th scope="row">
+                      23/04
+                    </th>
+                    <td>
+                      Joãozinho
+                    </td>
+                    <td>
+                      14/C
+                    </td>
+                    <td>
+                      Salão de Festas
+                    </td>
+                    <td>
+                      <a class="text-dark-orange" href="<%# listaDeConvidados %> "><i class="fas fa-user-check"></i></a>
+                    </td>
+                  </tr>
+                </tbody>
+
+                <!-- <thead>
+                  <tr class="text-center">
+                    <th scope="col">
+                      Data
+                    </th>
+                    <th scope="col">
+                      Nome
+                    </th>
+                    <th scope="col">
+                      Ap./Bl.
+                    </th>
+                    <th scope="col">
+                      Área
+                    </th>
+                    <th scope="col">
+                      Convidados
+                    </th>
+                  </tr>
+                </thead> -->
+              </table>
+            </div>
+            <!-- /.col-12 -->
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+      </section>
+
+    </main>
+
+  </body>
+</html>

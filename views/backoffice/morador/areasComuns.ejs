@@ -33,7 +33,7 @@
             <h5 class="m-0 p-1">Nova Reserva</h5>
           </div>
           <div class="card-body row">
-            <div class="col-12 col-sm-6">
+            <div id="divFormReservas" class="col-12 col-sm-6">
               <form id="formReserva" class="overflow-hidden border-right h-100" action="">
                 
                 <h6>Espaço:</h6>
@@ -53,7 +53,9 @@
 
                 <div class="custom-control d-flex flex-column pt-3 pl-0">
                   <label for="diaReserva">Dia:</label>
-                  <input type="date" class="border rounded-pill" id="diaReserva" name="diaReserva">
+                  <input type="date" class="border rounded-pill" id="diaReserva" name="diaReserva"
+                   value="<%= new Date().getFullYear() %>-<%= new Date().getMonth() + 1 < 10 ? '0' + (new Date().getMonth() + 1) : new Date().getMonth() + 1 %>-<%= new Date().getDate() < 10 ? '0' + new Date().getDate() : new Date().getDate() %>"
+                   min="<%= new Date().getFullYear() %>-<%= new Date().getMonth() + 1 < 10 ? '0' + (new Date().getMonth() + 1) : new Date().getMonth() + 1 %>-<%= new Date().getDate() < 10 ? '0' + new Date().getDate() : new Date().getDate() %>">
                 </div>
 
                 <div id="divBtn" class="custom-control position-absolute bottom-0 w-80 pl-0">
@@ -64,7 +66,7 @@
                 
               </form>
             </div>
-            <!-- /.col-6 -->
+            <!-- /#divFormReservas -->
 
             <div id="infos" class="col-12 col-sm-6">
               <h6>Regras:</h6>
@@ -79,7 +81,7 @@
               <h6>Salão de Festas:</h6>
               <p>2 Geladeiras, freezer, 6 mesas com 6 cadeiras cada, pista de dança com jogos de luzes, tv.</p>
             </div>
-            <!-- /.col-6 -->
+            <!-- /#infos -->
           </div>
           <!-- /.card-body -->
         </div>

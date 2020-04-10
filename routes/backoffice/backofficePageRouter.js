@@ -23,6 +23,7 @@ route.get('/sindico/portaria', backofficePageController.sindicoPortaria)
 route.get('/portaria/moradores', backofficePageController.portariaMoradores)
 route.get('/portaria/perfil', backofficePageController.portariaPerfil)
 route.get('/portaria/ocorrencias', backofficePageController.portariaOcorrencias)
+route.get('/portaria/areas-comuns', backofficePageController.portariaAreasComuns)
 route.get('/portaria/correspondencias', backofficePageController.portariaCorrespondencias)
 
 

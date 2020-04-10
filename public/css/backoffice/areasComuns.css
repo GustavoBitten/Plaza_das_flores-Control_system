@@ -25,6 +25,8 @@ p {
   font-weight: 600;
 }
 
+/* Início Moradores */
+
 @media (max-width: 1210px) {
   div#checkboxes {
     flex-direction: column;
@@ -68,3 +70,5 @@ p {
     margin-top: 0.5rem !important;
   }
 } */
+
+/* Fim Moradores */

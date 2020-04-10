@@ -15,6 +15,7 @@ let backofficePageController = {
   moradorPortaria: (req,res) => {
     res.render("backoffice/morador/portaria", {titulo:"Morador - Portaria"})
   },
+  
   sindicoPerfil: (req,res) => {
     res.render("backoffice/sindico/perfil", {titulo:"Sindico - Perfil"})
   },
@@ -27,11 +28,15 @@ let backofficePageController = {
   sindicoPortaria: (req,res) => {
     res.render("backoffice/sindico/portaria", {titulo:"Síndico - Portaria"})
   },
+
   portariaPerfil: (req,res) => {
     res.render("backoffice/portaria/perfil", {titulo:"Portaria - Perfil"})
   },
   portariaOcorrencias: (req,res) => {
     res.render("backoffice/portaria/ocorrencias", {titulo:"Portaria - Ocorrências"})
+  },
+  portariaAreasComuns: (req, res) => {
+    res.render("backoffice/portaria/areasComuns", {titulo: "Portaria - Áreas Comuns"})
   },
   portariaMoradores: (req,res) => {
     res.render("backoffice/portaria/moradores", {titulo:"Portaria - Moradores"})

@@ -6,3 +6,11 @@ body {
 nav.navbar {
   border-bottom: 1px solid black;
 }
+
+.text-dark-orange {
+  color: #E8751C;
+}
+
+a.text-dark-orange:hover {
+  color: #FFA62B;
+}
