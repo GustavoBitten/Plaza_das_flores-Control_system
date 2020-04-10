@@ -11,24 +11,77 @@
 <body>
     <%- include('../../includes/backoffice/header') %>
     <%- include('../../includes/backoffice/aside') %>
-
+    
     <main>
-        <h1>Ocorrências</h1>
-        <div class="container">
+      <h1>Ocorrências</h1>
 
-            <div class="row">
-            <p>
-                <a class="btn btn-primary" data-toggle="collapse" href="#novaOcorrenciaCollapse" role="button"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    Nova
-                </a>
-                <a class="btn btn-primary" data-toggle="collapse" href="#statusCollapse" role="button"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    Histórico
-                </a>
-            </p>
-        </div>
-        </div>
+        <div class="container-flex col-12 col-md-8 offset-1 offset-md-2 px-0">
+          <button type="button" class="btnNova btn btn-primary" data-toggle="modal" data-target="#novaOcorrenciaModal" data-whatever="@mdo">
+            Nova Ocorrência</button>
+            
+          <div class="card-header r w-100 p-0">
+                <h1></h1>
+                <h5 class="m-0 p-1">Status/Histórico</h5>
+                <button type="button" class="btnFiltro btn-primary" data-toggle="modal" data-target="#filtroModal" data-whatever="@mdo">
+                  +Filtro
+                </button>
+            </div>
+
+            <div class="table-responsive">
+            <table class="table table-hover">
+
+                <thead>
+                  <tr class="info">
+                    <th scope="col">Título</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Detalhes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Lâmpada Queimada</td>
+                    <td>Manutenção</td>
+                    <td>Concluída</td>
+                    <td>20/12/2020</td>
+                    <td><button type="button" class="detalhes btn btn-primary"  data-toggle="modal" data-target="#detalhes1Modal">
+                       + </button></td>   
+                  </tr>
+
+                  <tr>
+                    <td>Som Alto</td>
+                    <td>Reclamação</td>
+                    <td>Em Análise</td>
+                    <td>22/12/2020</td>
+                    <td> <button type="button" class=" detalhes btn btn-primary" data-toggle="modal" data-target="#detalhes2Modal">
+                       +</button></td>   
+                  </tr>
+
+                  <tr>
+                    <td>Som Alto</td>
+                    <td>Reclamação</td>
+                    <td>Em Análise</td>
+                    <td>22/12/2020</td>
+                    <td> <button type="button" class=" detalhes btn btn-primary" data-toggle="modal" data-target="#detalhes2Modal">
+                       +</button></td>   
+                  </tr>
+
+                  <tr>
+                    <td>Som Alto</td>
+                    <td>Reclamação</td>
+                    <td>Em Análise</td>
+                    <td>22/12/2020</td>
+                    <td> <button type="button" class=" detalhes btn btn-primary" data-toggle="modal" data-target="#detalhes2Modal">
+                       +</button></td>   
+                  </tr>
+                
+                </tbody>
+              </table>
+              </div>
+                        
+  </div>
+        
     </main>
     <%- include('../../includes/scriptJS') %>
 </body>
@@ -36,108 +89,162 @@
 </html>
 
 
-<!-- collapses estruturas-->
-
-<div id="teste">
 
 
-    <!-- collapse Nova Ocorrencia-->
-<div class="collapse.show"  id="novaOcorrenciaCollapse" data-parent="#teste">
-    <section class="row">
+<!--Modais Estruturas -->
 
-        <div class="caixaPrincipal col-12 col-md-8 offset-1 offset-md-2 px-0">
-            <div class="card-header d-flex justify-content-center w-100 p-0">
-                <h5 class="m-0 p-1">Nova Ocorrência</h5>
+
+<!--Nova Ocorrência Modal -->
+<div class="modal fade" id="novaOcorrenciaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nova Ocorrência</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="formulario">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Título:</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ex: Lâmpada Queimada">
             </div>
-                    <form>
-                        <div class="form-group">
-                          <label for="exampleFormControlInput1">Título</label>
-                          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ex: Lâmpada Queimada">
-                        </div>
 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">Dúvida</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">Reclamação</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" >
-                            <label class="form-check-label" for="inlineCheckbox3">Manutenção</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" >
-                            <label class="form-check-label" for="inlineCheckbox3">Sugestão</label>
-                          </div>
-                          
-                          <div class="form-group">
-                            <label for="exampleFormControlFile1">Incluir Arquivos</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                          </div>
-
-                        <div class="form-group">
-                          <label for="exampleFormControlTextarea1">Mensagem</label>
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div> 
-
-                        <button type="submit" class="btn btn-primary my-1">Submit</button>
-
-                        </form>
-                </div>
-    </section>
-</div>
-
-
-<!-- collapses Status/Historico-->
-
-<div class="collapse" id="statusCollapse" data-parent="#teste">
-    <section class="row">
-
-        <div class="caixaPrincipal col-12 col-md-8 offset-1 offset-md-2 px-0">
-            <div class="card-header d-flex justify-content-center w-100 p-0">
-                <h5 class="m-0 p-1">Status/Histórico</h5>
+            <div>
+              <label for="">Tipo:</label>
             </div>
-        
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table>
-                        
-    </section>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1" style="font-weight: normal;">
+                  Dúvida</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2" style="font-weight: normal;">
+                  Reclamação</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" >
+                <label class="form-check-label" for="inlineCheckbox3" style="font-weight: normal;">
+                  Manutenção</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4" >
+                <label class="form-check-label" for="inlineCheckbox4" style="font-weight: normal;">
+                  Sugestão</label>
+              </div>
+            
+              
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Incluir Arquivos:</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+              </div>
+
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Mensagem:</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div> 
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Filtro Modal -->
+<div class="modal fade" id="filtroModal" tabindex="-1" role="dialog" aria-labelledby="filtroModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="filtroModal">Filtro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="birthday">Data Início</label>
+            <input type="date" id="birthday" name="birthday">
+          </div>
+          <div class="form-group">
+            <label for="birthday">Data Final </label>
+            <input type="date" id="birthday" name="birthday">
+          </div>
+          <div class="form-group">
+            <label for="">Status</label>
+            <select name="Tipo" id="status">
+              <option value="Em Andamento">Em Andamento</option>
+              <option value="Em Análise">Em Análise</option>
+              <option value="Concluído">Concluído</option>
+
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Filtrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Detalhes 2 -->
+<div class="modal fade" id="detalhes2Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detalhes2Modal">Detalhes</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Arquivo Cadastrado</h5>
+        <img src="https://www.cultura.rs.gov.br/upload/recortes/carga20190401/03110143_57625_GDO.jpg; ">
+        <h5 >Mensagem</h5>
+        <p>Apartamento 22A utilizando aparelho sonoro com volume acima do normal</p>
+        <h5>Resposta do(a) Síndico(a)</h5>
+        <p>O AP22A recebeu um aviso</p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 
+<!-- Detalhes Modal 1 -->
+<div class="modal fade" id="detalhes1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detalhes1Modal">Detalhes</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Imagem Cadastrada</h5>
+        <img src="https://media.istockphoto.com/photos/burnedout-light-bulb-isolated-on-white-background-with-shadow-burned-picture-id952090314" alt="" style="width: 100px; height: 100px; object-fit: cover; ">
+        <h5 >Mensagem</h5>
+        <p>Lâmpada do corredor queimada. Por favor, realizar a manutenção</p>
+        <h5>Resposta do(a) Síndico(a)</h5>
+        <p>A lampânda foi trocada, att síndico</p>
 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-

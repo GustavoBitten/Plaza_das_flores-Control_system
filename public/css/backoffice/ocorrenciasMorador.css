@@ -1,23 +1,78 @@
 main h1{
     margin-left: 10px;
 }
-.container{
+
+
+.table{
+    border: solid 1px #FFA62B;
+    padding: 10px;
+}
+
+.card-header {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row ;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 40px;
-    margin-left: 175px;
+
+}
+
+.btn{
+    background-color: #FFA62B;
+    border: none;
+    border-radius: 20px;
+}
+
+.btnFiltro{
+  background-color: #FFA62B;
+  border: none;
+  border-radius: 20px;
+ 
+}
+
+.btnNova{
+  margin:20px 0 20px 0;
+}
+
+label{
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.detalhes{
+    margin-left: 15px;
+}
+
+
+
+
+@media (max-width: 680px){
+
+  .container-flex{
+      font-size: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row ;
+      justify-content: flex-start ;
+      align-items: flex-start;
+  }
+  
+}
+
+
+
+
+
+/* telas cel na horizontal e tablet*/
+@media (min-width: 680px) and (max-width: 1024px) {
+
+  
+  .container-flex{
+    font-size: 16px;
+  
     
 }
 
-.container a{
-    margin: 10px;
-}
-
-form{
-    border: solid 1px #FFA62B;
-    padding: 10px;
-
-}
+  }
+  
+      
