@@ -3,9 +3,10 @@ main h1{
 }
 
 
-.table{
+.table {
     border: solid 1px #FFA62B;
     padding: 10px;
+    text-align: center;
 }
 
 .card-header {
@@ -39,17 +40,19 @@ label{
     border-radius: 20px;
 }
 
-.detalhes{
-    margin-left: 15px;
-}
 
+.btnFiltro{
+  font-size: 16px;
+  font-weight: bold;
+  
+}
 
 
 
 @media (max-width: 680px){
 
   .container-flex{
-      font-size: 12px;
+      font-size: 14px;
       display: flex;
       flex-wrap: wrap;
       flex-direction: row ;
