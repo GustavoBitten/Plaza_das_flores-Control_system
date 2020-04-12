@@ -7,13 +7,13 @@
   <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
   
-<body class="d-flex flex-column">
+<body class="d-flex flex-column body" id="body">
 
   <%- include('includes/home/header')%>
 
   <main id="main" >
-    <section id="pFirst" class="flex-column d-flex justify-content-between">
-      <div class="container   flex-fill">
+    <section id="pFirst" class="pFirst flex-column d-flex justify-content-between">
+      <div class="container"  >
         <div class="row part1">
           <div class="col-12 d-flex part1 align-items-center justify-content-center    ">
             <h1>Plaza das Flores, o residencial perfeito para você</h1>
@@ -23,9 +23,9 @@
           <div class="col-1   ">
             
           </div>
-          <div class="col-10 p-0 d-flex flex-fill justify-content-between flex-row  align-items-center   ">
+          <div class="col-10 p-0 d-flex flex-fill justify-content-between flex-row-reverse  align-items-center   ">
             <img src="img/Portaria.jpg" alt="Portaria" class="w-50 m-3">
-            <p class="m-3 p-3">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            <p class="m-0 p-3">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptu
             </p>
           </div>
           <div class="col-1   ">
@@ -33,25 +33,20 @@
           </div>
         </div>
       </div>
-      <div class=".container-fluid d-flex  align-items-center justify-content-center " id="alertBox" >
-        <h2>Se você já é morador, Acesse sua área exclusiva</h2>
-      </div>
     </section>
-    <section id="pSecond">
-      <div class="container  border-primary ">
-        
-        <div class="row ">
-          <div class="col-6 d-flex justify-content-center border border-primary  ">
-            <h1>Plaza das Flores, o residencial perfeito para você</h1>
-          </div>
-          <div class="col-6 d-flex justify-content-center border border-primary bg-white ">
-            <h1>Plaza das Flores, o residencial perfeito para você</h1>
-          </div>
-        </div>
-      </div>
+    <div class=".container-fluid d-flex  align-items-center justify-content-center " id="alertBox1" >
+      <h2>Se você já é morador, Acesse sua área exclusiva</h2>
+    </div>
+    
+    
+    <%- include('homeParts/homeSobre')%>
 
-
-    </section>
+    <%- include('homeParts/homeApartamento')%>
+    <%- include('homeParts/homeLazer')%>
+    <%- include('homeParts/homeLocalizacao')%>
+    <%- include('homeParts/homeContato')%>
+    
+    
 
 
 
@@ -87,14 +82,7 @@
 
   <script>
 
-    console.log(window.screen.availHeight)
-    
-    function clickScroll() {
-      // let a = ((window.screen.availHeight-103)*0.90)*y
-      // window.scrollTo(0,a)
-      window.scrollTo(document.querySelector("#pSecond"))
-    }
-    
+   
 
 
   </script>
