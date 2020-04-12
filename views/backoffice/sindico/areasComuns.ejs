@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <%- include('../../includes/head', {titulo: titulo}) %>
+
+    <link rel="stylesheet" href="/css/backoffice/layout.css">
+    <link rel="stylesheet" href="/css/backoffice/areasComuns.css">
+  </head>
+
+  <body>
+    <%- include('../../includes/backoffice/header') %>
+    <%- include('../../includes/backoffice/aside') %>
+
+    <main class="container-fluid mx-0 pt-2">
+
+      <div class="row">
+        <h1 class="pl-3">Áreas Comuns</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-10 col-md-8 offset-1 offset-md-2 mb-3 p-0">
+          <button id="btnHistórico" type="button" class="btn-sm border-0 rounded-pill"
+           data-toggle="modal" data-target="#modalHistorico">Histórico</button>
+        </div>
+      </div>
+
+      <section class="row">
+
+        <div class="card col-10 col-md-8 offset-1 offset-md-2 px-0">
+          <div class="card-header d-flex justify-content-center w-100 p-0">
+            <h5 class="m-0 p-1">Requisições de Reservas</h5>
+          </div>
+          <div class="card-body row">
+            <div class="col-12">
+              <table class="table table-borderless table-striped table-hover table-responsive-lg">
+                <caption>Lista de reservas pendentes - Áreas Comuns</caption>
+
+                <thead>
+                  <tr class="text-center">
+                    <th scope="col">
+                      Data
+                    </th>
+                    <th scope="col">
+                      Nome
+                    </th>
+                    <th scope="col">
+                      Ap./Bl.
+                    </th>
+                    <th scope="col">
+                      Área
+                    </th>
+                    <th scope="col">
+                      Convidados
+                    </th>
+                    <th scope="col">
+                      Avaliar
+                    </th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                  <!-- Inserir condicional (se for o dia atual table-success) ? -->
+                  <tr class="table-success text-center">
+                    <td class="align-middle font-weight-bold" scope="row">
+                      10/04
+                    </td>
+                    <td class="align-middle">
+                      Mark
+                    </td>
+                    <td class="align-middle">
+                      13/A
+                    </td>
+                    <td class="align-middle">
+                      Churrasqueira
+                    </td>
+                    <td class="align-middle">
+                      <a class="text-dark-orange" href="<%# listaDeConvidados %>" title="Lista de Convidados">
+                        <i class="fas fa-user-check"></i>
+                      </a>
+                    </td>
+                    <td class="align-middle">
+                      <a href="<%# aprovarReserva %>" class="text-success" title="Aprovar">
+                        <i class="fas fa-calendar-check"></i>
+                      </a>
+                      <a href="<%# recusarReserva %>" class="text-danger ml-3" title="Recusar">
+                        <i class="fas fa-calendar-times"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <th scope="row">
+                      12/04
+                    </th>
+                    <td>
+                      Jacob
+                    </td>
+                    <td>
+                      32/B
+                    </td>
+                    <td>
+                      Churrasqueira
+                    </td>
+                    <td>
+                      <a class="text-dark-orange" href="<%# listaDeConvidados %>" title="Lista de Convidados">
+                        <i class="fas fa-user-check"></i>
+                      </a>
+                    </td>
+                    <td>
+                      <a href="<%# aprovarReserva %>" class="text-success" title="Aprovar">
+                        <i class="fas fa-calendar-check"></i>
+                      </a>
+                      <a href="<%# recusarReserva %>" class="text-danger ml-3" title="Recusar">
+                        <i class="fas fa-calendar-times"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <th scope="row">
+                      12/04
+                    </th>
+                    <td>
+                      Larry the Bird
+                    </td>
+                    <td>
+                      23/G
+                    </td>
+                    <td>
+                      Salão de Festas
+                    </td>
+                    <td>
+                      <a class="text-dark-orange" href="<%# listaDeConvidados %>" title="Lista de Convidados">
+                        <i class="fas fa-user-check"></i>
+                      </a>
+                    </td>
+                    <td>
+                      <a href="<%# aprovarReserva %>" class="text-success" title="Aprovar">
+                        <i class="fas fa-calendar-check"></i>
+                      </a>
+                      <a href="<%# recusarReserva %>" class="text-danger ml-3" title="Recusar">
+                        <i class="fas fa-calendar-times"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <th scope="row">
+                      23/04
+                    </th>
+                    <td>
+                      Joãozinho
+                    </td>
+                    <td>
+                      14/C
+                    </td>
+                    <td>
+                      Churrasqueira
+                    </td>
+                    <td>
+                      <a class="text-dark-orange" href="<%# listaDeConvidados %>" title="Lista de Convidados">
+                        <i class="fas fa-user-check"></i>
+                      </a>
+                    </td>
+                    <td>
+                      <a href="<%# aprovarReserva %>" class="text-success" title="Aprovar">
+                        <i class="fas fa-calendar-check"></i>
+                      </a>
+                      <a href="<%# recusarReserva %>" class="text-danger ml-3" title="Recusar">
+                        <i class="fas fa-calendar-times"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <th scope="row">
+                      23/04
+                    </th>
+                    <td>
+                      Joãozinho
+                    </td>
+                    <td>
+                      14/C
+                    </td>
+                    <td>
+                      Salão de Festas
+                    </td>
+                    <td>
+                      <a class="text-dark-orange" href="<%# listaDeConvidados %>" title="Lista de Convidados">
+                        <i class="fas fa-user-check"></i>
+                      </a>
+                    </td>
+                    <td>
+                      <a href="<%# aprovarReserva %>" class="text-success" title="Aprovar">
+                        <i class="fas fa-calendar-check"></i>
+                      </a>
+                      <a href="<%# recusarReserva %>" class="text-danger ml-3" title="Recusar">
+                        <i class="fas fa-calendar-times"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+
+              </table>
+            </div>
+            <!-- /.col-12 -->
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+      </section>
+
+    </main>
+
+    <!-- Modal Histórico -->
+    <div class="modal fade" id="modalHistorico" tabindex="-1" role="dialog" aria-labelledby="modalHistoricoTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header d-flex justify-content-center">
+            <h5 class="modal-title" id="modalHistoricoTitle">Histórico de Reservas</h5>
+          </div>
+
+          <div class="modal-body">
+            <!-- Puxar todas as reservas aqui (mesmo esquema da tabela da página da portaria) -->
+            <table class="table table-borderless table-striped table-hover table-responsive-sm">
+              <caption>Lista de reservas - Áreas Comuns</caption>
+
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">
+                    Data
+                  </th>
+                  <th scope="col">
+                    Nome
+                  </th>
+                  <th scope="col">
+                    Ap./Bl.
+                  </th>
+                  <th scope="col">
+                    Área
+                  </th>
+                  <th scope="col">
+                    Convidados
+                  </th>
+                  <th scope="col">
+                    Situação
+                  </th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <!-- Inserir condicional (se for o dia atual table-success) -->
+                <tr class="table-success text-center">
+                  <td class="align-middle font-weight-bold" scope="row">
+                    10/04
+                  </td>
+                  <td class="align-middle">
+                    Mark
+                  </td>
+                  <td class="align-middle">
+                    13/A
+                  </td>
+                  <td class="align-middle">
+                    Churrasqueira
+                  </td>
+                  <td class="align-middle">
+                    <a class="text-dark-orange" href="<%# listaDeConvidados %>" title="Lista de Convidados">
+                      <i class="fas fa-user-check"></i>
+                    </a>
+                  </td>
+                  <!-- Condicional (se aprovado text-success senão text-danger) -->
+                  <td class="align-middle font-weight-bold text-success">
+                    Aprovada
+                  </td>
+                </tr>
+                <tr class="text-center">
+                  <th scope="row">
+                    12/04
+                  </th>
+                  <td>
+                    Jacob
+                  </td>
+                  <td>
+                    32/B
+                  </td>
+                  <td>
+                    Churrasqueira
+                  </td>
+                  <td>
+                    <a class="text-dark-orange" href="<%# listaDeConvidados %>" title="Lista de Convidados">
+                      <i class="fas fa-user-check"></i>
+                    </a>
+                  </td>
+                  <td class="font-weight-bold text-danger">
+                    Recusada
+                  </td>
+                </tr>
+                <tr class="text-center">
+                  <th scope="row">
+                    12/04
+                  </th>
+                  <td>
+                    Larry the Bird
+                  </td>
+                  <td>
+                    23/G
+                  </td>
+                  <td>
+                    Salão de Festas
+                  </td>
+                  <td>
+                    <a class="text-dark-orange" href="<%# listaDeConvidados %>" title="Lista de Convidados">
+                      <i class="fas fa-user-check"></i>
+                    </a>
+                  </td>
+                  <td class="font-weight-bold text-danger">
+                    Recusada
+                  </td>
+                </tr>
+                <tr class="text-center">
+                  <th scope="row">
+                    23/04
+                  </th>
+                  <td>
+                    Joãozinho
+                  </td>
+                  <td>
+                    14/C
+                  </td>
+                  <td>
+                    Churrasqueira
+                  </td>
+                  <td>
+                    <a class="text-dark-orange" href="<%# listaDeConvidados %>" title="Lista de Convidados">
+                      <i class="fas fa-user-check"></i>
+                    </a>
+                  </td>
+                  <td class="font-weight-bold text-success">
+                    Aprovada
+                  </td>
+                </tr>
+                <tr class="text-center">
+                  <th scope="row">
+                    23/04
+                  </th>
+                  <td>
+                    Joãozinho
+                  </td>
+                  <td>
+                    14/C
+                  </td>
+                  <td>
+                    Salão de Festas
+                  </td>
+                  <td>
+                    <a class="text-dark-orange" href="<%# listaDeConvidados %>" title="Lista de Convidados">
+                      <i class="fas fa-user-check"></i>
+                    </a>
+                  </td>
+                  <td class="font-weight-bold text-success">
+                    Aprovado
+                  </td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-sm border-0 rounded-pill" data-dismiss="modal">Voltar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /#modalHistorico -->
+
+    <%- include('../../includes/scriptJS') %>
+  </body>
+</html>

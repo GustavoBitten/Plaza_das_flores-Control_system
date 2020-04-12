@@ -20,10 +20,13 @@ let backofficePageController = {
   },
 
   sindicoPerfil: (req,res) => {
-    res.render("backoffice/sindico/perfil", {titulo:"Sindico - Perfil"})
+    res.render("backoffice/sindico/perfil", {titulo:"Síndico - Perfil"})
   },
   sindicoOcorrencias: (req,res) => {
-    res.render("backoffice/sindico/ocorrencias", {titulo:"Sindico - Ocorrências"})
+    res.render("backoffice/sindico/ocorrencias", {titulo:"Síndico - Ocorrências"})
+  },
+  sindicoAreasComuns: (req, res) => {
+    res.render("backoffice/sindico/areasComuns", {titulo: "Síndico - Áreas Comuns"})
   },
   sindicoMoradores: (req,res) => {
     res.render("backoffice/sindico/moradores", {titulo:"Síndico - Moradores"})
