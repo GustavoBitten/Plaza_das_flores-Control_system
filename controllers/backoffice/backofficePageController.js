@@ -15,7 +15,10 @@ let backofficePageController = {
   moradorPortaria: (req,res) => {
     res.render("backoffice/morador/portaria", {titulo:"Morador - Portaria"})
   },
-  
+  moradorComunicados: (req,res) => {
+    res.render("backoffice/morador/comunicados", {titulo:"Morador - Comunicados"})
+  },
+
   sindicoPerfil: (req,res) => {
     res.render("backoffice/sindico/perfil", {titulo:"Sindico - Perfil"})
   },
@@ -27,6 +30,9 @@ let backofficePageController = {
   },
   sindicoPortaria: (req,res) => {
     res.render("backoffice/sindico/portaria", {titulo:"Síndico - Portaria"})
+  },
+  sindicoComunicados: (req,res) => {
+    res.render("backoffice/sindico/comunicados", {titulo:"Síndico - Comunicados"})
   },
 
   portariaPerfil: (req,res) => {
@@ -43,8 +49,10 @@ let backofficePageController = {
   },
   portariaCorrespondencias: (req,res) => {
     res.render("backoffice/portaria/correspondencias", {titulo:"Portaria - Correspondencias"})
+  },
+  portariaComunicados: (req,res) => {
+    res.render("backoffice/portaria/comunicados", {titulo:"Portaria - Comunicados"})
   }
-
 
 
 

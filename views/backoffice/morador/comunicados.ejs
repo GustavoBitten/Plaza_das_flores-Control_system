@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <%- include('../../includes/head', {titulo: titulo}) %>
+
+  <link rel="stylesheet" href="/css/backoffice/layout.css">
+  <link rel="stylesheet" href="/css/backoffice/comunicados.css">
+</head>
+
+<body>
+  <%- include('../../includes/backoffice/header') %>
+  <%- include('../../includes/backoffice/aside') %>
+
+  <main class="container-fluid mx-0 pt-2">
+      
+    <h1 class="titulo">Comunicados</h1>
+
+    <section class="row">
+        
+        <div class="panel panel-default painel">
+            <!-- Default panel contents -->
+            <div class="panel-heading painel-titulo">Comunicados</div>
+            <!-- Table -->
+            <table class="table tabela">
+                <tr>
+                    <th>Comunicado</th>
+                    <th>Data inicial</th>
+                    <th>Data final</th>
+                  </tr>
+                  <tr>
+                    <td class="texto-tabela">Piscina fechada para reforma.</td>
+                    <td>22/12/2019</td>
+                    <td>04/03/2020</td>
+                  </tr>
+                  <tr>
+                    <td class="texto-tabela">Coleta de doações para o orfanato da esquina na portaria.</td>
+                    <td>11/12/2019</td>
+                    <td>04/01/2020</td>
+                  </tr>
+                  <tr>
+                    <td class="texto-tabela">Limpeza de elevador programada para domingo.</td>
+                    <td>09/12/2019</td>
+                    <td>10/12/2020</td>
+                  </tr>
+                  <tr>
+                    <td class="texto-tabela">Proteja-se ano que vêm contra o novo vírus.</td>
+                    <td>01/12/2019</td>
+                    <td>07/07/2020</td>
+                  </tr>
+            </table>
+        </div>
+
+    </section>
+
+
+  </main>
+
+  <%- include('../../includes/scriptJS') %> 
+</body>
+</html>
