@@ -18,6 +18,7 @@ ul.navbar-nav > li > a{
 
 footer > div.container-fluid, footer > section.container-fluid {
   background-color: lightgrey;
+  height: 5vh
 }
 
 #nav * , #nav {
@@ -184,20 +185,71 @@ justify-content: center;
 }
 
 .card{
-  margin: 6px;
+  margin: 1.5%;
   background-color: transparent;
   
 }
 
 .card a{
-  background-color: blue;
+  border: 1px solid #06b600
 }
 
 .card-body{
   padding: 8px;
 }
 
+.form-control{
+  padding: 0.2rem 0.3rem;
+  height: unset;
+}
 
+form{
+  border-radius: .25rem;
+  border: 1px solid #858b92;
+}
+
+form *, .form-control{
+  font-size: 94%;
+  
+}
+.form-group{
+  margin-bottom: 1%;
+}
+
+.textarea label{
+  font-size:88%
+}
+
+.w-66{
+  width: 66%;
+}
+
+.w-34{
+  width: 34%;
+}
+
+.w-62{
+  width: 62%;
+}
+
+#detalhesApartamento{
+
+  padding-right: 5%;
+}
+
+#detalhesApartamento .card{
+  margin: 0px;
+  
+}
+
+#detalhesApartamento .card-header{
+  padding: 0;
+}
+
+#detalhesApartamento button{
+  padding: 0 9px;
+  color: #06b600;
+}
 
 
 
