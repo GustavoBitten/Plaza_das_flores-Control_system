@@ -18,6 +18,9 @@ let backofficePageController = {
   moradorComunicados: (req,res) => {
     res.render("backoffice/morador/comunicados", {titulo:"Morador - Comunicados"})
   },
+  moradorFinanceiro: (req, res) => {
+    res.render("backoffice/morador/financeiro", {titulo:"Morador - Financeiro"})
+  },
 
   sindicoPerfil: (req,res) => {
     res.render("backoffice/sindico/perfil", {titulo:"Síndico - Perfil"})

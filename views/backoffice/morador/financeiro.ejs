@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <%- include('../../includes/head', {titulo: titulo}) %>
+
+    <link rel="stylesheet" href="/css/backoffice/layout.css">
+    <link rel="stylesheet" href="/css/backoffice/financeiro.css">
+  </head>
+
+  <body>
+    <%- include('../../includes/backoffice/header') %>
+    <%- include('../../includes/backoffice/aside') %>
+
+    <main class="container-fluid mx-0 pt-2">
+
+      <div class="row">
+        <h1 class="pl-3">Financeiro</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-10 col-md-8 offset-1 offset-md-2 mb-3 p-0">
+          <button id="btnNotificacoes" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
+           data-toggle="modal" data-target="#modalNotificacoes">Notificações</button>
+        </div>
+      </div>
+
+      <section class="row">
+
+        <div class="card col-10 col-md-8 offset-1 offset-md-2 px-0">
+          <div class="card-header d-flex justify-content-center w-100 p-0">
+            <h5 class="m-0 p-1">Fatura Mensal</h5>
+          </div>
+          <div class="card-body row">
+            <div class="col-12 d-flex align-items-center flex-column">
+              <table class="table table-borderless table-striped table-hover table-responsive-sm">
+                <caption>Fatura referente ao mês vingente - Financeiro</caption>
+
+                <thead>
+                  <tr class="text-center">
+                    <th scope="col">
+                      Data
+                    </th>
+                    <th scope="col">
+                      Tipo
+                    </th>
+                    <th scope="col">
+                      Valor
+                    </th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                  <tr class="text-center">
+                    <td class="align-middle">
+                      01/04
+                    </td>
+                    <td class="align-middle">
+                      Mensalidade Condominal
+                    </td>
+                    <td class="align-middle">
+                      R$ 649,99
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <td class="align-middle">
+                      12/04
+                    </th>
+                    <td class="align-middle">
+                      Salão de Festas
+                    </td>
+                    <td class="align-middle">
+                      R$ 100,00
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <td class="align-middle">
+                      12/04
+                    </td>
+                    <td class="align-middle">
+                      Churrasqueira
+                    </td>
+                    <td class="align-middle">
+                      R$ 80,00
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <td class="align-middle">
+                      26/04
+                    </td>
+                    <td class="align-middle">
+                      Multa
+                    </td>
+                    <td class="align-middle">
+                      R$ 35,00
+                    </td>
+                  </tr>
+                  <tr class="text-center border-top border-dark">
+                    <td class="text-right align-middle font-weight-bold" colspan="2">
+                      Total
+                    </td>
+                    <td class="align-middle">
+                      R$ 864,99
+                    </td>
+                  </tr>
+                </tbody>
+
+              </table>
+
+              <button type="button" id="btnBoleto" class="btn-sm btn-orange rounded-pill border-0 font-weight-bold">
+                Gerar Boleto
+              </button>
+            </div>
+            <!-- /.col-12 -->
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+      </section>
+
+    </main>
+
+    <!-- Modal Notificações -->
+    <div class="modal fade" id="modalNotificacoes" tabindex="-1" role="dialog" aria-labelledby="modalNotificacoesTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header d-flex justify-content-center">
+            <h5 class="modal-title" id="modalNotificacoesTitle">Multas e Notificações</h5>
+          </div>
+
+          <div class="modal-body">
+            <h6>* <u>Multa - 26/04/20</u></h6>
+            <p class="pl-3">Multa referente ao mal uso dos elevadores sociais do condomínio.
+              Para descer com lixo até sua área de coleta é necessário utilizar os elevadores de serviços.
+            </p>
+            <hr>
+            <h6>* <u>Título da notificação</u></h6>
+            <p class="pl-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+               Eget est lorem ipsum dolor.
+               Sit amet est placerat in egestas erat imperdiet.
+               Faucibus et molestie ac feugiat.
+               Urna nec tincidunt praesent semper feugiat nibh sed pulvinar.
+               Enim neque volutpat ac tincidunt vitae semper quis.
+               Pulvinar neque laoreet suspendisse interdum.
+            </p>
+            <hr>
+            <h6>* <u>Título da notificação</u></h6>
+            <p class="pl-3">Semper feugiat nibh sed pulvinar proin.
+              Consectetur purus ut faucibus pulvinar elementum.
+              Mi proin sed libero enim sed faucibus turpis in.
+              Viverra tellus in hac habitasse platea dictumst vestibulum.
+              Ultrices dui sapien eget mi proin.
+              Euismod elementum nisi quis eleifend.
+              Tincidunt id aliquet risus feugiat in ante metus.
+            </p>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold" data-dismiss="modal">
+              Voltar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /#modalNotificacoes -->
+
+    <%- include('../../includes/scriptJS') %>
+  </body>
+</html>

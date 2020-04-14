@@ -12,6 +12,7 @@ route.get('/morador/ocorrencias', backofficePageController.moradorOcorrencias)
 route.get('/morador/areas-comuns', backofficePageController.moradorAreasComuns)
 route.get('/morador/portaria', backofficePageController.moradorPortaria)
 route.get('/morador/comunicados', backofficePageController.moradorComunicados)
+route.get('/morador/financeiro', backofficePageController.moradorFinanceiro)
 
 
 // Rotas para síndico
