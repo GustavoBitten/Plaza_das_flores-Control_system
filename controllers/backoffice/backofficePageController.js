@@ -22,6 +22,8 @@ let backofficePageController = {
     res.render("backoffice/morador/financeiro", {titulo:"Morador - Financeiro"})
   },
 
+
+
   sindicoPerfil: (req,res) => {
     res.render("backoffice/sindico/perfil", {titulo:"Síndico - Perfil"})
   },
@@ -41,6 +43,8 @@ let backofficePageController = {
     res.render("backoffice/sindico/comunicados", {titulo:"Síndico - Comunicados"})
   },
 
+
+  
   portariaPerfil: (req,res) => {
     res.render("backoffice/portaria/perfil", {titulo:"Portaria - Perfil"})
   },
