@@ -151,6 +151,10 @@ justify-content: center;
   border-radius: 8px;
 }
 
+.pFirst .part3{
+  height: 80vh;
+}
+
 
 #alertBox1,#alertBox2,#alertBox3,#alertBox4,#alertBox5{
   box-shadow: 0px 3px 10px 0px  rgba(0, 0, 0, 0.5);
@@ -171,7 +175,7 @@ justify-content: center;
 
 #carouselDeImgs{
 
-  width: 89%;
+  width: 50%;
 }
 
 #carouselDeImgs *{
@@ -208,17 +212,18 @@ form{
   border: 1px solid #858b92;
 }
 
-form *, .form-control{
+/* form *, .form-control{
   font-size: 94%;
   
-}
+} */
+
 .form-group{
   margin-bottom: 1%;
 }
 
-.textarea label{
+/* .textarea label{
   font-size:88%
-}
+} */
 
 .w-66{
   width: 66%;
@@ -232,9 +237,17 @@ form *, .form-control{
   width: 62%;
 }
 
+.w-83{
+  width: 83%;
+}
+
 #detalhesApartamento{
 
   padding-right: 5%;
+}
+
+#detalhesApartamento .btn{
+  font-size: 1.2rem;
 }
 
 #detalhesApartamento .card{
@@ -250,6 +263,48 @@ form *, .form-control{
   padding: 0 9px;
   color: #06b600;
 }
+
+.modalPiscina,.modalPiscina *{
+  background-color : transparent ;
+}
+
+
+.modalPiscina .modal-dialog{
+  background-color: white;
+}
+
+
+
+@media  (max-width:576px){
+
+  .pFirst .part1,.pFirst .part2,.pFirst{
+    height: unset;
+    
+  }
+ 
+  #sessaoHome .part2 .col-10{
+    flex-direction: column!important;
+  }
+
+  #sessaoHome .part2 img{
+    width: 100%!important;
+  }
+  #sessaoHome .part2 .col-10 p{
+    padding: 0 0 1rem 0!important;
+  }
+
+  #sessaoSobre .col-6{
+    display: none!important;
+  }
+}
+
+
+/* @media (min-width: 577px)  */
+
+
+/* @media (min-width: 769px) and (max-width:1200px){
+
+} */
 
 
 
