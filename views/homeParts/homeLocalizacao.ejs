@@ -1,33 +1,64 @@
-<section id="pFirst" class="pFirst flex-column d-flex justify-content-between">
-    <div class="container   flex-fill">
-      <div class="row part1">
-        <div class="col-12 d-flex pl-5 part1 align-items-center justify-content-start    ">
-          <h1>Localização</h1>
-        </div>
-      </div>
-      <div class="row part2">
-        
-        <div class="col-12 pl-5  d-flex flex-fill justify-content-start   align-items-center   ">
-          <h3>My Google Maps Demo</h3>
-          <div id="googleMap" class="overflow-hidden" style="width:100%;height:300px;"></div>
-          
-        </div>
-        
-      </div>
-    </div>
-  </section>
-  <div class=".container-fluid d-flex  align-items-center justify-content-center " id="alertBox5" >
-    <h2>Se você já é morador, Acesse sua área exclusiva</h2>
-  </div>
+<section id="sessaoLocalizacao" class="pFirst flex-column d-flex justify-content-between">
+  <div class="container   flex-fill">
 
-  <script>
-    function myMap() {
-    var mapProp= {
-      center:new google.maps.LatLng(51.508742,-0.120850),
-      zoom:5,
-    };
-    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    }
-    </script>
-    
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZqTc-IC3-aDaw7bqgAOhISSJJsgGAheQ&callback=myMap"></script>
+
+
+    <div class="row part3 flex">
+
+
+      <div class="col-12 col-sm-5">
+
+        <div class="row part1">
+
+          <div class="col-5 d-flex pl-5 part1 align-items-center justify-content-start    ">
+            <h1>Localização</h1>
+          </div>
+
+        </div>
+
+        <div class="row part2 pl-5 pt-4 d-flex flex-column justify-content-center ">
+          <h4 class="mb-4">Lugares próximos de seu residencial Plaza das Flores</h4>
+
+          <div>
+
+            
+            <h5 class="font-weight-normal">Supermercado Pague Menos</h5>
+            <p class="mb-1">-Aproximadamente 500 metros</p>
+            
+            <h5 class="font-weight-normal">Shopping Parque Prado</h5>
+            <p class="mb-1">-Aproximadamente 1000 metros</p>
+            
+            <h5 class="font-weight-normal">Acesso a rodovia Anhanguera</h5>
+            <p class="mb-1">-Aproximadamente 1500 metros</p>
+
+            <h5 class="font-weight-normal">Academia Panobianco</h5>
+            <p class="mb-1">-Aproximadamente 2000 metros</p>
+
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+      <div class="col-12 col-sm-7 p-0 d-flex justify-content-center align-items-center ">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.9961298945996!2d-47.05696678462074!3d-22.95036964519838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8ceb392140dd9%3A0xc541bb0664a7f1cb!2sCondom%C3%ADnio%20Plaza%20das%20Flores!5e0!3m2!1spt-BR!2sus!4v1586897095998!5m2!1spt-BR!2sus"
+          width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+          tabindex="0"></iframe>
+
+
+      </div>
+
+
+    </div>
+
+
+
+
+  </div>
+</section>
+<div class=".container-fluid d-flex  align-items-center justify-content-center " id="alertBox5">
+  <h2>Próximo de tudo para facilitar o seu dia-dia</h2>
+</div>

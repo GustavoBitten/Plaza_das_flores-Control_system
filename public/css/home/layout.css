@@ -44,6 +44,20 @@ footer > div.container-fluid, footer > section.container-fluid {
   }
 }
 
+
+@media (max-width: 767px){
+  #navCollapse ul{
+    background-color: #f8f9fa;
+    padding: 15px;
+    font-size: 1.2rem;
+  }
+
+  #navCollapse ul li{
+    padding-top: 5px;
+  }
+
+}
+
 @media (min-width: 365px) and (max-width: 767px) {
   button#btnToggle > i {
     padding-left: 8px;
@@ -175,7 +189,7 @@ justify-content: center;
 
 #carouselDeImgs{
 
-  width: 50%;
+  width: 83%;
 }
 
 #carouselDeImgs *{
@@ -273,11 +287,26 @@ form{
   background-color: white;
 }
 
+#sessaoContato .part2 h4{
+  margin-bottom: 25%;
+}
+
+#sessaoLocalizacao .part2 h5{
+  margin: 11px 0 0 0 ;
+}
+
+#sessaoContato form button{
+  width: 73%;
+  margin: 18px auto;
+  background-color: #6c757d;
+  color: white;
+}
+
 
 
 @media  (max-width:576px){
 
-  .pFirst .part1,.pFirst .part2,.pFirst{
+  .pFirst .part1,.pFirst .part2, .pFirst .part3 ,.pFirst {
     height: unset;
     
   }
@@ -293,9 +322,55 @@ form{
     padding: 0 0 1rem 0!important;
   }
 
-  #sessaoSobre .col-6{
-    display: none!important;
+ 
+  #detalhesApartamento{
+    padding: 0;
   }
+
+  #sessaoLazer #conteinerCardLazer{
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+  } 
+  #sessaoLazer #conteinerCardLazer .card{
+    width: 86%!important
+  }
+
+  #sessaoLocalizacao .part3{
+    flex-wrap: wrap;
+  }
+
+  #sessaoContato .part3{
+    flex-wrap: wrap;
+  }
+
+  #sessaoContato .part2 h4{
+    margin-bottom: 10%;
+
+  }
+
+  #sessaoContato p, #sessaoContato h5{
+    display: none;
+  }
+  #sessaoContato form{
+    margin-bottom: 7%;
+    width: 90%!important;
+
+  }
+
+  #alertBox1 h2 ,#alertBox2 h2,#alertBox3 h2,#alertBox4 h2,#alertBox5 h2{
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0 10px;
+    
+  }
+
+
+
+
+
+
+
 }
 
 
