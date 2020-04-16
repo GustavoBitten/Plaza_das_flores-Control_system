@@ -1,8 +1,27 @@
-#btnBoleto {
+#btnBoleto, select.form-control, input#valorCobranca {
   width: fit-content;
 }
 
 p {
   font-size: 0.8rem;
   white-space: pre-line;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #FFA62B;
+  color: white;
+}
+
+p#nomeMoradorCobranca, p#nomeMoradorNotificacao {
+  background-color: #e9ecef;
+}
+
+label {
+  font-weight: 600;
+}
+
+@media (max-width: 385px) {
+  input#valorCobranca {
+    width: 154px;
+  }
 }

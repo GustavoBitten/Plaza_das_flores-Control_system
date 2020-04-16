@@ -22,6 +22,7 @@ route.get('/sindico/ocorrencias', backofficePageController.sindicoOcorrencias)
 route.get('/sindico/areas-comuns', backofficePageController.sindicoAreasComuns)
 route.get('/sindico/portaria', backofficePageController.sindicoPortaria)
 route.get('/sindico/comunicados', backofficePageController.sindicoComunicados)
+route.get('/sindico/financeiro', backofficePageController.sindicoFinanceiro)
 
 //Rotas para portaria
 route.get('/portaria/moradores', backofficePageController.portariaMoradores)

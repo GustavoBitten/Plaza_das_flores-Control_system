@@ -42,6 +42,9 @@ let backofficePageController = {
   sindicoComunicados: (req,res) => {
     res.render("backoffice/sindico/comunicados", {titulo:"Síndico - Comunicados"})
   },
+  sindicoFinanceiro: (req, res) => {
+    res.render("backoffice/sindico/financeiro", {titulo:"Síndico - Financeiro"})
+  },
 
 
   

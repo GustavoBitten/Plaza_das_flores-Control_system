@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <%- include('../../includes/head', {titulo: titulo}) %>
+
+    <link rel="stylesheet" href="/css/backoffice/layout.css">
+    <link rel="stylesheet" href="/css/backoffice/financeiro.css">
+  </head>
+
+  <body>
+    <%- include('../../includes/backoffice/header') %>
+    <%- include('../../includes/backoffice/aside') %>
+
+    <main class="container-fluid mx-0 pt-2">
+
+      <div class="row">
+        <h1 class="pl-3">Financeiro</h1>
+      </div>
+
+      <section class="row">
+
+        <div class="card col-10 col-md-8 offset-1 offset-md-2 px-0">
+          <div class="card-header d-flex justify-content-center w-100 p-0">
+            <h5 class="m-0 p-1">Gerar Cobranças e Notificações</h5>
+          </div>
+
+          <div class="card-body row">
+            <div class="col-12 d-flex align-items-center flex-column">
+
+              <ul class="nav nav-tabs w-100" id="tabFormularios" role="tablist">
+                <li class="nav-item w-50">
+                  <a class="nav-link text-dark-orange font-weight-bold d-flex justify-content-center w-100 active"
+                   id="cobranca-tab" data-toggle="tab" href="#cobranca" role="tab" aria-controls="cobranca" aria-selected="true">
+                    Cobrança
+                  </a>
+                </li>
+                
+                <li class="nav-item w-50">
+                  <a class="nav-link text-dark-orange font-weight-bold d-flex justify-content-center w-100"
+                   id="notificacao-tab" data-toggle="tab" href="#notificacao" role="tab" aria-controls="notificacao" aria-selected="false">
+                    Notificação
+                  </a>
+                </li>
+              </ul>
+              <!-- /#tabFormularios -->
+
+              <div class="tab-content w-100" id="tabFormulariosContent">
+                <div class="tab-pane fade show active" id="cobranca" role="tabpanel" aria-labelledby="cobranca-tab">
+                  <form class="container">
+                    <div class="form-row d-flex justify-content-center">
+                      <div class="form-group col-12 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                        <label for="selectApartamentoCobranca">Apartamento</label>
+                        <select class="form-control rounded-pill" id="selectApartamentoCobranca">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>521</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-12 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                        <label for="selectBlocoCobranca">Bloco</label>
+                        <select class="form-control rounded-pill" id="selectBlocoCobranca">
+                          <option>A</option>
+                          <option>B</option>
+                          <option>C</option>
+                        </select>
+                      </div>
+                      <div class="col-xl-2"></div>
+
+                      <div class="w-100"></div>
+
+                      <div class="form-group col-12 col-sm-10 col-md-8 col-lg-6">
+                        <label for="nomeMoradorCobranca">Nome</label>
+                        <!-- Avaliar preenchimento via consulta bd -->
+                        <p class="form-control rounded-pill text-truncate" id="nomeMoradorCobranca">Fulano de Tal da Silva Oliveira Neto Junior</p>
+                      </div>
+
+                      <div class="w-100"></div>
+
+                      <div class="form-group col-12 col-sm-10 col-md-8 col-lg-6">
+                        <label for="selectTipoCobranca">Tipo</label>
+                        <select class="form-control rounded-pill" id="selectTipoCobranca">
+                          <option>Salão de Festas</option>
+                          <option>Churrasqueira</option>
+                          <option>Multa</option>
+                        </select>
+                      </div>
+
+                      <div class="w-100"></div>
+
+                      <div class="form-group col-12 col-sm-10 col-md-8 col-lg-6">
+                        <label for="valorCobranca">Valor</label>
+                        <input type="number" class="form-control rounded-pill" id="valorCobranca" min="0" step="any" placeholder="R$">
+                      </div>
+                      <div class="form-group d-flex justify-content-center col-12">
+                        <div>
+                          <button type="submit" class="btn-sm btn-orange rounded-pill border-0 font-weight-bold px-3">
+                            Gerar
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <!-- /#cobranca -->
+
+                <div class="tab-pane fade" id="notificacao" role="tabpanel" aria-labelledby="notificacao-tab">
+                  <form class="container">
+                    <div class="form-row d-flex justify-content-center">
+                      <div class="form-group col-12 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                        <label for="selectApartamentoNotificacao">Apartamento</label>
+                        <select class="form-control rounded-pill" id="selectApartamentoNotificacao">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>521</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-12 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                        <label for="selectBlocoNotificacao">Bloco</label>
+                        <select class="form-control rounded-pill" id="selectBlocoNotificacao">
+                          <option>A</option>
+                          <option>B</option>
+                          <option>C</option>
+                        </select>
+                      </div>
+                      <div class="col-xl-2"></div>
+
+                      <div class="w-100"></div>
+
+                      <div class="form-group col-12 col-sm-10 col-md-8 col-lg-6">
+                        <label for="nomeMoradorNotificacao">Nome</label>
+                        <!-- Avaliar preenchimento via consulta bd -->
+                        <p class="form-control rounded-pill text-truncate" id="nomeMoradorNotificacao">Fulano de Tal da Silva Oliveira Neto Junior</p>
+                      </div>
+
+                      <div class="w-100"></div>
+
+                      <div class="form-group col-12 col-sm-10 col-md-8 col-lg-6">
+                        <label for="textNotificacao">Notificação</label>
+                        <textarea class="form-control" id="textNotificacao" rows="3"></textarea>
+                      </div>
+                      <div class="form-group d-flex justify-content-center col-12">
+                        <div>
+                          <button type="submit" class="btn-sm btn-orange rounded-pill border-0 font-weight-bold px-3">
+                            Notificar
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <!-- /#notificacao -->
+              </div>
+              <!-- /.tab-content -->
+
+            </div>
+            <!-- /.col-12 -->
+          </div>
+          <!-- /.card-body -->
+
+        </div>
+        <!-- /.card -->
+
+      </section>
+
+    </main>
+
+    <%- include('../../includes/scriptJS') %>
+  </body>
+</html>
