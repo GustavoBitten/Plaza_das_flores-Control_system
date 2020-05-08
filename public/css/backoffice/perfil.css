@@ -1,33 +1,114 @@
-body {
-    background-color: #eee; 
+.card{
+    width: 281px;
+    height: 300px;
+    margin: 20px 20px 0px 20px;
+ 
 }
+
+
+.card-body{
+    font-size: 14px;
+    
+}
+
+.card-footer, .card-header{
+    border: solid 2px #FFA62B;
+}
+
+
+.card-footer{
+    background-color: #FFA62B;
+}
+
+.footerTexto{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between ;
+    align-items: center;
+}
+
+.card-title{
+    font-weight: bold;
+}
+.contador{
+    
+}
+
+.botoesCaixa{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+
+}
+
+.btnIcon{
+    font-size: 18px;
+}
+
+.btnEditar, .btnExcluir {
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between ;
+    align-items: center;
+    color: white;
+
+}
+
+
+.btnNovo{
+    border-radius: 20px;
+    background-color: #FFA62B;
+    border: solid 1px white;
+
+}
+
+
+.card{
+    margin:5px
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start ;
+    align-items: center;
+}
+
+.cardMorador{
+    margin-left: 140px;
+    margin-bottom: 10px;
+    border: solid 2px #FFA62B ;
+    border-radius: 5px;
+    width: 63vw;
+    
+}
+
+.cardsAll{
+    margin-left: 135px;
+}
+
+
 
 .titulo{
     color: #E8751C;
     margin:0 0 20px 10px;
 }
 
-.container-flex{
+.container{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row ;
     justify-content: center;
     align-items: center;
-
+    margin: 0;
 }
 
-
-
-
-/* caminho morador/perfil */
-.breadcrumb *{
-    color: #E8751C; 
-}
-.breadcrumb{
-    padding-left: 0px;  
-    margin-top: 10px;
-    background-color: #eee; 
-}
 
 
 /* cartao principal */
@@ -45,18 +126,6 @@ body {
     
 }
 
-.cardPrincipal{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center ;
-    align-items: center; 
-}
-.card{
-    border-color: #FFA62B;
-    border: solid 1px #FFA62B;
-    width: 60vw;
-    
-}
 
 .card-body{
     display: flex;
@@ -99,136 +168,6 @@ body {
 
 
 
-/* Caixas Moradores*/
-
-
-.caixasPrincipal{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row ;
-    align-items: center;
-    margin-left: 185px ;
-    
-}
-
-.caixa {
-    border: 1px solid #E8751C;
-    border-radius: 10px;
-    background-color: white;
-    margin:20px 25px 10px 10px;
-
-    
-}
-
-.head {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #FFA62B;
-    border-radius: 10px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    justify-content: space-between;
-    
-}
-
-.subtitulo {
-    color: white;
-    text-align: center;
-    border-radius: 10px;
-}
-
-/* numero  */
-.qtd {
-    background-color: #E8751C;
-    border-radius: 10px;
-    color: white;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.btn {
-    background-color: #E8751C;
-    color: white;
-    text-align: center;
-    border-radius: 18px;
-    border-color: #E8751C;
-    width: auto;
-}
-
-.corpoCaixa {
-    
-    max-width: max-content;
-    height: 20vh;
-    max-height: max-content;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content:flex-start ;
-    align-items: flex-start;
-    
-}
-
-.botoesCaixa{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around ;
-    align-items: center;
-
-}
-
-.textoCaixa {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: flex-start ;
-    align-items: flex-start;
-    font-size: 14px;
-    margin: 30px 0 0 5px;
-}
-
-
-
-.btnIcon{
-    font-size: 16px;
-}
-
-.btnEditar, .btnExcluir {
-    font-size: 12px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between ;
-    align-items: center;
-    color: #FFA62B;
-    margin: 0;
-
-}
-
-
-.corpoCaixa img{
-    border-radius: 5px;
-    margin: 30px 0 0 10px;
-    width: 60px;
-    height: 60px;
-    object-fit: fill;
-     
-}
-.rodape{
-    text-align: center;
-    justify-content: space-around;
-    
-}
-.rodape a{
-    text-decoration: none;
-    color: #E8751C;
-
-}
-
-
-
-
-
 
 
 
@@ -239,31 +178,19 @@ body {
         margin: 0;
         margin-bottom: 40px;
     }
+
     
-    .cardPrincipal{
-        font-size: 12px;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row ;
-        justify-content: flex-start ;
-        align-items: flex-start;
-        margin-left: 20px;
+    .cardsAll{
+        margin-left: 15px;
+        margin-right: 20px;
+        width: 78vw;
+        
     }
 
-    .card{
-        width: 70vw;
-        margin:10 10 10 0; 
-        font-size: 12px;
-    }
-    
-    .caixa {
-        margin: 0; 
-        margin-bottom: 20px;
-    }
-    
-    .caixasPrincipal{
-        margin-left: 35px;
-        width: 70vw;
+    .cardMorador{
+        width: 75vw;
+        margin-left: 20px;
+        margin-right: 20px;
     }
     
 }
@@ -274,50 +201,13 @@ body {
 
 /* telas cel na horizontal e tablet*/
 @media (min-width: 680px) and (max-width: 1024px) {
+
+    
     .edicao button{
         width: 100px;
     }
-
     
 
-    .cardPrincipal{
-        font-size: 12px;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row ;
-        justify-content: center ;
-        align-items: flex-start;
-        margin-left: 20px;
-    }
-   
-    .card{
-        width: 70vw;
-        margin:10 10 10 0; 
-        font-size: 12px;
     }
     
-    .caixa {
-        margin: 0; 
-        margin-bottom: 0px;
-        margin-left: 20px;
-       
 
-    }
-    
-    .corpoCaixa{
-        margin-bottom: 20px;
-    }
-    .caixasPrincipal{
-        font-size: 12px;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row ;
-        justify-content: flex-start ;
-        align-items: flex-start;
-        margin: 10px;
-        width: 850px;
-        padding: 10px;
-    }
-    }
-    
-        

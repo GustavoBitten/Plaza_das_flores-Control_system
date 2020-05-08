@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -15,227 +16,352 @@
   <main>
 
     <h1 class="titulo">Perfil</h1>
+
+   
       
+      <!-- Container -->
+    <div class="container">
 
-      <div class="cardPrincipal container">
-        <div class="card mb-2" >
-          <div class="row no-gutters">
-            <div id="col-fotoPerfil" class="col-md-3">
-              <img
-                src="https://avatars2.githubusercontent.com/u/37584505?s=400&u=73100f3df6d155544e9bc50b7fb9f83410d0b308&v=4"
-                max-width="100" height="250" class="card-img" alt="...">
-              <div class="position-absolute bg-gray-dark rounded-2 text-white px-2 py-1 left-0 bottom-0 ml-2 mb-2">
-                <sv TESTE height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1"
-                  aria-hidden="true">
-                  <path fill-rule="evenodd"
-                    d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 011.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
-                  </path></svg>
+      <section class="row">
+      <div class="cardMorador row no-gutters">
 
-              </div>
-            </div>
+        <!-- Card Principal -->
+        <div id="col-fotoPerfil" class="col-md-3">
+          <img
+            src="https://avatars2.githubusercontent.com/u/37584505?s=400&u=73100f3df6d155544e9bc50b7fb9f83410d0b308&v=4"
+            max-width="100" height="250" class="card-img" alt="...">
+          <div class="position-absolute bg-gray-dark rounded-2 text-white px-2 py-1 left-0 bottom-0 ml-2 mb-2">
+            <sv TESTE height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1"
+              aria-hidden="true">
+              <path fill-rule="evenodd"
+                d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 011.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
+              </path></svg>
 
-            <div class="col-md-6">
-              <div class="card-body">
-                <h5 class="card-title">Marcelo Franchini</h5>
-                <span id="cpf"><svg class="bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16"
-                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                      d="M14.5 3h-13a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5zm-13-1A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13z"
-                      clip-rule="evenodd" />
-                    <path fill-rule="evenodd"
-                      d="M3 8.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zm0 2a.5.5 0 01.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5z"
-                      clip-rule="evenodd" />
-                    <path d="M3 5.5a.5.5 0 01.5-.5h9a.5.5 0 01.5.5v1a.5.5 0 01-.5.5h-9a.5.5 0 01-.5-.5v-1z" />
-                  </svg> 333.222.111-02</span>
-                <span id="email"><svg class="bi bi-envelope" width="1em" height="1em" viewBox="0 0 16 16"
-                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                      d="M14 3H2a1 1 0 00-1 1v8a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1zM2 2a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H2z"
-                      clip-rule="evenodd" />
-                    <path fill-rule="evenodd"
-                      d="M.071 4.243a.5.5 0 01.686-.172L8 8.417l7.243-4.346a.5.5 0 01.514.858L8 9.583.243 4.93a.5.5 0 01-.172-.686z"
-                      clip-rule="evenodd" />
-                    <path
-                      d="M6.752 8.932l.432-.252-.504-.864-.432.252.504.864zm-6 3.5l6-3.5-.504-.864-6 3.5.504.864zm8.496-3.5l-.432-.252.504-.864.432.252-.504.864zm6 3.5l-6-3.5.504-.864 6 3.5-.504.864z" />
-                  </svg> marcelo_franchini@condominio.com.br </span>
-                <span id="tel"><svg class="bi bi-chat-dots" width="1em" height="1em" viewBox="0 0 16 16"
-                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                      d="M2.678 11.894a1 1 0 01.287.801 10.97 10.97 0 01-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 01.71-.074A8.06 8.06 0 008 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 01-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 00.244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 01-2.347-.306c-.52.263-1.639.742-3.468 1.105z"
-                      clip-rule="evenodd" />
-                    <path
-                      d="M5 8a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0z" />
-                  </svg> (11) 99999-1234</span>
-                <span id="ap"><svg class="bi bi-house" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                      d="M2 13.5V7h1v6.5a.5.5 0 00.5.5h9a.5.5 0 00.5-.5V7h1v6.5a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 012 13.5zm11-11V6l-2-2V2.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z"
-                      clip-rule="evenodd" />
-                    <path fill-rule="evenodd"
-                      d="M7.293 1.5a1 1 0 011.414 0l6.647 6.646a.5.5 0 01-.708.708L8 2.207 1.354 8.854a.5.5 0 11-.708-.708L7.293 1.5z"
-                      clip-rule="evenodd" />
-                  </svg> 13 A</span>
-
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-            <!-- Card Principal Fim -->
-
-
-            <nav class="edicao col-md-3">
-              <button type="button" class="btnCard btn btn-primary" data-toggle="modal" data-target="#btnEditarPerfil"
-                data-whatever="@mdo">
-                Editar Perfil   </button>
-
-              <button type="button" class="btnCard btn btn-primary" data-toggle="modal" data-target="#btnAlterarSenha"
-                data-whatever="@mdo">
-                Alterar Senha</button>
-            </nav>
-            <!-- Nav Modal Btn -->
           </div>
-          <!-- Row -->
         </div>
-        <!-- Cartão Perfil -->
+
+        <div class="col-md-6">
+          <div class="card-body">
+            <h5 class="card-title">Marcelo Franchini</h5>
+            <span id="cpf"><svg class="bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16"
+                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M14.5 3h-13a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5zm-13-1A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13z"
+                  clip-rule="evenodd" />
+                <path fill-rule="evenodd"
+                  d="M3 8.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zm0 2a.5.5 0 01.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5z"
+                  clip-rule="evenodd" />
+                <path d="M3 5.5a.5.5 0 01.5-.5h9a.5.5 0 01.5.5v1a.5.5 0 01-.5.5h-9a.5.5 0 01-.5-.5v-1z" />
+              </svg> 333.222.111-02</span>
+            <span id="email"><svg class="bi bi-envelope" width="1em" height="1em" viewBox="0 0 16 16"
+                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M14 3H2a1 1 0 00-1 1v8a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1zM2 2a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H2z"
+                  clip-rule="evenodd" />
+                <path fill-rule="evenodd"
+                  d="M.071 4.243a.5.5 0 01.686-.172L8 8.417l7.243-4.346a.5.5 0 01.514.858L8 9.583.243 4.93a.5.5 0 01-.172-.686z"
+                  clip-rule="evenodd" />
+                <path
+                  d="M6.752 8.932l.432-.252-.504-.864-.432.252.504.864zm-6 3.5l6-3.5-.504-.864-6 3.5.504.864zm8.496-3.5l-.432-.252.504-.864.432.252-.504.864zm6 3.5l-6-3.5.504-.864 6 3.5-.504.864z" />
+              </svg> marcelo_franchini@condominio.com.br </span>
+            <span id="tel"><svg class="bi bi-chat-dots" width="1em" height="1em" viewBox="0 0 16 16"
+                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M2.678 11.894a1 1 0 01.287.801 10.97 10.97 0 01-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 01.71-.074A8.06 8.06 0 008 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 01-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 00.244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 01-2.347-.306c-.52.263-1.639.742-3.468 1.105z"
+                  clip-rule="evenodd" />
+                <path
+                  d="M5 8a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0z" />
+              </svg> (11) 99999-1234</span>
+            <span id="ap"><svg class="bi bi-house" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M2 13.5V7h1v6.5a.5.5 0 00.5.5h9a.5.5 0 00.5-.5V7h1v6.5a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 012 13.5zm11-11V6l-2-2V2.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z"
+                  clip-rule="evenodd" />
+                <path fill-rule="evenodd"
+                  d="M7.293 1.5a1 1 0 011.414 0l6.647 6.646a.5.5 0 01-.708.708L8 2.207 1.354 8.854a.5.5 0 11-.708-.708L7.293 1.5z"
+                  clip-rule="evenodd" />
+              </svg> 13 A</span>
+
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+        
+
+
+        <nav class="edicao col-md-3">
+          <button type="button" class="btnCard btn btn-primary" data-toggle="modal" data-target="#btnEditarPerfil"
+            data-whatever="@mdo">
+            Editar Perfil   </button>
+
+          <button type="button" class="btnCard btn btn-primary" data-toggle="modal" data-target="#btnAlterarSenha"
+            data-whatever="@mdo">
+            Alterar Senha</button>
+        </nav>
+        <!-- Nav Modal Btn -->
       </div>
-      <!-- CardPrincipal -->
 
+        
+        <div class="row cardsAll">
 
-
-        <div class="caixasPrincipal">
-
-          <div class="col-md-3 caixa">
-            <span class="head row">
-              <div class="subtitulo col-1 col-md-10">Dependentes</div>
-              <div class="qtd col-1 col-md-2">2</div>
-            </span>
-
-            <div class=" corpoCaixa ">
-                <img
-                  src="https://avatars2.githubusercontent.com/u/37584505?s=400&u=73100f3df6d155544e9bc50b7fb9f83410d0b308&v=4"
-                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="">
-                 
-              <div class=" textoCaixa ">
-                <p style="margin: 0;">Pedro Sobrenome</p>
-                <p style="margin: 0;">Filho</p>
-                <p style="margin: 0;">RG: 34678564-908</p>
+        <!-- Card Dependentes -->
+        <div class="card mb-3" style="max-width: 18rem;">
+          <div class="card-header">
+            <div class="row footerTexto">
+              <div>
+                Dependentes
               </div>
-            </div>
-            <!-- corpo caixa-->
+              <div class="contador">
+                2
+              </div>
 
-            <div class="botoesCaixa row ">
-
-              <nav class="btnEditar">
-                <svg type="button"  data-toggle="modal" data-target="#editarDependenteModal"
-                  class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
-                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
-                </svg>
-                <p>editar</p>
-              </nav>
-
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDependenteModal"
-                data-whatever="@mdo">Novo</button>
-
-                <nav class="btnExcluir">
-                  <svg type="button" data-toggle="modal" data-target="#excluirDependenteModal"
-                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
-                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
-                  </svg>
-                  <p>excluir</p>
-
-                </nav>
-
-            </div>
-
-            
-
-            <div class="rodape row ">
-              <div class="rotape col-2 col-md-4"><a href="/"><-</a></div>
-              <div class="rotape col-2 col-md-4"><a href="/">O</a></div>
-              <div class="rotape col-2 col-md-4"><a href="/"> -></a></div>
             </div>
           </div>
-          <!-- caixa1 -->
 
-          <div class="col-md-3 caixa">
-            <span class="head row">
-              <div class="subtitulo col-1 col-md-10">Visitantes</div>
-              <div class="qtd col-1 col-md-2">2</div>
-            </span>
-
-            <div class=" corpoCaixa ">
-                <img
-                  src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
-                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="foto visitante">
+          <!-- Body Card Dependentes -->
+          <div class="card-caixa card-body text-center" >
+          <!-- Carrosel Body -->
+            <div id="carouselExampleIndicators" class="carousel slide" >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="foto" src="https://avatars2.githubusercontent.com/u/37584505?s=400&u=73100f3df6d155544e9bc50b7fb9f83410d0b308&v=4"
+                  alt="First slide" style=" width:120 ; height: 80px;">
                  
-              <div class=" textoCaixa ">
-                <p style="margin: 0;">Visitante</p>
-                <p style="margin: 0;">Amigo</p>
-                <p style="margin: 0;">RG: 34678564-90</p>
+               <p class="card-title"style="margin: 0;">Marcelo Franchini</p>
+               <p class="card-text" style="margin: 0;">Filho</p>
+               <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                </div>
+                <div class="carousel-item">
+                  <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                  alt="" style=" width:120 ; height: 80px;">
+                 
+               <p class="card-title"style="margin: 0;">Nome</p>
+               <p class="card-text" style="margin: 0;">Filho</p>
+               <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                </div>
+                <div class="carousel-item">
+                  <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                  alt="" style=" width:120 ; height: 80px;">
+                 
+               <p class="card-title"style="margin: 0;">Nome</p>
+               <p class="card-text" style="margin: 0;">Filho</p>
+               <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                </div>
               </div>
-            </div>
-            <!-- corpo caixa-->
 
-            <div class="botoesCaixa row ">
-
-              <nav class="btnEditar">
-                <svg type="button"  data-toggle="modal" data-target="#editarVisitanteModal"
-                  class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
-                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
-                </svg>
-                <p>editar</p>
-              </nav>
-
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addVisitanteModal"
-                data-whatever="@mdo">Novo</button>
-
-                <nav class="btnExcluir">
-                  <svg type="button" data-toggle="modal" data-target="#excluirVisitanteModal"
-                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
-                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
-                  </svg>
-                  <p>excluir</p>
-
-                </nav>
 
             </div>
-
+            </div>
             
+            <!-- Footer Card Dependentes-->
+            <div class="card-footer ">
 
-            <div class="rodape row ">
-              <div class="rotape col-2 col-md-4"><a href="/"><-</a></div>
-              <div class="rotape col-2 col-md-4"><a href="/">O</a></div>
-              <div class="rotape col-2 col-md-4"><a href="/">-></a></div>
+              <ol class="carousel-indicators">
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                
+              </ol>
+                <div class="botoesCaixa row ">
+
+                  <nav class="btnEditar">
+                    <svg type="button"  data-toggle="modal" data-target="#editarDependenteModal"
+                      class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
+                    </svg>
+                    <p>editar</p>
+                  </nav>
+    
+                  <button type="button" class="btnNovo btn-primary" data-toggle="modal" data-target="#addDependenteModal"
+                    data-whatever="@mdo">Novo</button>
+    
+                    <nav class="btnExcluir">
+                      <svg type="button" data-toggle="modal" data-target="#excluirDependenteModal"
+                        class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
+                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
+                      </svg>
+                      <p>excluir</p>
+    
+                    </nav>
+    
+                </div>
             </div>
           </div>
-          <!-- caixa2 -->
 
-          <div class="col-md-3 caixa">
-            <span class="head row">
-              <div class="subtitulo col-1 col-md-10">Funcionários</div>
-              <div class="qtd col-1 col-md-2">1</div>
-            </span>
 
-            <div class=" corpoCaixa ">
-                <img
-                  src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
-                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="">
+          <!-- Card Visitantes -->
+        <div class="card mb-3" style="max-width: 18rem;">
+          <div class="card-header">
+            <div class="row footerTexto">
+              <div>
+                Visitantes 
+              </div>
+              <div class="contador">
+                3
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Body Card Visitantes -->
+          <div class="card-caixa card-body text-center" >
+          <!-- Carrosel Body -->
+            <div id="carouselVis" class="carousel slide" >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                  alt="First slide" style=" width:120 ; height: 80px;">
                  
-              <div class=" textoCaixa ">
-                <p style="margin: 0;">Funcionário</p>
-                <p style="margin: 0;">Diárista</p>
-                <p style="margin: 0;">RG: 34678564-908</p>
+               <p class="card-title"style="margin: 0;">Marcelo Franchini</p>
+               <p class="card-text" style="margin: 0;">Primo</p>
+               <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                </div>
+                <div class="carousel-item">
+                  <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                  alt="" style=" width:120 ; height: 80px;">
+                 
+               <p class="card-title"style="margin: 0;">Nome</p>
+               <p class="card-text" style="margin: 0;">Primo</p>
+               <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                </div>
+                <div class="carousel-item">
+                  <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                  alt="" style=" width:120 ; height: 80px;">
+                 
+               <p class="card-title"style="margin: 0;">Nome</p>
+               <p class="card-text" style="margin: 0;">Primo</p>
+               <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                </div>
+              </div>
+
+
+            </div>
+            </div>
+            
+            <!-- Footer Card Visitantes-->
+            <div class="card-footer ">
+
+              <ol class="carousel-indicators">
+                <a class="carousel-control-prev" href="#carouselVis" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselVis" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+                <li data-target="#carouselVis" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselVis" data-slide-to="1"></li>
+                <li data-target="#carouselVis" data-slide-to="2"></li>
+                
+              </ol>
+              <div class="botoesCaixa row ">
+
+                <nav class="btnEditar">
+                  <svg type="button"  data-toggle="modal" data-target="#editarVisitanteModal"
+                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
+                  </svg>
+                  <p>editar</p>
+                </nav>
+  
+                <button type="button" class="btnNovo btn-primary" data-toggle="modal" data-target="#addVisitanteModal"
+                  data-whatever="@mdo">Novo</button>
+  
+                  <nav class="btnExcluir">
+                    <svg type="button" data-toggle="modal" data-target="#excluirVisitanteModal"
+                      class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
+                      <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
+                    </svg>
+                    <p>excluir</p>
+  
+                  </nav>
+  
               </div>
             </div>
-            <!-- corpo caixa-->
+          </div>
 
+        <!-- Card Funcionários -->
+      <div class="card mb-3" style="max-width: 18rem;">
+        <div class="card-header">
+          <div class="row footerTexto">
+            <div>
+             Funcionários
+            </div>
+            <div class="contador">
+              3
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Body Card Funcionários -->
+        <div class="card-caixa card-body text-center" >
+        <!-- Carrosel Body -->
+          <div id="carouselFunc" class="carousel slide" >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                alt="First slide" style=" width:120 ; height: 80px;">
+                
+              <p class="card-title"style="margin: 0;">Marcelo Franchini</p>
+              <p class="card-text" style="margin: 0;">Diarista</p>
+              <p class="card-text" style="margin: 0;">Toda Segunda</p>
+              </div>
+              <div class="carousel-item">
+                <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                alt="" style=" width:120 ; height: 80px;">
+                
+              <p class="card-title"style="margin: 0;">Nome</p>
+              <p class="card-text" style="margin: 0;">Filho</p>
+              <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+              </div>
+              <div class="carousel-item">
+                <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                alt="" style=" width:120 ; height: 80px;">
+                
+              <p class="card-title"style="margin: 0;">Nome</p>
+              <p class="card-text" style="margin: 0;">Filho</p>
+              <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+              </div>
+            </div>
+
+
+          </div>
+          </div>
+          
+          <!-- Footer Card Funcionários-->
+          <div class="card-footer ">
+
+            <ol class="carousel-indicators">
+              <a class="carousel-control-prev" href="#carouselFunc" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselFunc" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+              <li data-target="#carouselFunc" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselFunc" data-slide-to="1"></li>
+              <li data-target="#carouselFunc" data-slide-to="2"></li>
+              
+            </ol>
             <div class="botoesCaixa row ">
 
               <nav class="btnEditar">
@@ -248,7 +374,7 @@
                 <p>editar</p>
               </nav>
 
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addFuncionarioModal"
+              <button type="button" class="btnNovo btn-primary" data-toggle="modal" data-target="#addFuncionarioModal"
                 data-whatever="@mdo">Novo</button>
 
                 <nav class="btnExcluir">
@@ -263,36 +389,76 @@
                 </nav>
 
             </div>
-
-            
-
-            <div class="rodape row ">
-              <div class="rotape col-2 col-md-4"><a href="/"><-</a></div>
-              <div class="rotape col-2 col-md-4"><a href="/">O</a></div>
-              <div class="rotape col-2 col-md-4"><a href="/">-></a></div>
-            </div>
           </div>
-          <!-- caixa3 -->
+        </div>
 
-          <div class="col-md-3 caixa">
-            <span class="head row">
-              <div class="subtitulo col-1 col-md-10">Veículos</div>
-              <div class="qtd col-1 col-md-2">2</div>
-            </span>
 
-            <div class=" corpoCaixa ">
-                <img
-                  src="https://img.olx.com.br/images/93/934924094115559.jpg"
-                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="fotoVeiculo">
-                 
-              <div class=" textoCaixa ">
-                <p style="margin: 0;">Gol 2010</p>
-                <p style="margin: 0;">Placa: EPP-2510</p>
-                <p style="margin: 0;">Cor: Prata</p>
+      <!-- Card Veículos -->
+      <div class="card mb-3" style="max-width: 18rem;">
+        <div class="card-header">
+          <div class="row footerTexto">
+            <div>
+             Veículos
+            </div>
+            <div class="contador">
+              3
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Body Card Veículos -->
+        <div class="card-caixa card-body text-center" >
+        <!-- Carrosel Body -->
+          <div id="carouselVeic" class="carousel slide" >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="foto" src="https://revistacarro.com.br/wp-content/uploads/2020/01/VW-Fusca.jpg"
+                alt="First slide" style=" width:120 ; height: 80px;">
+                
+              <p class="card-title"style="margin: 0;">Fusca</p>
+              <p class="card-text" style="margin: 0;">Placa EEE-1099</p>
+              <p class="card-text" style="margin: 0;">Azul</p>
+              </div>
+              <div class="carousel-item">
+                <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                alt="" style=" width:120 ; height: 80px;">
+                
+              <p class="card-title"style="margin: 0;">Nome</p>
+              <p class="card-text" style="margin: 0;">Filho</p>
+              <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+              </div>
+              <div class="carousel-item">
+                <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                alt="" style=" width:120 ; height: 80px;">
+                
+              <p class="card-title"style="margin: 0;">Nome</p>
+              <p class="card-text" style="margin: 0;">Filho</p>
+              <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
               </div>
             </div>
-            <!-- corpo caixa-->
 
+
+          </div>
+          </div>
+          
+          <!-- Footer Card Veículos-->
+          <div class="card-footer ">
+
+            <ol class="carousel-indicators">
+              <a class="carousel-control-prev" href="#carouselVeic" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselVeic" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+              <li data-target="#carouselVeic" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselVeic" data-slide-to="1"></li>
+              <li data-target="#carouselVeic" data-slide-to="2"></li>
+              
+            </ol>
             <div class="botoesCaixa row ">
 
               <nav class="btnEditar">
@@ -305,7 +471,7 @@
                 <p>editar</p>
               </nav>
 
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addVeiculoModal"
+              <button type="button" class="btnNovo btn-primary" data-toggle="modal" data-target="#addVeiculoModal"
                 data-whatever="@mdo">Novo</button>
 
                 <nav class="btnExcluir">
@@ -320,36 +486,76 @@
                 </nav>
 
             </div>
-
-            
-
-            <div class="rodape row ">
-              <div class="rotape col-2 col-md-4"><a href="/"><-</a></div>
-              <div class="rotape col-2 col-md-4"><a href="/">O</a></div>
-              <div class="rotape col-2 col-md-4"><a href="/">-></a></div>
-            </div>
           </div>
-          <!-- caixa4 -->
+        </div>
 
-          <div class="col-md-3 caixa">
-            <span class="head row">
-              <div class="subtitulo col-1 col-md-10">Pets</div>
-              <div class="qtd col-1 col-md-2">1</div>
-            </span>
 
-            <div class=" corpoCaixa ">
-                <img
-                  src="https://www.purina.pt/sites/g/files/mcldtz1671/files/2018-03/cao-em-casa.jpg"
-                  class="img-rounded float-left" style=" width:60 ; height: 60px;" alt="fotoPet">
-                 
-              <div class=" textoCaixa ">
-                <p style="margin: 0;">Bob</p>
-                <p style="margin: 0;">Cão</p>
-                <p style="margin: 0;">Médio Porte</p>
+      <!-- Card Pets -->
+      <div class="card mb-3" style="max-width: 18rem;">
+        <div class="card-header">
+          <div class="row footerTexto">
+            <div>
+             Pets
+            </div>
+            <div class="contador">
+              3
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Body Card Pets -->
+        <div class="card-caixa card-body text-center" >
+        <!-- Carrosel Body -->
+          <div id="carouselPet" class="carousel slide" >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="foto" src="https://t1.ea.ltmcdn.com/pt/images/5/6/1/sindrome_do_cao_nadador_causas_sintomas_e_tratamento_23165_600.jpg"
+                alt="First slide" style=" width:120 ; height: 80px;">
+                
+              <p class="card-title"style="margin: 0;">Bob</p>
+              <p class="card-text" style="margin: 0;">Cão</p>
+              <p class="card-text" style="margin: 0;">Pequeno Porte</p>
+              </div>
+              <div class="carousel-item">
+                <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                alt="" style=" width:120 ; height: 80px;">
+                
+              <p class="card-title"style="margin: 0;">Nome</p>
+              <p class="card-text" style="margin: 0;">Filho</p>
+              <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+              </div>
+              <div class="carousel-item">
+                <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                alt="" style=" width:120 ; height: 80px;">
+                
+              <p class="card-title"style="margin: 0;">Nome</p>
+              <p class="card-text" style="margin: 0;">Filho</p>
+              <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
               </div>
             </div>
-            <!-- corpo caixa-->
 
+
+          </div>
+          </div>
+          
+          <!-- Footer Card Pets-->
+          <div class="card-footer ">
+
+            <ol class="carousel-indicators">
+              <a class="carousel-control-prev" href="#carouselPet" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselPet" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+              <li data-target="#carouselPet" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselPet" data-slide-to="1"></li>
+              <li data-target="#carouselPet" data-slide-to="2"></li>
+              
+            </ol>
             <div class="botoesCaixa row ">
 
               <nav class="btnEditar">
@@ -362,7 +568,7 @@
                 <p>editar</p>
               </nav>
 
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPetModal"
+              <button type="button" class="btnNovo btn-primary" data-toggle="modal" data-target="#addPetModal"
                 data-whatever="@mdo">Novo</button>
 
                 <nav class="btnExcluir">
@@ -378,25 +584,42 @@
 
             </div>
 
-            
-
-            <div class="rodape row ">
-              <div class="rotape col-2 col-md-4"><a href="/"><-</a></div>
-              <div class="rotape col-2 col-md-4"><a href="/">O</a></div>
-              <div class="rotape col-2 col-md-4"><a href="/">-></a></div>
-            </div>
           </div>
-          <!-- caixa5 -->
+        </div>  
+        
+      </div>
+              
 
-
+        </section>
         </div>
-        <!-- Caixas -->
-    </div>
     <!-- Container -->
   </main>
 
   <%- include('../../includes/scriptJS')%>
 </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
