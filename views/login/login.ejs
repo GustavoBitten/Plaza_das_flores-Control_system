@@ -1,53 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <%- include('../includes/head', {titulo: titulo}) %>
-  
+
   <link href="/css/login/login.css" rel="stylesheet">
 </head>
-   
+
 <body class="corpo">
 
   <div class="container">
-    <div class="d-flex justify-content-center h-100">  
+    <div class="d-flex justify-content-center h-100">
 
-    <form class="formulario">
-      
-     
-       
+      <form class="formulario">
+
+
+
         <div class="row">
           <div class="logo col-12"><img src="img/Logo.png" alt=""></div>
-        <label for="ap" class="sr-only col-2">Bloco + Apartamento</label>
-        <input type="text" id="ap" class="form-control col-12" placeholder="Bloco + Apartamento (ex: A01)" required autofocus>
-      </div>
-      <div class="row">
-        <label for="inputPassword" class="sr-only col-2">Senha</label>
-        <input type="password" id="inputPassword" class="form-control col-12" placeholder="Senha" required>
-      </div>
+          <label for="ap" class="sr-only col-2">Bloco + Apartamento</label>
+          <input type="text" id="ap" class="form-control col-12" placeholder="Bloco + Apartamento (ex: A01)" required
+            autofocus>
+        </div>
+        <div class="row">
+          <label for="inputPassword" class="sr-only col-2">Senha</label>
+          <input type="password" id="inputPassword" class="form-control col-12" placeholder="Senha" required>
+        </div>
         <div class="ckBottom row">
           <label class="checkbox col align-self-end">
             <input type="checkbox" value="remember-me"> Manter conectado
           </label>
-        
-        <button class="btn" type="submit">Entrar</button>
-      </div>
 
-        <div class="remember row" > 
-        <a  class="col-md"  href="">Esqueci minha Senha</a>
-      </div>
+          <button class="btn" type="submit">Entrar</button>
+        </div>
+
+        <div class="remember row">
+          <button class="col-md"  type="button" data-toggle="modal" data-target="#forgetPassword">Esqueci minha Senha</button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="forgetPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Esqueceu seu senha ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group" >
+
+                  <label for="ap" class="ml-2" >Preencha com seu email:</label>
+                  <input type="text" id="ap" class="form-control m-0" placeholder="exemplo@email.com.br" required
+                  autofocus>
+                </div>
+              </div>
+              <div class="modal-footer">
+                
+                <button type="button" class="btn btn-primary">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
       
+        <!-- Modal -->
+
       </form>
     </div>
-    </div>
+  </div>
 
-    <!-- Inicio = Html de botões temporário -->
-    <div id="provisorio">
-      <p>Botões temporário só para teste de funcionamento</p>
-      <a href="/backoffice/morador/dashboard"><button> Morador</button></a>
-      <a href="/"><button> Síndico</button></a>
-      <a href="/"><button> Portaria</button></a>
 
-    </div>
-    <!-- Fim = Html de botões temporário -->
+
+  <!-- Inicio = Html de botões temporário -->
+  <div id="provisorio">
+    <p>Botões temporário só para teste de funcionamento</p>
+    <a href="/backoffice/morador/dashboard"><button> Morador</button></a>
+    <a href="/"><button> Síndico</button></a>
+    <a href="/"><button> Portaria</button></a>
+
+  </div>
+  <!-- Fim = Html de botões temporário -->
+  <%- include('../includes/scriptJS')%>
 </body>
+
 </html>

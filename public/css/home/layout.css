@@ -17,7 +17,7 @@ ul.navbar-nav > li > a{
 }
 
 footer > div.container-fluid, footer > section.container-fluid {
-  background-color: lightgrey;
+  background-color: #078407;
   height: 5vh
 }
 
@@ -118,7 +118,7 @@ justify-content: center;
 */
 
 #main{
-  background-color:#efefef;
+  background-color:#078407;
 }
 
 .pFirst{
@@ -221,10 +221,19 @@ justify-content: center;
   height: unset;
 }
 
-form{
+.contact-form{
   border-radius: .25rem;
   border: 1px solid #858b92;
+  background-color: white
+  
 }
+
+.contact-form *{
+  background-color: white;
+  
+}
+
+
 
 /* form *, .form-control{
   font-size: 94%;
@@ -373,6 +382,11 @@ form{
 
 }
 
+.footer-text{
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 13px black;
+}
 
 /* @media (min-width: 577px)  */
 
@@ -380,6 +394,16 @@ form{
 /* @media (min-width: 769px) and (max-width:1200px){
 
 } */
+
+.modal-content{
+  background: white;
+  border-radius: 11px;
+  height: 86vh;
+
+}
+.modal-dialog{
+  background-color: transparent!important;
+}
 
 
 
