@@ -9,7 +9,9 @@
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
-    "popper.js": "^1.16.1"
+    "popper.js": "^1.16.1",
+    "sequelize": "^5.21.9",
+    "sqlite3": "^4.2.0"
   },
   "devDependencies": {},
   "scripts": {
