@@ -2,29 +2,31 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('areas_comuns', { 
+    return queryInterface.createTable('tipos_telefones', {
       id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
         autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
         allowNull: false
       },
-      nome: {
-        type: Sequelize.STRING(50),
-        allowNull: false
+      tipo: {
+        allowNull: false,
+        type: Sequelize.STRING
       },
-      created_at: {
+      createdAt: {
         type: Sequelize.DATE,
         allowNull: false
+
       },
-      updated_at: {
+      updatedAt: {
         type: Sequelize.DATE,
         allowNull: false
+
       }
     })
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('areas_comuns')
+    return queryInterface.dropTable('tipos_telefones')
   }
 };

@@ -2,11 +2,11 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('reservas', { 
+    return queryInterface.createTable('telefones', {
       id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
         autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       morador_id: {
@@ -19,41 +19,36 @@ module.exports = {
         onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too
         onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
       },
-      area_comun_id: {
+      tipo_telefone: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'areas_comuns',
+          model: 'tipos_telefones',
           key: 'id'
         },
         onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too
         onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
       },
-      data: {
+      numero: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+
+
+      createdAt: {
         type: Sequelize.DATE,
         allowNull: false
+
       },
-      status: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: 1,
-        allowNull: false
-      },
-      motivo: {
-        type: Sequelize.STRING(500),
-        allowNull: true
-      },
-      created_at: {
+      updatedAt: {
         type: Sequelize.DATE,
         allowNull: false
-      },
-      updated_at: {
-        type: Sequelize.DATE,
-        allowNull: false
+
       }
     })
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('reservas')
+    return queryInterface.dropTable('telefones')
   }
 };
