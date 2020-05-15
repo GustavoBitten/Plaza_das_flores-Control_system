@@ -32,7 +32,7 @@
          
           },
           valor:{
-            type: Sequelize.FLOT()
+            type: Sequelize.FLOAT()
           },
           codigo:{
             type: Sequelize.STRING(50),
