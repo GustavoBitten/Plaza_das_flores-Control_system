@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'moradores',
+          model: {tablename:'moradores'},
           key: 'id'
         },
         onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too
@@ -24,7 +24,8 @@ module.exports = {
         allowNull: false
       },
       cnpj: {
-        type: Sequelize.STRING(15),        
+        type: Sequelize.STRING(15),   
+        unique: true,     
       },
       rg: {
         type: Sequelize.STRING(15),        
