@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'moradores',
+          model: {tablename :'moradores'},
           key: 'id'
         },
         onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too
@@ -23,7 +23,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'visitantes',
+          model: {tablename:'visitantes'},
           key: 'id'
         },
         onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too
@@ -31,6 +31,7 @@ module.exports = {
       },
       tipo: {
         type: Sequelize.BOOLEAN,
+        defaultValue: 1,
         allowNull: false
       },
       created_at: {
