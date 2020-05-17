@@ -55,7 +55,7 @@ module.exports = {
         onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too
         onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
       },
-      tipos_ocorrencia_id: {
+      tipo_ocorrencia_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
