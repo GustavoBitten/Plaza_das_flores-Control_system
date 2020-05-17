@@ -3,31 +3,31 @@ module.exports = (sequelize, DataTypes) => {
       "Morador",
       {
         id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
           },
           nome: {
-            type: Sequelize.STRING(192),
+            type: DataTypes.STRING(192),
             allowNull: false
           },
           email: {
-            type: Sequelize.STRING(192),
+            type: DataTypes.STRING(192),
             unique: true,
             allowNull: false
           },
           cpf: {
-            type: Sequelize.STRING(11),
+            type: DataTypes.STRING(11),
             unique: true,
             allowNull: false
           },
           rg: {
-            type: Sequelize.STRING(15),
+            type: DataTypes.STRING(15),
             allowNull: true
           },
           bloco_id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
               model: 'blocos',
@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
           },
           apartamento_id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
               model: 'apartamentos',
@@ -47,29 +47,29 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
           },
           senha: {
-            type: Sequelize.STRING(50),
+            type: DataTypes.STRING(50),
             allowNull: false
           },
           foto: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: true
           },
           sindico: {
-            type: Sequelize.BOOLEAN,
+            type: DataTypes.BOOLEAN,
             defaultValue: 0,
             allowNull: false
           },
           status: {
-            type: Sequelize.BOOLEAN,
+            type: DataTypes.BOOLEAN,
             defaultValue: 1,
             allowNull: false
           },
           created_at: {
-            type: Sequelize.DATE,
+            type: DataTypes.DATE,
             allowNull: false
           },
           updated_at: {
-            type: Sequelize.DATE,
+            type: DataTypes.DATE,
             allowNull: false
           }
       },
