@@ -5,11 +5,11 @@ module.exports = (sequelize, DataTypes) => {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false
           },
           morador_id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
               model: {tablename:'moradores'},
@@ -19,26 +19,26 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
           },
           nome: {
-            type: Sequelize.STRING(192),
+            type: DataTypes.STRING(192),
             allowNull: false
           },
           cnpj: {
-            type: Sequelize.STRING(15),    
+            type: DataTypes.STRING(15),    
             unique: true,    
           },
           rg: {
-            type: Sequelize.STRING(15),        
+            type: DataTypes.STRING(15),        
           },
           foto: {
-            type: Sequelize.STRING,        
+            type: DataTypes.STRING,        
           },
           createdAt: {
-            type: Sequelize.DATE,
+            type: DataTypes.DATE,
             allowNull: false
     
           },
           updatedAt: {
-            type: Sequelize.DATE,
+            type: DataTypes.DATE,
             allowNull: false
     
           }

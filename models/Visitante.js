@@ -3,34 +3,34 @@ module.exports = (sequelize, DataTypes) => {
       "Visitante",
       {
         id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
           },      
           nome: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false
           },
           cpf: {
-            type: Sequelize.STRING(11),
+            type: DataTypes.STRING(11),
             allowNull: false
           },
           rg: {
-            type: Sequelize.STRING(15),
+            type: DataTypes.STRING(15),
             allowNull: false
           },
           tipo: {
-            type: Sequelize.BOOLEAN,
+            type: DataTypes.BOOLEAN,
             defaultValue: 1,
             allowNull: false
           },
           created_at: {
-            type: Sequelize.DATE,
+            type: DataTypes.DATE,
             allowNull: false
           },
           updated_at: {
-            type: Sequelize.DATE,
+            type: DataTypes.DATE,
             allowNull: false
           }
         
@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
   
     Visitante.associate = (models) => {
       Visitante.belongsToMany(models.Morador, {
-        through: models.Visita,
+        through: models.Visita, // model intermediário
         foreignKey: "morador_id",  // , as: "moradores"
       });
   

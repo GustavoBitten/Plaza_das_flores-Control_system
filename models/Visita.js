@@ -3,13 +3,13 @@ module.exports = (sequelize, DataTypes) => {
       "Visita",
       {
         id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
           },      
           morador_id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
               model: {tablename :'moradores'},
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
           },
           visitante_id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
               model: {tablename:'visitantes'},
@@ -29,16 +29,16 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
           },
           tipo: {
-            type: Sequelize.BOOLEAN,
+            type: DataTypes.BOOLEAN,
             defaultValue: 1,
             allowNull: false
           },
           created_at: {
-            type: Sequelize.DATE,
+            type: DataTypes.DATE,
             allowNull: false
           },
           updated_at: {
-            type: Sequelize.DATE,
+            type: DataTypes.DATE,
             allowNull: false
           }
         

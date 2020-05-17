@@ -3,13 +3,13 @@ module.exports = (sequelize, DataTypes) => {
         "Pet",
         {
             id: {
-                type: Sequelize.INTEGER,
+                type: DataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true,
                 allowNull: false
             },
             morador_id: {
-                type: Sequelize.INTEGER,
+                type: DataTypes.INTEGER,
                 allowNull: false,
                 references: {
                     model: { tablename: 'moradores' },
@@ -19,27 +19,27 @@ module.exports = (sequelize, DataTypes) => {
                 onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
             },
             nome: {
-                type: Sequelize.STRING(45),
+                type: DataTypes.STRING(45),
                 allowNull: false
             },
             especie: {
-                type: Sequelize.STRING(45),
+                type: DataTypes.STRING(45),
                 allowNull: false
             },
             porte: {
-                type: Sequelize.STRING(45),
+                type: DataTypes.STRING(45),
                 allowNull: false
             },
             foto: {
-                type: Sequelize.STRING,
+                type: DataTypes.STRING,
                 allowNull: true
             },
             created_at: {
-                type: Sequelize.DATE,
+                type: DataTypes.DATE,
                 allowNull: false
             },
             updated_at: {
-                type: Sequelize.DATE,
+                type: DataTypes.DATE,
                 allowNull: false
             }
         },
