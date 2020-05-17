@@ -47,8 +47,15 @@ module.exports = (sequelize, DataTypes) => {
       {
         timestamps: true, // utliza
         tablename: "veiculos"
-      }
+      } 
     );
+
+    Veiculo.associate = (models) => {
+      Veiculo.belongsTo(models.Morador, {
+        foreignKey: "morador_id",  // , as: "moradores"
+      });
+  
+    };
 
  
     return Veiculo;

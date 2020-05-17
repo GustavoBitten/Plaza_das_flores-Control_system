@@ -49,6 +49,13 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
 
+    Pet.associate = (models) => {
+        Pet.belongsTo(models.Morador, {
+          foreignKey: "morador_id",  // , as: "moradores"
+        });
+    
+      };
+
 
     return Pet;
 };

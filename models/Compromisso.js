@@ -45,6 +45,12 @@ module.exports = (sequelize, DataTypes) => {
       }
     );
 
+    Compromisso.associate = (models) => {
+      Compromisso.belongsTo(models.Morador, {
+        foreignKey: "morador_id",  // , as: "moradores"
+      });
+  
+    };
  
     return Compromisso;
   };

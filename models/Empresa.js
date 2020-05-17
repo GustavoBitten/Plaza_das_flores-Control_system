@@ -49,6 +49,13 @@ module.exports = (sequelize, DataTypes) => {
       }
     );
 
+    Empresa.associate = (models) => {
+      Empresa.belongsTo(models.Morador, {
+        foreignKey: "morador_id",  // , as: "moradores"
+      });
+  
+    };
+
  
     return Empresa;
   };
