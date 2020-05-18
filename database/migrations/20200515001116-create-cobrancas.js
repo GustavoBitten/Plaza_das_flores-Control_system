@@ -24,7 +24,7 @@
             type: Sequelize.STRING(100),
             allowNull: false,
             references: {
-              model: 'tipo_cobrancas',
+              model: 'tipos_cobrancas',
               key: 'id'
             },
             onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too

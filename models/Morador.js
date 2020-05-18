@@ -109,5 +109,5 @@ module.exports = (sequelize, DataTypes) => {
   
     
   
-    return Ocorrencia;
+    return Morador;
   };

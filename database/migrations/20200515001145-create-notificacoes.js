@@ -36,7 +36,7 @@
             type: Sequelize.STRING(100),
             allowNull: false,
             references: {
-              model: 'tipo_notificacoes',
+              model: 'tipos_notificacoes',
               key: 'id'
             },
             onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too
@@ -49,8 +49,6 @@
 
           },
           
-
-
 
           created_at: {
             type: Sequelize.DATE,
