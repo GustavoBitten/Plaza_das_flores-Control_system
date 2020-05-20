@@ -1,5 +1,6 @@
 const express = require('express')
 const backofficePageController = require('../../controllers/backoffice/backofficePageController');
+const blocoController = require('../../controllers/backoffice/blocoController');
 
 let route = express.Router()
 //rotas a partir daqui!
@@ -32,5 +33,8 @@ route.get('/portaria/areas-comuns', backofficePageController.portariaAreasComuns
 route.get('/portaria/correspondencias', backofficePageController.portariaCorrespondencias)
 route.get('/portaria/comunicados', backofficePageController.portariaComunicados)
 
+// Teste criacao bloco
+route.get('/bloco', blocoController.index)
+route.post('/bloco', blocoController.store)
 
 module.exports = route
