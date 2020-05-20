@@ -99,48 +99,51 @@
               </button>
         </div>
         <div class="modal-body">
-          <form>
+
+
+          <form method="POST" action="/backoffice/moradores">
+
             <div class="row">
               <div class="col">
-                <label for="inputNome">Nome:</label>
-                <input id="inputNome" type="text" class="form-control" placeholder="Nome completo">
+                <label for="nome">Nome:</label>
+                <input id="nome" name="nome" type="text" class="form-control" placeholder="Nome completo">
               </div>
 
             </div>
             <div class="row">
               <div class="col">
-                <label for="inputRG">RG:</label>
-                <input id="inputRG" type="number" class="form-control" placeholder="RG">
+                <label for="rg">RG:</label>
+                <input id="rg" name="rg" type="number" class="form-control" placeholder="RG">
               </div>
               <div class="col">
-                <label for="inputCPF">CPF:</label>
-                <input id="inputCPF" type="number" class="form-control" placeholder="CPF">
+                <label for="cpf">CPF:</label>
+                <input id="cpf" name="cpf" type="number" class="form-control" placeholder="CPF">
               </div>
             </div>
             <div class="row">
               <div class="col">
-                <label for="inputEmail">Email:</label>
-                <input id="inputEmail" type="email" class="form-control" placeholder="morador@email.com.br">
+                <label for="email">Email:</label>
+                <input id="email" name="email" type="email" class="form-control" placeholder="morador@email.com.br">
               </div>
               <div class="col">
-                <label for="inputFone">Contato:</label>
-                <input id="inputFone" type="text" class="form-control" placeholder="(XX)XXXXX-XXXX">
+                <label for="celular">Contato:</label>
+                <input id="celular" name="celular" type="text" class="form-control" placeholder="(XX)XXXXX-XXXX">
               </div>
             </div>
 
             <div class="row">
               <div class="col">
-                <label for="inputBloco">Bloco:</label>
-                <select id="inputBloco" class="form-control">
+                <label for="bloco">Bloco:</label>
+                <select id="bloco" name="bloco" class="form-control">
                   <option disabled selected>Informe</option>
-                  <option>Bloco A</option>
+                  <option >Bloco A</option>
                   <option>Bloco B</option>
                   <option>Bloco C</option>
                 </select>
               </div>
               <div class="col">
-                <label for="inputAndar">Andar:</label>
-                <select id="inputAndar" class="form-control">
+                <label for="andar">Andar:</label>
+                <select id="andar" name="andar" class="form-control">
                   <option disabled selected>Informe</option>
                   <option>1ª</option>
                   <option>2ª</option>
@@ -148,8 +151,8 @@
                 </select>
               </div>
               <div class="col">
-                <label for="inputAp">Ap</label>
-                <select id="inputAp" class="form-control">
+                <label for="ap">Ap</label>
+                <select id="ap" name="ap" class="form-control">
                   <option disabled selected>Informe</option>
                   <option>101</option>
                   <option>102</option>
@@ -159,11 +162,13 @@
             </div>
 
 
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+              <button type="submit" value="submit" class="btn btn-primary">Gravar</button>
+            </div>
           </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary">Gravar</button>
+
+
         </div>
       </div>
     </div>

@@ -16,20 +16,22 @@ module.exports = moradorController = {
       sindico,
       status
     } = req.body
+    console.log(req.body)
 
-    const morador = await Morador.create({
-      nome,
-      email,
-      cpf,
-      rg,
-      bloco_id,
-      apartamento_id,
-      senha,
-      foto,
-      sindico,
-      status
-    })
+    // const morador = await Morador.create({
+    //   nome,
+    //   email,
+    //   cpf,
+    //   rg,
+    //   bloco_id,
+    //   apartamento_id,
+    //   senha,
+    //   foto,
+    //   sindico,
+    //   status
+    // })
 
-    return res.json(morador)
+    //return res.json(morador)
+    //res.redirect('/backoffice/sindico/moradores')
   }
 }

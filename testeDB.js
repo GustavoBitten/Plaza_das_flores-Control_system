@@ -2,7 +2,7 @@
 
 
 
-const {Bloco,Pet,Visitante} = require('./models/index')
+const {Bloco,Pet,Visitante,Morador} = require('./models/index')
 
 
 
@@ -15,7 +15,7 @@ const {Bloco,Pet,Visitante} = require('./models/index')
 //Bloco.create({bloco:"z"}).then((e)=>console.log(e))
 
 try {
-    Visitante.create({nome:"Gustavo",cpf:"49166555428",rg:"1234567951"})
+    Morador.findAll({raw:true}).then((e)=>console.log(e))
 } catch(e){
     console.log(e)
 }
