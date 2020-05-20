@@ -24,15 +24,8 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BOOLEAN,
             defaultValue: 1,
             allowNull: false
-          },
-          created_at: {
-            type: DataTypes.DATE,
-            allowNull: false
-          },
-          updated_at: {
-            type: DataTypes.DATE,
-            allowNull: false
           }
+         
         
       },
       {
@@ -42,13 +35,13 @@ module.exports = (sequelize, DataTypes) => {
       }
     );
   
-    Visitante.associate = (models) => {
-      Visitante.belongsToMany(models.Morador, {
-        through: models.Visita, // model intermediário
-        foreignKey: "morador_id",  // , as: "moradores"
-      });
+    // Visitante.associate = (models) => {
+    //   Visitante.belongsToMany(models.Morador, {
+    //     through: models.Visita, // model intermediário
+    //     foreignKey: "morador_id",  // , as: "moradores"
+    //   });
   
-    };
+    // };
   
     
   

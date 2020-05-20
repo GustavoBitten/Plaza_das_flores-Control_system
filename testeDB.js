@@ -1,19 +1,24 @@
-const {Bloco} = require('./models/index')
+
+
+
+
+const {Bloco,Pet,Visitante} = require('./models/index')
+
+
+
+
+//Bloco.create({bloco:"z"}).then((e)=>console.log(e))
+
 
 
 
 //Bloco.create({bloco:"z"}).then((e)=>console.log(e))
 
 try {
-    Bloco.findAll({raw:true})
+    Visitante.create({nome:"Gustavo",cpf:"49166555428",rg:"1234567951"})
 } catch(e){
     console.log(e)
 }
 
-try {
-    Bloco.create({bloco:"z"})
-} catch(e){
-    console.log(e)
-}
 
 
