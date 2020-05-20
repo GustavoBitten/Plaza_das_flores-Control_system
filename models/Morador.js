@@ -66,49 +66,38 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
         allowNull: false
-      },
-      created_at: {
-        type: DataTypes.DATE,
-        allowNull: false
-      },
-      updated_at: {
-        type: DataTypes.DATE,
-        allowNull: false
       }
     }, {
-      timestamps: true, // utliza
-      tablename: "moradores"
+      timestamps: true,
+      freezeTableName: true,
+      tableName: "moradores"
     }
   );
 
-  Morador.associate = (models) => {
-    Morador.belongsToMany(models.Funcionario, {
-      through: models.Log_funcionario, //tab intermediaria
-      foreignKey: "funcionario_id", // , as: ""
-    });
-    Morador.belongsToMany(models.Visitante, {
-      through: models.Visita, //tab intermediaria
-      foreignKey: "visitante_id", // , as: ""
-    });
-    Morador.hasMany(models.Veiculo, { //morador tem mtos veiculos
-      foreignKey: "morador_id", // , as: ""
-    });
-    Morador.hasMany(models.Compromisso, {
-      foreignKey: "morador_id", // , as: ""
-    });
-    Morador.hasMany(models.Empresa, {
-      foreignKey: "morador_id", // , as: ""
-    });
-    Morador.hasMany(models.Pet, {
-      foreignKey: "morador_id", // , as: ""
-    });
-    Morador.hasMany(models.Ocorrencia, {
-      foreignKey: "morador_id", // , as: ""
-    });
-
-  };
-
-
+  // Morador.associate = (models) => {
+  //   Morador.belongsToMany(models.Funcionario, {
+  //     through: models.Log_funcionario, //tab intermediaria
+  //     foreignKey: "funcionario_id", // , as: ""
+  //   });
+  //   Morador.belongsToMany(models.Visitante, {
+  //     through: models.Visita, //tab intermediaria
+  //     foreignKey: "visitante_id", // , as: ""
+  //   });
+  //   Morador.hasMany(models.Veiculo, { //morador tem mtos veiculos
+  //     foreignKey: "morador_id", // , as: ""
+  //   });
+  //   Morador.hasMany(models.Compromisso, {
+  //     foreignKey: "morador_id", // , as: ""
+  //   });
+  //   Morador.hasMany(models.Empresa, {
+  //     foreignKey: "morador_id", // , as: ""
+  //   });
+  //   Morador.hasMany(models.Pet, {
+  //     foreignKey: "morador_id", // , as: ""
+  //   });
+  //   Morador.hasMany(models.Ocorrencia, {
+  //     foreignKey: "morador_id", // , as: ""
+  //   });
 
   return Morador;
 };

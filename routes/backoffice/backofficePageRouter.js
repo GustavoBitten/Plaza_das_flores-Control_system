@@ -2,6 +2,7 @@ const express = require('express')
 const backofficePageController = require('../../controllers/backoffice/backofficePageController');
 const blocoController = require('../../controllers/backoffice/blocoController');
 const apartamentoController = require('../../controllers/backoffice/apartamentoController');
+const moradorController = require('../../controllers/backoffice/moradorController');
 
 let route = express.Router()
 //rotas a partir daqui!
@@ -40,5 +41,8 @@ route.post('/blocos', blocoController.store)
 
 // Rotas para os Apartamentos
 route.post('/apartamentos', apartamentoController.store)
+
+// Rotas para os Moradores
+route.post('/moradores', moradorController.store)
 
 module.exports = route
