@@ -1,4 +1,5 @@
 const express = require('express')
+const upload = require("../../config/upload"); // multer
 const backofficePageController = require('../../controllers/backoffice/backofficePageController');
 const blocoController = require('../../controllers/backoffice/blocoController');
 const apartamentoController = require('../../controllers/backoffice/apartamentoController');
