@@ -9,7 +9,6 @@ module.exports = blocoController = {
     return res.json(blocos)
   },
   store: async (req, res) => {
-    console.log(req.body)
     const {
       bloco
     } = req.body

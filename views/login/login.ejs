@@ -12,6 +12,11 @@
   <div class="container">
     <div class="d-flex justify-content-center h-100">
 
+      <form action="/backoffice/bloco" method="POST">
+        <input id="bloco" name="bloco" type="text">
+        <button type="submit">submit</button>
+      </form>
+
       <form class="formulario">
 
 
@@ -35,7 +40,8 @@
         </div>
 
         <div class="remember row">
-          <button class="col-md"  type="button" data-toggle="modal" data-target="#forgetPassword">Esqueci minha Senha</button>
+          <button class="col-md" type="button" data-toggle="modal" data-target="#forgetPassword">Esqueci minha
+            Senha</button>
         </div>
         <!-- Modal -->
         <div class="modal fade" id="forgetPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -49,21 +55,21 @@
                 </button>
               </div>
               <div class="modal-body">
-                <div class="form-group" >
+                <div class="form-group">
 
-                  <label for="ap" class="ml-2" >Preencha com seu email:</label>
+                  <label for="ap" class="ml-2">Preencha com seu email:</label>
                   <input type="text" id="ap" class="form-control m-0" placeholder="exemplo@email.com.br" required
-                  autofocus>
+                    autofocus>
                 </div>
               </div>
               <div class="modal-footer">
-                
+
                 <button type="button" class="btn btn-primary">Enviar</button>
               </div>
             </div>
           </div>
         </div>
-      
+
         <!-- Modal -->
 
       </form>
