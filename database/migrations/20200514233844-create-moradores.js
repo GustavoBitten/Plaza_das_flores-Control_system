@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('moradores', { 
+    return queryInterface.createTable('moradores', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -57,12 +57,12 @@ module.exports = {
       },
       sindico: {
         type: Sequelize.BOOLEAN,
-        defaultValue: 0,
+        defaultValue: false,
         allowNull: false
       },
       status: {
         type: Sequelize.BOOLEAN,
-        defaultValue: 1,
+        defaultValue: true,
         allowNull: false
       },
       created_at: {

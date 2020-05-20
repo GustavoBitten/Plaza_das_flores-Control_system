@@ -2,13 +2,13 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('visitas', { 
+    return queryInterface.createTable('visitas', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
-      },      
+      },
       morador_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -31,7 +31,7 @@ module.exports = {
       },
       tipo: {
         type: Sequelize.BOOLEAN,
-        defaultValue: 1,
+        defaultValue: true,
         allowNull: false
       },
       created_at: {

@@ -2,13 +2,13 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('visitantes', { 
+    return queryInterface.createTable('visitantes', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
-      },      
+      },
       nome: {
         type: Sequelize.STRING,
         allowNull: false
@@ -23,7 +23,7 @@ module.exports = {
       },
       tipo: {
         type: Sequelize.BOOLEAN,
-        defaultValue: 1,
+        defaultValue: true,
         allowNull: false
       },
       created_at: {
@@ -41,4 +41,3 @@ module.exports = {
     return queryInterface.dropTable('visitantes')
   }
 };
-
