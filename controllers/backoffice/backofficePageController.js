@@ -1,7 +1,8 @@
+const session = require('express-session')
 
 let backofficePageController = {
   moradorDashboard: (req,res) => {
-    res.render("backoffice/morador/dashboard", {titulo:"Morador - Dashboard"})
+    res.render("backoffice/morador/dashboard", {titulo:"Morador - Dashboard",usuario:req.session.user})
   },
   moradorPerfil: (req,res) => {
     res.render("backoffice/morador/perfil", {titulo:"Morador - Perfil"})

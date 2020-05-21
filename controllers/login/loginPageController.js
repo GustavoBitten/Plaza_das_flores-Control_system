@@ -1,4 +1,5 @@
 const {Morador} = require('../../models')
+const session = require('express-session')
 
 
 const  loginPageController = {
@@ -13,8 +14,11 @@ const  loginPageController = {
       where: {email}
     })
 
-    console.log(usuario)
-    res.render("backoffice/morador/dashboard",{titulo: "titulo"})
+    //console.log(usuario)
+    
+    req.session.user = usuario
+    console.log(req.session.user)
+    res.redirect("backoffice/morador/dashboard")
   }
   
 }
