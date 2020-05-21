@@ -4,7 +4,9 @@ const session = require('express-session')
 
 
 let homePageRouter = require('./routes/homePageRouter')
-let backofficePageRouter = require('./routes/backoffice/backofficePageRouter')
+let moradorRouter = require('./routes/backoffice/moradorRouter')
+let portariaRouter = require('./routes/backoffice/portariaRouter')
+let sindicoRouter = require('./routes/backoffice/sindicoRouter')
 let loginPageRouter = require('./routes/login/loginPageRouter')
 const auth = require('./middleware/auth')
 
@@ -26,7 +28,10 @@ app.use(session({
 }))
 
 app.use('/', homePageRouter);
-app.use('/backoffice', auth ,backofficePageRouter);
+app.use('/backoffice', auth, moradorRouter);
+app.use('/backoffice', auth, portariaRouter);
+app.use('/backoffice', auth, sindicoRouter);
+
 app.use('/login', loginPageRouter);
 
 
