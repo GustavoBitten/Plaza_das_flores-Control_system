@@ -1166,33 +1166,34 @@ aria-hidden="true">
       </button>
     </div>
     <div class="modal-body">
-      <form>
+      <form method="POST" action="/backoffice/pets" enctype="multipart/form-data">
         <div class="form-group">
           <label for="nomePet" class="col-form-label">Nome</label>
           <input type="text" class="form-control" name="nomePet" id="nomePet"
             placeholder="Nome">
         </div>
         <div class="form-group">
-          <label for="tipoPet" class="col-form-label">Tipo</label>
-          <input type="text" class="form-control" name="tipoPet" id="tipoPet"
+          <label for="especiePet" class="col-form-label">Espécie</label>
+          <input type="text" class="form-control" name="especiePet" id="especiePet"
             placeholder="Ex: filho, mãe, etc.">
         </div>
         <div class="form-group">
-          <label for="rgPet" class="col-form-label">RG</label>
-          <input type="text" class="form-control" name="rgPet" id="rgPet"
-            placeholder="Rg">
+          <label for="portePet" class="col-form-label">Porte</label>
+          <input type="text" class="form-control" name="portePet" id="portePet"
+            placeholder="porte">
         </div>
         <div class="form-group">
           <label for="fotoPet">Foto</label>
           <input type="file" class="form" name="fotoPet" id="fotoPet">
         </div>
-      </form>
+      
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
       <button type="submit" class="btn btn-primary">Incluir</button>
 
     </div>
+  </form>
   </div>
 </div>
 </div>

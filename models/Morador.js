@@ -74,7 +74,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  // Morador.associate = (models) => {
+   Morador.associate = (models) => {
   //   Morador.belongsToMany(models.Funcionario, {
   //     through: models.Log_funcionario, //tab intermediaria
   //     foreignKey: "funcionario_id", // , as: ""
@@ -92,12 +92,13 @@ module.exports = (sequelize, DataTypes) => {
   //   Morador.hasMany(models.Empresa, {
   //     foreignKey: "morador_id", // , as: ""
   //   });
-  //   Morador.hasMany(models.Pet, {
-  //     foreignKey: "morador_id", // , as: ""
-  //   });
+     Morador.hasMany(models.Pet, {
+      foreignKey: "morador_id", // , as: ""
+     });
   //   Morador.hasMany(models.Ocorrencia, {
   //     foreignKey: "morador_id", // , as: ""
-  //   });
+   // });
+    }
 
   return Morador;
 };
