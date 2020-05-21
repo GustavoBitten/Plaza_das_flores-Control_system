@@ -4,19 +4,23 @@ const {
 
 module.exports = moradorController = {
   store: async (req, res) => {
-    const {
+    let {
       nome,
       email,
       cpf,
       rg,
       bloco_id,
       apartamento_id,
-      senha,
       foto,
       sindico,
       status
     } = req.body
-    console.log(req.body)
+
+    bloco_id = 2
+    apartamento_id = 1
+    const senha = cpf
+    console.log()
+    Morador.create({nome,email,cpf,bloco_id,apartamento_id,senha})
 
     // const morador = await Morador.create({
     //   nome,

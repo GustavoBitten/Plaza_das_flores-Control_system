@@ -5,6 +5,7 @@ let route = express.Router()
 //rotas a partir daqui!
 
 route.get('/', loginPageController.login)
+route.post('/', loginPageController.auth)
 
 
 
