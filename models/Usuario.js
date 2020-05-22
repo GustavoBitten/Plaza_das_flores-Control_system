@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const Morador = sequelize.define(
-    "Morador", {
+  const Usuario = sequelize.define(
+    "Usuario", {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -70,29 +70,29 @@ module.exports = (sequelize, DataTypes) => {
     }, {
       timestamps: true,
       freezeTableName: true,
-      tableName: "moradores"
+      tableName: "usuarios"
     }
   );
 
-   Morador.associate = (models) => {
-  //   Morador.belongsToMany(models.Funcionario, {
+   Usuario.associate = (models) => {
+  //   Usuario.belongsToMany(models.Funcionario, {
   //     through: models.Log_funcionario, //tab intermediaria
   //     foreignKey: "funcionario_id", // , as: ""
   //   });
-  //   Morador.belongsToMany(models.Visitante, {
+  //   Usuario.belongsToMany(models.Visitante, {
   //     through: models.Visita, //tab intermediaria
   //     foreignKey: "visitante_id", // , as: ""
   //   });
-  //   Morador.hasMany(models.Veiculo, { //morador tem mtos veiculos
+  //   Usuario.hasMany(models.Veiculo, { //morador tem mtos veiculos
   //     foreignKey: "morador_id", // , as: ""
   //   });
-  //   Morador.hasMany(models.Compromisso, {
+  //   Usuario.hasMany(models.Compromisso, {
   //     foreignKey: "morador_id", // , as: ""
   //   });
-  //   Morador.hasMany(models.Empresa, {
+  //   Usuario.hasMany(models.Empresa, {
   //     foreignKey: "morador_id", // , as: ""
   //   });
-     Morador.hasMany(models.Pet, {
+    Usuario.hasMany(models.Pet, {
       foreignKey: "morador_id", // , as: ""
      });
   //   Morador.hasMany(models.Ocorrencia, {
@@ -100,5 +100,5 @@ module.exports = (sequelize, DataTypes) => {
    // });
     }
 
-  return Morador;
+  return Usuario;
 };

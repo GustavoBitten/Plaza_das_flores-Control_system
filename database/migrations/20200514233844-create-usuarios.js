@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('moradores', {
+    return queryInterface.createTable('usuarios', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -55,10 +55,13 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true
       },
-      sindico: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
-        allowNull: false
+      tipo_usuario_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'tipos_usuarios',
+          key: 'id'
+        }
       },
       status: {
         type: Sequelize.BOOLEAN,
@@ -77,6 +80,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('moradores')
+    return queryInterface.dropTable('usuarios')
   }
 };

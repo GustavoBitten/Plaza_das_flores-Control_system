@@ -1,12 +1,8 @@
-const {
-  Morador
-} = require('../../models')
-
+const {Usuario} = require('../../models')
+const bcrypt = require('bcrypt')
 module.exports = moradorController = {
   store: async (req, res) => {
-    let {
-      nome,
-      email,
+    let {   nome,      email,
       cpf,
       rg,
       bloco_id,
@@ -18,11 +14,11 @@ module.exports = moradorController = {
 
     bloco_id = 2
     apartamento_id = 1
-    const senha = cpf
-    console.log()
-    Morador.create({nome,email,cpf,bloco_id,apartamento_id,senha})
+    const senha =  bcrypt.hashSync(cpf, 10)
+    console.log(senha)
+    Usuario.create({nome,email,cpf,bloco_id,apartamento_id,senha})
 
-    // const morador = await Morador.create({
+    // const morador = await Usuario.create({
     //   nome,
     //   email,
     //   cpf,

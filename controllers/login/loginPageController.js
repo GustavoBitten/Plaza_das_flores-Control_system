@@ -1,4 +1,4 @@
-const {Morador} = require('../../models')
+const {Usuario} = require('../../models')
 const session = require('express-session')
 
 
@@ -10,7 +10,7 @@ const  loginPageController = {
   auth: async (req,res) => {
     const {email,senha} = req.body
     console.log(email,senha)
-    const usuario = await Morador.findOne({
+    const usuario = await Usuario.findOne({
       where: {email}
     })
 

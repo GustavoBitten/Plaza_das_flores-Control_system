@@ -10,7 +10,7 @@ const Pet = sequelize.define("Pet",{
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: {tablename:"moradores"},
+            model: {tablename:"usuarios"},
             key: 'id'
         },
         onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too
@@ -36,7 +36,7 @@ const Pet = sequelize.define("Pet",{
 });
 
     Pet.associate = (models) => {
-    Pet.belongsTo(models.Morador, {
+    Pet.belongsTo(models.Usuario, {
     foreignKey: "morador_id",  // , as: "moradores"
     });
 

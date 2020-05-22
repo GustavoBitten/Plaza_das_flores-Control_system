@@ -24,13 +24,17 @@ app.use(express.urlencoded({
   extended: false
 }))
 app.use(session({
-  'secret': '343ji43j4n3jn4jk3n'
+  secret: '343ji43j4n3jn4jk3n',
+  resave: true,
+  saveUninitialized: false,
+
+
 }))
 
 app.use('/', homePageRouter);
+app.use('/backoffice', sindicoRouter);
 app.use('/backoffice', auth, moradorRouter);
 app.use('/backoffice', auth, portariaRouter);
-app.use('/backoffice', auth, sindicoRouter);
 
 app.use('/login', loginPageRouter);
 

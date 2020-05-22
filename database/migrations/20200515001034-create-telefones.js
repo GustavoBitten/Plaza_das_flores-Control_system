@@ -9,11 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      morador_id: {
+      usuario_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'moradores',
+          model: 'usuarios',
           key: 'id'
         },
         onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too
