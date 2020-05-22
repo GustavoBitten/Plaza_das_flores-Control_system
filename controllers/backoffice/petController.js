@@ -1,4 +1,4 @@
-const {Pet, Morador} = require('../../models')
+const {Pet, Usuario} = require('../../models')
 
 // controller em desenvolvimento
 
@@ -10,18 +10,19 @@ const {Pet, Morador} = require('../../models')
         console.log(pets);
       },
     store: async (req, res) => {
-      // const {user} = req.session;  
-      const {nomePet,especiePet,portePet, fotoPet} = req.body;  // morador_id será via session
-
+      // recebendo o usuário pelo session
+      //const {user} = req.session;  
+      const {nomePet,especiePet,portePet} = req.body;  
       // recebendo foto do multer
-      //const [fotoPet] = req.files;
+      const [fotoPet] = req.files;
 
+        
         const novoPet = await Pet.create({
         nome: nomePet,
         especie: especiePet,
         porte: portePet,
-        foto: fotoPet ,//`/images/${fotoPet.filename}`,
-        morador_id: 2, // user.id
+        foto: fotoPet, //`/images/${fotoPet.filename}`,
+        morador_id: 7 // user.id,
       }) 
 
      //console.log(req.body)

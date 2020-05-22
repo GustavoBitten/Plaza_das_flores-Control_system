@@ -33,7 +33,7 @@ app.use(session({
 
 app.use('/', homePageRouter);
 app.use('/backoffice', sindicoRouter);
-app.use('/backoffice', auth, moradorRouter);
+app.use('/backoffice', moradorRouter); // sem o auth para testes
 app.use('/backoffice', auth, portariaRouter);
 
 app.use('/login', loginPageRouter);
