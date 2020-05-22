@@ -1,11 +1,16 @@
 const session = require('express-session')
+const {Pet, Usuario} = require('../../models')
 
 let backofficePageController = {
   moradorDashboard: (req,res) => {
     res.render("backoffice/morador/dashboard", {titulo:"Morador - Dashboard",usuario:req.session.user})
   },
-  moradorPerfil: (req,res) => {
-    res.render("backoffice/morador/perfil", {titulo:"Morador - Perfil",usuario:req.session.user})
+  moradorPerfil: async (req,res) => {
+    const pets = await Pet.findAll(
+     // {include: {model: Usuario}}
+    )
+    console.log(pets);
+    res.render("backoffice/morador/perfil", {titulo:"Morador - Perfil",usuario:req.session.user, pets})
   },
   moradorOcorrencias: (req,res) => {
     res.render("backoffice/morador/ocorrencias", {titulo:"Morador - Ocorrências",usuario:req.session.user})

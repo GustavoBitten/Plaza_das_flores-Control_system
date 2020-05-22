@@ -33,8 +33,8 @@ route.post('/apartamentos', apartamentoController.store)
 route.post('/moradores', moradorController.store)
 
 // Rotas para os Pets
-//route.get('/pets', petController.index)
 route.post('/pets',upload.any(), petContoller.store)
-route.get('/pets', petContoller.index)
+
+
 
 module.exports = route
