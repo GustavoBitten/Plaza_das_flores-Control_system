@@ -50,16 +50,15 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
       },
       senha: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(150),
         allowNull: false
       },
       foto: {
         type: DataTypes.STRING,
         allowNull: true
       },
-      sindico: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
+      tipo_usuario_id: {
+        type: DataTypes.INTEGER,
         allowNull: false
       },
       status: {

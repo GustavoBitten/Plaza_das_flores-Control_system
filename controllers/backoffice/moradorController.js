@@ -8,15 +8,16 @@ module.exports = moradorController = {
       bloco_id,
       apartamento_id,
       foto,
-      sindico,
+      tipo,
       status
     } = req.body
 
     bloco_id = 2
     apartamento_id = 1
-    const senha =  bcrypt.hashSync(cpf, 10)
+    tipo_usuario_id = 1
+    const senha =  bcrypt.hashSync(cpf, 2)
     console.log(senha)
-    Usuario.create({nome,email,cpf,bloco_id,apartamento_id,senha})
+    Usuario.create({nome,email,cpf,bloco_id,apartamento_id,senha,tipo_usuario_id})
 
     // const morador = await Usuario.create({
     //   nome,
