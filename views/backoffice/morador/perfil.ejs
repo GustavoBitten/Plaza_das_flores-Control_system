@@ -1261,7 +1261,16 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-      <button type="button" class="btn btn-primary">Sim</button>
+      
+      <% pets.forEach(pet =>{ %> 
+        <form action="/backoffice/delete/<%= pet.id %>?_method=DELETE" method="POST">
+          <% }) %>
+          <button type="submit" class="btn btn-primary">Sim</button>
+        </form>
+        
+      
+
+
     </div>
   </div>
 </div>

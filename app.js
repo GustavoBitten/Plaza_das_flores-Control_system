@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const session = require('express-session')
+const methodOverride = require('method-override')
 
 
 let homePageRouter = require('./routes/homePageRouter')
@@ -30,6 +31,7 @@ app.use(session({
 
 
 }))
+app.use(methodOverride("_method"))
 
 app.use('/', homePageRouter);
 app.use('/backoffice', sindicoRouter);

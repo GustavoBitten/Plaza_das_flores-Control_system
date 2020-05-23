@@ -17,4 +17,15 @@ const {Pet, Usuario} = require('../../models')
       return res.redirect('/backoffice/morador/perfil')
 
     },
+    delete: async (req, res) => {
+     // const { user } = req.session;
+      const {petId} = req.params;
+  
+      const deletePet = await Pet.destroy({
+        where: [{id:petId},
+        ]
+      });
+  
+      return res.redirect("/backoffice/morador/perfil");
+    },
   }

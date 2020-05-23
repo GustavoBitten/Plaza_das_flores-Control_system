@@ -34,6 +34,7 @@ route.post('/moradores', moradorController.store)
 
 // Rotas para os Pets
 route.post('/pets',upload.any(), petContoller.store)
+route.delete('/delete/:petId', petController.delete)
 
 
 
