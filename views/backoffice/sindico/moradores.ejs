@@ -106,7 +106,7 @@
             <div class="row">
               <div class="col">
                 <label for="nome">Nome:</label>
-                <input id="nome" name="nome" type="text" class="form-control" placeholder="Nome completo">
+                <input required="required" id="nome" name="nome" type="text" class="form-control" placeholder="Nome completo">
               </div>
 
             </div>
@@ -117,13 +117,13 @@
               </div>
               <div class="col">
                 <label for="cpf">CPF:</label>
-                <input id="cpf" name="cpf" type="number" class="form-control" placeholder="CPF">
+                <input required="required" id="cpf" name="cpf" type="number" class="form-control" placeholder="CPF">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <label for="email">Email:</label>
-                <input id="email" name="email" type="email" class="form-control" placeholder="morador@email.com.br">
+                <input required="required" id="email" name="email" type="email" class="form-control" placeholder="morador@email.com.br">
               </div>
               <div class="col">
                 <label for="celular">Contato:</label>
@@ -136,9 +136,10 @@
                 <label for="bloco">Bloco:</label>
                 <select id="bloco" name="bloco" class="form-control">
                   <option disabled selected>Informe</option>
-                  <option >Bloco A</option>
-                  <option>Bloco B</option>
-                  <option>Bloco C</option>
+                  <% resultBloco.forEach(resultBloco => {  %>
+                  <option value="<%= resultBloco.id %>" ><%= resultBloco.bloco %></option>
+                  <% }); %> 
+                  
                 </select>
               </div>
               
@@ -146,18 +147,22 @@
                 <label for="ap">Ap</label>
                 <select id="ap" name="ap" class="form-control">
                   <option disabled selected>Informe</option>
-                  <option>101</option>
-                  <option>102</option>
-                  <option>103</option>
+                  <% resultApartamento.forEach(resultApartamento => {  %>
+                    <option value="<%= resultApartamento.id %>" ><%= resultApartamento.apartamento %></option>
+                    <% }); %> 
                 </select>
               </div>
             </div>
               
-              <div style="margin:10px" class="row">
+           <div style="margin:10px" class="row">
                 <div class="col">
                   <label for="fotoMorador">Foto</label>
-                <input type="file" class="form-control" name="fotoMorador" id="fotoMorador">
-               </div>
+                <input type="file" class="form-control file" name="fotoMorador" id="fotoMorador">
+               </div> 
+             <!--   <div style="margin:5px" class="row custom-file">
+                <input type="file" class="custom-file-input" name="fotoMorador" id="fotoMorador">
+                <label class="custom-file-label" for="customFile">Escolher foto</label>
+              </div> -->
               
               
             </div>          

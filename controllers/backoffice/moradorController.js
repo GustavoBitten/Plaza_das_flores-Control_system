@@ -1,5 +1,5 @@
 const {
-  Usuario
+  Usuario,Bloco,Apartamento
 } = require('../../models')
 const bcrypt = require('bcrypt')
 module.exports = moradorController = {
@@ -29,6 +29,16 @@ module.exports = moradorController = {
     tipo_usuario_id = 2
     const senha = bcrypt.hashSync(cpf, 2)
     console.log(senha)
+
+    /* const VerificaEmail = await Usuario.findOne({ 
+      where:{
+         email: email } });
+if (project != null) {
+  console.log('Not found!');
+} else {
+  
+} */
+
     const novoMorador = await Usuario.create({
       nome,
       email,
@@ -41,7 +51,7 @@ module.exports = moradorController = {
       tipo_usuario_id
     })
 
-
+   
     return res.redirect("/backoffice/sindico/moradores")
     // const morador = await Usuario.create({
     //   nome,
@@ -64,13 +74,15 @@ module.exports = moradorController = {
     const result = await Usuario.findAll({
       where: {
         tipo_usuario_id: 2
-      }
+      },
     })
+    const resultBloco = await Bloco.findAll()
+    const resultApartamento = await Apartamento.findAll()
 
 
     return res.render('./backoffice/sindico/moradores', {
       titulo: "Síndico - Moradores",
-      result,
+      result,resultBloco,resultApartamento,
       usuario: "FODÂO"
     })
 
