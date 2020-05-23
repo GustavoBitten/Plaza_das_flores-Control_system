@@ -1,6 +1,6 @@
 const express = require('express')
 const moradorController = require('../../controllers/backoffice/moradorController');
-const uploadMorador = require("../../config/upload"); // multer
+const uploadMorador = require("../../config/uploadMorador"); // multer
 
 const backofficePageController = require('../../controllers/backoffice/backofficePageController');
 
