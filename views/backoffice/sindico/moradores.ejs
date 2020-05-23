@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <%- include('../../includes/head', {titulo: titulo}) %>
@@ -26,16 +26,16 @@
           moradores</button>
 
         <button type="button" class="btn col-4 col-md-auto" data-toggle="modal"
-          data-target="#staticBackdrop">Cadastro</button>
-        <button class="btn col-4 col-md-auto">Mudanças</button>
+          data-target="#staticBackdrop">Novo cadastro</button>
+        <!-- <button class="btn col-4 col-md-auto">Mudanças</button>
 
-        <button class="btn col-4 col-md-auto">Alterações</button>
+        <button class="btn col-4 col-md-auto">Alterações</button> -->
       </div>
 
 
 
 
-      <table class="table table-borderless justify-content-center">
+      <table class="table table-striped justify-content-center">
 
         <thead class="tituloTabela justify-content-center">
           <tr>
@@ -56,24 +56,24 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row" class="nome">Rafael Bezerra Cena</th>
-            <td id="bloco">A</td>
-            <td id="andar">2ª</td>
-            <td>201</td>
+          <% result.forEach(result => {  %>
+          <tr value="<%= result.id %>">
+            
+            <th scope="row" class="nome"> <%= result.nome %></th>
+            <td id="bloco"> <%= result.bloco %></td>
+            <td id="andar"> <%= result.andar %></td>
+            <td id="ap"> <%= result.apartamento %></td>
+            <td> <button class="acoes" type="button" value="" ><i class="fas fa-user-edit"></i></button>
+              <button class="acoes" type="button" value="" ><i class="fas fa-trash-alt"></i></button>
+              
+
+            </td>
+
+            
           </tr>
-          <tr>
-            <th scope="row" class="nome">Rafael</th>
-            <td id="bloco" class="nome">A</td>
-            <td id="andar">2ª</td>
-            <td>201</td>
-          </tr>
-          <tr>
-            <th scope="row" class="nome">Rafael</th>
-            <td id="bloco">A</td>
-            <td id="andar">2ª</td>
-            <td>201</td>
-          </tr>
+          <% }); %>  
+          
+  
         </tbody>
       </table>
 
@@ -101,7 +101,7 @@
         <div class="modal-body">
 
 
-          <form method="POST" action="/backoffice/moradores">
+          <form method="POST" action="/backoffice/sindico/moradores" enctype="multipart/form-data">
 
             <div class="row">
               <div class="col">
@@ -141,15 +141,7 @@
                   <option>Bloco C</option>
                 </select>
               </div>
-              <div class="col">
-                <label for="andar">Andar:</label>
-                <select id="andar" name="andar" class="form-control">
-                  <option disabled selected>Informe</option>
-                  <option>1ª</option>
-                  <option>2ª</option>
-                  <option>3ª</option>
-                </select>
-              </div>
+              
               <div class="col">
                 <label for="ap">Ap</label>
                 <select id="ap" name="ap" class="form-control">
@@ -160,11 +152,20 @@
                 </select>
               </div>
             </div>
+              
+              <div style="margin:10px" class="row">
+                <div class="col">
+                  <label for="fotoMorador">Foto</label>
+                <input type="file" class="form-control" name="fotoMorador" id="fotoMorador">
+               </div>
+              
+              
+            </div>          
 
-
+          
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-              <button type="submit" value="submit" class="btn btn-primary">Gravar</button>
+              <button type="submit" class="btn btn-primary">Gravar</button>
             </div>
           </form>
 
@@ -178,15 +179,7 @@
 
   </main>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-  </script>
+  <%- include('../../includes/scriptJS')%>
 
 </body>
 

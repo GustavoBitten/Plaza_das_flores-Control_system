@@ -5,6 +5,14 @@
     justify-content: center;
     max-width: 80vw;
 }
+.acoes{
+    border: none;
+    background: none;
+    width: 5px;
+    height: 5px;
+    padding: 5px;
+    margin: 5px;
+}
 
 h1 {
     color: #E8751C;

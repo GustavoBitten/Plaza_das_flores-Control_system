@@ -33,6 +33,14 @@ module.exports = moradorController = {
     // })
 
     //return res.json(morador)
-    //res.redirect('/backoffice/sindico/moradores')
-  }
+    
+  },
+  ListaMoradores: async (req, res)=>{
+    
+     const result = await Usuario.findAll()
+         
+    
+     return res.render('./backoffice/sindico/moradores',{titulo:"Síndico - Moradores", result,usuario:"FODÂO"})
+
+ },
 }

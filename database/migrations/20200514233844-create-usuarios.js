@@ -48,7 +48,11 @@ module.exports = {
         onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
       },
       senha: {
+<<<<<<< HEAD
         type: Sequelize.STRING(150),
+=======
+        type: Sequelize.STRING(100),
+>>>>>>> Select all moradores e Create
         allowNull: false
       },
       foto: {
