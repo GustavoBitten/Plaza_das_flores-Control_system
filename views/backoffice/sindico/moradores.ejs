@@ -49,10 +49,10 @@
         <thead class="justify-content-center">
           <tr>
             <th scope="col">Nome</th>
+            <th scope="col" id="cpf">CPF</th>
             <th scope="col" id="bloco">Bloco</th>
-            <th scope="col" id="andar">Andar</th>
             <th scope="col" id="ap">Ap</th>
-            <th scope="col" id="tipo">Tipo</th>
+            <th scope="col" id="tipo">Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -60,16 +60,16 @@
           <tr value="<%= result.id %>">
 
             <th scope="row" class="nome"> <%= result.nome %></th>
+            <td id="cpf"> <%= result.cpf %></td>
             <td id="bloco"> <%= result.bloco %></td>
-            <td id="andar"> <%= result.andar %></td>
             <td id="ap"> <%= result.apartamento %></td>
             <td>
-              <button type="button" class="acoes" type="button" data-toggle="modal" data-target="#exampleModal"
+              <button type="button" class="acoes btn-warning" type="button" data-toggle="modal" data-target="#exampleModal"
                 data-id="<%= result.id %>" data-nome_morador="<%= result.nome %>" data-rg_morador="<%= result.rg %>"
                 data-cpf_morador="<%= result.cpf %>" data-email_morador="<%= result.email %>"
                 data-bloco_morador="<%= result.bloco_id %>" data-ap_morador="<%= result.apartamento_id %>"
                 data-foto_morador="<%= result.foto %>">
-                <i class="fas fa-user-edit"></i></button>
+                Editar</button>
 
               <!--               <button class="acoes" type="button"  data-toggle="modal"data-target="#exampleModal"><i class="fas fa-trash-alt"></i></button>
               <button type="button" class="btn col-4 col-md-auto" data-toggle="modal"

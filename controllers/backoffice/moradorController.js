@@ -77,6 +77,9 @@ if (project != null) {
       where: {
         tipo_usuario_id: 2
       },
+      order: [
+        // Will escape title and validate DESC against a list of valid direction parameters
+        ['updated_at','DESC'],]
     })
     const resultBloco = await Bloco.findAll()
     const resultApartamento = await Apartamento.findAll()
@@ -115,7 +118,7 @@ if (project != null) {
         }
       })
       foto = buscaFoto.foto
-      console.log("foto que estava no banco " + buscaFoto.foto)
+      
     } else {
 
       foto = `/images/moradores/${fotoMorador.filename}`
