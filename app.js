@@ -28,14 +28,13 @@ app.use(session({
   secret: '343ji43j4n3jn4jk3n',
   resave: true,
   saveUninitialized: false,
-
-
 }))
+
 app.use(methodOverride("_method"))
 
 app.use('/', homePageRouter);
-app.use('/backoffice', sindicoRouter);
-app.use('/backoffice', moradorRouter); // sem o auth para testes
+app.use('/backoffice/sindico', sindicoRouter); 
+app.use('/backoffice/morador', moradorRouter); // sem o auth para testes
 app.use('/backoffice', auth, portariaRouter);
 
 app.use('/login', loginPageRouter);

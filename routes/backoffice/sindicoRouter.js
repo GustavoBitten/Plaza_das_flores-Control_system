@@ -11,17 +11,17 @@ let route = express.Router()
 
 
 // Rotas para síndico
-route.get('/sindico/moradores', moradorController.ListaMoradores)
-route.get('/sindico/perfil', backofficePageController.sindicoPerfil)
-route.get('/sindico/ocorrencias', backofficePageController.sindicoOcorrencias)
-route.get('/sindico/areas-comuns', backofficePageController.sindicoAreasComuns)
-route.get('/sindico/portaria', backofficePageController.sindicoPortaria)
-route.get('/sindico/comunicados', backofficePageController.sindicoComunicados)
-route.get('/sindico/financeiro', backofficePageController.sindicoFinanceiro)
+route.get('/moradores', moradorController.ListaMoradores)
+route.get('/perfil', backofficePageController.sindicoPerfil)
+route.get('/ocorrencias', backofficePageController.sindicoOcorrencias)
+route.get('/areas-comuns', backofficePageController.sindicoAreasComuns)
+route.get('/portaria', backofficePageController.sindicoPortaria)
+route.get('/comunicados', backofficePageController.sindicoComunicados)
+route.get('/financeiro', backofficePageController.sindicoFinanceiro)
 
 // Rotas para os Moradores
-route.post('/sindico/moradores',uploadMorador.any(), moradorController.store)
+route.post('/moradores',uploadMorador.any(), moradorController.store)
 
-route.put('/sindico/editarMorador/:moradorId',uploadMorador.any(), moradorController.editar)
+route.put('/editarMorador/:moradorId',uploadMorador.any(), moradorController.editar)
 
 module.exports = route

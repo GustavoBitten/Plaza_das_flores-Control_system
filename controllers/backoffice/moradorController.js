@@ -1,21 +1,13 @@
-const {
-  Usuario,
-  Bloco,
-  Apartamento
-} = require('../../models')
+const { Usuario, Bloco, Apartamento } = require('../../models')
 const bcrypt = require('bcrypt')
+const generateId = require('../../utils/generateId')
+
 module.exports = moradorController = {
   store: async (req, res) => {
-    let {
-      nome,
-      email,
-      cpf,
-      rg,
-      bloco_id,
-      apartamento_id,
-      tipo,
-      status
-    } = req.body
+    let {nome, email, cpf, rg, bloco_id,
+    apartamento_id, tipo, status } = req.body
+    console.log(req.body)
+
     const [fotoMorador] = req.files;
 
     //if verifica se tem foto se não tiver salva sem foto no banco
@@ -26,10 +18,12 @@ module.exports = moradorController = {
       foto = `/images/moradores/${fotoMorador.filename}`
 
     }
+
+    token = generateId()
     bloco_id = 2
-    apartamento_id = 1
+    apartamento_id = 2
     tipo_usuario_id = 2
-    const senha = bcrypt.hashSync(cpf, 2)
+    const senha = bcrypt.hashSync(cpf, 10)
     console.log(senha)
 
     /* const VerificaEmail = await Usuario.findOne({ 
@@ -41,20 +35,20 @@ if (project != null) {
   
 } */
 
-    const novoMorador = await Usuario.create({
-      nome,
-      email,
-      cpf,
-      rg,
-      bloco_id,
-      apartamento_id,
-      senha,
-      foto,
-      tipo_usuario_id
-    })
+     try {
+      const novoMorador = await Usuario
+      .create({
+       nome, email, cpf, rg, bloco_id, token, 
+        apartamento_id, senha, foto, tipo_usuario_id
+      })
 
 
-    return res.redirect("/backoffice/sindico/moradores")
+      return res.redirect("/backoffice/sindico/moradores")
+       
+     } catch (error) {
+       res.send(error)
+       
+     } 
     // const morador = await Usuario.create({
     //   nome,
     //   email,

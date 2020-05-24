@@ -65,6 +65,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
         allowNull: false
+      },
+      token:{
+        type: DataTypes.STRING,
+        unique: true
       }
     }, {
       timestamps: true,
