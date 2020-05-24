@@ -22,5 +22,6 @@ route.get('/sindico/financeiro', backofficePageController.sindicoFinanceiro)
 // Rotas para os Moradores
 route.post('/sindico/moradores',uploadMorador.any(), moradorController.store)
 
+route.put('/sindico/editarMorador/:moradorId',uploadMorador.any(), moradorController.editar)
 
 module.exports = route
