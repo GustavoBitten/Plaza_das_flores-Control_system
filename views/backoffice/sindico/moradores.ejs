@@ -47,7 +47,7 @@
           </tr>
         </thead>
         <thead class="justify-content-center">
-          <tr>
+          <tr >
             <th scope="col">Nome</th>
             <th scope="col" id="bloco">Bloco</th>
             <th scope="col" id="andar">Andar</th>
@@ -63,10 +63,20 @@
             <td id="bloco"> <%= result.bloco %></td>
             <td id="andar"> <%= result.andar %></td>
             <td id="ap"> <%= result.apartamento %></td>
-            <td> <button class="acoes" type="button" value="" ><i class="fas fa-user-edit"></i></button>
-              <button class="acoes" type="button" value="" ><i class="fas fa-trash-alt"></i></button>
+            <td>
+              <button type="button" class="acoes" type="button" data-toggle="modal" data-target="#exampleModal" data-id="<%= result.id %>"
+                 data-nome_morador="<%= result.nome %>" data-rg_morador="<%= result.rg %>"
+                  data-cpf_morador="<%= result.cpf %>"data-email_morador="<%= result.email %>"
+                  data-bloco_morador="<%= result.bloco_id %>" data-ap_morador="<%= result.apartamento_id %>"
+                  data-foto_morador="<%= result.foto %>"
+                  >
+                  <i class="fas fa-user-edit"></i></button>
               
-
+<!--               <button class="acoes" type="button"  data-toggle="modal"data-target="#exampleModal"><i class="fas fa-trash-alt"></i></button>
+              <button type="button" class="btn col-4 col-md-auto" data-toggle="modal"
+          data-target="#editacaoMorador" data-whatever="@mdo">Novo cadastro</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+ -->
             </td>
 
             
@@ -76,6 +86,7 @@
   
         </tbody>
       </table>
+      
 
 
 
@@ -86,7 +97,7 @@
 
 
 
-  <!-- Modal -->
+  <!-- Modal cad morador -->
   <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -179,12 +190,149 @@
       </div>
     </div>
   </div>
+  <!-- fim do Modal cad morador -->
+  
+ 
+
+   <!-- Modal edit morador -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+
+          <form method="POST" action="/backoffice/sindico/moradores" enctype="multipart/form-data">
+
+            <div class="row justify-content-md-center">
+              <div class="col-md-2 foto"><img
+                src="https://avatars2.githubusercontent.com/u/37584505?s=400&u=73100f3df6d155544e9bc50b7fb9f83410d0b308&v=4"
+                width="10" height="100" class="card-img" alt="..."></div>
+              
+            </div>
+            
+
+            <div class="row">
+              <div class="col">
+                <label for="nome">Nome:</label>
+                <input required="required" id="nome" name="nome" type="text" class="form-control" placeholder="Nome completo">
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="rg">RG:</label>
+                <input id="rg" name="rg" type="number" class="form-control" placeholder="RG">
+              </div>
+              <div class="col">
+                <label for="cpf">CPF:</label>
+                <input required="required" id="cpf" name="cpf" type="number" class="form-control" placeholder="CPF">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="email">Email:</label>
+                <input required="required" id="email" name="email" type="email" class="form-control" placeholder="morador@email.com.br">
+              </div>
+              <div class="col">
+                <label for="celular">Contato:</label>
+                <input id="celular" name="celular" type="text" class="form-control" placeholder="(XX)XXXXX-XXXX">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <label for="bloco">Bloco:</label>
+                <select id="bloco" name="bloco" class="form-control">
+                  <option disabled selected>Informe</option>
+                  <% resultBloco.forEach(resultBloco => {  %>
+                  <option value="<%= resultBloco.id %>" ><%= resultBloco.bloco %></option>
+                  <% }); %> 
+                  
+                </select>
+              </div>
+              
+              <div class="col">
+                <label for="ap">Ap</label>
+                <select id="ap" name="ap" class="form-control">
+                  <option  disabled selected>Informe</option>
+                  <% resultApartamento.forEach(resultApartamento => {  %>
+                    <option value="<%= resultApartamento.id %>" ><%= resultApartamento.apartamento %></option>
+                    <% }); %> 
+                </select>
+              </div>
+            </div>
+              
+           <div style="margin:10px" class="row">
+                <div class="col">
+                  <label for="fotoMorador">Foto</label>
+                <input type="file" class="form-control file" name="fotoMorador" id="fotoMorador">
+               </div> 
+             <!--   <div style="margin:5px" class="row custom-file">
+                <input type="file" class="custom-file-input" name="fotoMorador" id="fotoMorador">
+                <label class="custom-file-label" for="customFile">Escolher foto</label>
+              </div> -->
+              
+            </form>
+            </div>          
+
+          
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+              <button type="submit" class="btn btn-primary">Gravar</button>
+            </div>
+         
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+ <!-- fim do Modal edita morador -->
+
+
+
+
+
+
 
 
 
   </main>
+ 
+  <%- include('../../includes/scriptJS')%> 
+    <script>$('#exampleModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var id_morador = button.data('id_morador')
+    var nome_morador = button.data('nome_morador')
+    var rg_morador = button.data('rg_morador')
+    var cpf_morador = button.data('cpf_morador')
+    var email_morador = button.data('email_morador')
+   // var contato_morador = button.data('contato')
+   var bloco_morador = button.data('bloco_morador')
+    var ap_morador = button.data('ap_morador')
+    var foto_morador = button.data('foto_morador') /// Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    modal.find('.modal-title').text('Editando o Cadastro do morador ' + nome_morador)
+    modal.find('#nome').val(nome_morador)
+    modal.find('#rg').val(rg_morador)
+    modal.find('#cpf').val(cpf_morador)
+    modal.find('#email').val(email_morador)
+    modal.find('#bloco').val(bloco_morador)
+    modal.find('#ap').val(ap_morador)
+    
+    modal.find('.foto').html("<img src="+foto_morador+" width='10' height='100' class='card-img' alt='...'>")
 
-  <%- include('../../includes/scriptJS')%>
+  })</script>
+
 
 </body>
 

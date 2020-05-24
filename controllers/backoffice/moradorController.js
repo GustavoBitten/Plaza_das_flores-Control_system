@@ -78,6 +78,7 @@ if (project != null) {
     })
     const resultBloco = await Bloco.findAll()
     const resultApartamento = await Apartamento.findAll()
+    console.log(result.foto)
 
 
     return res.render('./backoffice/sindico/moradores', {
