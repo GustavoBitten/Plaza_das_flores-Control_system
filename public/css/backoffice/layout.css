@@ -68,6 +68,10 @@ h1 {
   background-color: #E8751C;
 }
 
+.btn-orange:hover {
+  background-color: #FFA62B;
+}
+
 @media (max-width: 678px){
   .hidden-xs-down {
       display: none !important;

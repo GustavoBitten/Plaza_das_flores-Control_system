@@ -2,10 +2,10 @@
 <html lang="pt-br">
 
 <head>
-  <%- include('../../includes/head', {titulo: titulo}) %>
+  <%- include('../../includes/head', {titulo}) %>
 
-  <link rel="stylesheet" href="/css/backoffice/layout.css">
-  <link rel="stylesheet" href="/css/backoffice/comunicados.css">
+  <link rel="stylesheet" href="/css/backoffice/layout.css" />
+  <link rel="stylesheet" href="/css/backoffice/comunicados.css" />
 </head>
 
 <body>
@@ -13,60 +13,103 @@
   <%- include('../../includes/backoffice/aside') %>
 
   <main class="container-fluid mx-0 pt-2">
-      
-    <h1 class="titulo">Comunicados</h1>
+    <div class="row">
+      <h1 class="pl-3"><%= titulo %></h1>
+    </div>
 
     <div class="row">
-      <div class="col-2 botao-correspondencia" >
-          <button id="btnCorrespondencias" type="button" class="btn-sm border-0 rounded-pill"
-          data-toggle="modal" data-target="#modalCorrespondencias">Visualizar comunicados</button>
+      <div class="col-10 col-md-8 offset-1 offset-md-2 mb-3 p-0">
+        <button id="btnNovoComunicado" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
+          data-toggle="modal" data-target="#modalNovoComunicado">
+          Novo Comunicado
+        </button>
       </div>
-      <div class="col-2">
-          <button id="btnVisitantes" type="button" class="btn-sm border-0 rounded-pill"
-          data-toggle="modal" data-target="#modalVisitantes">Novo comunicado</button>
-      </div>
-  </div>
+    </div>
 
     <section class="row">
-        
-        <div class="panel panel-default painel">
-            <!-- Default panel contents -->
-            <div class="panel-heading painel-titulo">Comunicados</div>
-            <!-- Table -->
-            <table class="table tabela">
-                <tr>
-                    <th>Comunicado</th>
-                    <th>Data inicial</th>
-                    <th>Data final</th>
-                  </tr>
-                  <tr>
-                    <td class="texto-tabela">Piscina fechada para reforma.</td>
-                    <td>22/12/2019</td>
-                    <td>04/03/2020</td>
-                  </tr>
-                  <tr>
-                    <td class="texto-tabela">Coleta de doações para o orfanato da esquina na portaria.</td>
-                    <td>11/12/2019</td>
-                    <td>04/01/2020</td>
-                  </tr>
-                  <tr>
-                    <td class="texto-tabela">Limpeza de elevador programada para domingo.</td>
-                    <td>09/12/2019</td>
-                    <td>10/12/2020</td>
-                  </tr>
-                  <tr>
-                    <td class="texto-tabela">Proteja-se ano que vêm contra o novo vírus.</td>
-                    <td>01/12/2019</td>
-                    <td>07/07/2020</td>
-                  </tr>
-            </table>
+      <div class="card col-10 col-md-8 offset-1 offset-md-2 px-0">
+        <div class="card-header d-flex justify-content-center w-100 p-0">
+          <h5 class="m-0 p-1">Comunicados</h5>
         </div>
+        <div class="card-body row">
+          <div class="col-12 d-flex align-items-center flex-column">
+            <% if (listaComunicados.length > 0) { %>
+              <table class="table table-borderless table-striped table-hover table-responsive-sm">
+                <caption>
+                  Comunicados
+                </caption>
 
+                <thead>
+                  <tr>
+                    <th scope="col">
+                      Data
+                    </th>
+                    <th scope="col">
+                      Título
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% listaComunicados.forEach(comunicado => { %>
+                    <tr>
+                      <td class="align-middle">
+                        <%= moment(comunicado.createdAt).format('DD/MM/YYYY') %>
+                      </td>
+                      <td class="align-middle">
+                        <%= comunicado.titulo %>
+                      </td>
+                    </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            <% } else { %>
+              <h4 class="text-danger">Nenhum comunicado foi encontrado!</h4>
+            <% } %>
+          </div>
+          <!-- /.col-12 -->
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
     </section>
-
-
   </main>
 
-  <%- include('../../includes/scriptJS') %> 
+  <%# Modal Novo Comunicado %>
+  <div class="modal fade" id="modalNovoComunicado" tabindex="-1" role="dialog"
+    aria-labelledby="modalNovoComunicadoTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-center p-1">
+          <h5 class="modal-title" id="modalNovoComunicadoTitle">Novo Comunicado</h5>
+        </div>
+
+        <form class="form-group m-0" action="/backoffice/sindico/comunicados" method="POST">
+          <div class="modal-body">
+            <label for="titulo">Título</label>
+            <input id="titulo" name="titulo" class="form-control" type="text" max="50">
+
+            <label for="mensagem" class="mt-3">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" class="form-control" cols="30" rows="10" maxlength="500"></textarea>
+          </div>
+
+          <div class="modal-footer border-0">
+            <button type="submit" class="btn-sm btn-success border-0 rounded-pill font-weight-bold px-3 ml-2">
+              Criar
+            </button>
+            <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3"
+              data-dismiss="modal">
+              Voltar
+            </button>
+          </div>
+       </form>
+
+      </div>
+    </div>
+  </div>
+  <!-- /#modalNovoComunicado -->
+
+  <%- include('../../includes/scriptJS') %>
 </body>
+
 </html>
