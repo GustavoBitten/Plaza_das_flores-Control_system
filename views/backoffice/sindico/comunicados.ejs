@@ -54,7 +54,7 @@
                   <% listaComunicados.forEach(comunicado => { %>
                     <tr>
                       <td class="align-middle">
-                        <%= moment(comunicado.createdAt).format('DD/MM/YYYY') %>
+                        <%= moment(comunicado.created_at).format('DD/MM/YYYY') %>
                       </td>
                       <td class="align-middle">
                         <%= comunicado.titulo %>
