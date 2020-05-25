@@ -67,7 +67,7 @@ const {Pet, Usuario} = require('../../models')
       const {nomePet,especiePet,portePet} = req.body;  
       const [fotoPet] = req.files;
       
-      if (fotoMorador == undefined) {
+      if (fotoPet == undefined) {
         // foto = "SEM FOTO"
         const buscaFoto = await Usuario.findOne({
           where: {id: petId}
