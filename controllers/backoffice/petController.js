@@ -1,11 +1,18 @@
 const {Pet, Usuario} = require('../../models')
 
   module.exports = petController = {
+
+    listaPet: async (req, res) => {
+      const pets = await Pet.findAll({order: [['created_at', 'DESC']]})
+      res.render("backoffice/morador/perfil", {titulo:"Morador - Perfil",usuario:req.session.user, pets})
+       },
+
     store: async (req, res) => {
       const {user} = req.session;  
       const {nomePet,especiePet,portePet} = req.body;  
       const [fotoPet] = req.files;
 
+      
       const novoPet = await Pet.create({
         nome: nomePet,
         especie: especiePet,
@@ -32,12 +39,15 @@ const {Pet, Usuario} = require('../../models')
       const {petId} = req.params;
 
        const recebendoPet = await Pet.findByPk(petId)
+
+
+       //res.render("backoffice/morador/perfil", {rebendoPet})
   
       
     },
     
      update: async (req, res) => {
-       const { user } = req.session;
+       //const { user } = req.session;
        const {petId} = req.params;
        const {nomePet,especiePet,portePet} = req.body;  
        const [fotoPet] = req.files;
@@ -53,7 +63,6 @@ const {Pet, Usuario} = require('../../models')
          });
    
       return res.redirect("/backoffice/morador/perfil");
-      // res.render("backoffice/morador/perfil", {updatePet})
      },
 
 
@@ -73,10 +82,10 @@ const {Pet, Usuario} = require('../../models')
           where: {id: petId}
         })
         foto = buscaFoto.foto
-        } else {foto = `/images/moradores/${fotoMorador.filename}`}
+        } else {foto = `/images/moradores/${fotoPet.filename}`}
   
   
-      const result = await Usuario.update({
+      const result = await Pet.update({
         nome: nomePet,
         especie: especiePet,
         porte: portePet,
