@@ -30,7 +30,7 @@ module.exports = {
         onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
       },
       numero: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING(11),
         allowNull: false
       },
       created_at: {
