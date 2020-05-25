@@ -7,12 +7,12 @@ const backofficePageController = require('../../controllers/backoffice/backoffic
 let route = express.Router()
 //rotas a partir daqui!
 //Rotas para portaria
-route.get('/portaria/moradores', backofficePageController.portariaMoradores)
-route.get('/portaria/perfil', backofficePageController.portariaPerfil)
-route.get('/portaria/ocorrencias', backofficePageController.portariaOcorrencias)
-route.get('/portaria/areas-comuns', backofficePageController.portariaAreasComuns)
-route.get('/portaria/correspondencias', backofficePageController.portariaCorrespondencias)
-route.get('/portaria/comunicados', backofficePageController.portariaComunicados)
+route.get('/moradores', backofficePageController.portariaMoradores)
+route.get('/perfil', backofficePageController.portariaPerfil)
+route.get('/ocorrencias', backofficePageController.portariaOcorrencias)
+route.get('/areas-comuns', backofficePageController.portariaAreasComuns)
+route.get('/correspondencias', backofficePageController.portariaCorrespondencias)
+route.get('/comunicados', backofficePageController.portariaComunicados)
 
 
 module.exports = route

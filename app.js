@@ -38,8 +38,8 @@ app.use('/login', loginPageRouter);
 
 //Para desativar as autenticações só trocar para false o arquivo ativadorAuth.js
 app.use('/backoffice/sindico',auth, sindicoRouter); 
-app.use('/backoffice/morador',auth, moradorRouter); // sem o auth para testes
-app.use('/backoffice', auth, portariaRouter);
+app.use('/backoffice/morador',auth, moradorRouter);
+app.use('/backoffice/portaria', auth, portariaRouter);
 
 
 
