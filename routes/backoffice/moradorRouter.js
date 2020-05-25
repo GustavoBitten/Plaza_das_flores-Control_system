@@ -35,7 +35,7 @@ route.post('/moradores', moradorController.store)
 // Rotas para os Pets
 route.post('/pets',upload.any(), petController.store)
 route.delete('/delete/:petId', petController.delete)
-route.put('/editar',upload.any(), petController.update) 
-route.get('/:petId/editar',upload.any(), petController.viewUpdate) 
+route.put('/editar/:petId',upload.any(), petController.editar) 
+//route.get('/:petId/editar',upload.any(), backofficePageController.moradorPerfil) 
 
 module.exports = route

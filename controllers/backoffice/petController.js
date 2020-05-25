@@ -13,7 +13,7 @@ const {Pet, Usuario} = require('../../models')
         foto: `/images/pets/${fotoPet.filename}`,
         morador_id: user.id,
      }) 
-      if(!novoPet){return res.render("/backoffice/morador/perfil", { msg: "Falha ao cadastrar o Novo Pet" })};
+      //if(!novoPet){return res.render("/backoffice/morador/perfil", { msg: "Falha ao cadastrar o Novo Pet" })};
       return res.redirect('/backoffice/morador/perfil')
 
     },
@@ -26,6 +26,14 @@ const {Pet, Usuario} = require('../../models')
       });
   
       return res.redirect("/backoffice/morador/perfil");
+    },
+
+    viewUpdate: async (req, res) => {
+      const {petId} = req.params;
+
+       const recebendoPet = await Pet.findByPk(petId)
+  
+      
     },
     
      update: async (req, res) => {
@@ -48,19 +56,38 @@ const {Pet, Usuario} = require('../../models')
       // res.render("backoffice/morador/perfil", {updatePet})
      },
 
-     viewUpdate: async (req, res) => {
-      const {petId} = req.params;
 
-       const recebendoPet = await Pet.findOne({
-         where: {
-           id: petId
-         }
-       })
+
+
+
+
+
+     editar: async (req, res) => {
+      const {PetId} = req.params
+      const {nomePet,especiePet,portePet} = req.body;  
+      const [fotoPet] = req.files;
+      
+      if (fotoMorador == undefined) {
+        // foto = "SEM FOTO"
+        const buscaFoto = await Usuario.findOne({
+          where: {id: petId}
+        })
+        foto = buscaFoto.foto
+        } else {foto = `/images/moradores/${fotoMorador.filename}`}
   
-      console.log(recebendoPet)
+  
+      const result = await Usuario.update({
+        nome: nomePet,
+        especie: especiePet,
+        porte: portePet,
+        foto: foto,
+        morador_id: user.id,
+      },{
+        where: {id: petId}
+      })
+      console.log("execução da edição : " + result)
+  
+      return res.redirect("/backoffice/morador/perfil")
     },
-
-
-
 
   }
