@@ -33,11 +33,14 @@ app.use(session({
 app.use(methodOverride("_method"))
 
 app.use('/', homePageRouter);
-app.use('/backoffice/sindico', sindicoRouter); 
-app.use('/backoffice/morador', moradorRouter); // sem o auth para testes
-app.use('/backoffice', auth, portariaRouter);
 
 app.use('/login', loginPageRouter);
+
+//Para desativar as autenticações só trocar para false o arquivo ativadorAuth.js
+app.use('/backoffice/sindico',auth, sindicoRouter); 
+app.use('/backoffice/morador',auth, moradorRouter); // sem o auth para testes
+app.use('/backoffice', auth, portariaRouter);
+
 
 
 app.listen(3000, () => console.log("Esse servidor funcionando corretamente"))

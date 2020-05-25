@@ -40,7 +40,7 @@ let backofficePageController = {
     res.render("backoffice/sindico/areasComuns", {titulo: "Síndico - Áreas Comuns",usuario:req.session.user})
   },
   sindicoMoradores: (req,res) => {
-    res.render("backoffice/sindico/moradores", {titulo:"Síndico - Moradores",usuario:{nome:"gust"}})
+    res.render("backoffice/sindico/moradores", {titulo:"Síndico - Moradores",usuario:req.session.user})
   },
   sindicoPortaria: (req,res) => {
     res.render("backoffice/sindico/portaria", {titulo:"Síndico - Portaria",usuario:req.session.user})

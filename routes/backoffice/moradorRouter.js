@@ -12,7 +12,7 @@ let route = express.Router()
 //rotas a partir daqui!
 
 // Rotas para morador
-route.get('', backofficePageController.moradorDashboard)
+
 route.get('/dashboard', backofficePageController.moradorDashboard)
 route.get('/perfil', backofficePageController.moradorPerfil)
 route.get('/ocorrencias', backofficePageController.moradorOcorrencias)
