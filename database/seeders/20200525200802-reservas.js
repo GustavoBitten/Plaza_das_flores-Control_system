@@ -6,7 +6,7 @@ module.exports = {
 
     return queryInterface.bulkInsert('reservas', [{
       morador_id: 1,
-      area_comun_id: 1,
+      area_comum_id: 1,
       data: new Date(date.setDate(date.getDate() + 1)),
       status: true,
       motivo: '',
@@ -14,7 +14,7 @@ module.exports = {
       updated_at: new Date()
     }, {
       morador_id: 1,
-      area_comun_id: 3,
+      area_comum_id: 3,
       data: new Date(date.setDate(date.getDate() + 2)),
       status: false,
       motivo: 'Churrasqueira fechada para evento',
@@ -22,7 +22,7 @@ module.exports = {
       updated_at: new Date()
     }, {
       morador_id: 1,
-      area_comun_id: 2,
+      area_comum_id: 2,
       data: new Date(date.setDate(date.getDate() + 1)),
       status: true,
       motivo: '',

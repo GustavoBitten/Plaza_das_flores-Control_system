@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.bulkInsert('ocorrencias', [{
       titulo: 'Lâmpada queimada',
       mensagem: 'Lâmpada queimada na entrada do bloco A',
-      Resposta: '',
+      resposta: '',
       arquivo: '',
       morador_id: 1,
       administrador_id: 2,
@@ -16,7 +16,7 @@ module.exports = {
     }, {
       titulo: 'Barulho',
       mensagem: 'Barulho excessivo vindo do apartamento XPTO',
-      Resposta: 'Morador do apartamento XPTO foi notificado, favor informar em caso de reincidência',
+      resposta: 'Morador do apartamento XPTO foi notificado, favor informar em caso de reincidência',
       arquivo: '',
       morador_id: 1,
       administrador_id: 2,
@@ -27,7 +27,7 @@ module.exports = {
     }, {
       titulo: 'Trocar lâmpadas',
       mensagem: 'Trocar as lâmpadas por led',
-      Resposta: '',
+      resposta: '',
       arquivo: '',
       morador_id: 1,
       administrador_id: 2,

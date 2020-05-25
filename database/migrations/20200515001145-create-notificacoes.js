@@ -23,8 +23,15 @@ module.exports = {
         type: Sequelize.STRING(),
         allowNull: false
       },
-      situacao: {
-        type: Sequelize.STRING()
+      situacao_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'situacoes',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too
+        onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
       },
       tipo_notificacoes_id: {
         type: Sequelize.INTEGER,
@@ -37,7 +44,7 @@ module.exports = {
         onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
       },
       data: {
-        type: Sequelize.DATE(),
+        type: Sequelize.DATE,
         allowNull: false,
       },
       created_at: {

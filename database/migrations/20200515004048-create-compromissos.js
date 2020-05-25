@@ -21,6 +21,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true
       },
+      data: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
       morador_id: {
         type: Sequelize.INTEGER,
         allowNull: false,

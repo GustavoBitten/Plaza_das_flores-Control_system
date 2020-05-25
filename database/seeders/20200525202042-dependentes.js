@@ -5,7 +5,6 @@ module.exports = {
     return queryInterface.bulkInsert('dependentes', [{
       morador_id: 1,
       dependente_id: 2,
-      data: new Date(),
       created_at: new Date(),
       updated_at: new Date()
     }], {})

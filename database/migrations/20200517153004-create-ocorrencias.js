@@ -17,7 +17,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },   
-      Resposta: {
+      resposta: {
         type: Sequelize.STRING,
         allowNull: true
       },

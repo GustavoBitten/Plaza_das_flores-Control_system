@@ -34,13 +34,20 @@ module.exports = {
           key: 'id'
         }
       },
-      status: {
-        type: Sequelize.STRING(45),
-        allowNull: false
+      situacao_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'situacoes',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too
+        onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
       },
+      // Alterar para foreignKey de usuarios?
       retirado_por: {
         type: Sequelize.STRING(45),
-        allowNull: false
+        allowNull: true
       },
       created_at: {
         type: Sequelize.DATE,
