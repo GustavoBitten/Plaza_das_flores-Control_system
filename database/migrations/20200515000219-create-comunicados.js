@@ -9,7 +9,7 @@ module.exports = {
         autoIncrement: true,
         allowNull: false
       },
-      morador_id: {
+      sindico_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
