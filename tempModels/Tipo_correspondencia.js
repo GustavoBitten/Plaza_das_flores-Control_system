@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Tipo_ocorrencia = sequelize.define(
+    const Tipo_correspondencia = sequelize.define(
       "Tipo_correspondencia",
       {
         id: {
