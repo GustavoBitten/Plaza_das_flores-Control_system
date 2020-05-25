@@ -5,7 +5,7 @@ const backofficePageController = require('../../controllers/backoffice/backoffic
 const blocoController = require('../../controllers/backoffice/blocoController');
 const apartamentoController = require('../../controllers/backoffice/apartamentoController');
 const moradorController = require('../../controllers/backoffice/moradorController');
-const petContoller = require("../../controllers/backoffice/petController");
+const petController = require("../../controllers/backoffice/petController");
 
 
 let route = express.Router()
@@ -33,9 +33,9 @@ route.post('/apartamentos', apartamentoController.store)
 route.post('/moradores', moradorController.store)
 
 // Rotas para os Pets
-route.post('/pets',upload.any(), petContoller.store)
+route.post('/pets',upload.any(), petController.store)
 route.delete('/delete/:petId', petController.delete)
-
-
+route.put('/editar',upload.any(), petController.update) 
+route.get('/:petId/editar',upload.any(), petController.viewUpdate) 
 
 module.exports = route

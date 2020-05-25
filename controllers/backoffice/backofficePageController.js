@@ -6,10 +6,7 @@ let backofficePageController = {
     res.render("backoffice/morador/dashboard", {titulo:"Morador - Dashboard",usuario:req.session.user})
   },
   moradorPerfil: async (req,res) => {
-    const pets = await Pet.findAll(
-     // {include: {model: Usuario}}
-    )
-    console.log(pets);
+    const pets = await Pet.findAll({order: [['createdAt', 'DESC']]})
     res.render("backoffice/morador/perfil", {titulo:"Morador - Perfil",usuario:req.session.user, pets})
   },
   moradorOcorrencias: (req,res) => {
