@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-    const Reserva = sequelize.define(
-      "Reserva",
+    const RCobranca = sequelize.define(
+      "Cobranca",
       {
         id: {
           type: DataTypes.INTEGER,
@@ -12,12 +12,15 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false
           },
-          area_comum_id: {
+          tipo_cobranca_id: {
             type: DataTypes.INTEGER,
             allowNull: false
           },
-          data: {
-            type: DataTypes.DATE,
+          valor: {
+            type: DataTypes.FLOAT(),
+          },
+          codigo: {
+            type: DataTypes.STRING(50),
             allowNull: false
           },
           created_at: {
@@ -32,18 +35,19 @@ module.exports = (sequelize, DataTypes) => {
       },
       {
         timestamps: true, // utliza
-        tablename: "reservas"
+        tablename: "cobrancas"
 
       }
     );
   
-    Reserva.associate = (models) => {
-      Reserva.belongsTo(models.Area_comum, {
-        foreignKey: "area_comum_id"
+    Cobranca.associate = (models) => {
+      Cobranca.belongsTo(models.Tipo_cobranca, {
+        foreignKey: "tipo_cobranca_id"
       });
-      Reserva.belongsTo(models.Usuario,{
+      Ocorrencia.belongsTo(models.Usuario,{
         foreignKey: "usuario_id"
     });
+  
     };
   
     

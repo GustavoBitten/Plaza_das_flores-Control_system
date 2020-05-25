@@ -48,7 +48,9 @@ module.exports = (sequelize, DataTypes) => {
       Notificacao.belongsTo(models.Tipo_notificacao, {
         foreignKey: "tipo_notificacao_id"
       });
-  
+      Notificacao.belongsTo(models.Usuario,{
+        foreignKey: "usuario_id"
+  });
     };
   
     
