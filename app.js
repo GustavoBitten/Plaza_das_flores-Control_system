@@ -4,14 +4,15 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 
 
-let homePageRouter = require('./routes/homePageRouter')
-let moradorRouter = require('./routes/backoffice/moradorRouter')
-let portariaRouter = require('./routes/backoffice/portariaRouter')
-let sindicoRouter = require('./routes/backoffice/sindicoRouter')
-let loginPageRouter = require('./routes/login/loginPageRouter')
+const homePageRouter = require('./routes/homePageRouter')
+const moradorRouter = require('./routes/backoffice/moradorRouter')
+const portariaRouter = require('./routes/backoffice/portariaRouter')
+const sindicoRouter = require('./routes/backoffice/sindicoRouter')
+const loginPageRouter = require('./routes/login/loginPageRouter')
 const auth = require('./middleware/auth')
+const typeUserAuth = require('./middleware/typeUserAuth')
 
-let app = express()
+const app = express()
 app.set("views", path.join(__dirname, "views"))
 app.set('view engine', 'ejs');
 
@@ -37,9 +38,9 @@ app.use('/', homePageRouter);
 app.use('/login', loginPageRouter);
 
 //Para desativar as autenticações só trocar para false o arquivo ativadorAuth.js
-app.use('/backoffice/sindico',auth, sindicoRouter); 
-app.use('/backoffice/morador',auth, moradorRouter);
-app.use('/backoffice/portaria', auth, portariaRouter);
+app.use('/backoffice/sindico',auth, typeUserAuth, sindicoRouter); 
+app.use('/backoffice/morador',auth, typeUserAuth, moradorRouter);
+app.use('/backoffice/portaria', auth, typeUserAuth, portariaRouter);
 
 
 

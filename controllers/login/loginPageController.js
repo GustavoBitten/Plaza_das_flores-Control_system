@@ -17,7 +17,7 @@ const  loginPageController = {
     //console.log(usuario)
     
     req.session.user = usuario
-    console.log(req.session.user)
+    //console.log(req.session.user)
     res.redirect("backoffice/morador/dashboard")
   }
   
