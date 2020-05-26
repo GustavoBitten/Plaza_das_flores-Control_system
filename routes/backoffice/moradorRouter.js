@@ -36,6 +36,6 @@ route.post('/moradores', moradorController.store)
 route.post('/pets',upload.any(), petController.store)
 route.delete('/delete/:petId', petController.delete)
 route.put('/editar/:petId',upload.any(), petController.editar) 
-route.get('/editar/:petId',upload.any(), backofficePageController.moradorPerfil); 
+//route.get('/editar/:petId',upload.any(), backofficePageController.moradorPerfil); 
 
 module.exports = route

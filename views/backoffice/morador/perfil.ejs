@@ -1215,7 +1215,7 @@
       <div class="modal-body">
   
         <% pets.forEach(pet =>{ %> 
-          <form action="/backoffice/morador/editar/<%=pet.id%>?_method=PUT" method="POST">
+          <form action="/backoffice/morador/editar/<%=pet.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
             <% }) %>
           <div class="form-group">
             <label for="nomePet" class="col-form-label">Editar Nome</label>
