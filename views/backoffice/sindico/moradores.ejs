@@ -16,11 +16,12 @@
     <main class="conteudo container-flex justify-content-center">
       <h1 class="col-md-12">Gerenciamento de Moradores</h1>
 
-
-
-
-
+     
       <div class="submenu row justify-content-center justify-content-md-center">
+        <% if(typeof(errors)!="undefined"){%> 
+          <p style="color:red">Erro no cadastro novo - Por favor refazer a operação</p>
+  
+            <%   } %> 
 
         <button type="button" class="btn col-4 col-md-auto" data-toggle="modal" data-target="#staticBackdrop">Lista de
           moradores</button>
@@ -341,6 +342,8 @@
 
       })
     </script>
+
+    
 
 
 </body>
