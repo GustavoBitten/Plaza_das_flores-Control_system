@@ -8,7 +8,9 @@
 </head>
 
 <body class="corpo">
-
+  <div class="alert alert-danger" role="alert" id='alerta'>
+    
+  </div>
   <div class="container">
     <div class="d-flex justify-content-center h-100">
 
@@ -85,6 +87,16 @@
   </div>
   <!-- Fim = Html de botões temporário -->
   <%- include('../includes/scriptJS')%>
+  <script>
+    const alerta = document.getElementById('alerta')
+    //app.locals.erro = erro
+    console.log(erro)
+    if(erro != undefined){
+      alerta.style.display = 'block'
+      alerta.innerText = erro
+    }
+
+  </script>
 </body>
 
 </html>
