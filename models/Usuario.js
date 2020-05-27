@@ -86,17 +86,17 @@ module.exports = (sequelize, DataTypes) => {
   //     through: models.Visita, //tab intermediaria
   //     foreignKey: "visitante_id", // , as: ""
   //   });
-  //   Usuario.hasMany(models.Veiculo, { //morador tem mtos veiculos
-  //     foreignKey: "morador_id", // , as: ""
-  //   });
-  //   Usuario.hasMany(models.Compromisso, {
-  //     foreignKey: "morador_id", // , as: ""
-  //   });
+    Usuario.hasMany(models.Veiculo, { 
+      foreignKey: "morador_id", 
+    });
+    Usuario.hasMany(models.Compromisso, {
+      foreignKey: "morador_id", // , as: ""
+    });
   //   Usuario.hasMany(models.Empresa, {
   //     foreignKey: "morador_id", // , as: ""
   //   });
     Usuario.hasMany(models.Pet, {
-      foreignKey: "morador_id", // , as: ""
+      foreignKey: "morador_id", 
      });
   //   Morador.hasMany(models.Ocorrencia, {
   //     foreignKey: "morador_id", // , as: ""

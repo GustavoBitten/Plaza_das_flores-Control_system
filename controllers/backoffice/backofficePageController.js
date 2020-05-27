@@ -3,11 +3,11 @@ const {
   Pet,
   Usuario,
   Veiculo,
+  Compromisso,
  // Funcionario, 
   //Visitante, 
   //Dependente,
   //Empresa,
-  //compromisso
 } = require('../../models')
 
 let backofficePageController = {
@@ -58,12 +58,12 @@ let backofficePageController = {
       ]
     })
 
+    */
     const compromissos = await Compromisso.findAll({
       order: [
-        ['createdAt', 'DESC']
+        ['created_at', 'DESC']
       ]
     })
-  */
 
     res.render("backoffice/morador/perfil", {
       titulo: "Morador - Perfil",
@@ -71,11 +71,11 @@ let backofficePageController = {
       pets,
       veiculos,
       usuarios,
+      compromissos,
       //funcionarios,
       //dependentes,
       //visitantes,
       //empresas,
-      //compromissos,
 
     })
   },
