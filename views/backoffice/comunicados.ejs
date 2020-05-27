@@ -58,7 +58,7 @@
                         <%= moment(comunicado.created_at).format('DD/MM/YYYY') %>
                       </td>
                       <td class="align-middle">
-                        <a id="comunicado<%= comunicado.id %>" data-toggle="modal" data-target="#modalMostrarComunicado" data-id="<%= comunicado.id %>">
+                        <a id="comunicado<%= comunicado.id %>" data-target="#modalMostrarComunicado" data-id="<%= comunicado.id %>">
                           <u><%= comunicado.titulo %></u>
                         </a>
                       </td>
@@ -66,9 +66,6 @@
                   <% }) %>
                 </tbody>
               </table>
-              <a data-toggle="modal" data-target="#modalMostrarComunicado" data-id="89">
-                <u>teste erro</u>
-              </a>
             <% } else { %>
               <h4 class="text-danger">Nenhum comunicado foi encontrado!</h4>
             <% } %>

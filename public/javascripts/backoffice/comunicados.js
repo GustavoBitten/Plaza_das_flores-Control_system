@@ -1,18 +1,19 @@
-$('#modalMostrarComunicado').on('show.bs.modal', async function (event) {
-  let modal = $(this)
-  let element = $(event.relatedTarget) // element that triggered the modal
+$('a[id^=comunicado]').on('click', async function (event) {
+  let element = $(this) // element that triggered the modal
   let id = element.data('id') // get value from target data-id field
-  let resposta = await fetch(window.location.href + '/' + id) // ajax
-  let params = await resposta.json() // get json from ajax response
-  
-   // fill modal fields
+  let modal = $(element.data('target'))
+  let resposta = await fetch(window.location.href + '/' + id) // get ajax response
+
   if (resposta.status == 200) {
-    modal.find('.modal-title').text(params.titulo)
-    modal.find('.body-content').text(params.mensagem)
-    modal.find('.body-error').text('')
+    let comunicado = await resposta.json() // get json object from ajax response
+
+    // fill modal fields
+    modal.find('.modal-title').text(comunicado.titulo)
+    modal.find('.body-content').text(comunicado.mensagem)
+
+    // show modal
+    modal.modal('show')
   } else {
-    modal.find('.modal-title').text('Erro: ' + resposta.status)
-    modal.find('.body-content').text('')
-    modal.find('.body-error').text(params.erro)
+    alert(resposta.status + ' - ' + resposta.statusText)
   }
 })
