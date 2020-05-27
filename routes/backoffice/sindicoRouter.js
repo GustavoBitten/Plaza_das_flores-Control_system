@@ -21,7 +21,6 @@ route.get('/perfil', backofficePageController.sindicoPerfil)
 route.get('/ocorrencias', backofficePageController.sindicoOcorrencias)
 route.get('/areas-comuns', backofficePageController.sindicoAreasComuns)
 route.get('/portaria', backofficePageController.sindicoPortaria)
-/* route.get('/comunicados', backofficePageController.sindicoComunicados) */
 route.get('/financeiro', backofficePageController.sindicoFinanceiro)
 
 // Rotas para os Moradores
@@ -49,10 +48,9 @@ route.post('/moradores', uploadMorador.any(), [
 
 route.put('/editarMorador/:moradorId', uploadMorador.any(), moradorController.editar)
 
-
-
 // Rotas para comunicados
 route.get('/comunicados', comunicadoController.index)
+route.get('/comunicados/:id', comunicadoController.show)
 route.post('/comunicados', comunicadoController.store)
 
 module.exports = route

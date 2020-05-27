@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         allowNull: false
       },
-      morador_id: {
+      sindico_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {

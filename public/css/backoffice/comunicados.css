@@ -1,25 +1,11 @@
-.btn, .btn-sm, .btn-lg {
-    color: white;
-    font-weight: 600;
-  }
-
-.painel{
-    margin-top: 2%;
-    margin-left: 2%;
-    margin-right: 2%;
-    border: solid 2px #FFA62B;
+#obs, .body-error {
+  color: red;
 }
 
-.painel-titulo{
-    background-color: #FFA62B;
-    color: white;
-    font-weight: 600;
+#obs {
+  font-size: 0.8rem;
 }
 
-.botao-correspondencia{
-    margin-right: 0%;
-}
-
-.texto-tabela{
-    width: 60%;
+td a:hover {
+  cursor: pointer;
 }
