@@ -2,10 +2,12 @@ const session = require('express-session')
 const {
   Pet,
   Usuario,
-  Veiculo, 
-  //Funcionario, 
+  Veiculo,
+ // Funcionario, 
   //Visitante, 
- // Dependente
+  //Dependente,
+  //Empresa,
+  //compromisso
 } = require('../../models')
 
 let backofficePageController = {
@@ -22,6 +24,11 @@ let backofficePageController = {
       ]
     })
     const veiculos = await Veiculo.findAll({
+      order: [
+        ['created_at', 'DESC']
+      ]
+    })
+    const usuarios = await Usuario.findAll({
       order: [
         ['created_at', 'DESC']
       ]
@@ -44,16 +51,31 @@ let backofficePageController = {
         ['createdAt', 'DESC']
       ]
     })
-    */
+
+    const empresas = await Empresa.findAll({
+      order: [
+        ['createdAt', 'DESC']
+      ]
+    })
+
+    const compromissos = await Compromisso.findAll({
+      order: [
+        ['createdAt', 'DESC']
+      ]
+    })
+  */
 
     res.render("backoffice/morador/perfil", {
       titulo: "Morador - Perfil",
       usuario: req.session.user,
       pets,
       veiculos,
+      usuarios,
       //funcionarios,
-     // dependentes,
-      //visitantes
+      //dependentes,
+      //visitantes,
+      //empresas,
+      //compromissos,
 
     })
   },

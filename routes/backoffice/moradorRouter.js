@@ -1,6 +1,10 @@
 const express = require('express')
-const uploadPet = require("../../config/uploadPet"); // multer
-const uploadVeiculo = require("../../config/uploadVeiculo"); // multer
+const uploadPet = require("../../config/uploadPet"); 
+const uploadVeiculo = require("../../config/uploadVeiculo"); 
+const uploadFuncionario = require("../../config/uploadFuncionario"); 
+const uploadVisitante = require("../../config/uploadVisitante"); 
+const uploadEmpresa = require("../../config/uploadEmpresa"); 
+const uploadCompromisso = require("../../config/uploadCompromisso"); 
 
 const backofficePageController = require('../../controllers/backoffice/backofficePageController');
 const blocoController = require('../../controllers/backoffice/blocoController');
@@ -8,6 +12,10 @@ const apartamentoController = require('../../controllers/backoffice/apartamentoC
 const moradorController = require('../../controllers/backoffice/moradorController');
 const petController = require("../../controllers/backoffice/petController");
 const veiculoController = require("../../controllers/backoffice/veiculoContoller");
+//const funcionarioController = require('../../controllers/backoffice/funcionarioController');
+//const visitanteController = require("../../controllers/backoffice/visitanteController");
+//const empresaController = require("../../controllers/backoffice/empresaContoller");
+//const compromissoController = require("../../controllers/backoffice/compromissoContoller");
 
 
 let route = express.Router()
@@ -35,6 +43,28 @@ route.post('/apartamentos', apartamentoController.store)
 route.post('/moradores', moradorController.store)
 
 
+/*
+// Rotas para os Empresas
+route.post('/empresas',uploadEmpresa.any(), empresaController.store)
+route.delete('/delete/:empresaId',uploadEmpresa.any(), empresaController.delete)
+route.put('/editar/:empresaId',uploadEmpresa.any(), empresaController.update)
+
+// Rotas para os Compromissos
+route.post('/compromissos',uploadCompromisso.any(), compromissoController.store)
+route.delete('/delete/:compromissoId',uploadCompromisso.any(), compromissoController.delete)
+route.put('/editar/:compromissoId',uploadCompromisso.any(), compromissoController.update) 
+
+
+// Rotas para os Visitantes
+route.post('/visitantes',uploadVisitante.any(), visitanteController.store)
+route.delete('/delete/:visitanteId',uploadVisitante.any(), visitanteController.delete)
+route.put('/editar/:visitanteId',uploadVisitante.any(), visitanteController.update) 
+
+// Rotas para os Funcionários
+route.post('/funcionarios',uploadFuncionario.any(), funcionarioController.store)
+route.delete('/delete/:funcionarioId',uploadFuncionario.any(), funcionarioController.delete)
+route.put('/editar/:funcionarioId',uploadFuncionario.any(), funcionarioController.update) 
+*/
 
 // Rotas para os Veículos
 route.post('/veiculos',uploadVeiculo.any(), veiculoController.store)
