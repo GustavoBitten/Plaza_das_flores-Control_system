@@ -1,11 +1,13 @@
 const express = require('express')
-const upload = require("../../config/upload"); // multer
+const uploadPet = require("../../config/uploadPet"); // multer
+const uploadVeiculo = require("../../config/uploadVeiculo"); // multer
 
 const backofficePageController = require('../../controllers/backoffice/backofficePageController');
 const blocoController = require('../../controllers/backoffice/blocoController');
 const apartamentoController = require('../../controllers/backoffice/apartamentoController');
 const moradorController = require('../../controllers/backoffice/moradorController');
 const petController = require("../../controllers/backoffice/petController");
+const veiculoController = require("../../controllers/backoffice/veiculoContoller");
 
 
 let route = express.Router()
@@ -32,10 +34,16 @@ route.post('/apartamentos', apartamentoController.store)
 // Rotas para os Moradores
 route.post('/moradores', moradorController.store)
 
+
+
+// Rotas para os Veículos
+route.post('/veiculos',uploadVeiculo.any(), veiculoController.store)
+route.delete('/delete/:veiculoId',uploadVeiculo.any(), veiculoController.delete)
+route.put('/editar/:veiculoId',uploadVeiculo.any(), veiculoController.update) 
+
 // Rotas para os Pets
-route.post('/pets',upload.any(), petController.store)
+route.post('/pets',uploadPet.any(), petController.store)
 route.delete('/delete/:petId', petController.delete)
-route.put('/editar/:petId',upload.any(), petController.editar) 
-//route.get('/editar/:petId',upload.any(), backofficePageController.moradorPerfil); 
+route.put('/editar/:petId',uploadPet.any(), petController.update) 
 
 module.exports = route

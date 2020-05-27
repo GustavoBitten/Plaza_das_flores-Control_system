@@ -1,43 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
 
-  <!DOCTYPE html>
-  <html lang="pt-br">
-  
-  <head>
-    <%- include('../../includes/head', {titulo: titulo}) %>
-  
-    <link rel="stylesheet" href="/css/backoffice/layout.css">
-    <link rel="stylesheet" href="/css/backoffice/perfil.css">
-  </head>
-  
-  <body>
-     <%- include('../../includes/backoffice/header')%> 
-     <%- include('../../includes/backoffice/aside') %> 
-  
-    <main>
-  
-      <h1 class="titulo">Perfil</h1>
-        
-        <!-- Container -->
-      <div class="container">
-  
-        <section class="row">
+<head>
+  <%- include('../../includes/head', {titulo: titulo}) %>
+
+  <link rel="stylesheet" href="/css/backoffice/layout.css">
+  <link rel="stylesheet" href="/css/backoffice/perfil.css">
+</head>
+
+<body>
+  <%- include('../../includes/backoffice/header')%>
+  <%- include('../../includes/backoffice/aside') %>
+
+  <main>
+
+    <h1 class="titulo">Perfil</h1>
+
+    <!-- Container -->
+    <div class="container">
+
+      <section class="row">
         <div class="cardMorador row no-gutters">
-  
+
           <!-- Card Principal. -->
           <div id="col-fotoPerfil" class="col-md-3">
-            <img
-              src="<%= usuario.foto %> "
-              max-width="100" height="250" class="card-img" alt="...">
+            <img src="<%= usuario.foto %> " max-width="100" height="250" class="card-img" alt="...">
             <div class="position-absolute bg-gray-dark rounded-2 text-white px-2 py-1 left-0 bottom-0 ml-2 mb-2">
               <sv TESTE height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1"
                 aria-hidden="true">
                 <path fill-rule="evenodd"
                   d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 011.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
                 </path></svg>
-  
+
             </div>
           </div>
-  
+
           <div class="col-md-6">
             <div class="card-body">
               <h5 class="card-title"><%= usuario.nome %></h5>
@@ -79,29 +76,29 @@
                     d="M7.293 1.5a1 1 0 011.414 0l6.647 6.646a.5.5 0 01-.708.708L8 2.207 1.354 8.854a.5.5 0 11-.708-.708L7.293 1.5z"
                     clip-rule="evenodd" />
                 </svg> <%= usuario.bloco_id.bloco %></span>
-  
+
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
           </div>
-          
-  
-  
+
+
+
           <nav class="edicao col-md-3">
             <button type="button" class="btnCard btn btn-primary" data-toggle="modal" data-target="#btnEditarPerfil"
               data-whatever="@mdo">
-              Editar Perfil   </button>
-  
+              Editar Perfil </button>
+
             <button type="button" class="btnCard btn btn-primary" data-toggle="modal" data-target="#btnAlterarSenha"
               data-whatever="@mdo">
               Alterar Senha</button>
           </nav>
           <!-- Nav Modal Btn -->
         </div>
-          <!-- Card Principal Fim -->
-  
-          
-          <div class="row cardsAll">
-  
+        <!-- Card Principal Fim -->
+
+
+        <div class="row cardsAll">
+
           <!-- Card Dependentes -->
           <div class="card mb-3" style="max-width: 18rem;">
             <div class="card-header">
@@ -112,241 +109,254 @@
                 <div class="contador">
                   2
                 </div>
-  
+
               </div>
             </div>
-  
+
             <!-- Body Card Dependentes -->
-            <div class="card-caixa card-body text-center" >
-            <!-- Carrosel Body -->
-              <div id="carouselExampleIndicators" class="carousel slide" >
+            <div class="card-caixa card-body text-center">
+              <!-- Carrosel Body -->
+              <div id="carouselExampleIndicators" class="carousel slide" data-interval="0">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img class="foto" src="https://avatars2.githubusercontent.com/u/37584505?s=400&u=73100f3df6d155544e9bc50b7fb9f83410d0b308&v=4"
-                    alt="First slide" style=" width:120 ; height: 80px;">
-                   
-                 <p class="card-title"style="margin: 0;">Marcelo Franchini</p>
-                 <p class="card-text" style="margin: 0;">Filho</p>
-                 <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                    <img class="foto"
+                      src="https://avatars2.githubusercontent.com/u/37584505?s=400&u=73100f3df6d155544e9bc50b7fb9f83410d0b308&v=4"
+                      alt="First slide" style=" width:120 ; height: 80px;">
+
+                    <p class="card-title" style="margin: 0;">Marcelo Franchini</p>
+                    <p class="card-text" style="margin: 0;">Filho</p>
+                    <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
                   </div>
                   <div class="carousel-item">
                     <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
-                    alt="" style=" width:120 ; height: 80px;">
-                   
-                 <p class="card-title"style="margin: 0;">Nome</p>
-                 <p class="card-text" style="margin: 0;">Filho</p>
-                 <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                      alt="" style=" width:120 ; height: 80px;">
+
+                    <p class="card-title" style="margin: 0;">Nome</p>
+                    <p class="card-text" style="margin: 0;">Filho</p>
+                    <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
                   </div>
                   <div class="carousel-item">
                     <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
-                    alt="" style=" width:120 ; height: 80px;">
-                   
-                 <p class="card-title"style="margin: 0;">Nome</p>
-                 <p class="card-text" style="margin: 0;">Filho</p>
-                 <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                      alt="" style=" width:120 ; height: 80px;">
+
+                    <p class="card-title" style="margin: 0;">Nome</p>
+                    <p class="card-text" style="margin: 0;">Filho</p>
+                    <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
                   </div>
                 </div>
-  
-  
-              </div>
-              </div>
-              
-              <!-- Footer Card Dependentes-->
-              <div class="card-footer ">
-  
-                <ol class="carousel-indicators">
-                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                  
-                </ol>
-                  <div class="botoesCaixa row ">
-  
-                    <nav class="btnEditar">
-                      <svg type="button"  data-toggle="modal" data-target="#editarDependenteModal"
-                        class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
-                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
-                      </svg>
-                      <p>editar</p>
-                    </nav>
-      
-                    <button type="button" class="btnNovo btn-primary" data-toggle="modal" data-target="#addDependenteModal"
-                      data-whatever="@mdo">Novo</button>
-      
-                      <nav class="btnExcluir">
-                        <svg type="button" data-toggle="modal" data-target="#excluirDependenteModal"
-                          class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
-                          <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
-                        </svg>
-                        <p>excluir</p>
-      
-                      </nav>
-      
-                  </div>
+
+
               </div>
             </div>
-  
-  
-            <!-- Card Visitantes -->
+
+            <!-- Footer Card Dependentes-->
+            <div class="card-footer ">
+
+              <ol class="carousel-indicators">
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+
+              </ol>
+              <div class="botoesCaixa row ">
+
+                <nav class="btnEditar">
+                  <svg type="button" data-toggle="modal" data-target="#editarDependenteModal"
+                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd"
+                      d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <p>editar</p>
+                </nav>
+
+                <button type="button" class="btnNovo btn-primary" data-toggle="modal" data-target="#addDependenteModal"
+                  data-whatever="@mdo">Novo</button>
+
+                <nav class="btnExcluir">
+                  <svg type="button" data-toggle="modal" data-target="#excluirDependenteModal"
+                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z" />
+                    <path fill-rule="evenodd"
+                      d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <p>excluir</p>
+
+                </nav>
+
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Card Visitantes -->
           <div class="card mb-3" style="max-width: 18rem;">
             <div class="card-header">
               <div class="row footerTexto">
                 <div>
-                  Visitantes 
+                  Visitantes
                 </div>
                 <div class="contador">
                   3
                 </div>
-  
+
               </div>
             </div>
-  
+
             <!-- Body Card Visitantes -->
-            <div class="card-caixa card-body text-center" >
-            <!-- Carrosel Body -->
-              <div id="carouselVis" class="carousel slide" >
+            <div class="card-caixa card-body text-center">
+              <!-- Carrosel Body -->
+              <div id="carouselVis" class="carousel slide" data-interval="0">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
-                    alt="First slide" style=" width:120 ; height: 80px;">
-                   
-                 <p class="card-title"style="margin: 0;">Marcelo Franchini</p>
-                 <p class="card-text" style="margin: 0;">Primo</p>
-                 <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                      alt="First slide" style=" width:120 ; height: 80px;">
+
+                    <p class="card-title" style="margin: 0;">Marcelo Franchini</p>
+                    <p class="card-text" style="margin: 0;">Primo</p>
+                    <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
                   </div>
                   <div class="carousel-item">
                     <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
-                    alt="" style=" width:120 ; height: 80px;">
-                   
-                 <p class="card-title"style="margin: 0;">Nome</p>
-                 <p class="card-text" style="margin: 0;">Primo</p>
-                 <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                      alt="" style=" width:120 ; height: 80px;">
+
+                    <p class="card-title" style="margin: 0;">Nome</p>
+                    <p class="card-text" style="margin: 0;">Primo</p>
+                    <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
                   </div>
                   <div class="carousel-item">
                     <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
-                    alt="" style=" width:120 ; height: 80px;">
-                   
-                 <p class="card-title"style="margin: 0;">Nome</p>
-                 <p class="card-text" style="margin: 0;">Primo</p>
-                 <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                      alt="" style=" width:120 ; height: 80px;">
+
+                    <p class="card-title" style="margin: 0;">Nome</p>
+                    <p class="card-text" style="margin: 0;">Primo</p>
+                    <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
                   </div>
                 </div>
-  
-  
-              </div>
-              </div>
-              
-              <!-- Footer Card Visitantes-->
-              <div class="card-footer ">
-  
-                <ol class="carousel-indicators">
-                  <a class="carousel-control-prev" href="#carouselVis" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#carouselVis" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                  <li data-target="#carouselVis" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselVis" data-slide-to="1"></li>
-                  <li data-target="#carouselVis" data-slide-to="2"></li>
-                  
-                </ol>
-                <div class="botoesCaixa row ">
-  
-                  <nav class="btnEditar">
-                    <svg type="button"  data-toggle="modal" data-target="#editarVisitanteModal"
-                      class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
-                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
-                    </svg>
-                    <p>editar</p>
-                  </nav>
-    
-                  <button type="button" class="btnNovo btn-primary" data-toggle="modal" data-target="#addVisitanteModal"
-                    data-whatever="@mdo">Novo</button>
-    
-                    <nav class="btnExcluir">
-                      <svg type="button" data-toggle="modal" data-target="#excluirVisitanteModal"
-                        class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
-                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
-                      </svg>
-                      <p>excluir</p>
-    
-                    </nav>
-    
-                </div>
+
+
               </div>
             </div>
-  
-          <!-- Card Funcionários -->
-        <div class="card mb-3" style="max-width: 18rem;">
-          <div class="card-header">
-            <div class="row footerTexto">
-              <div>
-               Funcionários
+
+            <!-- Footer Card Visitantes-->
+            <div class="card-footer ">
+
+              <ol class="carousel-indicators">
+                <a class="carousel-control-prev" href="#carouselVis" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselVis" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+                <li data-target="#carouselVis" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselVis" data-slide-to="1"></li>
+                <li data-target="#carouselVis" data-slide-to="2"></li>
+
+              </ol>
+              <div class="botoesCaixa row ">
+
+                <nav class="btnEditar">
+                  <svg type="button" data-toggle="modal" data-target="#editarVisitanteModal"
+                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd"
+                      d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <p>editar</p>
+                </nav>
+
+                <button type="button" class="btnNovo btn-primary" data-toggle="modal" data-target="#addVisitanteModal"
+                  data-whatever="@mdo">Novo</button>
+
+                <nav class="btnExcluir">
+                  <svg type="button" data-toggle="modal" data-target="#excluirVisitanteModal"
+                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z" />
+                    <path fill-rule="evenodd"
+                      d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <p>excluir</p>
+
+                </nav>
+
               </div>
-              <div class="contador">
-                3
-              </div>
-  
             </div>
           </div>
-  
-          <!-- Body Card Funcionários -->
-          <div class="card-caixa card-body text-center" >
-          <!-- Carrosel Body -->
-            <div id="carouselFunc" class="carousel slide" >
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
-                  alt="First slide" style=" width:120 ; height: 80px;">
-                  
-                <p class="card-title"style="margin: 0;">Marcelo Franchini</p>
-                <p class="card-text" style="margin: 0;">Diarista</p>
-                <p class="card-text" style="margin: 0;">Toda Segunda</p>
+
+          <!-- Card Funcionários -->
+          <div class="card mb-3" style="max-width: 18rem;">
+            <div class="card-header">
+              <div class="row footerTexto">
+                <div>
+                  Funcionários
                 </div>
-                <div class="carousel-item">
-                  <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
-                  alt="" style=" width:120 ; height: 80px;">
-                  
-                <p class="card-title"style="margin: 0;">Nome</p>
-                <p class="card-text" style="margin: 0;">Filho</p>
-                <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                <div class="contador">
+                  3
                 </div>
-                <div class="carousel-item">
-                  <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
-                  alt="" style=" width:120 ; height: 80px;">
-                  
-                <p class="card-title"style="margin: 0;">Nome</p>
-                <p class="card-text" style="margin: 0;">Filho</p>
-                <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
-                </div>
+
               </div>
-  
-  
             </div>
+
+            <!-- Body Card Funcionários -->
+            <div class="card-caixa card-body text-center">
+              <!-- Carrosel Body -->
+              <div id="carouselFunc" class="carousel slide" data-interval="0">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                      alt="First slide" style=" width:120 ; height: 80px;">
+
+                    <p class="card-title" style="margin: 0;">Marcelo Franchini</p>
+                    <p class="card-text" style="margin: 0;">Diarista</p>
+                    <p class="card-text" style="margin: 0;">Toda Segunda</p>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                      alt="" style=" width:120 ; height: 80px;">
+
+                    <p class="card-title" style="margin: 0;">Nome</p>
+                    <p class="card-text" style="margin: 0;">Filho</p>
+                    <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                      alt="" style=" width:120 ; height: 80px;">
+
+                    <p class="card-title" style="margin: 0;">Nome</p>
+                    <p class="card-text" style="margin: 0;">Filho</p>
+                    <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                  </div>
+                </div>
+
+
+              </div>
             </div>
-            
+
             <!-- Footer Card Funcionários-->
             <div class="card-footer ">
-  
+
               <ol class="carousel-indicators">
                 <a class="carousel-control-prev" href="#carouselFunc" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -359,91 +369,98 @@
                 <li data-target="#carouselFunc" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselFunc" data-slide-to="1"></li>
                 <li data-target="#carouselFunc" data-slide-to="2"></li>
-                
+
               </ol>
               <div class="botoesCaixa row ">
-  
+
                 <nav class="btnEditar">
-                  <svg type="button"  data-toggle="modal" data-target="#editarFuncionarioModal"
+                  <svg type="button" data-toggle="modal" data-target="#editarFuncionarioModal"
                     class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
-                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
+                    <path
+                      d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd"
+                      d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z"
+                      clip-rule="evenodd" />
                   </svg>
                   <p>editar</p>
                 </nav>
-  
+
                 <button type="button" class="btnNovo btn-primary" data-toggle="modal" data-target="#addFuncionarioModal"
                   data-whatever="@mdo">Novo</button>
-  
-                  <nav class="btnExcluir">
-                    <svg type="button" data-toggle="modal" data-target="#excluirFuncionarioModal"
-                      class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
-                      <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
-                    </svg>
-                    <p>excluir</p>
-  
-                  </nav>
-  
+
+                <nav class="btnExcluir">
+                  <svg type="button" data-toggle="modal" data-target="#excluirFuncionarioModal"
+                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z" />
+                    <path fill-rule="evenodd"
+                      d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <p>excluir</p>
+
+                </nav>
+
               </div>
             </div>
           </div>
-  
-  
-        <!-- Card Veículos -->
-        <div class="card mb-3" style="max-width: 18rem;">
-          <div class="card-header">
-            <div class="row footerTexto">
-              <div>
-               Veículos
-              </div>
-              <div class="contador">
-                3
-              </div>
-  
-            </div>
-          </div>
-  
-          <!-- Body Card Veículos -->
-          <div class="card-caixa card-body text-center" >
-          <!-- Carrosel Body -->
-            <div id="carouselVeic" class="carousel slide" >
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img class="foto" src="https://revistacarro.com.br/wp-content/uploads/2020/01/VW-Fusca.jpg"
-                  alt="First slide" style=" width:120 ; height: 80px;">
-                  
-                <p class="card-title"style="margin: 0;">Fusca</p>
-                <p class="card-text" style="margin: 0;">Placa EEE-1099</p>
-                <p class="card-text" style="margin: 0;">Azul</p>
+
+
+          <!-- Card Veículos -->
+          <div class="card mb-3" style="max-width: 18rem;">
+            <div class="card-header">
+              <div class="row footerTexto">
+                <div>
+                  Veículos
                 </div>
-                <div class="carousel-item">
-                  <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
-                  alt="" style=" width:120 ; height: 80px;">
-                  
-                <p class="card-title"style="margin: 0;">Nome</p>
-                <p class="card-text" style="margin: 0;">Filho</p>
-                <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
+                <div class="contador">
+                  <%= veiculos.length %>
                 </div>
-                <div class="carousel-item">
-                  <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
-                  alt="" style=" width:120 ; height: 80px;">
-                  
-                <p class="card-title"style="margin: 0;">Nome</p>
-                <p class="card-text" style="margin: 0;">Filho</p>
-                <p class="card-text" style="margin: 0;">RG: 34678564-908</p>
-                </div>
+
               </div>
-  
-  
             </div>
+
+            <!-- Body Card Veículos -->
+            <div class="card-caixa card-body text-center">
+              <!-- Carrosel Body -->
+              <div id="carouselVeic" class="carousel slide" data-interval="0">
+                <div class="carousel-inner">
+
+
+                  <% veiculos.forEach( (veiculo,index) => { %>
+
+                  <% if(index == 0){ %>
+                  <div class="carousel-item active">
+                    <img class="foto" src="<%= veiculo.foto %>" alt="" style=" width:120 ; height: 80px;">
+
+                    <p class="card-title" style="margin: 0;"><%= veiculo.modelo %> </p>
+                    <p class="card-text" style="margin: 0;"><%= veiculo.placa %></p>
+                    <p class="card-text" style="margin: 0;"> <%= veiculo.cor %></p>
+                  </div>
+                  <% } else { %>
+                  <div class="carousel-item ">
+                    <img class="foto" src="<%= veiculo.foto %>" alt="" style=" width:120 ; height: 80px;">
+
+                    <p class="card-title" style="margin: 0;"><%= veiculo.modelo %> </p>
+                    <p class="card-text" style="margin: 0;"><%= veiculo.placa %></p>
+                    <p class="card-text" style="margin: 0;"> <%= veiculo.cor %></p>
+                  </div>
+                  <% } %>
+
+
+                  <% }) %>
+
+                </div>
+
+
+              </div>
             </div>
-            
+
             <!-- Footer Card Veículos-->
             <div class="card-footer ">
-  
+
               <ol class="carousel-indicators">
                 <a class="carousel-control-prev" href="#carouselVeic" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -456,89 +473,93 @@
                 <li data-target="#carouselVeic" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselVeic" data-slide-to="1"></li>
                 <li data-target="#carouselVeic" data-slide-to="2"></li>
-                
+
               </ol>
               <div class="botoesCaixa row ">
-  
+
                 <nav class="btnEditar">
-                  <svg type="button"  data-toggle="modal" data-target="#editarVeiculoModal"
+                  <svg type="button" data-toggle="modal" data-target="#editarVeiculoModal"
                     class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
-                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
+                    <path
+                      d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd"
+                      d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z"
+                      clip-rule="evenodd" />
                   </svg>
                   <p>editar</p>
                 </nav>
-  
+
                 <button type="button" class="btnNovo btn-primary" data-toggle="modal" data-target="#addVeiculoModal"
                   data-whatever="@mdo">Novo</button>
-  
-                  <nav class="btnExcluir">
-                    <svg type="button" data-toggle="modal" data-target="#excluirVeiculoModal"
-                      class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
-                      <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
-                    </svg>
-                    <p>excluir</p>
-  
-                  </nav>
-  
+
+                <nav class="btnExcluir">
+                  <svg type="button" data-toggle="modal" data-target="#excluirVeiculoModal"
+                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z" />
+                    <path fill-rule="evenodd"
+                      d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <p>excluir</p>
+
+                </nav>
+
               </div>
             </div>
           </div>
-  
-  
-        <!-- Card Pets -->
-        <div class="card mb-3" style="max-width: 18rem;">
-          <div class="card-header">
-            <div class="row footerTexto">
-              <div>
-               Pets
+
+
+          <!-- Card Pets -->
+          <div class="card mb-3" style="max-width: 18rem;">
+            <div class="card-header">
+              <div class="row footerTexto">
+                <div>
+                  Pets
+                </div>
+                <div class="contador">
+                  <%= pets.length %>
+                </div>
+
               </div>
-              <div class="contador">
-                <%= pets.length %> 
-              </div>
-  
             </div>
-          </div>
-  
-          <!-- Body Card Pets -->
-          <div class="card-caixa card-body text-center" >
-          <!-- Carrosel Body -->
-            <div id="carouselPet" class="carousel slide" data-interval="0" >
-              <div class="carousel-inner">
-  
-                <% pets.forEach( (pet,index) => { %>
-  
+
+            <!-- Body Card Pets -->
+            <div class="card-caixa card-body text-center">
+              <!-- Carrosel Body -->
+              <div id="carouselPet" class="carousel slide" data-interval="0">
+                <div class="carousel-inner">
+
+                  <% pets.forEach( (pet,index) => { %>
+
                   <% if(index == 0){ %>
-                    <div class="carousel-item active">
-                      <img class="foto" src="<%= pet.foto %>"
-                      alt="" style=" width:120 ; height: 80px;">
-                      
-                    <p class="card-title"style="margin: 0;"><%= pet.nome %> </p>
+                  <div class="carousel-item active">
+                    <img class="foto" src="<%= pet.foto %>" alt="" style=" width:120 ; height: 80px;">
+
+                    <p class="card-title" style="margin: 0;"><%= pet.nome %> </p>
                     <p class="card-text" style="margin: 0;"><%= pet.especie %></p>
                     <p class="card-text" style="margin: 0;"> <%= pet.porte %></p>
-                    </div>
+                  </div>
                   <% } else { %>
                   <div class="carousel-item ">
-                    <img class="foto" src="<%= pet.foto %>"
-                    alt="" style=" width:120 ; height: 80px;">
-                    
-                  <p class="card-title"style="margin: 0;"><%= pet.nome %> </p>
-                  <p class="card-text" style="margin: 0;"><%= pet.especie %></p>
-                  <p class="card-text" style="margin: 0;"> <%= pet.porte %></p>
+                    <img class="foto" src="<%= pet.foto %>" alt="" style=" width:120 ; height: 80px;">
+
+                    <p class="card-title" style="margin: 0;"><%= pet.nome %> </p>
+                    <p class="card-text" style="margin: 0;"><%= pet.especie %></p>
+                    <p class="card-text" style="margin: 0;"> <%= pet.porte %></p>
                   </div>
-                   <% } %>
-  
-  
+                  <% } %>
+
+
                   <% }) %>
+                </div>
+
+
               </div>
-  
-  
             </div>
-            </div>
-            
+
             <!-- Footer Card Pets-->
             <div class="card-footer ">
               <ol class="carousel-indicators">
@@ -550,162 +571,166 @@
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
                 </a>
-                
+
                 <li data-target="#carouselPet" data-slide-to="0 " class="active"></li>
                 <li data-target="#carouselPet" data-slide-to="1"></li>
                 <li data-target="#carouselPet" data-slide-to="2"></li>
-                
+
               </ol>
-            
-  
-              
+
+
+
               <div class="botoesCaixa row ">
-  
+
                 <nav class="btnEditar">
-                  <svg type="button"  data-toggle="modal" data-target="#editarPetModal"
+                  <svg type="button" data-toggle="modal" data-target="#editarPetModal"
                     class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
-                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
+                    <path
+                      d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd"
+                      d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z"
+                      clip-rule="evenodd" />
                   </svg>
                   <p>editar</p>
                 </nav>
-  
+
                 <button type="button" class="btnNovo btn-primary" data-toggle="modal" data-target="#addPetModal"
                   data-whatever="@mdo">Novo</button>
-  
-                  <nav class="btnExcluir">
-                    <svg type="button" data-toggle="modal" data-target="#excluirPetModal"
-                      class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
-                      <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
-                    </svg>
-                    <p>excluir</p>
-  
-                  </nav>
-  
+
+                <nav class="btnExcluir">
+                  <svg type="button" data-toggle="modal" data-target="#excluirPetModal"
+                    class="btnIcon bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z" />
+                    <path fill-rule="evenodd"
+                      d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <p>excluir</p>
+
+                </nav>
+
               </div>
-  
+
             </div>
-          </div>  
-          
-        </div>
-                
-  
-          </section>
           </div>
-      <!-- Container -->
-    </main>
-  
-    <%- include('../../includes/scriptJS')%>
-  </body>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <!-- Modais -->
-  
-  
-  <div class="modal fade " id="btnEditarPerfil" tabindex="-1" role="dialog"
-                  aria-labelledby="btnEditarPerfil" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="btnEditarPerfil">Editar Perfil</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <form>
-                          <div class="form-group">
-                            <label for="editarEmailPerfil" class="col-form-label">Novo Email</label>
-                            <input type="email" class="form-control" name="editarEmailPerfil" id="editarEmailPerfil"
-                              placeholder="Novo Email">
-                          </div>
-                          <div class="form-group">
-                            <label for="editarTelPerfil" class="col-form-label">Novo Tel</label>
-                            <input type="tel" class="form-control" name="editarTelPerfil" id="editarTelPerfil"
-                              placeholder="Novo Telefone">
-                          </div>
-                          <div class="form-group">
-                            <label for="editarFotoPerfil">Foto</label>
-                            <input type="file" class="form" name="editarFotoPerfil" id="editarFotoPerfil">
-                          </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-  
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                 <!-- Modal Editar Perfil Cartao fim -->
-  
-                <div class="modal fade" id="btnAlterarSenha" tabindex="-1" role="dialog" aria-labelledby="btnAlterarSenha"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="btnAlterarSenha">Alterar Senha</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <form>
-                        <div class="form-group">
-                          <label for="novaSenha" class="col-form-label">Nova Senha</label>
-                          <input type="password" class="form-control" name="novaSenha" id="novaSenha"
-                            placeholder="Nova Senha">
-                        </div>
-                        <div class="form-group">
-                          <label for="senhaAtual" class="col-form-label">Senha Atual</label>
-                          <input type="password" class="form-control" name="senhaAtuale" id="senhaAtual"
-                            placeholder="Senha Atual">
-                        </div>
-                      </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                      <button type="submit" class="btn btn-primary">Salvar</button>
-  
-                    </div>
-                  </div>
-                </div>
-              </div>
-  
-              <!-- Modal Alterar Senha Cartao fim -->
-  
-  
-  
-  <div class="modal fade" id="addDependenteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+
+        </div>
+
+
+      </section>
+    </div>
+    <!-- Container -->
+  </main>
+
+  <%- include('../../includes/scriptJS')%>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modais -->
+
+
+<div class="modal fade " id="btnEditarPerfil" tabindex="-1" role="dialog" aria-labelledby="btnEditarPerfil"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="btnEditarPerfil">Editar Perfil</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="editarEmailPerfil" class="col-form-label">Novo Email</label>
+            <input type="email" class="form-control" name="editarEmailPerfil" id="editarEmailPerfil"
+              placeholder="Novo Email">
+          </div>
+          <div class="form-group">
+            <label for="editarTelPerfil" class="col-form-label">Novo Tel</label>
+            <input type="tel" class="form-control" name="editarTelPerfil" id="editarTelPerfil"
+              placeholder="Novo Telefone">
+          </div>
+          <div class="form-group">
+            <label for="editarFotoPerfil">Foto</label>
+            <input type="file" class="form" name="editarFotoPerfil" id="editarFotoPerfil">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Editar Perfil Cartao fim -->
+
+<div class="modal fade" id="btnAlterarSenha" tabindex="-1" role="dialog" aria-labelledby="btnAlterarSenha"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="btnAlterarSenha">Alterar Senha</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="novaSenha" class="col-form-label">Nova Senha</label>
+            <input type="password" class="form-control" name="novaSenha" id="novaSenha" placeholder="Nova Senha">
+          </div>
+          <div class="form-group">
+            <label for="senhaAtual" class="col-form-label">Senha Atual</label>
+            <input type="password" class="form-control" name="senhaAtuale" id="senhaAtual" placeholder="Senha Atual">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Alterar Senha Cartao fim -->
+
+
+
+<div class="modal fade" id="addDependenteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -719,8 +744,7 @@
         <form>
           <div class="form-group">
             <label for="nomeDependente" class="col-form-label">Nome</label>
-            <input type="text" class="form-control" name="nomeDependente" id="nomeDependente"
-              placeholder="Nome">
+            <input type="text" class="form-control" name="nomeDependente" id="nomeDependente" placeholder="Nome">
           </div>
           <div class="form-group">
             <label for="tipoDependente" class="col-form-label">Tipo</label>
@@ -729,8 +753,7 @@
           </div>
           <div class="form-group">
             <label for="rgDependente" class="col-form-label">RG</label>
-            <input type="text" class="form-control" name="rgDependente" id="rgDependente"
-              placeholder="Rg">
+            <input type="text" class="form-control" name="rgDependente" id="rgDependente" placeholder="Rg">
           </div>
           <div class="form-group">
             <label for="fotoDependente">Foto</label>
@@ -741,15 +764,15 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button type="submit" class="btn btn-primary">Incluir</button>
-  
+
       </div>
     </div>
   </div>
-  </div>
-  <!-- Modal Add Fim-->
-  
-  <div class="modal fade" id="editarDependenteModal" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
+</div>
+<!-- Modal Add Fim-->
+
+<div class="modal fade" id="editarDependenteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -762,8 +785,7 @@
         <form>
           <div class="form-group">
             <label for="nomeDependente" class="col-form-label">Editar Nome</label>
-            <input type="text" class="form-control" name="nomeDependente" id="nomeDependente"
-              placeholder="Nome">
+            <input type="text" class="form-control" name="nomeDependente" id="nomeDependente" placeholder="Nome">
           </div>
           <div class="form-group">
             <label for="tipoDependente" class="col-form-label">Editar Tipo</label>
@@ -772,8 +794,7 @@
           </div>
           <div class="form-group">
             <label for="rgDependente" class="col-form-label">Editar RG</label>
-            <input type="text" class="form-control" name="rgDependente" id="rgDependente"
-              placeholder="Rg">
+            <input type="text" class="form-control" name="rgDependente" id="rgDependente" placeholder="Rg">
           </div>
           <div class="form-group">
             <label for="fotoDependente">Alterar Foto</label>
@@ -784,16 +805,16 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button type="submit" class="btn btn-primary">Incluir</button>
-  
+
       </div>
     </div>
   </div>
-  </div>
-  <!-- Modal Editar Fim-->
-  
-  
-  <div class="modal fade" id="excluirDependenteModal" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
+</div>
+<!-- Modal Editar Fim-->
+
+
+<div class="modal fade" id="excluirDependenteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -811,15 +832,15 @@
       </div>
     </div>
   </div>
-  </div>
-  
-  <!-- Modal Excluir Fim-->
-  
-  <!-- Modais Dependentes Fim-->
-  
-  
-  
-  <div class="modal fade" id="addVisitanteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+</div>
+
+<!-- Modal Excluir Fim-->
+
+<!-- Modais Dependentes Fim-->
+
+
+
+<div class="modal fade" id="addVisitanteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -833,8 +854,7 @@
         <form>
           <div class="form-group">
             <label for="nomeVisitante" class="col-form-label">Nome</label>
-            <input type="text" class="form-control" name="nomeVisitante" id="nomeVisitante"
-              placeholder="Nome">
+            <input type="text" class="form-control" name="nomeVisitante" id="nomeVisitante" placeholder="Nome">
           </div>
           <div class="form-group">
             <label for="tipoVisitante" class="col-form-label">Tipo</label>
@@ -843,8 +863,7 @@
           </div>
           <div class="form-group">
             <label for="rgVisitante" class="col-form-label">RG</label>
-            <input type="text" class="form-control" name="rgVisitante" id="rgVisitante"
-              placeholder="Rg">
+            <input type="text" class="form-control" name="rgVisitante" id="rgVisitante" placeholder="Rg">
           </div>
           <div class="form-group">
             <label for="fotoVisitante">Foto</label>
@@ -855,15 +874,15 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button type="submit" class="btn btn-primary">Incluir</button>
-  
+
       </div>
     </div>
   </div>
-  </div>
-  <!-- Modal Add Fim-->
-  
-  <div class="modal fade" id="editarVisitanteModal" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
+</div>
+<!-- Modal Add Fim-->
+
+<div class="modal fade" id="editarVisitanteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -876,8 +895,7 @@
         <form>
           <div class="form-group">
             <label for="nomeVisitante" class="col-form-label">Editar Nome</label>
-            <input type="text" class="form-control" name="nomeVisitante" id="nomeVisitante"
-              placeholder="Nome">
+            <input type="text" class="form-control" name="nomeVisitante" id="nomeVisitante" placeholder="Nome">
           </div>
           <div class="form-group">
             <label for="tipoVisitante" class="col-form-label">Editar Tipo</label>
@@ -886,8 +904,7 @@
           </div>
           <div class="form-group">
             <label for="rgVisitante" class="col-form-label">Editar RG</label>
-            <input type="text" class="form-control" name="rgVisitante" id="rgVisitante"
-              placeholder="Rg">
+            <input type="text" class="form-control" name="rgVisitante" id="rgVisitante" placeholder="Rg">
           </div>
           <div class="form-group">
             <label for="fotoVisitante">Alterar Foto</label>
@@ -898,16 +915,16 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button type="submit" class="btn btn-primary">Incluir</button>
-  
+
       </div>
     </div>
   </div>
-  </div>
-  <!-- Modal Editar Fim-->
-  
-  
-  <div class="modal fade" id="excluirVisitanteModal" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
+</div>
+<!-- Modal Editar Fim-->
+
+
+<div class="modal fade" id="excluirVisitanteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -925,14 +942,14 @@
       </div>
     </div>
   </div>
-  </div>
-  
-  <!-- Modal Excluir Fim-->
-  
-  <!-- Modais Visitantes Fim-->
-  
-  
-  <div class="modal fade" id="addFuncionarioModal" tabindex="-1" role="dialog" aria-labelledby="addFuncionarioModal"
+</div>
+
+<!-- Modal Excluir Fim-->
+
+<!-- Modais Visitantes Fim-->
+
+
+<div class="modal fade" id="addFuncionarioModal" tabindex="-1" role="dialog" aria-labelledby="addFuncionarioModal"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -946,8 +963,7 @@
         <form>
           <div class="form-group">
             <label for="nomeFuncionario" class="col-form-label">Nome</label>
-            <input type="text" class="form-control" name="nomeFuncionario" id="nomeFuncionario"
-              placeholder="Nome">
+            <input type="text" class="form-control" name="nomeFuncionario" id="nomeFuncionario" placeholder="Nome">
           </div>
           <div class="form-group">
             <label for="tipoFuncionario" class="col-form-label">Tipo</label>
@@ -956,8 +972,7 @@
           </div>
           <div class="form-group">
             <label for="rgFuncionario" class="col-form-label">RG</label>
-            <input type="text" class="form-control" name="rgFuncionario" id="rgFuncionario"
-              placeholder="Rg">
+            <input type="text" class="form-control" name="rgFuncionario" id="rgFuncionario" placeholder="Rg">
           </div>
           <div class="form-group">
             <label for="fotoFuncionario">Foto</label>
@@ -968,15 +983,15 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button type="submit" class="btn btn-primary">Incluir</button>
-  
+
       </div>
     </div>
   </div>
-  </div>
-  <!-- Modal Add Fim-->
-  
-  <div class="modal fade" id="editarFuncionarioModal" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
+</div>
+<!-- Modal Add Fim-->
+
+<div class="modal fade" id="editarFuncionarioModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -989,8 +1004,7 @@
         <form>
           <div class="form-group">
             <label for="nomeFuncionario" class="col-form-label">Editar Nome</label>
-            <input type="text" class="form-control" name="nomeFuncionario" id="nomeFuncionario"
-              placeholder="Nome">
+            <input type="text" class="form-control" name="nomeFuncionario" id="nomeFuncionario" placeholder="Nome">
           </div>
           <div class="form-group">
             <label for="tipoFuncionario" class="col-form-label">Editar Tipo</label>
@@ -999,8 +1013,7 @@
           </div>
           <div class="form-group">
             <label for="rgFuncionario" class="col-form-label">Editar RG</label>
-            <input type="text" class="form-control" name="rgFuncionario" id="rgFuncionario"
-              placeholder="Rg">
+            <input type="text" class="form-control" name="rgFuncionario" id="rgFuncionario" placeholder="Rg">
           </div>
           <div class="form-group">
             <label for="fotoFuncionario">Alterar Foto</label>
@@ -1011,16 +1024,16 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button type="submit" class="btn btn-primary">Incluir</button>
-  
+
       </div>
     </div>
   </div>
-  </div>
-  <!-- Modal Editar Fim-->
-  
-  
-  <div class="modal fade" id="excluirFuncionarioModal" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
+</div>
+<!-- Modal Editar Fim-->
+
+
+<div class="modal fade" id="excluirFuncionarioModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -1038,14 +1051,14 @@
       </div>
     </div>
   </div>
-  </div>
-  
-  <!-- Modal Excluir Fim-->
-  
-  <!-- Modais Funcionarios Fim-->
-  
-  
-  <div class="modal fade" id="addVeiculoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+</div>
+
+<!-- Modal Excluir Fim-->
+
+<!-- Modais Funcionarios Fim-->
+
+
+<div class="modal fade" id="addVeiculoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -1056,40 +1069,37 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form method="POST" action="/backoffice/morador/veiculos" enctype="multipart/form-data">
           <div class="form-group">
-            <label for="ModeloVeiculo" class="col-form-label">Modelo</label>
-            <input type="text" class="form-control" name="ModeloVeiculo" id="ModeloVeiculo"
-              placeholder="Modelo">
+            <label for="modeloVeiculo" class="col-form-label">Modelo</label>
+            <input type="text" class="form-control" name="modeloVeiculo" id="modeloVeiculo" placeholder="Modelo">
           </div>
           <div class="form-group">
-            <label for="PlacaVeiculo" class="col-form-label">Placa</label>
-            <input type="text" class="form-control" name="PlacaVeiculo" id="PlacaVeiculo"
-              placeholder="Ex: AAA-XXXX">
+            <label for="placaVeiculo" class="col-form-label">Placa</label>
+            <input type="text" class="form-control" name="placaVeiculo" id="placaVeiculo" placeholder="Ex: AAA-XXXX">
           </div>
           <div class="form-group">
-            <label for="CorVeiculo" class="col-form-label">Cor</label>
-            <input type="text" class="form-control" name="corVeiculo" id="corVeiculo"
-              placeholder="Cor">
+            <label for="corVeiculo" class="col-form-label">Cor</label>
+            <input type="text" class="form-control" name="corVeiculo" id="corVeiculo" placeholder="Cor">
           </div>
           <div class="form-group">
             <label for="fotoVeiculo">Foto</label>
             <input type="file" class="form" name="fotoVeiculo" id="fotoVeiculo">
           </div>
-        </form>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button type="submit" class="btn btn-primary">Incluir</button>
-  
+        </form>
       </div>
     </div>
   </div>
-  </div>
-  <!-- Modal Add Fim-->
-  
-  <div class="modal fade" id="editarVeiculoModal" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
+</div>
+<!-- Modal Add Fim-->
+
+<div class="modal fade" id="editarVeiculoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -1099,41 +1109,42 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+
+        <% veiculos.forEach(veiculo =>{ %>
+        <form action="/backoffice/morador/editar/<%=veiculo.id%>?_method=PUT" method="POST"
+          enctype="multipart/form-data">
+          <% }) %>
           <div class="form-group">
             <label for="modeloVeiculo" class="col-form-label">Editar Modelo</label>
-            <input type="text" class="form-control" name="modeloVeiculo" id="modeloVeiculo"
-              placeholder="modeloVeiculo">
+            <input type="text" class="form-control" name="modeloVeiculo" id="modeloVeiculo" placeholder="modeloVeiculo">
           </div>
           <div class="form-group">
             <label for="placaVeiculo" class="col-form-label">Editar Placa</label>
-            <input type="text" class="form-control" name="placaVeiculo" id="placaVeiculo"
-              placeholder="Ex: AAA-XXXX">
+            <input type="text" class="form-control" name="placaVeiculo" id="placaVeiculo" placeholder="Ex: AAA-XXXX">
           </div>
           <div class="form-group">
             <label for="corVeiculo" class="col-form-label">Editar Cor</label>
-            <input type="text" class="form-control" name="corVeiculo" id="corVeiculo"
-              placeholder="cor">
+            <input type="text" class="form-control" name="corVeiculo" id="corVeiculo" placeholder="cor">
           </div>
           <div class="form-group">
             <label for="fotoVeiculo">Alterar Foto</label>
             <input type="file" class="form" name="fotoVeiculo" id="fotoVeiculo">
           </div>
-        </form>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button type="submit" class="btn btn-primary">Incluir</button>
-  
       </div>
+      </form>
     </div>
   </div>
-  </div>
-  <!-- Modal Editar Fim-->
-  
-  
-  <div class="modal fade" id="excluirVeiculoModal" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
+</div>
+<!-- Modal Editar Fim-->
+
+
+<div class="modal fade" id="excluirVeiculoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -1147,18 +1158,25 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-        <button type="button" class="btn btn-primary">Sim</button>
+        <% veiculos.forEach(veiculo =>{ %>
+        <form action="/backoffice/morador/delete/<%= veiculo.id %>?_method=DELETE" method="POST"
+          enctype="multipart/form-data">
+          <% }) %>
+          <button type="submit" class="btn btn-primary">Sim</button>
+        </form>
+
+
       </div>
     </div>
   </div>
-  </div>
-  
-  <!-- Modal Excluir Fim-->
-  
-  <!-- Modais Veiculos Fim-->
-  
-  
-  <div class="modal fade" id="addPetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+</div>
+
+<!-- Modal Excluir Fim-->
+
+<!-- Modais Veiculos Fim-->
+
+
+<div class="modal fade" id="addPetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -1172,38 +1190,35 @@
         <form method="POST" action="/backoffice/morador/pets" enctype="multipart/form-data">
           <div class="form-group">
             <label for="nomePet" class="col-form-label">Nome</label>
-            <input type="text" class="form-control" name="nomePet" id="nomePet"
-              placeholder="Nome">
+            <input type="text" class="form-control" name="nomePet" id="nomePet" placeholder="Nome">
           </div>
           <div class="form-group">
             <label for="especiePet" class="col-form-label">Espécie</label>
-            <input type="text" class="form-control" name="especiePet" id="especiePet"
-              placeholder="Ex: cachorro.">
+            <input type="text" class="form-control" name="especiePet" id="especiePet" placeholder="Ex: cachorro.">
           </div>
           <div class="form-group">
             <label for="portePet" class="col-form-label">Porte</label>
-            <input type="text" class="form-control" name="portePet" id="portePet"
-              placeholder="porte">
+            <input type="text" class="form-control" name="portePet" id="portePet" placeholder="porte">
           </div>
           <div class="form-group">
             <label for="fotoPet">Foto</label>
             <input type="file" class="form" name="fotoPet" id="fotoPet">
           </div>
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button type="submit" class="btn btn-primary">Incluir</button>
-      </form>
+        </form>
       </div>
-    
+
     </div>
   </div>
-  </div>
-  <!-- Modal Add Fim-->
-  
-  <div class="modal fade" id="editarPetModal" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
+</div>
+<!-- Modal Add Fim-->
+
+<div class="modal fade" id="editarPetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -1213,26 +1228,25 @@
         </button>
       </div>
       <div class="modal-body">
-  
-        <% pets.forEach(pet =>{ %> 
-          <form action="/backoffice/morador/editar/<%=pet.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-            <% }) %>
+
+        <% pets.forEach(pet =>{ %>
+
+        <form action="/backoffice/morador/editar/<%=pet.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+          <% }) %>
           <div class="form-group">
             <label for="nomePet" class="col-form-label">Editar Nome</label>
-           
+
             <input type="text" class="form-control" name="nomePet" id="nomePet" placeholder="Nome">
-             
-        
+
+
           </div>
           <div class="form-group">
             <label for="especiePet" class="col-form-label">Editar Espécie</label>
-            <input type="text" class="form-control" name="especiePet" id="especiePet"
-              placeholder="Ex: cachorro">
+            <input type="text" class="form-control" name="especiePet" id="especiePet" placeholder="Ex: cachorro">
           </div>
           <div class="form-group">
             <label for="portePet" class="col-form-label">Editar Porte</label>
-            <input type="text" class="form-control" name="portePet" id="portePet"
-              placeholder="Porte">
+            <input type="text" class="form-control" name="portePet" id="portePet" placeholder="Porte">
           </div>
           <div class="form-group">
             <label for="fotoPet">Alterar Foto</label>
@@ -1243,17 +1257,17 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button type="submit" class="btn btn-primary">Incluir</button>
 
-  
+
       </div>
-    </form>
+      </form>
     </div>
   </div>
-  </div>
-  <!-- Modal Editar Fim-->
-  
-  
-  <div class="modal fade" id="excluirPetModal" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
+</div>
+<!-- Modal Editar Fim-->
+
+
+<div class="modal fade" id="excluirPetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -1267,22 +1281,19 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-        
-        <% pets.forEach(pet =>{ %> 
-          <form action="/backoffice/morador/delete/<%= pet.id %>?_method=DELETE" method="POST">
-            <% }) %>
-            <button type="submit" class="btn btn-primary">Sim</button>
-          </form>
-          
-        
-  
-  
+
+        <% pets.forEach(pet =>{ %>
+        <form action="/backoffice/morador/delete/<%= pet.id %>?_method=DELETE" method="POST"
+          enctype="multipart/form-data">
+          <% }) %>
+          <button type="submit" class="btn btn-primary">Sim</button>
+        </form>
+
       </div>
     </div>
   </div>
-  </div>
-  
-  <!-- Modal Excluir Fim-->
-  
-  <!-- Modais Pets Fim-->
-  
+</div>
+
+<!-- Modal Excluir Fim-->
+
+<!-- Modais Pets Fim-->
