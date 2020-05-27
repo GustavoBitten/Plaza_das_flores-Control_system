@@ -4,10 +4,10 @@ const {
   Usuario,
   Veiculo,
   Compromisso,
+  Empresa,
  // Funcionario, 
   //Visitante, 
   //Dependente,
-  //Empresa,
 } = require('../../models')
 
 let backofficePageController = {
@@ -51,14 +51,14 @@ let backofficePageController = {
         ['createdAt', 'DESC']
       ]
     })
+    */
 
     const empresas = await Empresa.findAll({
       order: [
-        ['createdAt', 'DESC']
+        ['created_at', 'DESC']
       ]
     })
 
-    */
     const compromissos = await Compromisso.findAll({
       order: [
         ['created_at', 'DESC']
@@ -72,10 +72,10 @@ let backofficePageController = {
       veiculos,
       usuarios,
       compromissos,
+      empresas,
       //funcionarios,
       //dependentes,
       //visitantes,
-      //empresas,
 
     })
   },

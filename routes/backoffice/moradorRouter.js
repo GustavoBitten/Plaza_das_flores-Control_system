@@ -13,9 +13,9 @@ const moradorController = require('../../controllers/backoffice/moradorControlle
 const petController = require("../../controllers/backoffice/petController");
 const veiculoController = require("../../controllers/backoffice/veiculoContoller");
 const compromissoController = require("../../controllers/backoffice/compromissoController");
+const empresaController = require("../../controllers/backoffice/empresaController");
 //const funcionarioController = require('../../controllers/backoffice/funcionarioController');
 //const visitanteController = require("../../controllers/backoffice/visitanteController");
-//const empresaController = require("../../controllers/backoffice/empresaContoller");
 
 
 let route = express.Router()
@@ -44,10 +44,6 @@ route.post('/moradores', moradorController.store)
 
 
 /*
-// Rotas para os Empresas
-route.post('/empresas',uploadEmpresa.any(), empresaController.store)
-route.delete('/delete/:empresaId',uploadEmpresa.any(), empresaController.delete)
-route.put('/editar/:empresaId',uploadEmpresa.any(), empresaController.update)
 
 
 // Rotas para os Visitantes
@@ -60,6 +56,11 @@ route.post('/funcionarios',uploadFuncionario.any(), funcionarioController.store)
 route.delete('/delete/:funcionarioId',uploadFuncionario.any(), funcionarioController.delete)
 route.put('/editar/:funcionarioId',uploadFuncionario.any(), funcionarioController.update) 
 */
+
+// Rotas para os Empresas
+route.post('/empresas',uploadEmpresa.any(), empresaController.store)
+route.delete('/delete/:empresaId',uploadEmpresa.any(), empresaController.delete)
+route.put('/editar/:empresaId',uploadEmpresa.any(), empresaController.update)
 
 // Rotas para os Compromissos
 route.post('/compromissos',uploadCompromisso.any(), compromissoController.store)
