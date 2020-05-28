@@ -33,7 +33,7 @@ module.exports = comunicadoController = {
 
     // const sindico_id = user.id
     const sindico_id = 2
-    
+
     // if (user.tipo == 'sindico') {
     const createComunicado = await Comunicado.create({
       sindico_id,
@@ -49,4 +49,25 @@ module.exports = comunicadoController = {
 
     return res.redirect("comunicados")
   },
+  destroy: async (req, res) => {
+    try {
+      const { id } = req.params
+
+      const comunicado = await Comunicado.findByPk(id)
+
+      if(!comunicado)
+        throw {error: 'Comunicado não existe!'}
+
+      const destruirComunicado = await Comunicado.destroy({
+        where: [{id}]
+      })
+
+      if(!destruirComunicado)
+        throw {error: 'Erro ao excluir comunicado'}
+
+      return res.status(200).json(destruirComunicado)
+    } catch (error) {
+      return res.status(400).json(error)
+    }
+  }
 };

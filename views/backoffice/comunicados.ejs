@@ -48,6 +48,9 @@
                     <th scope="col">
                       Título
                     </th>
+                    <th scope="col">
+                      Ações
+                    </th>
                   </tr>
                 </thead>
 
@@ -60,6 +63,14 @@
                       <td class="align-middle">
                         <a id="comunicado<%= comunicado.id %>" data-target="#modalMostrarComunicado" data-id="<%= comunicado.id %>">
                           <u><%= comunicado.titulo %></u>
+                        </a>
+                      </td>
+                      <td class="align-middle">
+                        <a id="editarComunicado<%= comunicado.id %>" class="text-primary text-decoration-none" data-id="<%= comunicado.id %>" title="Editar Comunicado">
+                          <i class="fas fa-edit"></i>
+                        </a>
+                        <a id="excluirComunicado<%= comunicado.id %>" class="text-danger ml-3" data-id="<%= comunicado.id %>" title="Excluir Comunicado">
+                          <i class="fas fa-trash-alt"></i>
                         </a>
                       </td>
                     </tr>
