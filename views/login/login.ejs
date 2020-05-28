@@ -42,7 +42,6 @@
         </div>
         
       </form>
-
       <!-- Modal -->
       <div class="modal fade" id="forgetPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -87,16 +86,16 @@
   </div>
   <!-- Fim = Html de botões temporário -->
   <%- include('../includes/scriptJS')%>
+
+  <%  if(typeof(erro) != 'undefined'){ %>
   <script>
     const alerta = document.getElementById('alerta')
-    //app.locals.erro = erro
-    console.log(erro)
-    if(erro != undefined){
       alerta.style.display = 'block'
-      alerta.innerText = erro
-    }
-
-  </script>
+      alerta.style.color = 'black'
+      alerta.innerHTML = '<%= erro  %>'
+      </script>
+   <%  }   %>
+ 
 </body>
 
 </html>

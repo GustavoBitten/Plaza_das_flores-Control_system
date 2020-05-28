@@ -2,6 +2,7 @@ const express = require('express')
 const app = express() 
 const {Usuario} = require('../../models')
 const session = require('express-session')
+const bcrypt = require('bcrypt')
 
 
 const  loginPageController = {
@@ -18,19 +19,17 @@ const  loginPageController = {
     })
 
     if (usuario == undefined) {
-      res.render("login/login", {titulo:"Acesso"})
-      console.log('passou aqui')
-      let erro = 'deu ruim'
-      app.locals.erro = erro
-    }else{
-
+      let erro = 'Usuário não encontrado, por favor contate o síndico'
+      return res.render("login/login", {titulo:"Acesso",erro})
+      
     }
 
-
-
+    if (!bcrypt.compareSync(senha,usuario.senha)){
+      let erro = "Senha incorreta, tente novamente ou use a opção 'esqueci minha senha'"
+      return res.render("login/login", {titulo:"Acesso",erro})
+    }
 
     usuario.senha = ''
-    //console.log(usuario)
     req.session.user = usuario
     
     switch (usuario.tipo_usuario_id) {
@@ -46,6 +45,7 @@ const  loginPageController = {
         break;
   
       default:
+        res.redirect('/login')
         break;
     }
 
