@@ -21,7 +21,11 @@ const  loginPageController = {
     if (usuario == undefined) {
       let erro = 'Usuário não encontrado, por favor contate o síndico'
       return res.render("login/login", {titulo:"Acesso",erro})
-      
+    }
+
+    if (usuario.status == false) {
+      let erro = 'Usuário desativado, por favor contate o síndico'
+      return res.render("login/login", {titulo:"Acesso",erro})
     }
 
     if (!bcrypt.compareSync(senha,usuario.senha)){
