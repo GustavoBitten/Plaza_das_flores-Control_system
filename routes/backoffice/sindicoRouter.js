@@ -50,6 +50,7 @@ route.put('/editarMorador/:moradorId', uploadMorador.any(), moradorController.ed
 
 // Rotas para comunicados
 route.get('/comunicados', comunicadoController.index)
+route.get('/comunicados/getComunicados', comunicadoController.getComunicados)
 route.get('/comunicados/:id', comunicadoController.show)
 route.post('/comunicados', comunicadoController.store)
 route.delete('/comunicados/:id', comunicadoController.destroy)

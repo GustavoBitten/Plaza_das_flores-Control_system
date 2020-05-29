@@ -69,5 +69,20 @@ module.exports = comunicadoController = {
     } catch (error) {
       return res.status(400).json(error)
     }
+  },
+  getComunicados: async (req, res) => {
+    try {
+      const listaComunicados = await Comunicado.findAll()
+
+      listaComunicados.map(comunicado => {
+        comunicado.created_at = moment(comunicado.created_at).format('DD/MM/YYYY')
+
+        return comunicado
+      })
+
+      return res.status(200).json(listaComunicados)
+    } catch (error) {
+      return res.status(400).json(error)
+    }
   }
 };
