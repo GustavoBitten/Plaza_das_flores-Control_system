@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt')
 
 const  loginPageController = {
   login: (req,res) => {
+    req.session.user = ''
     res.render("login/login", {titulo:"Acesso"})
   },
   
