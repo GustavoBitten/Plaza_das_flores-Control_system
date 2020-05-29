@@ -14,7 +14,7 @@ const petController = require("../../controllers/backoffice/petController");
 const veiculoController = require("../../controllers/backoffice/veiculoContoller");
 const compromissoController = require("../../controllers/backoffice/compromissoController");
 const empresaController = require("../../controllers/backoffice/empresaController");
-//const funcionarioController = require('../../controllers/backoffice/funcionarioController');
+const funcionarioController = require('../../controllers/backoffice/funcionarioController');
 //const visitanteController = require("../../controllers/backoffice/visitanteController");
 
 
@@ -50,12 +50,12 @@ route.post('/moradores', moradorController.store)
 route.post('/visitantes',uploadVisitante.any(), visitanteController.store)
 route.delete('/delete/:visitanteId',uploadVisitante.any(), visitanteController.delete)
 route.put('/editar/:visitanteId',uploadVisitante.any(), visitanteController.update) 
+*/
 
 // Rotas para os Funcionários
 route.post('/funcionarios',uploadFuncionario.any(), funcionarioController.store)
 route.delete('/delete/:funcionarioId',uploadFuncionario.any(), funcionarioController.delete)
 route.put('/editar/:funcionarioId',uploadFuncionario.any(), funcionarioController.update) 
-*/
 
 // Rotas para os Empresas
 route.post('/empresas',uploadEmpresa.any(), empresaController.store)

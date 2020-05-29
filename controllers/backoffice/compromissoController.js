@@ -1,5 +1,6 @@
 const { Compromisso, Usuario } = require('../../models')
 
+
 module.exports = compromissoController = {
     store: async (req, res) => {
         const { user } = req.session;

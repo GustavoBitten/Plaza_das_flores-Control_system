@@ -17,7 +17,7 @@ let route = express.Router()
 
 // Rotas para síndico
 route.get('/moradores', moradorController.ListaMoradores)
-route.get('/perfil', backofficePageController.sindicoPerfil)
+//route.get('/perfil', backofficePageController.sindicoPerfil) 
 route.get('/ocorrencias', backofficePageController.sindicoOcorrencias)
 route.get('/areas-comuns', backofficePageController.sindicoAreasComuns)
 route.get('/portaria', backofficePageController.sindicoPortaria)

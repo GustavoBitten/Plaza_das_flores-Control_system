@@ -1,3 +1,4 @@
+const moment = require("moment");
 const session = require('express-session')
 const {
   Pet,
@@ -5,7 +6,8 @@ const {
   Veiculo,
   Compromisso,
   Empresa,
- // Funcionario, 
+  Funcionario, 
+  Log_funcionario,
   //Visitante, 
   //Dependente,
 } = require('../../models')
@@ -18,6 +20,7 @@ let backofficePageController = {
     })
   },
   moradorPerfil: async (req, res) => {
+
     const pets = await Pet.findAll({
       order: [
         ['created_at', 'DESC']
@@ -28,18 +31,27 @@ let backofficePageController = {
         ['created_at', 'DESC']
       ]
     })
-    const usuarios = await Usuario.findAll({
+
+    const usuarios = await Usuario.findByPk(req.session.user.id,{
       order: [
         ['created_at', 'DESC']
       ]
     })
-    /*
+      
+   
+    
     const funcionarios = await Funcionario.findAll({
-      order: [
-        ['createdAt', 'DESC']
-      ]
+      //include:{
+        //model: Usuario,
+       // required: true,
+        //through:{attributes:[]},
+        //where:{id : req.session.user.id},
+      //},  
     })
     
+    /*    
+  
+
     const dependentes = await Depentende.findAll({
       order: [
         ['createdAt', 'DESC']
@@ -48,11 +60,11 @@ let backofficePageController = {
    
     const visitantes = await Visitante.findAll({
       order: [
-        ['createdAt', 'DESC']
+        ['created_at', 'DESC']
       ]
     })
+    
     */
-
     const empresas = await Empresa.findAll({
       order: [
         ['created_at', 'DESC']
@@ -73,7 +85,8 @@ let backofficePageController = {
       usuarios,
       compromissos,
       empresas,
-      //funcionarios,
+      funcionarios,
+      moment,
       //dependentes,
       //visitantes,
 

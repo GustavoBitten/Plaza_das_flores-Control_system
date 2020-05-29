@@ -72,16 +72,16 @@ module.exports = (sequelize, DataTypes) => {
       }
     }, {
       timestamps: true,
-      freezeTableName: true,
+      //freezeTableName: true,
       tableName: "usuarios"
     }
   );
 
    Usuario.associate = (models) => {
-  //   Usuario.belongsToMany(models.Funcionario, {
-  //     through: models.Log_funcionario, //tab intermediaria
-  //     foreignKey: "funcionario_id", // , as: ""
-  //   });
+   Usuario.belongsToMany(models.Funcionario, {
+       through: models.Log_funcionario, 
+       foreignKey: "funcionario_id", // , as: ""
+     });
   //   Usuario.belongsToMany(models.Visitante, {
   //     through: models.Visita, //tab intermediaria
   //     foreignKey: "visitante_id", // , as: ""
