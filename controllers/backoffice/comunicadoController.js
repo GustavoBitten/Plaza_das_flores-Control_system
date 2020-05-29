@@ -49,6 +49,32 @@ module.exports = comunicadoController = {
 
     return res.redirect("comunicados")
   },
+  update: async (req, res) => {
+    let msg = ''
+    const { user } = req.session
+    const { id } = req.params
+    const { titulo, mensagem } = req.body
+
+    // const sindico_id = user.id
+
+    try {
+      // if (user.tipo == 'sindico') {
+      const updateComunicado = await Comunicado.update({
+        titulo,
+        mensagem,
+      }, {
+        where: {id}
+      });
+      // }
+
+      if(!updateComunicado)
+        throw res.status(400).json({error: 'Erro ao atualizar o comunicado, tente novamente mais tarde'})
+
+      return res.status(200).json(updateComunicado)
+    } catch (error) {
+      return res.status(400).json(error)
+    }
+  },
   destroy: async (req, res) => {
     try {
       const { id } = req.params
@@ -76,6 +102,7 @@ module.exports = comunicadoController = {
 
       listaComunicados.map(comunicado => {
         comunicado.created_at = moment(comunicado.created_at).format('DD/MM/YYYY')
+        comunicado.updated_at = moment(comunicado.updated_at).format('DD/MM/YYYY')
 
         return comunicado
       })

@@ -7,6 +7,8 @@ $(document).on('change', () => {
 })
 
 let init = () => {
+  resetBindings()
+
   $('a[id^=comunicado]').on('click', async (event) => {
     let element = $(event.target.parentNode) // element that triggered event
     let id = element.data('id') // get value from target data-id field
@@ -23,6 +25,67 @@ let init = () => {
 
       // show modal
       modal.modal('show')
+    } else
+      alert(resposta.status + ' - ' + resposta.statusText)
+  })
+
+  $('a[id^=editarComunicado]').on('click', async (event) => {
+    let element = $(event.target.parentNode) // element that triggered event
+    let id = element.data('id') // get value from target data-id field
+    let modal = $(element.data('target'))
+
+    let resposta = await fetch(window.location.href + '/' + id) // get ajax response
+
+    if (resposta.status == 200) {
+      let comunicado = await resposta.json() // get json object from ajax response
+
+      // fill modal fields
+      modal.find('#tituloEditado').val(comunicado.titulo)
+      modal.find('#mensagemEditada').val(comunicado.mensagem)
+
+      // set data-temp
+      modal.find('#btnAtualizar').attr('data-temp', comunicado.id)
+
+      // show modal
+      modal.modal('show')
+    } else
+      alert(resposta.status + ' - ' + resposta.statusText)
+  })
+
+  $("#modalEditarComunicado").on('shown.bs.modal', () => {
+    $(document.getElementById('tituloEditado')).focus()
+  });
+
+  $("#modalEditarComunicado").on('hide.bs.modal', () => {
+    $(document.getElementById('tituloEditado')).val('')
+    $(document.getElementById('mensagemEditada')).val('')
+  })
+
+  $('#btnAtualizar').on('click', async (event) => {
+    let element = document.getElementById('btnAtualizar')
+    let id = element.getAttribute('data-temp')
+    let modal = $(element.closest('#modalEditarComunicado'))
+    let tituloEditado = modal.find('#tituloEditado').val()
+    let mensagemEditada = modal.find('#mensagemEditada').val()
+
+    let resposta = await fetch(window.location.href + '/' + id + '?_method=PUT', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        titulo: tituloEditado,
+        mensagem: mensagemEditada
+      })
+    })
+
+    if (resposta.status == 200) {
+      let resultado = await resposta.json()
+
+      modal.modal('hide')
+
+      reload()
     } else
       alert(resposta.status + ' - ' + resposta.statusText)
   })
@@ -44,6 +107,14 @@ let init = () => {
   })
 }
 
+let resetBindings = () => {
+  $('a[id^=comunicado]').unbind('click')
+  $('a[id^=editarComunicado]').unbind('click')
+  $("#modalEditarComunicado").unbind('shown.bs.modal')
+  $('#btnAtualizar').unbind('click')
+  $('a[id^=excluirComunicado]').unbind('click')
+}
+
 let reload = async () => {
   let resposta = await fetch(window.location.href + '/getComunicados')
 
@@ -57,11 +128,18 @@ let reload = async () => {
       let tableRow = document.createElement('tr')
 
       let colData = document.createElement('td')
-      colData.classList.add('align-middle')
+      colData.classList.add('text-center', 'align-middle')
       colData.append(comunicado.created_at)
 
+      let colAtualizacao = document.createElement('td')
+      colAtualizacao.classList.add('text-center', 'align-middle')
+      if (comunicado.created_at == comunicado.updated_at)
+        colAtualizacao.append('-')
+      else
+        colAtualizacao.append(comunicado.updated_at)
+
       let colComunicado = document.createElement('td')
-      colComunicado.classList.add('align-middle')
+      colComunicado.classList.add('text-center', 'align-middle')
 
       let linkComunicado = document.createElement('a')
       linkComunicado.setAttribute('id', 'comunicado' + comunicado.id)
@@ -72,11 +150,12 @@ let reload = async () => {
       tituloComunicado.append(comunicado.titulo)
 
       let colAcoes = document.createElement('td')
-      colAcoes.classList.add('align-middle')
+      colAcoes.classList.add('text-center', 'align-middle')
 
       let linkEditar = document.createElement('a')
       linkEditar.setAttribute('id', 'editarComunicado' + comunicado.id)
       linkEditar.classList.add('text-primary', 'text-decoration-none')
+      linkEditar.setAttribute('data-target', '#modalEditarComunicado')
       linkEditar.setAttribute('data-id', comunicado.id)
       linkEditar.setAttribute('title', 'Editar Comunicado')
 
@@ -94,6 +173,7 @@ let reload = async () => {
 
       tableBody.append(tableRow)
       tableRow.append(colData)
+      tableRow.append(colAtualizacao)
       tableRow.append(colComunicado)
       colComunicado.append(linkComunicado)
       linkComunicado.append(tituloComunicado)

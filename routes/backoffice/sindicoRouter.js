@@ -53,6 +53,7 @@ route.get('/comunicados', comunicadoController.index)
 route.get('/comunicados/getComunicados', comunicadoController.getComunicados)
 route.get('/comunicados/:id', comunicadoController.show)
 route.post('/comunicados', comunicadoController.store)
+route.put('/comunicados/:id', comunicadoController.update)
 route.delete('/comunicados/:id', comunicadoController.destroy)
 
 module.exports = route

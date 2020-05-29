@@ -42,13 +42,16 @@
 
                 <thead>
                   <tr>
-                    <th scope="col">
+                    <th class="text-center" scope="col">
                       Data
                     </th>
-                    <th scope="col">
+                    <th class="text-center" scope="col">
+                      Atualização
+                    </th>
+                    <th class="text-center" scope="col">
                       Título
                     </th>
-                    <th scope="col">
+                    <th class="text-center" scope="col">
                       Ações
                     </th>
                   </tr>
@@ -57,16 +60,21 @@
                 <tbody id="tableBody">
                   <% listaComunicados.forEach(comunicado => { %>
                     <tr>
-                      <td class="align-middle">
+                      <td class="text-center align-middle">
                         <%= moment(comunicado.created_at).format('DD/MM/YYYY') %>
                       </td>
-                      <td class="align-middle">
+                      <td class="text-center align-middle">
+                        <%= moment(comunicado.created_at).format('DD/MM/YYYY') == moment(comunicado.updated_at).format('DD/MM/YYYY')
+                         ? '-' : moment(comunicado.updated_at).format('DD/MM/YYYY') %>
+                      </td>
+                      <td class="text-center align-middle">
                         <a id="comunicado<%= comunicado.id %>" data-target="#modalMostrarComunicado" data-id="<%= comunicado.id %>">
                           <u><%= comunicado.titulo %></u>
                         </a>
                       </td>
-                      <td class="align-middle">
-                        <a id="editarComunicado<%= comunicado.id %>" class="text-primary text-decoration-none" data-id="<%= comunicado.id %>" title="Editar Comunicado">
+                      <td class="text-center align-middle">
+                        <a id="editarComunicado<%= comunicado.id %>" class="text-primary text-decoration-none" data-target="#modalEditarComunicado"
+                          data-id="<%= comunicado.id %>" title="Editar Comunicado">
                           <i class="fas fa-edit"></i>
                         </a>
                         <a id="excluirComunicado<%= comunicado.id %>" class="text-danger ml-3" data-id="<%= comunicado.id %>" title="Excluir Comunicado">
@@ -101,10 +109,10 @@
         <form class="form-group m-0" action="/backoffice/sindico/comunicados" method="POST">
           <div class="modal-body">
             <label for="titulo">Título</label>
-            <input id="titulo" name="titulo" class="form-control" type="text" max="50">
+            <input id="titulo" name="titulo" class="form-control" type="text" max="255">
 
             <label for="mensagem" class="mt-3">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" class="form-control" cols="30" rows="10" maxlength="500"></textarea>
+            <textarea id="mensagem" name="mensagem" class="form-control" cols="30" rows="10" maxlength="1000"></textarea>
           </div>
 
           <div class="modal-footer border-0">
@@ -147,6 +155,40 @@
     </div>
   </div>
   <!-- /#modalMostrarComunicado -->
+
+  <%# Modal Editar Comunicado %>
+  <div class="modal fade" id="modalEditarComunicado" tabindex="-1" role="dialog"
+    aria-labelledby="modalEditarComunicadoTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-center p-1">
+          <h5 class="modal-title" id="modalEditarComunicadoTitle">Editar comunicado</h5>
+        </div>
+
+        <div class="modal-body">
+          <form id="formEditar" class="form-group" action="">
+            <label for="tituloEditado">Título</label>
+            <input id="tituloEditado" name="tituloEditado" class="form-control" type="text" max="255">
+
+            <label for="mensagemEditada" class="mt-3">Mensagem</label>
+            <textarea id="mensagemEditada" name="mensagemEditada" class="form-control" cols="30" rows="10" maxlength="1000"></textarea>
+
+          </form>
+        </div>
+
+        <div class="modal-footer border-0">
+          <a id="btnAtualizar" class="btn-sm btn-success text-white border-0 rounded-pill font-weight-bold px-3 ml-2">
+            Atualizar
+          </a>
+          <button type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold px-3"
+            data-dismiss="modal">
+            Voltar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /#modalEditarComunicado -->
 
   <%- include('../includes/scriptJS') %>
   <script type="text/javascript" src="/javascripts/backoffice/comunicados.js"></script>

@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('comunicados', { 
+    return queryInterface.createTable('comunicados', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -24,7 +24,7 @@ module.exports = {
         allowNull: false
       },
       mensagem: {
-        type: Sequelize.STRING(800),
+        type: Sequelize.STRING(1000),
         allowNull: false
       },
       created_at: {
