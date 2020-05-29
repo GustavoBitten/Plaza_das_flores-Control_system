@@ -27,30 +27,30 @@ module.exports = comunicadoController = {
     }
   },
   store: async (req, res) => {
-    let msg = ''
     const { user } = req.session
     const { titulo, mensagem } = req.body
 
     // const sindico_id = user.id
     const sindico_id = 2
 
-    // if (user.tipo == 'sindico') {
-    const createComunicado = await Comunicado.create({
-      sindico_id,
-      titulo,
-      mensagem,
-    });
-    // }
+    try{
+      // if (user.tipo == 'sindico') {
+      const createComunicado = await Comunicado.create({
+        sindico_id,
+        titulo,
+        mensagem,
+      });
+      // }
 
-    if (createComunicado)
-      msg = 'Comunicado criado com sucesso!'
-    else
-      msg = 'Erro ao criar o comunicado!'
+      if (!createComunicado)
+        throw res.status(400).json({error: 'Erro ao criar o comunicado, tente novamente mais tarde!'})
 
-    return res.redirect("comunicados")
+      return res.status(200).json(createComunicado)
+    } catch (error) {
+      return res.status(400).json(error)
+    }
   },
   update: async (req, res) => {
-    let msg = ''
     const { user } = req.session
     const { id } = req.params
     const { titulo, mensagem } = req.body
@@ -68,7 +68,7 @@ module.exports = comunicadoController = {
       // }
 
       if(!updateComunicado)
-        throw res.status(400).json({error: 'Erro ao atualizar o comunicado, tente novamente mais tarde'})
+        throw res.status(400).json({error: 'Erro ao atualizar o comunicado, tente novamente mais tarde!'})
 
       return res.status(200).json(updateComunicado)
     } catch (error) {

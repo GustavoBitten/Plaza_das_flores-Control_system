@@ -9,6 +9,44 @@ $(document).on('change', () => {
 let init = () => {
   resetBindings()
 
+  $('#btnCriarComunicado').on('click', async () => {
+    //let element = $(document.getElementById('btnCriarComunicado')) // element that triggered event
+    let modal = $('#modalNovoComunicado')
+
+    let titulo = modal.find('#titulo').val()
+    let mensagem = modal.find('#mensagem').val()
+
+    let resposta = await fetch(window.location.href, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        titulo,
+        mensagem
+      })
+    })
+
+    if (resposta.status == 200) {
+      let comunicado = await resposta.json()
+
+      // hide modal
+      modal.modal('hide')
+
+      reload()
+    } else
+      alert(resposta.status + ' - ' + resposta.statusText)
+  })
+
+  $('#modalNovoComunicado').on('shown.bs.modal', () => {
+    $('#modalNovoComunicado').find('#titulo').focus()
+  })
+
+  $('#modalNovoComunicado').on('hidden.bs.modal', () => {
+    $('#modalNovoComunicado').find('form').trigger('reset')
+  })
+
   $('a[id^=comunicado]').on('click', async (event) => {
     let element = $(event.target.parentNode) // element that triggered event
     let id = element.data('id') // get value from target data-id field
@@ -61,7 +99,7 @@ let init = () => {
     $(document.getElementById('mensagemEditada')).val('')
   })
 
-  $('#btnAtualizar').on('click', async (event) => {
+  $('#btnAtualizar').on('click', async () => {
     let element = document.getElementById('btnAtualizar')
     let id = element.getAttribute('data-temp')
     let modal = $(element.closest('#modalEditarComunicado'))
@@ -108,9 +146,13 @@ let init = () => {
 }
 
 let resetBindings = () => {
+  $('#btnCriarComunicado').unbind('click')
+  $('#modalNovoComunicado').unbind('shown.bs.modal')
+  $('#modalNovoComunicado').unbind('hidden.bs.modal')
   $('a[id^=comunicado]').unbind('click')
   $('a[id^=editarComunicado]').unbind('click')
   $("#modalEditarComunicado").unbind('shown.bs.modal')
+  $("#modalEditarComunicado").unbind('hide.bs.modal')
   $('#btnAtualizar').unbind('click')
   $('a[id^=excluirComunicado]').unbind('click')
 }

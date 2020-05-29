@@ -6,6 +6,6 @@
   font-size: 0.8rem;
 }
 
-td a:hover {
+a:hover {
   cursor: pointer;
 }
