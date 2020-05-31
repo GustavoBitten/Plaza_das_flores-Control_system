@@ -19,15 +19,43 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
       },
       nome: {
-        type: DataTypes.STRING(192),
-        allowNull: false
+        type: DataTypes.STRING(50),
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "O campo Empresa não pode ser vazio"
+          },
+          len:{
+            args: [0,50],
+            msg: "Máx de 50 caracteres"
+          } 
+      }
       },
       cnpj: {
         type: DataTypes.STRING(15),
         unique: true,
+        validate: {
+          notEmpty: {
+            msg: "O campo CNPJ não pode ser vazio"
+          },
+          len:{
+            args: [0,15],
+            msg: "Máx de 15 caracteres"
+          } 
+      }
       },
       rg: {
         type: DataTypes.STRING(15),
+        validate: {
+          notEmpty: {
+            msg: "O campo RG não pode ser vazio"
+          },
+          len:{
+            args: [0,15],
+            msg: "Máx de 15 caracteres"
+          } 
+               
+      }
       },
       foto: {
         type: DataTypes.STRING,

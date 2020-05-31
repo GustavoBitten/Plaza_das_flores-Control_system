@@ -9,12 +9,31 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       },
       compromisso: {
-        type: DataTypes.STRING(192),
-        allowNull: false
+        type: DataTypes.STRING(45),
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "O campo Compromisso não pode ser vazio"
+          },
+          len: {
+            args: [0, 45],
+            msg: "Máx de 45 caracteres"
+          }
+        }
       },
       local: {
-        type: DataTypes.STRING(50),
-        allowNull: false
+        type: DataTypes.STRING(45),
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "O campo Compromisso não pode ser vazio"
+          },
+          len: {
+            args: [0, 45],
+            msg: "Máx de 45 caracteres"
+          }
+        }
+
       },
       foto: {
         type: DataTypes.STRING,
@@ -22,7 +41,15 @@ module.exports = (sequelize, DataTypes) => {
       },
       data: {
         type: DataTypes.DATE,
-        allowNull: false
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "O campo Data não pode ser vazio"
+          },
+          isDate: {
+            msg: "Formato de Data obrigatório"
+          }
+        }
       },
       morador_id: {
         type: DataTypes.INTEGER,
@@ -36,14 +63,14 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      timestamps: true, 
+      timestamps: true,
       tablename: "compromissos"
     }
   );
 
   Compromisso.associate = (models) => {
     Compromisso.belongsTo(models.Usuario, {
-      foreignKey: "morador_id",  
+      foreignKey: "morador_id",
     });
 
   };

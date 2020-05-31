@@ -6,13 +6,17 @@ module.exports = compromissoController = {
         const { user } = req.session;
         const { nomeCompromisso, localCompromisso,dataCompromisso } = req.body;
         const [fotoCompromisso] = req.files;
+
+        let foto = null   
+        if(foto == null){foto = `/images/padrao/padrao.png` } 
+        if(fotoCompromisso){foto = `/images/compromissos/${fotoCompromisso.filename}` }  
         try {
             const novoCompromisso = await Compromisso.create({
                 compromisso: nomeCompromisso,
                 local: localCompromisso,
                 data: dataCompromisso,
                 morador_id: user.id,
-                foto: `/images/compromissos/${fotoCompromisso.filename}`
+                foto: foto
             })
             return res.status(201).redirect('/backoffice/morador/perfil')
         } catch (error) {
@@ -41,14 +45,16 @@ module.exports = compromissoController = {
         const [fotoCompromisso] = req.files;
         const { nomeCompromisso, localCompromisso,dataCompromisso } = req.body;
         
-
+        let foto = null   
+        if(foto == null){foto = `/images/padrao/padrao.png` } 
+        if(fotoCompromisso){foto = `/images/compromissos/${fotoCompromisso.filename}` }  
         try {
             const editarCompromisso = await Compromisso.update({
                 compromisso: nomeCompromisso,
                 local: localCompromisso,
                 data: dataCompromisso,
                 morador_id: user.id,
-                foto: `/images/compromissos/${fotoCompromisso.filename}`
+                foto: foto
             }, {
                 where: { id: compromissoId }
             })
