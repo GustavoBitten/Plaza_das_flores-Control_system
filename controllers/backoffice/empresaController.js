@@ -5,13 +5,17 @@ module.exports = empresaController = {
         const { user } = req.session;
         const { nomeEmpresa, rgEmpresa, cnpjEmpresa} = req.body;
         const [fotoEmpresa] = req.files;
+
+        let foto = null   
+        if(foto == null){foto = `/images/padrao/padrao.png` } 
+        if(fotoEmpresa){foto = `/images/empresas/${fotoEmpresa.filename}` }  
         try {
             const novaEmpresa = await Empresa.create({
                 nome: nomeEmpresa,
                 rg: rgEmpresa,
                 cnpj: cnpjEmpresa,
                 morador_id: user.id,
-                foto: `/images/empresas/${fotoEmpresa.filename}`
+                foto: foto
             })
             return res.status(201).redirect('/backoffice/morador/perfil')
         } catch (error) {
@@ -40,6 +44,9 @@ module.exports = empresaController = {
         const { nomeEmpresa, rgEmpresa, cnpjEmpresa} = req.body;
         const [fotoEmpresa] = req.files;
     
+        let foto = null   
+        if(foto == null){foto = `/images/padrao/padrao.png` } 
+        if(fotoEmpresa){foto = `/images/empresas/${fotoEmpresa.filename}` } 
 
         try {
             const editarEmpresa = await Empresa.update({
@@ -47,7 +54,7 @@ module.exports = empresaController = {
                 rg: rgEmpresa,
                 cnpj: cnpjEmpresa,
                 morador_id: user.id,
-                foto: `/images/empresas/${fotoEmpresa.filename}`
+                foto: foto,
             }, {
                 where: { id: empresaId }
             })

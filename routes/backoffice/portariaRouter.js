@@ -9,7 +9,7 @@ let route = express.Router()
 //Rotas para portaria
 route.get('/moradores', backofficePageController.portariaMoradores)
 //route.get('/perfil', backofficePageController.portariaPerfil)
-route.get('/ocorrencias', backofficePageController.portariaOcorrencias)
+//route.get('/ocorrencias', backofficePageController.portariaOcorrencias)
 route.get('/areas-comuns', backofficePageController.portariaAreasComuns)
 route.get('/correspondencias', backofficePageController.portariaCorrespondencias)
 route.get('/comunicados', backofficePageController.portariaComunicados)

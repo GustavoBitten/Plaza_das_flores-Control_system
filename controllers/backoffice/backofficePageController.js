@@ -52,7 +52,7 @@ let backofficePageController = {
       where:{morador_id:req.session.user.id },
       order: [
         ['created_at', 'DESC']
-      ]
+      ],   
     })
 
     const usuarios = await Usuario.findByPk(req.session.user.id,{

@@ -5,6 +5,11 @@ module.exports = funcionarioController = {
         const { user } = req.session;
         const { nomeFuncionario, rgFuncionario, cpfFuncionario, tipoFuncionario,empresaFuncionario } = req.body;
         const [fotoFuncionario] = req.files;
+
+        let foto = null   
+        if(foto == null){foto = `/images/padrao/padrao.png` } 
+        if(fotoFuncionario){foto = `/images/funcionarios/${fotoFuncionario.filename}` }  
+        
         try {
             const novoFuncionario = await Funcionario.create({
                 nome: nomeFuncionario,
@@ -13,7 +18,7 @@ module.exports = funcionarioController = {
                 empresa: empresaFuncionario,
                 tipo: tipoFuncionario,
                 status: true,
-                foto: `/images/funcionarios/${fotoFuncionario.filename}`,
+                foto: foto,
                // morador_id: user.id,
             })
             return res.status(201).redirect('/backoffice/morador/perfil')
@@ -43,6 +48,10 @@ module.exports = funcionarioController = {
         const { nomeFuncionario, rgFuncionario, cpfFuncionario, tipoFuncionario,empresaFuncionario } = req.body;
         const [fotoFuncionario] = req.files;
 
+        let foto = null   
+        if(foto == null){foto = `/images/padrao/padrao.png` } 
+        if(fotoFuncionario){foto = `/images/funcionarios/${fotoFuncionario.filename}` }  
+
         try {
             const editarFuncionario = await Funcionario.update({
                 nome: nomeFuncionario,
@@ -51,7 +60,7 @@ module.exports = funcionarioController = {
                 empresa: empresaFuncionario,
                 tipo: tipoFuncionario,
                 status: true,
-                foto: `/images/funcionarios/${fotoFuncionario.filename}`,
+                foto: foto,
                 //morador_id: user.id,
             }, {
                 where: { id: FuncionarioId }

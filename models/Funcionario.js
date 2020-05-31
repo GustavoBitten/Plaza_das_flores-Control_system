@@ -9,17 +9,45 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       nome: {
-        type: DataTypes.STRING(192),
-        allowNull: false
+        type: DataTypes.STRING(45),
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "O campo Nome não pode ser vazio"
+          },
+          len: {
+            args: [0, 45],
+            msg: "Máx de 45 caracteres"
+          }
+        }
+
       },
       cpf: {
         type: DataTypes.STRING(11),
         unique: true,
-        allowNull: false
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "O campo CPF não pode ser vazio"
+          },
+          len:{
+            args: [0,11],
+            msg: "Máx de 11 caracteres"
+          } 
+      }
       },
       rg: {
         type: DataTypes.STRING(15),
-        allowNull: false
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "O campo RG não pode ser vazio"
+          },
+          len:{
+            args: [0,15],
+            msg: "Máx de 15 caracteres"
+          } 
+      }
       },
       empresa: {
         type: DataTypes.STRING(45),

@@ -6,12 +6,16 @@ module.exports = petController = {
     const { nomePet, especiePet, portePet } = req.body;
     const [fotoPet] = req.files;
 
+    let foto = null   
+    if(foto == null){foto = `/images/padrao/padrao.png` } 
+    if(fotoPet){foto = `/images/pets/${fotoPet.filename}` }  
+
     try {
       const novoPet = await Pet.create({
         nome: nomePet,
         especie: especiePet,
         porte: portePet,
-        foto: `/images/pets/${fotoPet.filename}`,
+        foto: foto ,
         morador_id: user.id,
       })
       return res.status(201).redirect('/backoffice/morador/perfil')
@@ -43,12 +47,16 @@ module.exports = petController = {
     const [fotoPet] = req.files;
     const { nomePet, especiePet, portePet } = req.body;
 
+    let foto = null   
+    if(foto == null){foto = `/images/padrao/padrao.png` } 
+    if(fotoPet){foto = `/images/pets/${fotoPet.filename}` }  
+
     try{
       const editarPet = await Pet.update({
         nome: nomePet,
         especie: especiePet,
         porte: portePet,
-        foto: `/images/pets/${fotoPet.filename}`,
+        foto: foto,
         morador_id: user.id,
       }, {
         where: { id: petId }

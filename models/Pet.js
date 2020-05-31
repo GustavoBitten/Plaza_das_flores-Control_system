@@ -18,19 +18,49 @@ module.exports = (sequelize, DataTypes) => {
         },
         nome: {
             type: DataTypes.STRING(45),
-            allowNull: false
+            allowNull: false,
+            validate:{
+                notEmpty: {
+                    msg: "O campo Nome não pode ser vazio"
+                },
+                len:{
+                    args: [0,45],
+                    msg: "Máx de 45 caracteres"
+                  } 
+
+            }
         },
         especie: {
             type: DataTypes.STRING(45),
-            allowNull: false
+            allowNull: false,
+            validate:{
+                notEmpty: {
+                    msg: "O campo Espécie não pode ser vazia"
+                },
+                len:{
+                    args: [0,45],
+                    msg: "Máx de 45 caracteres"
+                  } 
+
+            }
         },
         porte: {
             type: DataTypes.STRING(45),
-            allowNull: false
+            allowNull: false,
+            validate:{
+                notEmpty: {
+                    msg: "O campo Porte não pode ser vazio"
+                },
+                len:{
+                    args: [0,45],
+                    msg: "Máx de 45 caracteres"
+                  } 
+
+            }
         },
         foto: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
         },
         created_at: {
             type: DataTypes.DATE,

@@ -19,6 +19,7 @@ const funcionarioController = require('../../controllers/backoffice/funcionarioC
 const ocorrenciaController = require("../../controllers/backoffice/ocorrenciaController");
 const financeiroController = require('../../controllers/backoffice/financeiroController')
 //const visitanteController = require("../../controllers/backoffice/visitanteController");
+//const dependenteController = require("../../controllers/backoffice/dependenteController");
 
 
 let route = express.Router()
@@ -48,11 +49,22 @@ route.post('/moradores', moradorController.store)
 
 
 /*
+// Rotas para os Dependentes
+route.post('/dependentes',uploadDependente.any(), dependenteController.store)
+route.delete('/dependentes/delete/:dependenteId',uploadDependente.any(), dependenteController.delete)
+route.put('/dependentes/editar/:dependenteId',uploadDependente.any(), dependenteController.update) 
+
+
 // Rotas para os Visitantes
 route.post('/visitantes',uploadVisitante.any(), visitanteController.store)
 route.delete('/visitantes/delete/:visitanteId',uploadVisitante.any(), visitanteController.delete)
-route.put('/vistantes/editar/:visitanteId',uploadVisitante.any(), visitanteController.update) 
+route.put('/visitantes/editar/:visitanteId',uploadVisitante.any(), visitanteController.update) 
 */
+
+// Rotas para os Funcionários
+route.post('/funcionarios',uploadFuncionario.any(), funcionarioController.store)
+route.delete('/funcionarios/delete/:funcionarioId',uploadFuncionario.any(), funcionarioController.delete)
+route.put('/funcionarios/editar/:funcionarioId',uploadFuncionario.any(), funcionarioController.update) 
 
 // Rotas para as Ocorrências
 route.get('/ocorrencias', ocorrenciaController.index)
@@ -60,11 +72,6 @@ route.post('/ocorrenciasMorador',uploadOcorrencia.any(), ocorrenciaController.st
 route.post('/ocorrenciasSindico',uploadOcorrencia.any(), ocorrenciaController.storeSindico)
 route.delete('/ocorrencias/delete/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.delete)
 route.put('/ocorrencias/editar/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.update) 
-
-// Rotas para os Funcionários
-route.post('/funcionarios',uploadFuncionario.any(), funcionarioController.store)
-route.delete('/funcionarios/delete/:funcionarioId',uploadFuncionario.any(), funcionarioController.delete)
-route.put('/funcionarios/editar/:funcionarioId',uploadFuncionario.any(), funcionarioController.update) 
 
 // Rotas para os Empresas
 route.post('/empresas',uploadEmpresa.any(), empresaController.store)

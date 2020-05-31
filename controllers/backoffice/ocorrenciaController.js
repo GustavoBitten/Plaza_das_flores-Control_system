@@ -5,9 +5,6 @@ module.exports = ocorrenciaController = {
     index: async (req, res) => {
         const listaOcorrencias = await Ocorrencia.findAll()
     
-        
-        
-
         return res.render("backoffice/morador/ocorrencias", {
             titulo: "Ocorrências",
             usuario: req.session.user,
@@ -21,12 +18,17 @@ module.exports = ocorrenciaController = {
         const {tituloOcorrencia, tipoOcorrencia,mensagemOcorrencia } = req.body;
         const [arquivoOcorrencia] = req.files;
 
+        let foto = null   
+        if(foto == null){foto = `/images/padrao/padrao.png` } 
+        if(arquivoOcorrencia){foto = `/images/ocorrencias/${arquivoOcorrencia.filename}` }  
+    
+
         try {
             const novaOcorrencia = await Ocorrencia.create({
                 titulo: tituloOcorrencia,
                 mensagem: mensagemOcorrencia,
                 resposta: null,
-                arquivo: `/images/ocorrencias/${arquivoOcorrencia.filename}`,
+                arquivo: foto,
                 administrador_id: 2,	
                 status_ocorrencia_id: 1, // padrão cadastro: Registrado
                 tipo_ocorrencia_id: 1, // arrumar
