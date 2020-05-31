@@ -69,7 +69,7 @@ module.exports = ocorrenciaController = {
                 ]
             });
 
-            return res.redirect("/backoffice/morador/perfil");
+            return res.redirect("/backoffice/morador/ocorrencias");
 
         } catch (error) {
             return res.status(400).json(error);
@@ -86,7 +86,7 @@ module.exports = ocorrenciaController = {
 
                 morador_id: user.id,
             }, {
-                where: { id: ocorrenaiId }
+                where: { id: ocorrenciaId }
             })
 
             return res.redirect("/backoffice/morador/ocorrencia")

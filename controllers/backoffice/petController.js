@@ -25,9 +25,11 @@ module.exports = petController = {
 
     try{
       const deletePet = await Pet.destroy({
-        where: [{ id: petId },
+        where: [{ id: petId }
         ]
       });
+      if(!deletePet)
+        throw {error: 'Erro ao excluir comunicado'}
   
       return res.redirect("/backoffice/morador/perfil");
 

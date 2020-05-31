@@ -50,40 +50,40 @@ route.post('/moradores', moradorController.store)
 /*
 // Rotas para os Visitantes
 route.post('/visitantes',uploadVisitante.any(), visitanteController.store)
-route.delete('/delete/:visitanteId',uploadVisitante.any(), visitanteController.delete)
-route.put('/editar/:visitanteId',uploadVisitante.any(), visitanteController.update) 
+route.delete('/visitantes/delete/:visitanteId',uploadVisitante.any(), visitanteController.delete)
+route.put('/vistantes/editar/:visitanteId',uploadVisitante.any(), visitanteController.update) 
 */
 
 // Rotas para as Ocorrências
 route.get('/ocorrencias', ocorrenciaController.index)
 route.post('/ocorrenciasMorador',uploadOcorrencia.any(), ocorrenciaController.storeMorador)
 route.post('/ocorrenciasSindico',uploadOcorrencia.any(), ocorrenciaController.storeSindico)
-route.delete('/delete/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.delete)
-route.put('/editar/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.update) 
+route.delete('/ocorrencias/delete/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.delete)
+route.put('/ocorrencias/editar/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.update) 
 
 // Rotas para os Funcionários
 route.post('/funcionarios',uploadFuncionario.any(), funcionarioController.store)
-route.delete('/delete/:funcionarioId',uploadFuncionario.any(), funcionarioController.delete)
-route.put('/editar/:funcionarioId',uploadFuncionario.any(), funcionarioController.update) 
+route.delete('/funcionarios/delete/:funcionarioId',uploadFuncionario.any(), funcionarioController.delete)
+route.put('/funcionarios/editar/:funcionarioId',uploadFuncionario.any(), funcionarioController.update) 
 
 // Rotas para os Empresas
 route.post('/empresas',uploadEmpresa.any(), empresaController.store)
-route.delete('/delete/:empresaId',uploadEmpresa.any(), empresaController.delete)
-route.put('/editar/:empresaId',uploadEmpresa.any(), empresaController.update)
+route.delete('/empresas/delete/:empresaId',uploadEmpresa.any(), empresaController.delete)
+route.put('/empresas/editar/:empresaId',uploadEmpresa.any(), empresaController.update)
 
 // Rotas para os Compromissos
 route.post('/compromissos',uploadCompromisso.any(), compromissoController.store)
-route.delete('/delete/:compromissoId',uploadCompromisso.any(), compromissoController.delete)
-route.put('/editar/:compromissoId',uploadCompromisso.any(), compromissoController.update) 
+route.delete('/compromissos/delete/:compromissoId',uploadCompromisso.any(), compromissoController.delete)
+route.put('/compromissos/editar/:compromissoId',uploadCompromisso.any(), compromissoController.update) 
 
 // Rotas para os Veículos
 route.post('/veiculos',uploadVeiculo.any(), veiculoController.store)
-route.delete('/delete/:veiculoId',uploadVeiculo.any(), veiculoController.delete)
-route.put('/editar/:veiculoId',uploadVeiculo.any(), veiculoController.update) 
+route.delete('/veiculos/delete/:veiculoId',uploadVeiculo.any(), veiculoController.delete)
+route.put('/veiculos/editar/:veiculoId',uploadVeiculo.any(), veiculoController.update) 
 
 // Rotas para os Pets
 route.post('/pets',uploadPet.any(), petController.store)
-route.delete('/delete/:petId', petController.delete)
-route.put('/editar/:petId',uploadPet.any(), petController.update) 
+route.delete('/pets/delete/:petId', petController.delete)
+route.put('/pets/editar/:petId',uploadPet.any(), petController.update) 
 
 module.exports = route
