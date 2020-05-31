@@ -14,41 +14,43 @@ const {
 
 module.exports = moradorController = {
   store: async (req, res) => {
-    let listaErrors = validationResult(req)
+
+      let listaErrors = validationResult(req)
+      console.log(listaErrors)
 
 
-    if (listaErrors.isEmpty()) {
-      let {
-        nome,
-        email,
-        cpf,
-        rg,
-        bloco_id,
-        apartamento_id,
-        tipo,
-        status
-      } = req.body
-      console.log(req.body)
+      if (listaErrors.isEmpty()) {
+        let {
+          nome,
+          email,
+          cpf,
+          rg,
+          bloco_id,
+          apartamento_id,
+          tipo,
+          status
+        } = req.body
+        console.log(req.body)
 
-      const [fotoMorador] = req.files;
+        const [fotoMorador] = req.files;
 
-      //if verifica se tem foto se não tiver salva sem foto no banco
-      if (fotoMorador == undefined) {
-        foto = "SEM FOTO"
-      } else {
+        //if verifica se tem foto se não tiver salva sem foto no banco
+        if (fotoMorador == undefined) {
+          foto = "SEM FOTO"
+        } else {
 
-        foto = `/images/moradores/${fotoMorador.filename}`
+          foto = `/images/moradores/${fotoMorador.filename}`
 
-      }
+        }
 
-      token = generateId()
-      bloco_id = 2
-      apartamento_id = 2
-      tipo_usuario_id = 2
-      const senha = bcrypt.hashSync(cpf, 10)
-      console.log(senha)
+        token = generateId()
+        bloco_id = 2
+        apartamento_id = 2
+        tipo_usuario_id = 2
+        const senha = bcrypt.hashSync(cpf, 10)
+        console.log(senha)
 
-      /* const VerificaEmail = await Usuario.findOne({ 
+        /* const VerificaEmail = await Usuario.findOne({ 
       where:{
          email: email } });
 if (project != null) {
@@ -56,53 +58,50 @@ if (project != null) {
 } else {
   
 } */
+        try {
+          const novoMorador = await Usuario
+            .create({
+              nome,
+              email,
+              cpf,
+              rg,
+              bloco_id,
+              token,
+              apartamento_id,
+              senha,
+              foto,
+              tipo_usuario_id
+            })
 
-      try {
-        const novoMorador = await Usuario
-          .create({
-            nome,
-            email,
-            cpf,
-            rg,
-            bloco_id,
-            token,
-            apartamento_id,
-            senha,
-            foto,
-            tipo_usuario_id
-          })
 
+          //return res.redirect("/backoffice/sindico/moradores")
+          return res.status(200).send("Cadastro efetuado com sucesso")
 
-        return res.redirect("/backoffice/sindico/moradores")
+        } catch (error) {
+          return res.status(400).json(error)
 
-      } catch (error) {
-        res.send(error)
+        }
+      } else {
+        /* 
+              console.log(listaErrors.errors)
+              return res.redirect("/backoffice/sindico/moradores", {
+                errors: listaErrors.errors
+              }, 301)
+         */
 
+        //let {param,msg} = listaErrors
       }
-      // const morador = await Usuario.create({
-      //   nome,
-      //   email,
-      //   cpf,
-      //   rg,
-      //   bloco_id,
-      //   apartamento_id,
-      //   senha,
-      //   foto,
-      //   sindico,
-      //   status
-      // })
 
-      //return res.json(morador)
-    } else {
-      console.log(listaErrors.errors)
-      return res.redirect("/backoffice/sindico/moradores", {
-        errors: listaErrors.errors
-      }, 301)
+
+
+      res.status(400).send({
+        error: listaErrors
+      })
 
 
     }
 
-  },
+    ,
   ListaMoradores: async (req, res) => {
 
     const result = await Usuario.findAll({
@@ -123,7 +122,8 @@ if (project != null) {
       result,
       resultBloco,
       resultApartamento,
-      usuario: "FODÂO"
+      usuario: "FODÂO",
+      // quote: "padrão"
     })
 
   },

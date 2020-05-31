@@ -16,18 +16,15 @@
     <main class="conteudo container-flex justify-content-center">
       <h1 class="col-md-12">Gerenciamento de Moradores</h1>
 
-     
-      <div class="submenu row justify-content-center justify-content-md-center">
-        <% if(typeof(errors)!="undefined"){%> 
-          <p style="color:red">Erro no cadastro novo - Por favor refazer a operação</p>
-  
-            <%   } %> 
 
-        <button type="button" class="btn col-4 col-md-auto" data-toggle="modal" data-target="#staticBackdrop">Lista de
-          moradores</button>
+      <div class="submenu row justify-content-center justify-content-md-center">
+        <div id="msgError"> </div>
+
+        <button type="button" class="btn col-4 col-md-auto" data-toggle="modal" data-target="#modalPorteiro">Novo
+          porteiro</button>
 
         <button type="button" class="btn col-4 col-md-auto" data-toggle="modal" data-target="#staticBackdrop">Novo
-          cadastro</button>
+          Morador</button>
         <!-- <button class="btn col-4 col-md-auto">Mudanças</button>
 
         <button class="btn col-4 col-md-auto">Alterações</button> -->
@@ -40,7 +37,7 @@
 
         <thead class="tituloTabela justify-content-center">
           <tr>
-            <th class="thTitulo nome">Lista de moradores</th>
+            <th class="thTitulo nome">Lista de usuarios</th>
             <th class="thTitulo"></th>
             <th class="thTitulo vazio"></th>
             <th class="thTitulo vazio"></th>
@@ -65,11 +62,11 @@
             <td id="bloco"> <%= result.bloco %></td>
             <td id="ap"> <%= result.apartamento %></td>
             <td>
-              <button type="button" class="acoes btn-warning" type="button" data-toggle="modal" data-target="#exampleModal"
-                data-id="<%= result.id %>" data-nome_morador="<%= result.nome %>" data-rg_morador="<%= result.rg %>"
-                data-cpf_morador="<%= result.cpf %>" data-email_morador="<%= result.email %>"
-                data-bloco_morador="<%= result.bloco_id %>" data-ap_morador="<%= result.apartamento_id %>"
-                data-foto_morador="<%= result.foto %>">
+              <button type="button" class="acoes btn-warning" type="button" data-toggle="modal"
+                data-target="#exampleModal" data-id="<%= result.id %>" data-nome_morador="<%= result.nome %>"
+                data-rg_morador="<%= result.rg %>" data-cpf_morador="<%= result.cpf %>"
+                data-email_morador="<%= result.email %>" data-bloco_morador="<%= result.bloco_id %>"
+                data-ap_morador="<%= result.apartamento_id %>" data-foto_morador="<%= result.foto %>">
                 Editar</button>
 
               <!--               <button class="acoes" type="button"  data-toggle="modal"data-target="#exampleModal"><i class="fas fa-trash-alt"></i></button>
@@ -112,7 +109,7 @@
         <div class="modal-body">
 
 
-          <form method="POST" action="/backoffice/sindico/moradores" enctype="multipart/form-data">
+          <form id="morador" method="POST" enctype="multipart/form-data">
 
             <div class="row">
               <div class="col">
@@ -183,7 +180,7 @@
 
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-              <button type="submit" class="btn btn-primary">Gravar</button>
+              <button id="novoMorador" class="btn btn-primary">Gravar</button>
             </div>
           </form>
 
@@ -298,8 +295,84 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- fim do Modal edita morador -->
+  <!-- fim do Modal edita morador -->
+
+  <!-- Modal cad porteiro -->
+  <div class="modal fade" id="modalPorteiro" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="modalPorteiroLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalPorteiroLabel">
+            <h2>Cadastro de novo Porteiro</h2</h5> <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+        </div>
+        <div class="modal-body">
+
+
+          <form id="porteiro" method="post" enctype="multipart/form-data">
+
+            <div class="row">
+              <div class="col">
+                <label for="nome">Nome:</label>
+                <input required="required" id="nome" name="nome" type="text" class="form-control"
+                  placeholder="Nome completo">
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="rg">RG:</label>
+                <input id="rg" name="rg" type="number" class="form-control" placeholder="RG">
+              </div>
+              <div class="col">
+                <label for="cpf">CPF:</label>
+                <input required="required" id="cpf" name="cpf" type="number" class="form-control" placeholder="CPF">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="email">Email:</label>
+                <input required="required" id="email" name="email" type="email" class="form-control"
+                  placeholder="morador@email.com.br">
+              </div>
+              <div class="col">
+                <label for="celular">Contato:</label>
+                <input id="celular" name="celular" type="text" class="form-control" placeholder="(XX)XXXXX-XXXX">
+              </div>
+            </div>
+
+
+            <div style="margin:10px" class="row">
+              <div class="col">
+                <label for="fotoMorador">Foto</label>
+                <input type="file" class="form-control file" name="fotoMorador" id="fotoMorador">
+              </div>
+              <!--   <div style="margin:5px" class="row custom-file">
+            <input type="file" class="custom-file-input" name="fotoMorador" id="fotoMorador">
+            <label class="custom-file-label" for="customFile">Escolher foto</label>
+          </div> -->
+
+
+            </div>
+
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+              <button type="submit" id="novoMorador" value="Gravando morador" class="btn btn-primary">Gravar</button>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fim do Modal cad morador -->
 
 
 
@@ -308,42 +381,41 @@
 
 
 
+  </main>
 
-    </main>
+  <%- include('../../includes/scriptJS')%>
+  <script>
+    $('#exampleModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      var id_morador = button.data('id')
+      var nome_morador = button.data('nome_morador')
+      var rg_morador = button.data('rg_morador')
+      var cpf_morador = button.data('cpf_morador')
+      var email_morador = button.data('email_morador')
+      // var contato_morador = button.data('contato')
+      var bloco_morador = button.data('bloco_morador')
+      var ap_morador = button.data('ap_morador')
+      var foto_morador = button.data('foto_morador') /// Extract info from data-* attributes
+      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+      var modal = $(this)
+      modal.find('.modal-title').text('Editando o Cadastro do morador ' + nome_morador)
+      modal.find('#nome').val(nome_morador)
+      modal.find('#rg').val(rg_morador)
+      modal.find('#cpf').val(cpf_morador)
+      modal.find('#email').val(email_morador)
+      modal.find('#bloco').val(bloco_morador)
+      modal.find('#ap').val(ap_morador)
 
-    <%- include('../../includes/scriptJS')%>
-    <script>
-      $('#exampleModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var id_morador = button.data('id')
-        var nome_morador = button.data('nome_morador')
-        var rg_morador = button.data('rg_morador')
-        var cpf_morador = button.data('cpf_morador')
-        var email_morador = button.data('email_morador')
-        // var contato_morador = button.data('contato')
-        var bloco_morador = button.data('bloco_morador')
-        var ap_morador = button.data('ap_morador')
-        var foto_morador = button.data('foto_morador') /// Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        var modal = $(this)
-        modal.find('.modal-title').text('Editando o Cadastro do morador ' + nome_morador)
-        modal.find('#nome').val(nome_morador)
-        modal.find('#rg').val(rg_morador)
-        modal.find('#cpf').val(cpf_morador)
-        modal.find('#email').val(email_morador)
-        modal.find('#bloco').val(bloco_morador)
-        modal.find('#ap').val(ap_morador)
+      var formEdita = document.querySelector("#formEdita")
+      formEdita.setAttribute("action", "/backoffice/sindico/editarMorador/" + id_morador + "?_method=PUT")
+      modal.find('.foto').html("<img src=" + foto_morador +
+        " width='10' height='100' class='card-img' alt='...'>")
 
-        var formEdita = document.querySelector("#formEdita")
-        formEdita.setAttribute("action", "/backoffice/sindico/editarMorador/" + id_morador + "?_method=PUT")
-        modal.find('.foto').html("<img src=" + foto_morador +
-          " width='10' height='100' class='card-img' alt='...'>")
+    })
+  </script>
 
-      })
-    </script>
 
-    
 
 
 </body>
