@@ -50,6 +50,11 @@ aside a.nav-link:hover {
   color: #FFA62B !important;
 }
 
+.iconAside{
+  width: 20px;
+  text-align: center;
+}
+
 h1 {
   color: #E8751C;
 }

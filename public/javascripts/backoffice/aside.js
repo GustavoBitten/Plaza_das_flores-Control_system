@@ -47,7 +47,7 @@ asideItens.morador.forEach(item => {
     menu.innerHTML += `
     <a class="nav-link d-flex justify-content-start align-items-center text-white font-weight-bold"
      href="/backoffice/${typeUrl}/${item.href}">
-    <i class="${item.icon} nav-icon mr-2"></i>
+    <i class="${item.icon} nav-icon mr-2 iconAside"></i>
     <span class="text-link">${item.nome}</span>
     </a>`   
 
