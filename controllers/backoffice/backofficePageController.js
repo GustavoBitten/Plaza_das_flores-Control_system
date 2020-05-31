@@ -121,12 +121,12 @@ let backofficePageController = {
       usuario: req.session.user
     })
   },
-  moradorFinanceiro: (req, res) => {
-    res.render("backoffice/morador/financeiro", {
-      titulo: "Morador - Financeiro",
-      usuario: req.session.user
-    })
-  },
+  // moradorFinanceiro: (req, res) => {
+  //   res.render("backoffice/morador/financeiro", {
+  //     titulo: "Morador - Financeiro",
+  //     usuario: req.session.user
+  //   })
+  // },
 
 
 

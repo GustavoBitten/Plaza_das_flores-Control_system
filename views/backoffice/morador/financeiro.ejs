@@ -16,107 +16,95 @@
       <div class="row">
         <h1 class="pl-3">Financeiro</h1>
       </div>
+      <div class="d-flex offset-md-2 offset-1 p-4">
 
-      <div class="row">
-        <div class="col-10 col-md-8 offset-1 offset-md-2 mb-3 p-0">
-          <button id="btnNotificacoes" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
-           data-toggle="modal" data-target="#modalNotificacoes">Notificações</button>
-        </div>
-      </div>
-
-      <section class="row">
-
-        <div class="card col-10 col-md-8 offset-1 offset-md-2 px-0">
-          <div class="card-header d-flex justify-content-center w-100 p-0">
-            <h5 class="m-0 p-1">Fatura Mensal</h5>
+        <div class="row flex-nowrap">
+          <div class="col-6 offset-1 offset-md-2  p-0">
+            <button id="btnNotificacoes" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
+            data-toggle="modal" data-target="#modalNotificacoes">Taxas de condomínio </button>
           </div>
-          <div class="card-body row">
-            <div class="col-12 d-flex align-items-center flex-column">
+          <div class="col-3 offset-1 offset-md-2  p-0">
+            <button id="btnNotificacoes" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
+            data-toggle="modal" data-target="#modalNotificacoes">Multas</button>
+          </div>
+          <div class="col-3 offset-1 offset-md-2  p-0">
+            <button id="btnNotificacoes" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
+            data-toggle="modal" data-target="#modalNotificacoes">Notificações</button>
+          </div>
+       
+      </div>
+      
+    </div>
+
+    <section class="row">
+      <div class="card col-10 col-md-8 offset-1 offset-md-2 px-0">
+        <div class="card-header d-flex justify-content-center w-100 p-0">
+          <h5 class="m-0 p-1">Taxas de condomínio</h5>
+        </div>
+        <div class="card-body row">
+          <div class="col-12 d-flex align-items-center flex-column">
+            <% if (listaComunicados.length > 0) { %>
+              <span id="obs" class="align-self-start ">* Para visualizar o comunicado completo basta clicar em seu título</span>
               <table class="table table-borderless table-striped table-hover table-responsive-sm">
-                <caption>Fatura referente ao mês vingente - Financeiro</caption>
+                <caption>
+                  Comunicados
+                </caption>
 
                 <thead>
-                  <tr class="text-center">
-                    <th scope="col">
+                  <tr>
+                    <th class="text-center" scope="col">
                       Data
                     </th>
-                    <th scope="col">
-                      Tipo
+                    <th class="text-center" scope="col">
+                      Atualização
                     </th>
-                    <th scope="col">
-                      Valor
+                    <th class="text-center" scope="col">
+                      Título
+                    </th>
+                    <th class="text-center" scope="col">
+                      Ações
                     </th>
                   </tr>
                 </thead>
-                
-                <tbody>
-                  <tr class="text-center">
-                    <td class="align-middle">
-                      01/04
-                    </td>
-                    <td class="align-middle">
-                      Mensalidade Condominal
-                    </td>
-                    <td class="align-middle">
-                      R$ 649,99
-                    </td>
-                  </tr>
-                  <tr class="text-center">
-                    <td class="align-middle">
-                      12/04
-                    </th>
-                    <td class="align-middle">
-                      Salão de Festas
-                    </td>
-                    <td class="align-middle">
-                      R$ 100,00
-                    </td>
-                  </tr>
-                  <tr class="text-center">
-                    <td class="align-middle">
-                      12/04
-                    </td>
-                    <td class="align-middle">
-                      Churrasqueira
-                    </td>
-                    <td class="align-middle">
-                      R$ 80,00
-                    </td>
-                  </tr>
-                  <tr class="text-center">
-                    <td class="align-middle">
-                      26/04
-                    </td>
-                    <td class="align-middle">
-                      Multa
-                    </td>
-                    <td class="align-middle">
-                      R$ 35,00
-                    </td>
-                  </tr>
-                  <tr class="text-center border-top border-dark">
-                    <td class="text-right align-middle font-weight-bold" colspan="2">
-                      Total
-                    </td>
-                    <td class="align-middle">
-                      R$ 864,99
-                    </td>
-                  </tr>
+
+                <tbody id="tableBody">
+                  <% listaComunicados.forEach(comunicado => { %>
+                    <tr>
+                      <td class="text-center align-middle">
+                        <%= moment(comunicado.created_at).format('DD/MM/YYYY') %>
+                      </td>
+                      <td class="text-center align-middle">
+                        <%= moment(comunicado.created_at).format('DD/MM/YYYY') == moment(comunicado.updated_at).format('DD/MM/YYYY')
+                         ? '-' : moment(comunicado.updated_at).format('DD/MM/YYYY') %>
+                      </td>
+                      <td class="text-center align-middle">
+                        <a id="comunicado<%= comunicado.id %>" data-target="#modalMostrarComunicado" data-id="<%= comunicado.id %>">
+                          <u><%= comunicado.titulo %></u>
+                        </a>
+                      </td>
+                      <td class="text-center align-middle">
+                        <a id="editarComunicado<%= comunicado.id %>" class="text-primary text-decoration-none" data-target="#modalEditarComunicado"
+                          data-id="<%= comunicado.id %>" title="Editar Comunicado">
+                          <i class="fas fa-edit"></i>
+                        </a>
+                        <a id="excluirComunicado<%= comunicado.id %>" class="text-danger ml-3" data-id="<%= comunicado.id %>" title="Excluir Comunicado">
+                          <i class="fas fa-trash-alt"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  <% }) %>
                 </tbody>
-
               </table>
-
-              <button type="button" id="btnBoleto" class="btn-sm btn-orange rounded-pill border-0 font-weight-bold">
-                Gerar Boleto
-              </button>
-            </div>
-            <!-- /.col-12 -->
+            <% } else { %>
+              <h4 class="text-danger">Nenhum comunicado foi encontrado!</h4>
+            <% } %>
           </div>
-          <!-- /.card-body -->
+          <!-- /.col-12 -->
         </div>
-        <!-- /.card -->
-
-      </section>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </section>
 
     </main>
 
@@ -166,5 +154,6 @@
     <!-- /#modalNotificacoes -->
 
     <%- include('../../includes/scriptJS') %>
+    <script type="text/javascript" src="/javascripts/backoffice/financeiro.js"></script>
   </body>
 </html>

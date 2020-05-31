@@ -17,6 +17,7 @@ const compromissoController = require("../../controllers/backoffice/compromissoC
 const empresaController = require("../../controllers/backoffice/empresaController");
 const funcionarioController = require('../../controllers/backoffice/funcionarioController');
 const ocorrenciaController = require("../../controllers/backoffice/ocorrenciaController");
+const financeiroController = require('../../controllers/backoffice/financeiroController')
 //const visitanteController = require("../../controllers/backoffice/visitanteController");
 
 
@@ -31,7 +32,7 @@ route.get('/perfil', backofficePageController.moradorPerfil)
 route.get('/areas-comuns', backofficePageController.moradorAreasComuns)
 route.get('/portaria', backofficePageController.moradorPortaria)
 route.get('/comunicados', backofficePageController.moradorComunicados)
-route.get('/financeiro', backofficePageController.moradorFinanceiro)
+route.get('/financeiro', financeiroController.index)
 
 
 // Rotas para os Blocos

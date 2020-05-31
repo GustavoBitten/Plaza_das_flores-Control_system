@@ -4,6 +4,7 @@ const { Comunicado } = require("../../models");
 module.exports = comunicadoController = {
   index: async (req, res) => {
     const listaComunicados = await Comunicado.findAll()
+    console.log(listaComunicados)
 
     return res.render("backoffice/comunicados", {
       titulo: "Comunicados",
