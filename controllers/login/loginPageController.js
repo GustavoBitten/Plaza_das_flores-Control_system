@@ -3,18 +3,19 @@ const app = express()
 const {Usuario} = require('../../models')
 const session = require('express-session')
 const bcrypt = require('bcrypt')
+const cookie = require('cookie-parser')
 
 
 const  loginPageController = {
   login: (req,res) => {
-    req.session.user = ''
+    req.session.user = undefined
     res.render("login/login", {titulo:"Acesso"})
   },
   
   auth: async (req,res) => {
     const {email,senha} = req.body
+    const remember_me = req.body['remember-me']
 
-    console.log(email,senha)
     const usuario = await Usuario.findOne({
       where: {email}
     })
@@ -33,8 +34,12 @@ const  loginPageController = {
       let erro = "Senha incorreta, tente novamente ou use a opção 'esqueci minha senha'"
       return res.render("login/login", {titulo:"Acesso",erro})
     }
-
     usuario.senha = ''
+
+    if(remember_me == 'true' ){
+      res.cookie('user', usuario.token , {maxAge:2*10**9})
+    }
+    
     req.session.user = usuario
     
     switch (usuario.tipo_usuario_id) {

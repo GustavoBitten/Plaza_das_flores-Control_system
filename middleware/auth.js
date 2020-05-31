@@ -6,11 +6,23 @@ const auth = async (req,res,next)=>{
     
     if(ativadorAuth){
 
-        if(req.session.user == undefined){
+        if(req.session.user != undefined ){
+            return next()
+        }else if(req.cookies.user){
+            const user = await Usuario.findOne({where:{
+                token: req.cookies.user,
+                status: true
+            }})
+            console.log(user)
+
+            if(user){
+                req.session.user = user
+                return next()
+            }
             return res.redirect('/login')
-            //next()
+            
         }else{
-            next()
+            return res.redirect('/login')
         }
 
     } else{

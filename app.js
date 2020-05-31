@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const session = require('express-session')
+const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override')
 
 
@@ -16,6 +17,7 @@ const app = express()
 app.set("views", path.join(__dirname, "views"))
 app.set('view engine', 'ejs');
 
+app.use(cookieParser());
 
 app.use(express.static(__dirname + "/public"))
 app.use(express.static(__dirname + "/node_modules"))
