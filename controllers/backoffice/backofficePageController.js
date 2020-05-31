@@ -8,15 +8,36 @@ const {
   Empresa,
   Funcionario, 
   Log_funcionario,
+  Comunicado,
+  Ocorrencia,
+  //Notificacao
   //Visitante, 
   //Dependente,
 } = require('../../models')
 
 let backofficePageController = {
-  moradorDashboard: (req, res) => {
+  moradorDashboard: async (req, res) => {
+    
+    const comunicados = await Comunicado.findAll({
+      order: [
+        ['created_at', 'DESC']
+    ]})
+    const ocorrencias = await Ocorrencia.findAll({
+      order: [
+        ['created_at', 'DESC']
+    ]})
+    /*const notificacoes = await Notificacao.findAll({
+      order: [
+        ['created_at', 'DESC']
+    ]})
+    console.log(notificacoes)*/
     res.render("backoffice/morador/dashboard", {
       titulo: "Morador - Dashboard",
-      usuario: req.session.user
+      usuario: req.session.user,
+      comunicados: comunicados,
+      ocorrencias: ocorrencias,
+      //notificacoes: notificacoes,
+      cont_correspondencia: 0
     })
   },
   moradorPerfil: async (req, res) => {
