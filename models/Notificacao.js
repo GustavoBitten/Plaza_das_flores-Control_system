@@ -8,13 +8,21 @@ module.exports = (sequelize, DataTypes) => {
           autoIncrement: true,
           allowNull: false,
         },
-        usuario_id: {
+        morador_id: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            references: {
+              model: {tablename:'usuarios'},
+              key: 'id'
+            }
           },
-          tipo_notificacao_id: {
+          tipo_notificacoes_id: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            references: {
+              model: {tablename:'tipos_notificacoes'},
+              key: 'id'
+            }
           },
           data: {
             type: DataTypes.DATE,
@@ -24,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(),
             allowNull: false
           },
-          situacao: {
+          situacao_id: {
             type: DataTypes.STRING(),
           },
           created_at: {
@@ -39,17 +47,17 @@ module.exports = (sequelize, DataTypes) => {
       },
       {
         timestamps: true, // utliza
-        tablename: "notificacoes"
-
+        freezeTableName: true,
+        tableName: "notificacoes",
       }
     );
   
     Notificacao.associate = (models) => {
       Notificacao.belongsTo(models.Tipo_notificacao, {
-        foreignKey: "tipo_notificacao_id"
+        foreignKey: "tipo_notificacoes_id"
       });
       Notificacao.belongsTo(models.Usuario,{
-        foreignKey: "usuario_id"
+        foreignKey: "morador_id"
   });
     };
   

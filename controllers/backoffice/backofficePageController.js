@@ -10,7 +10,7 @@ const {
   Log_funcionario,
   Comunicado,
   Ocorrencia,
-  //Notificacao
+  Notificacao
   //Visitante, 
   //Dependente,
 } = require('../../models')
@@ -26,17 +26,18 @@ let backofficePageController = {
       order: [
         ['created_at', 'DESC']
     ]})
-    /*const notificacoes = await Notificacao.findAll({
+    const notificacoes = await Notificacao.findAll({
+      where:{morador_id:req.session.user.id,  },
       order: [
         ['created_at', 'DESC']
     ]})
-    console.log(notificacoes)*/
+    console.log(notificacoes)
     res.render("backoffice/morador/dashboard", {
       titulo: "Morador - Dashboard",
       usuario: req.session.user,
       comunicados: comunicados,
       ocorrencias: ocorrencias,
-      //notificacoes: notificacoes,
+      notificacoes: notificacoes,
       cont_correspondencia: 0
     })
   },
