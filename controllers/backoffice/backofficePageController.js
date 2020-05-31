@@ -26,18 +26,29 @@ let backofficePageController = {
       order: [
         ['created_at', 'DESC']
     ]})
-    const notificacoes = await Notificacao.findAll({
-      where:{morador_id:req.session.user.id,  },
+    const encomendas = await Notificacao.findAll({
+      where:{morador_id:req.session.user.id, tipo_notificacoes_id:3 },
       order: [
         ['created_at', 'DESC']
     ]})
-    console.log(notificacoes)
+    const notificacoes = await Notificacao.findAll({
+      where:{morador_id:req.session.user.id, tipo_notificacoes_id:1 },
+      order: [
+        ['created_at', 'DESC']
+    ]})
+    const multas = await Notificacao.findAll({
+      where:{morador_id:req.session.user.id, tipo_notificacoes_id:2 },
+      order: [
+        ['created_at', 'DESC']
+    ]})
     res.render("backoffice/morador/dashboard", {
       titulo: "Morador - Dashboard",
       usuario: req.session.user,
       comunicados: comunicados,
       ocorrencias: ocorrencias,
+      encomendas: encomendas,
       notificacoes: notificacoes,
+      multas: multas,
       cont_correspondencia: 0
     })
   },
