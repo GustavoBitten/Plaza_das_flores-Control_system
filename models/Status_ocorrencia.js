@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const Status_ocorrencia = sequelize.define(
-      "Status_ocorrencias",
+      "Status_ocorrencia",
       {
         id: {
           type: DataTypes.INTEGER,
@@ -20,14 +20,14 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
             allowNull: false
           },
-        
-      },
-      {
-        timestamps: true, // utliza
-        tablename: "status_ocorrencias"
-
-      }
-    );
+        },
+        {
+          freezeTableName: true,
+          tableName: "status_ocorrencias"
+          
+  
+        }
+        );
   
     Status_ocorrencia.associate = (models) => {
       Status_ocorrencia.hasMany(models.Ocorrencia, {

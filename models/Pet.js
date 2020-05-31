@@ -31,8 +31,19 @@ module.exports = (sequelize, DataTypes) => {
         foto: {
             type: DataTypes.STRING,
             allowNull: true
-        }
-        
+        },
+        created_at: {
+            type: DataTypes.DATE,
+            allowNull: false
+          },
+          updated_at: {
+            type: DataTypes.DATE,
+            allowNull: false
+          }
+    },
+    {
+        freezeTableName: true,
+        tableName: "pets"
     });
     
         Pet.associate = (models) => {

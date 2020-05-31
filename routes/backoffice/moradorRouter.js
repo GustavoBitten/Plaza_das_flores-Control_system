@@ -5,6 +5,7 @@ const uploadFuncionario = require("../../config/uploadFuncionario");
 const uploadVisitante = require("../../config/uploadVisitante"); 
 const uploadEmpresa = require("../../config/uploadEmpresa"); 
 const uploadCompromisso = require("../../config/uploadCompromisso"); 
+const uploadOcorrencia = require("../../config/uploadocorrencia"); 
 
 const backofficePageController = require('../../controllers/backoffice/backofficePageController');
 const blocoController = require('../../controllers/backoffice/blocoController');
@@ -15,6 +16,7 @@ const veiculoController = require("../../controllers/backoffice/veiculoContoller
 const compromissoController = require("../../controllers/backoffice/compromissoController");
 const empresaController = require("../../controllers/backoffice/empresaController");
 const funcionarioController = require('../../controllers/backoffice/funcionarioController');
+const ocorrenciaController = require("../../controllers/backoffice/ocorrenciaController");
 //const visitanteController = require("../../controllers/backoffice/visitanteController");
 
 
@@ -25,7 +27,7 @@ let route = express.Router()
 
 route.get('/dashboard', backofficePageController.moradorDashboard)
 route.get('/perfil', backofficePageController.moradorPerfil)
-route.get('/ocorrencias', backofficePageController.moradorOcorrencias)
+//route.get('/ocorrencias', backofficePageController.moradorOcorrencias)
 route.get('/areas-comuns', backofficePageController.moradorAreasComuns)
 route.get('/portaria', backofficePageController.moradorPortaria)
 route.get('/comunicados', backofficePageController.moradorComunicados)
@@ -43,14 +45,20 @@ route.post('/apartamentos', apartamentoController.store)
 route.post('/moradores', moradorController.store)
 
 
+
 /*
-
-
 // Rotas para os Visitantes
 route.post('/visitantes',uploadVisitante.any(), visitanteController.store)
 route.delete('/delete/:visitanteId',uploadVisitante.any(), visitanteController.delete)
 route.put('/editar/:visitanteId',uploadVisitante.any(), visitanteController.update) 
 */
+
+// Rotas para as Ocorrências
+route.get('/ocorrencias', ocorrenciaController.index)
+route.post('/ocorrenciasMorador',uploadOcorrencia.any(), ocorrenciaController.storeMorador)
+route.post('/ocorrenciasSindico',uploadOcorrencia.any(), ocorrenciaController.storeSindico)
+route.delete('/delete/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.delete)
+route.put('/editar/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.update) 
 
 // Rotas para os Funcionários
 route.post('/funcionarios',uploadFuncionario.any(), funcionarioController.store)

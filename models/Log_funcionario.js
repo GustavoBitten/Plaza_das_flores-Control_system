@@ -33,12 +33,18 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too
         onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
       },
-
-    },
-    {
-      timestamps: true,
-      tablename: "log_funcionarios"
-   }
+      created_at: {
+        type: DataTypes.DATE,
+        allowNull: false
+      },
+      updated_at: {
+        type: DataTypes.DATE,
+        allowNull: false
+      }
+    }, {
+      freezeTableName: true,
+      tableName: "log_funcionarios"
+    }
   );
 
 

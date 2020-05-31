@@ -38,13 +38,18 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true
       },
-
-    },
-    {
-      timestamps: true, 
-      tablename: "funcionarios"
-
-  }
+        created_at: {
+        type: DataTypes.DATE,
+        allowNull: false
+      },
+      updated_at: {
+        type: DataTypes.DATE,
+        allowNull: false
+      }
+    }, {
+      freezeTableName: true,
+      tableName: "funcionarios"
+    }
   );
 
   Funcionario.associate = (models) => {

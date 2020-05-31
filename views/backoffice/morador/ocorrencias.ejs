@@ -2,88 +2,71 @@
 <html lang="pt-br">
 
 <head>
-    <%- include('../../includes/head', {titulo: titulo}) %>
+  <%- include('../../includes/head', {titulo: titulo}) %>
 
-    <link rel="stylesheet" href="/css/backoffice/layout.css">
-    <link rel="stylesheet" href="/css/backoffice/ocorrenciasMorador.css">
+  <link rel="stylesheet" href="/css/backoffice/layout.css">
+  <link rel="stylesheet" href="/css/backoffice/ocorrenciasMorador.css">
 </head>
 
 <body>
-    <%- include('../../includes/backoffice/header') %>
-    <%- include('../../includes/backoffice/aside') %>
-    
-    <main>
-      <h1>Ocorrências</h1>
+  <%- include('../../includes/backoffice/header') %>
+  <%- include('../../includes/backoffice/aside') %>
 
-        <div class="container-flex col-12 col-md-8 offset-1 offset-md-2 px-0">
-          <button type="button" class="btnNova btn btn-primary" data-toggle="modal" data-target="#novaOcorrenciaModal" data-whatever="@mdo">
-            Nova Ocorrência</button>
-            
-          <div class="card-header r w-100 p-0">
-                <h1></h1>
-                <h5 class="m-0 p-1">Status/Histórico</h5>
-                <button type="button" class="btnFiltro btn-primary" data-toggle="modal" data-target="#filtroModal" data-whatever="@mdo">
-                  +Filtro
-                </button>
-            </div>
+  <main>
+    <h1>Ocorrências</h1>
 
-            <div class="table-responsive">
-            <table class="table table-borderless table-striped table-hover">
+    <div class="container-flex col-12 col-md-8 offset-1 offset-md-2 px-0">
+      <% if(usuario.tipo_usuario_id != 2) {%>
+      <button type="button" class="btnNova btn btn-primary" data-toggle="modal" data-target="#novaOcorrenciaModal"
+        data-whatever="@mdo">
+        Nova Ocorrência</button>
+    <% } %> 
 
-                <thead>
-                  <tr class="info">
-                    <th scope="col">Título</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Data</th>
-                    <th scope="col">Detalhes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Lâmpada Queimada</td>
-                    <td>Manutenção</td>
-                    <td>Concluída</td>
-                    <td>20/12/2020</td>
-                    <td><button type="button" class="detalhes btn btn-primary"  data-toggle="modal" data-target="#detalhes1Modal">
-                       + </button></td>   
-                  </tr>
+      <div class="card-header r w-100 p-0">
+        <h1></h1>
+        <h5 class="m-0 p-1">Status/Histórico</h5>
+        <button type="button" class="btnFiltro btn-primary" data-toggle="modal" data-target="#filtroModal"
+          data-whatever="@mdo">
+          +Filtro
+        </button>
+      </div>
 
-                  <tr>
-                    <td>Som Alto</td>
-                    <td>Reclamação</td>
-                    <td>Em Análise</td>
-                    <td>22/12/2020</td>
-                    <td> <button type="button" class=" detalhes btn btn-primary" data-toggle="modal" data-target="#detalhes2Modal">
-                       +</button></td>   
-                  </tr>
+      <div class="table-responsive">
+        <table class="table table-borderless table-striped table-hover">
 
-                  <tr>
-                    <td>Som Alto</td>
-                    <td>Reclamação</td>
-                    <td>Em Análise</td>
-                    <td>22/12/2020</td>
-                    <td> <button type="button" class=" detalhes btn btn-primary" data-toggle="modal" data-target="#detalhes2Modal">
-                       +</button></td>   
-                  </tr>
+          <thead>
+            <tr class="info">
+              <th scope="col">Título</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Status</th>
+              <th scope="col">Data</th>
+              <th scope="col">Detalhes </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% listaOcorrencias.forEach(ocorrencia=>{ %>
+            <tr>
+              <td> <%= ocorrencia.titulo %> </td>
+              <td><%= ocorrencia.tipo %></td>
+              <td><%= ocorrencia.status %></td>
+              <td><%= moment(ocorrencia.created_at).format('DD/MM/YYYY');  %></td>
+              <td><button type="button" class="detalhes btn btn-primary" data-toggle="modal"
+                  data-target="#detalhes1Modal">
+                  + </button></td>
+            </tr>
+          <% }) %>
+           
 
-                  <tr>
-                    <td>Som Alto</td>
-                    <td>Reclamação</td>
-                    <td>Em Análise</td>
-                    <td>22/12/2020</td>
-                    <td> <button type="button" class=" detalhes btn btn-primary" data-toggle="modal" data-target="#detalhes2Modal">
-                       +</button></td>   
-                  </tr>
-                
-                </tbody>
-              </table>
-              </div>
-                        
-  </div>
-        
-    </main>
-    <%- include('../../includes/scriptJS') %>
+
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </main>
+  <%- include('../../includes/scriptJS') %>
 </body>
 
 </html>
@@ -93,9 +76,10 @@
 
 <!--Modais Estruturas -->
 
-
+<% if(usuario.tipo_usuario_id != 2) {%>
 <!--Nova Ocorrência Modal -->
-<div class="modal fade" id="novaOcorrenciaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="novaOcorrenciaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -105,57 +89,53 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form method="POST" action="/backoffice/morador/ocorrenciasMorador" enctype="multipart/form-data">
           <div class="formulario">
             <div class="form-group">
-              <label for="exampleFormControlInput1">Título:</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ex: Lâmpada Queimada">
+              <label for="tituloOcorrencia">Título:</label>
+              <input type="text" class="form-control" name="tituloOcorrencia" id="tituloOcorrencia" placeholder="Ex: Lâmpada Queimada">
             </div>
 
             <div>
-              <label for="">Tipo:</label>
+              <label for="tipoOcorrencia">Tipo:</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1" style="font-weight: normal;">
-                  Dúvida</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2" style="font-weight: normal;">
-                  Reclamação</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" >
-                <label class="form-check-label" for="inlineCheckbox3" style="font-weight: normal;">
-                  Manutenção</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4" >
-                <label class="form-check-label" for="inlineCheckbox4" style="font-weight: normal;">
-                  Sugestão</label>
-              </div>
-            
-              
-              <div class="form-group">
-                <label for="exampleFormControlFile1">Incluir Arquivos:</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-              </div>
+              <input class="form-check-input" type="checkbox" name="tipoOcorrencia" id="tipoOcorrencia" value="1">
+              <label class="form-check-label" for="tipoOcorrencia" style="font-weight: normal;">
+                Reclamação</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="tipoOcorrencia" id="tipoOcorrencia" value="3">
+              <label class="form-check-label" for="inlineCheckbox3" style="font-weight: normal;">
+                Manutenção</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="tipoOcorrencia" name="tipoOcorrencia" value="2">
+              <label class="form-check-label" for="tipoOcorrencia" style="font-weight: normal;">
+                Sugestão</label>
+            </div>
+
 
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">Mensagem:</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div> 
+              <label for="arquivoOcorrencia">Incluir Arquivos:</label>
+              <input type="file" class="form-control-file" id="arquivoOcorrencia" name="arquivoOcorrencia">
             </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Enviar</button>
-      </div>
+
+            <div class="form-group">
+              <label for="mensagemOcorrencia">Mensagem:</label>
+              <textarea class="form-control" id="mensagemOcorrencia" name="mensagemOcorrencia" rows="3"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
+<%}%>
 
 <!--Filtro Modal -->
 <div class="modal fade" id="filtroModal" tabindex="-1" role="dialog" aria-labelledby="filtroModal" aria-hidden="true">
@@ -196,35 +176,11 @@
   </div>
 </div>
 
-<!-- Modal Detalhes 2 -->
-<div class="modal fade" id="detalhes2Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="detalhes2Modal">Detalhes</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h5>Arquivo Cadastrado</h5>
-        <img src="https://www.cultura.rs.gov.br/upload/recortes/carga20190401/03110143_57625_GDO.jpg; ">
-        <h5 >Mensagem</h5>
-        <p>Apartamento 22A utilizando aparelho sonoro com volume acima do normal</p>
-        <h5>Resposta do(a) Síndico(a)</h5>
-        <p>O AP22A recebeu um aviso</p>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- Detalhes Modal 1 -->
-<div class="modal fade" id="detalhes1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<% if(usuario.tipo_usuario_id != 2) {%>
+<!-- Detalhes Modal Morador/Porteiro -->
+<div class="modal fade" id="detalhes1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -235,8 +191,10 @@
       </div>
       <div class="modal-body">
         <h5>Imagem Cadastrada</h5>
-        <img src="https://media.istockphoto.com/photos/burnedout-light-bulb-isolated-on-white-background-with-shadow-burned-picture-id952090314" alt="" style="width: 100px; height: 100px; object-fit: cover; ">
-        <h5 >Mensagem</h5>
+        <img
+          src="https://media.istockphoto.com/photos/burnedout-light-bulb-isolated-on-white-background-with-shadow-burned-picture-id952090314"
+          alt="" style="width: 100px; height: 100px; object-fit: cover; ">
+        <h5>Mensagem</h5>
         <p>Lâmpada do corredor queimada. Por favor, realizar a manutenção</p>
         <h5>Resposta do(a) Síndico(a)</h5>
         <p>A lampânda foi trocada, att síndico</p>
@@ -248,3 +206,68 @@
     </div>
   </div>
 </div>
+<%}%>
+
+
+
+  <% if(usuario.tipo_usuario_id == 2) {%>
+<!-- Modal Detalhes Sindico -->
+<div class="modal fade" id="detalhes1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detalhes1Modal">Resposta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <h5>Arquivo </h5>
+          <img src="https://media.istockphoto.com/photos/burnedout-light-bulb-isolated-on-white-background-with-shadow-burned-picture-id952090314" alt="" style="width: 100px; height: 100px; object-fit: cover; ">
+        </div>
+        
+        <div class="form-group">
+          <h5 >Mensagem Solicitante</h5>
+          <%listaOcorrencias.forEach(ocorrencia => {  %>
+            <p> <%= ocorrencia.mensagem %> </p>
+            <% })%>
+          </div>
+          
+      <form method="POST" action="/backoffice/morador/ocorrenciasSindico" enctype="multipart/form-data">
+
+        <div class="form-group">
+          <label for="respostaOcorrencia" class="col-form-label"><h5>Resposta</h5></label>
+          <textarea class="form-control" name="respostaOcorrencia" id="respostaOcorrencia"></textarea>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" name="tipoOcorrencias" type="checkbox" id="tipoOcorrencias" value="1">
+          <label class="form-check-label" for="tipoOcorrencias">Registrado</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="tipoOcorrencias" id="tipoOcorrencias" value="3">
+          <label class="form-check-label" for="tipoOcorrencias">Pendente</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="tipoOcorrencias" id="tipoOcorrencias" value="2" >
+          <label class="form-check-label" for="tipoOcorrencias">Resolvido</label>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<%}%>
+
+
+
+
+
+
+
+

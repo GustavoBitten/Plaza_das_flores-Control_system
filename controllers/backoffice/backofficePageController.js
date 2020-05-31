@@ -22,11 +22,13 @@ let backofficePageController = {
   moradorPerfil: async (req, res) => {
 
     const pets = await Pet.findAll({
+      where:{morador_id:req.session.user.id },
       order: [
         ['created_at', 'DESC']
       ]
     })
     const veiculos = await Veiculo.findAll({
+      where:{morador_id:req.session.user.id },
       order: [
         ['created_at', 'DESC']
       ]
@@ -66,12 +68,14 @@ let backofficePageController = {
     
     */
     const empresas = await Empresa.findAll({
+      where:{morador_id:req.session.user.id },
       order: [
         ['created_at', 'DESC']
       ]
     })
 
     const compromissos = await Compromisso.findAll({
+      where:{morador_id:req.session.user.id },
       order: [
         ['created_at', 'DESC']
       ]
@@ -92,12 +96,13 @@ let backofficePageController = {
 
     })
   },
-  moradorOcorrencias: (req, res) => {
-    res.render("backoffice/morador/ocorrencias", {
-      titulo: "Morador - Ocorrências",
-      usuario: req.session.user
-    })
-  },
+  //moradorOcorrencias: (req, res) => {
+    //const listaOcorrencias = await Ocorrencia.findAll()
+    //res.render("backoffice/morador/ocorrencias", {
+      //titulo: "Morador - Ocorrências",
+      //usuario: req.session.user
+    //})
+  //},
   moradorAreasComuns: (req, res) => {
     res.render("backoffice/morador/areasComuns", {
       titulo: "Morador - Áreas Comuns",

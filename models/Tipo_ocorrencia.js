@@ -23,14 +23,14 @@ module.exports = (sequelize, DataTypes) => {
         
       },
       {
-        timestamps: true, // utliza
-        tablename: "tipos_ocorrencias"
+        freezeTableName: true,
+        tablename: "tipos_ocorrencias",
 
       }
     );
   
     Tipo_ocorrencia.associate = (models) => {
-      Tipo_ocorrencia.hasMany(models.Ocorrencias, {
+      Tipo_ocorrencia.hasMany(models.Ocorrencia, {
         foreignKey: "tipo_ocorrencia_id",  // , as: ""
       });
   

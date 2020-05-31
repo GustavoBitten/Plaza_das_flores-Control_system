@@ -69,10 +69,17 @@ module.exports = (sequelize, DataTypes) => {
       token:{
         type: DataTypes.STRING,
         unique: true
+      },
+      created_at: {
+        type: DataTypes.DATE,
+        allowNull: false
+      },
+      updated_at: {
+        type: DataTypes.DATE,
+        allowNull: false
       }
     }, {
-      timestamps: true,
-      //freezeTableName: true,
+      freezeTableName: true,
       tableName: "usuarios"
     }
   );
@@ -80,11 +87,11 @@ module.exports = (sequelize, DataTypes) => {
    Usuario.associate = (models) => {
    Usuario.belongsToMany(models.Funcionario, {
        through: models.Log_funcionario, 
-       foreignKey: "funcionario_id", // , as: ""
+       foreignKey: "funcionario_id", //
      });
   //   Usuario.belongsToMany(models.Visitante, {
   //     through: models.Visita, //tab intermediaria
-  //     foreignKey: "visitante_id", // , as: ""
+  //     foreignKey: "visitante_id", // 
   //   });
     Usuario.hasMany(models.Veiculo, { 
       foreignKey: "morador_id", 
@@ -93,14 +100,14 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "morador_id", 
     });
   //   Usuario.hasMany(models.Empresa, {
-  //     foreignKey: "morador_id", // , as: ""
+  //     foreignKey: "morador_id", // 
   //   });
     Usuario.hasMany(models.Pet, {
       foreignKey: "morador_id", 
      });
-  //   Morador.hasMany(models.Ocorrencia, {
-  //     foreignKey: "morador_id", // , as: ""
-   // });
+    Usuario.hasMany(models.Ocorrencia, {
+       foreignKey: "morador_id", 
+    });
     }
 
   return Usuario;
