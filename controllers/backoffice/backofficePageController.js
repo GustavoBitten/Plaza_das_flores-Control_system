@@ -1,4 +1,4 @@
-const moment = require("moment");
+const moment = require("moment"); 
 const session = require('express-session')
 const {
   Pet,
@@ -48,8 +48,7 @@ let backofficePageController = {
       ocorrencias: ocorrencias,
       encomendas: encomendas,
       notificacoes: notificacoes,
-      multas: multas,
-      cont_correspondencia: 0
+      multas: multas
     })
   },
   moradorPerfil: async (req, res) => {

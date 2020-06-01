@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
   <%- include('../../includes/head', {titulo: titulo}) %>
 
@@ -21,16 +21,16 @@
         <div class="qtd col-1 col-md-2"><%=comunicados.length%></div>
       </span>
 
-      <div class="corpo row col-md-12"><%=comunicados[cont_correspondencia].mensagem%></div>
+      <div class="corpo row col-md-12" id="texto_comunicados"><%=comunicados[0].mensagem%></div>
       <div class="row justify-content-center">
         <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
         
       </div>
       <div class="rodape row ">
         
-        <div class="rotape col-1 col-md-4" id="regredir_correspondencia"><a href=""><-</a></div>
+        <div class="rotape col-1 col-md-4" id="regredir_comunicados"><a href="" onclick="return false;"><-</a></div>
         <div class="rotape col-1 col-md-4"><a href="">O</a></div>
-        <div class="rotape col-1 col-md-4" id="avancar_correspondencia"><a href="">></a></div>
+        <div class="rotape col-1 col-md-4" id="avancar_comunicados"><a href="" onclick="return false;">></a></div>
       </div>
 
     </div>
@@ -41,16 +41,16 @@
         <div class="qtd col-1 col-md-2"><%=ocorrencias.length%></div>
       </span>
 
-      <div class="corpo row col-md-12"><%=ocorrencias[cont_correspondencia].mensagem%></div>
+      <div class="corpo row col-md-12" id="texto_ocorrencias"><%=ocorrencias[0].mensagem%></div>
       <div class="row justify-content-center">
         <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
         
       </div>
       <div class="rodape row ">
         
-        <div class="rotape col-1 col-md-4"><a href="/"><-</a></div>
+        <div class="rotape col-1 col-md-4 " id="regredir_ocorrencias"><a href="" onclick="return false;"><-</a></div>
         <div class="rotape col-1 col-md-4"><a href="/">O</a></div>
-        <div class="rotape col-1 col-md-4"><a href="/">></a></div>
+        <div class="rotape col-1 col-md-4" id="avancar_ocorrencias"><a href="" onclick="return false;">></a></div>
       </div>
 
     </div>
@@ -61,16 +61,16 @@
         <div class="qtd col-1 col-md-2"><%=encomendas.length%></div>
       </span>
 
-      <div class="corpo row col-md-12"><%=encomendas[cont_correspondencia].descricao%></div>
+      <div class="corpo row col-md-12" id="texto_encomendas"><%=encomendas[0].descricao%></div>
       <div class="row justify-content-center">
         <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
         
       </div>
       <div class="rodape row ">
         
-        <div class="rotape col-1 col-md-4"><a href="/"><-</a></div>
+        <div class="rotape col-1 col-md-4" id="regredir_encomendas"><a href="" onclick="return false;"><-</a></div>
         <div class="rotape col-1 col-md-4"><a href="/">O</a></div>
-        <div class="rotape col-1 col-md-4"><a href="/">></a></div>
+        <div class="rotape col-1 col-md-4" id="avancar_encomendas"><a href="" onclick="return false;">></a></div>
       </div>
 
     </div>
@@ -81,16 +81,16 @@
         <div class="qtd col-1 col-md-2"><%=multas.length%></div>
       </span>
 
-      <div class="corpo row col-md-12">Nenhum dado a ser exibido</div>
+      <div class="corpo row col-md-12" id="texto_multas">Nenhum dado a ser exibido</div>
       <div class="row justify-content-center">
         <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
         
       </div>
       <div class="rodape row ">
         
-        <div class="rotape col-1 col-md-4"><a href="/"><-</a></div>
+        <div class="rotape col-1 col-md-4" id="regredir_multas"><a href="" onclick="return false;"><-</a></div>
         <div class="rotape col-1 col-md-4"><a href="/">O</a></div>
-        <div class="rotape col-1 col-md-4"><a href="/">></a></div>
+        <div class="rotape col-1 col-md-4" id="avancar_multas"><a href="" onclick="return false;">></a></div>
       </div>
 
     </div>
@@ -101,16 +101,16 @@
         <div class="qtd col-1 col-md-2"><%=notificacoes.length%></div>
       </span>
 
-      <div class="corpo row col-md-12">Nenhum dado a ser exibido</div>
+      <div class="corpo row col-md-12" id="texto_notificacoes">Nenhum dado a ser exibido</div>
       <div class="row justify-content-center">
         <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
         
       </div>
       <div class="rodape row ">
         
-        <div class="rotape col-1 col-md-4"><a href="/"><-</a></div>
+        <div class="rotape col-1 col-md-4" id="regredir_notificacoes"><a href="" onclick="return false;"><-</a></div>
         <div class="rotape col-1 col-md-4"><a href="/">O</a></div>
-        <div class="rotape col-1 col-md-4"><a href="/">></a></div>
+        <div class="rotape col-1 col-md-4" id="avancar_notificacoes"><a href="" onclick="return false;">></a></div>
       </div>
 
     </div>
@@ -121,21 +121,25 @@
         <div class="qtd col-1 col-md-2">0</div>
       </span>
 
-      <div class="corpo row col-md-12">Nenhum dado a ser exibido</div>
+      <div class="corpo row col-md-12" id="texto_financeiro">Nenhum dado a ser exibido</div>
       <div class="row justify-content-center">
         <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
         
       </div>
       <div class="rodape row ">
         
-        <div class="rotape col-1 col-md-4"><a href="/"><-</a></div>
+        <div class="rotape col-1 col-md-4" id="regredir_financeiro"><a href="" onclick="return false;"><-</a></div>
         <div class="rotape col-1 col-md-4"><a href="/">O</a></div>
-        <div class="rotape col-1 col-md-4"><a href="/">></a></div>
+        <div class="rotape col-1 col-md-4" id="avancar_financeiro"><a href="" onclick="return false;">></a></div>
       </div>
 
     </div>
   </main>
-\ 
+  <div id="comunicados"><%=JSON.stringify(comunicados)%></div>
+  <div id="ocorrencias"><%=JSON.stringify(ocorrencias)%></div>
+  <div id="encomendas"><%=JSON.stringify(encomendas)%></div>
+  <div id="notificacoes"><%=JSON.stringify(notificacoes)%></div>
+  <div id="multas"><%=JSON.stringify(multas)%></div>
   <script src="/javascripts/backoffice/dashboard.js"></script>
 
  
