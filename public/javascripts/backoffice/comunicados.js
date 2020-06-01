@@ -68,7 +68,7 @@ let init = () => {
   })
 
   $('a[id^=editarComunicado]').on('click', async (event) => {
-    let element = $(event.target.parentNode) // element that triggered event
+    let element = $(event.target.closest('.text-primary'))
     let id = element.data('id') // get value from target data-id field
     let modal = $(element.data('target'))
 
@@ -128,20 +128,34 @@ let init = () => {
       alert(resposta.status + ' - ' + resposta.statusText)
   })
 
-  $('a[id^=excluirComunicado]').on('click', async (event) => {
+  $('a[id^=excluirComunicado]').on('click', (event) => {
     let element = $(event.target.closest('.text-danger'))
     let id = element.data('id')
 
-    let resposta = await fetch(window.location.href + '/' + id, {
-      method: 'DELETE'
+    // Show confirmation modal
+    $('#modalExcluirComunicado').modal('show')
+
+    // If confirmed, delete
+    $('a[id=btnDelete]').on('click', async (event) => {
+
+      let resposta = await fetch(window.location.href + '/' + id, {
+        method: 'DELETE'
+      })
+
+      if (resposta.status == 200) {
+        let resultado = await resposta.json()
+
+        reload()
+      } else {
+        alert(resposta.status + ' - ' + resposta.statusText)
+      }
+
+      $('#modalExcluirComunicado').modal('hide')
     })
+  })
 
-    if (resposta.status == 200) {
-      let resultado = await resposta.json()
-
-      reload()
-    } else
-      alert(resposta.status + ' - ' + resposta.statusText)
+  $("#modalExcluirComunicado").on('hide.bs.modal', () => {
+    init()
   })
 }
 
@@ -155,6 +169,8 @@ let resetBindings = () => {
   $("#modalEditarComunicado").unbind('hide.bs.modal')
   $('#btnAtualizar').unbind('click')
   $('a[id^=excluirComunicado]').unbind('click')
+  $('a[id=btnDelete]').unbind('click')
+  $("#modalExcluirComunicado").unbind('hide.bs.modal')
 }
 
 let reload = async () => {
@@ -175,10 +191,7 @@ let reload = async () => {
 
       let colAtualizacao = document.createElement('td')
       colAtualizacao.classList.add('text-center', 'align-middle')
-      if (comunicado.created_at == comunicado.updated_at)
-        colAtualizacao.append('-')
-      else
-        colAtualizacao.append(comunicado.updated_at)
+      colAtualizacao.append(comunicado.updated_at)
 
       let colComunicado = document.createElement('td')
       colComunicado.classList.add('text-center', 'align-middle')

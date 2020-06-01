@@ -4,7 +4,6 @@ const { Comunicado } = require("../../models");
 module.exports = comunicadoController = {
   index: async (req, res) => {
     const listaComunicados = await Comunicado.findAll()
-    console.log(listaComunicados)
 
     return res.render("backoffice/comunicados", {
       titulo: "Comunicados",
@@ -102,8 +101,13 @@ module.exports = comunicadoController = {
       const listaComunicados = await Comunicado.findAll()
 
       listaComunicados.map(comunicado => {
-        comunicado.created_at = moment(comunicado.created_at).format('DD/MM/YYYY')
-        comunicado.updated_at = moment(comunicado.updated_at).format('DD/MM/YYYY')
+        if (String(comunicado.created_at) == String(comunicado.updated_at)){
+          comunicado.created_at = moment(comunicado.created_at).format('DD/MM/YYYY')
+          comunicado.updated_at = '-'
+        } else {
+          comunicado.created_at = moment(comunicado.created_at).format('DD/MM/YYYY')
+          comunicado.updated_at = moment(comunicado.updated_at).format('DD/MM/YYYY')
+        }
 
         return comunicado
       })
