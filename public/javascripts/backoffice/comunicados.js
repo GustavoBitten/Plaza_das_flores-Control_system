@@ -58,7 +58,7 @@ let init = () => {
       let comunicado = await resposta.json() // get json object from ajax response
 
       // fill modal fields
-      modal.find('.modal-title').text(comunicado.titulo)
+      modal.find('.body-title').text(comunicado.titulo)
       modal.find('.body-content').text(comunicado.mensagem)
 
       // show modal
@@ -200,9 +200,10 @@ let reload = async () => {
       linkComunicado.setAttribute('id', 'comunicado' + comunicado.id)
       linkComunicado.setAttribute('data-target', '#modalMostrarComunicado')
       linkComunicado.setAttribute('data-id', comunicado.id)
+      linkComunicado.setAttribute('title', comunicado.titulo)
 
       let tituloComunicado = document.createElement('u')
-      tituloComunicado.append(comunicado.titulo)
+      tituloComunicado.append(comunicado.titulo.length > 50 ? comunicado.titulo.substr(0, 47) + '...' : comunicado.titulo)
 
       let colAcoes = document.createElement('td')
       colAcoes.classList.add('text-center', 'align-middle')

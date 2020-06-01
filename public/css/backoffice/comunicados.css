@@ -9,3 +9,10 @@
 a:hover {
   cursor: pointer;
 }
+
+@media (max-width: 1191px) {
+  a[id^='excluirComunicado'] {
+    margin-left: 0 !important;
+    display: block;
+  }
+}

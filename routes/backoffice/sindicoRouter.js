@@ -17,7 +17,7 @@ let route = express.Router()
 
 // Rotas para síndico
 route.get('/moradores', moradorController.ListaMoradores)
-//route.get('/perfil', backofficePageController.sindicoPerfil) 
+//route.get('/perfil', backofficePageController.sindicoPerfil)
 //route.get('/ocorrencias', backofficePageController.sindicoOcorrencias)
 route.get('/areas-comuns', backofficePageController.sindicoAreasComuns)
 route.get('/portaria', backofficePageController.sindicoPortaria)
@@ -52,8 +52,26 @@ route.put('/editarMorador/:moradorId', uploadMorador.any(), moradorController.ed
 route.get('/comunicados', comunicadoController.index)
 route.get('/comunicados/getComunicados', comunicadoController.getComunicados)
 route.get('/comunicados/:id', comunicadoController.show)
-route.post('/comunicados', comunicadoController.store)
-route.put('/comunicados/:id', comunicadoController.update)
+route.post('/comunicados', [
+    check('titulo').isLength({
+      min: 1,
+      max: 255
+    }).withMessage('O título não pode estar vazio e deve conter ao máximo 255 caracteres!'),
+    check('mensagem').isLength({
+      min: 2,
+      max: 1000
+    }).withMessage('A mensagem não pode estar vazia e deve conter ao máximo 1.000 caracteres!')
+  ], comunicadoController.store)
+route.put('/comunicados/:id', [
+    check('titulo').isLength({
+      min: 1,
+      max: 255
+    }).withMessage('O título não pode estar vazio e deve conter ao máximo 255 caracteres!'),
+    check('mensagem').isLength({
+      min: 2,
+      max: 1000
+    }).withMessage('A mensagem não pode estar vazia e deve conter ao máximo 1.000 caracteres!')
+  ], comunicadoController.update)
 route.delete('/comunicados/:id', comunicadoController.destroy)
 
 module.exports = route

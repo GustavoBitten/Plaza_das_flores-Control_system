@@ -1,5 +1,8 @@
-const moment = require("moment");
-const { Comunicado } = require("../../models");
+const moment = require("moment")
+const truncate = require('html-truncate')
+const { validationResult } = require('express-validator')
+
+const { Comunicado } = require("../../models")
 
 module.exports = comunicadoController = {
   index: async (req, res) => {
@@ -10,6 +13,7 @@ module.exports = comunicadoController = {
       usuario: req.session.user,
       listaComunicados,
       moment,
+      truncate
     })
   },
   show: async (req, res) => {
@@ -34,6 +38,11 @@ module.exports = comunicadoController = {
     const sindico_id = 2
 
     try{
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        throw res.status(422).json({ errors: errors.array() });
+      }
+
       // if (user.tipo == 'sindico') {
       const createComunicado = await Comunicado.create({
         sindico_id,
@@ -58,6 +67,11 @@ module.exports = comunicadoController = {
     // const sindico_id = user.id
 
     try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        throw res.status(422).json({ errors: errors.array() });
+      }
+
       // if (user.tipo == 'sindico') {
       const updateComunicado = await Comunicado.update({
         titulo,
@@ -117,4 +131,4 @@ module.exports = comunicadoController = {
       return res.status(400).json(error)
     }
   }
-};
+}
