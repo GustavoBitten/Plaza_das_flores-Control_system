@@ -1,11 +1,11 @@
 const express = require('express')
-const uploadPet = require("../../config/uploadPet"); 
-const uploadVeiculo = require("../../config/uploadVeiculo"); 
-const uploadFuncionario = require("../../config/uploadFuncionario"); 
-const uploadVisitante = require("../../config/uploadVisitante"); 
-const uploadEmpresa = require("../../config/uploadEmpresa"); 
-const uploadCompromisso = require("../../config/uploadCompromisso"); 
-const uploadOcorrencia = require("../../config/uploadocorrencia"); 
+const uploadPet = require("../../config/uploadPet");
+const uploadVeiculo = require("../../config/uploadVeiculo");
+const uploadFuncionario = require("../../config/uploadFuncionario");
+const uploadVisitante = require("../../config/uploadVisitante");
+const uploadEmpresa = require("../../config/uploadEmpresa");
+const uploadCompromisso = require("../../config/uploadCompromisso");
+const uploadOcorrencia = require("../../config/uploadocorrencia");
 
 const backofficePageController = require('../../controllers/backoffice/backofficePageController');
 const blocoController = require('../../controllers/backoffice/blocoController');
@@ -18,6 +18,7 @@ const empresaController = require("../../controllers/backoffice/empresaControlle
 const funcionarioController = require('../../controllers/backoffice/funcionarioController');
 const ocorrenciaController = require("../../controllers/backoffice/ocorrenciaController");
 const financeiroController = require('../../controllers/backoffice/financeiroController')
+const comunicadoController = require('../../controllers/backoffice/comunicadoController')
 //const visitanteController = require("../../controllers/backoffice/visitanteController");
 //const dependenteController = require("../../controllers/backoffice/dependenteController");
 
@@ -32,7 +33,7 @@ route.get('/perfil', backofficePageController.moradorPerfil)
 //route.get('/ocorrencias', backofficePageController.moradorOcorrencias)
 route.get('/areas-comuns', backofficePageController.moradorAreasComuns)
 route.get('/portaria', backofficePageController.moradorPortaria)
-route.get('/comunicados', backofficePageController.moradorComunicados)
+// route.get('/comunicados', backofficePageController.moradorComunicados)
 route.get('/financeiro', financeiroController.index)
 
 
@@ -52,26 +53,26 @@ route.post('/moradores', moradorController.store)
 // Rotas para os Dependentes
 route.post('/dependentes',uploadDependente.any(), dependenteController.store)
 route.delete('/dependentes/delete/:dependenteId',uploadDependente.any(), dependenteController.delete)
-route.put('/dependentes/editar/:dependenteId',uploadDependente.any(), dependenteController.update) 
+route.put('/dependentes/editar/:dependenteId',uploadDependente.any(), dependenteController.update)
 
 
 // Rotas para os Visitantes
 route.post('/visitantes',uploadVisitante.any(), visitanteController.store)
 route.delete('/visitantes/delete/:visitanteId',uploadVisitante.any(), visitanteController.delete)
-route.put('/visitantes/editar/:visitanteId',uploadVisitante.any(), visitanteController.update) 
+route.put('/visitantes/editar/:visitanteId',uploadVisitante.any(), visitanteController.update)
 */
 
 // Rotas para os Funcionários
 route.post('/funcionarios',uploadFuncionario.any(), funcionarioController.store)
 route.delete('/funcionarios/delete/:funcionarioId',uploadFuncionario.any(), funcionarioController.delete)
-route.put('/funcionarios/editar/:funcionarioId',uploadFuncionario.any(), funcionarioController.update) 
+route.put('/funcionarios/editar/:funcionarioId',uploadFuncionario.any(), funcionarioController.update)
 
 // Rotas para as Ocorrências
 route.get('/ocorrencias', ocorrenciaController.index)
 route.post('/ocorrenciasMorador',uploadOcorrencia.any(), ocorrenciaController.storeMorador)
 route.post('/ocorrenciasSindico',uploadOcorrencia.any(), ocorrenciaController.storeSindico)
 route.delete('/ocorrencias/delete/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.delete)
-route.put('/ocorrencias/editar/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.update) 
+route.put('/ocorrencias/editar/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.update)
 
 // Rotas para os Empresas
 route.post('/empresas',uploadEmpresa.any(), empresaController.store)
@@ -81,16 +82,21 @@ route.put('/empresas/editar/:empresaId',uploadEmpresa.any(), empresaController.u
 // Rotas para os Compromissos
 route.post('/compromissos',uploadCompromisso.any(), compromissoController.store)
 route.delete('/compromissos/delete/:compromissoId',uploadCompromisso.any(), compromissoController.delete)
-route.put('/compromissos/editar/:compromissoId',uploadCompromisso.any(), compromissoController.update) 
+route.put('/compromissos/editar/:compromissoId',uploadCompromisso.any(), compromissoController.update)
 
 // Rotas para os Veículos
 route.post('/veiculos',uploadVeiculo.any(), veiculoController.store)
 route.delete('/veiculos/delete/:veiculoId',uploadVeiculo.any(), veiculoController.delete)
-route.put('/veiculos/editar/:veiculoId',uploadVeiculo.any(), veiculoController.update) 
+route.put('/veiculos/editar/:veiculoId',uploadVeiculo.any(), veiculoController.update)
 
 // Rotas para os Pets
 route.post('/pets',uploadPet.any(), petController.store)
 route.delete('/pets/delete/:petId', petController.delete)
-route.put('/pets/editar/:petId',uploadPet.any(), petController.update) 
+route.put('/pets/editar/:petId',uploadPet.any(), petController.update)
+
+// Rotas para os Comunicados
+route.get('/comunicados', comunicadoController.index)
+route.get('/comunicados/getComunicados', comunicadoController.getComunicados)
+route.get('/comunicados/:id', comunicadoController.show)
 
 module.exports = route

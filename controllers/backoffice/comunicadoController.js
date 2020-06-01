@@ -33,9 +33,7 @@ module.exports = comunicadoController = {
   store: async (req, res) => {
     const { user } = req.session
     const { titulo, mensagem } = req.body
-
-    // const sindico_id = user.id
-    const sindico_id = 2
+    const sindico_id = user.id
 
     try{
       const errors = validationResult(req);
@@ -43,13 +41,14 @@ module.exports = comunicadoController = {
         throw res.status(422).json({ errors: errors.array() });
       }
 
-      // if (user.tipo == 'sindico') {
+      if (user.tipo_usuario_id != 2)
+        throw res.status(400).json({error: 'Erro de permissão ao criar o comunicado, apenas síndicos podem criar novos comunicados!'})
+
       const createComunicado = await Comunicado.create({
         sindico_id,
         titulo,
         mensagem,
       });
-      // }
 
       if (!createComunicado)
         throw res.status(400).json({error: 'Erro ao criar o comunicado, tente novamente mais tarde!'})
@@ -64,22 +63,21 @@ module.exports = comunicadoController = {
     const { id } = req.params
     const { titulo, mensagem } = req.body
 
-    // const sindico_id = user.id
-
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
         throw res.status(422).json({ errors: errors.array() });
       }
 
-      // if (user.tipo == 'sindico') {
+      if (user.tipo_usuario_id != 2)
+        throw res.status(400).json({error: 'Erro de permissão ao atualizar o comunicado, apenas síndicos podem autalizar comunicados!'})
+
       const updateComunicado = await Comunicado.update({
         titulo,
         mensagem,
       }, {
         where: {id}
       });
-      // }
 
       if(!updateComunicado)
         throw res.status(400).json({error: 'Erro ao atualizar o comunicado, tente novamente mais tarde!'})
@@ -90,6 +88,8 @@ module.exports = comunicadoController = {
     }
   },
   destroy: async (req, res) => {
+    const { user } = req.session
+
     try {
       const { id } = req.params
 
@@ -97,6 +97,9 @@ module.exports = comunicadoController = {
 
       if(!comunicado)
         throw {error: 'Comunicado não existe!'}
+
+      if (user.tipo_usuario_id != 2)
+        throw res.status(400).json({error: 'Erro de permissão ao excluir o comunicado, apenas síndicos podem excluir comunicados!'})
 
       const destruirComunicado = await Comunicado.destroy({
         where: [{id}]

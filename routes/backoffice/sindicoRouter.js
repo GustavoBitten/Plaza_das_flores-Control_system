@@ -48,7 +48,7 @@ route.post('/moradores', uploadMorador.any(), [
 
 route.put('/editarMorador/:moradorId', uploadMorador.any(), moradorController.editar)
 
-// Rotas para comunicados
+// Rotas para os Comunicados
 route.get('/comunicados', comunicadoController.index)
 route.get('/comunicados/getComunicados', comunicadoController.getComunicados)
 route.get('/comunicados/:id', comunicadoController.show)
