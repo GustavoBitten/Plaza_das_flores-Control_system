@@ -19,15 +19,19 @@
       <div class="d-flex offset-md-2 offset-1 p-4">
 
         <div class="row flex-nowrap">
-          <div class="col-6 offset-1 offset-md-2  p-0">
+          <div class="col-3 offset-1 offset-md-2  p-0">
+            <button id="btnNotificacoes" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
+            data-toggle="modal" data-target="#modalNotificacoes">Geral </button>
+          </div>
+          <div class="col-6 offset-1  p-0">
             <button id="btnNotificacoes" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
             data-toggle="modal" data-target="#modalNotificacoes">Taxas de condomínio </button>
           </div>
-          <div class="col-3 offset-1 offset-md-2  p-0">
+          <div class="col-3 offset-1 p-0">
             <button id="btnNotificacoes" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
             data-toggle="modal" data-target="#modalNotificacoes">Multas</button>
           </div>
-          <div class="col-3 offset-1 offset-md-2  p-0">
+          <div class="col-3 offset-1 p-0">
             <button id="btnNotificacoes" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
             data-toggle="modal" data-target="#modalNotificacoes">Notificações</button>
           </div>
@@ -39,7 +43,7 @@
     <section class="row">
       <div class="card col-10 col-md-8 offset-1 offset-md-2 px-0">
         <div class="card-header d-flex justify-content-center w-100 p-0">
-          <h5 class="m-0 p-1">Taxas de condomínio</h5>
+          <h5 class="m-0 p-1">Todas as cobranças</h5>
         </div>
         <div class="card-body row">
           <div class="col-12 d-flex align-items-center flex-column">
@@ -47,41 +51,60 @@
               <span id="obs" class="align-self-start ">* Para visualizar o comunicado completo basta clicar em seu título</span>
               <table class="table table-borderless table-striped table-hover table-responsive-sm">
                 <caption>
-                  Comunicados
+                  Comunicad
                 </caption>
-
-                <thead>
-                  <tr>
-                    <th class="text-center" scope="col">
-                      Data
-                    </th>
-                    <th class="text-center" scope="col">
-                      Atualização
-                    </th>
-                    <th class="text-center" scope="col">
-                      Título
-                    </th>
-                    <th class="text-center" scope="col">
-                      Ações
-                    </th>
-                  </tr>
-                </thead>
+ <!--------------------------- Colunas -------------------------------->
+              <thead>
+                <tr>
+                  <th class="text-center" scope="col">
+                    Data
+                  </th>
+                  <th class="text-center" scope="col">
+                    Tipo
+                  </th>
+                  <th class="text-center" scope="col">
+                    Título
+                  </th>
+                  <th class="text-center" scope="col">
+                    Valor
+                  </th>
+                  <th class="text-center" scope="col">
+                    Vencimento
+                  </th>
+                  <th class="text-center" scope="col">
+                    Ações
+                  </th>
+                </tr>
+              </thead>
+                <!--------------------------- Colunas -------------------------------->
 
                 <tbody id="tableBody">
                   <% listaComunicados.forEach(comunicado => { %>
                     <tr>
+
                       <td class="text-center align-middle">
                         <%= moment(comunicado.created_at).format('DD/MM/YYYY') %>
                       </td>
+
+                      <td class="text-center align-middle">
+                        <%= moment(comunicado.created_at).format('DD/MM/YYYY') %>
+                      </td>
+
+                      <td class="text-center align-middle">
+                        <%= moment(comunicado.created_at).format('DD/MM/YYYY') %>
+                      </td>
+
                       <td class="text-center align-middle">
                         <%= moment(comunicado.created_at).format('DD/MM/YYYY') == moment(comunicado.updated_at).format('DD/MM/YYYY')
                          ? '-' : moment(comunicado.updated_at).format('DD/MM/YYYY') %>
                       </td>
+
                       <td class="text-center align-middle">
                         <a id="comunicado<%= comunicado.id %>" data-target="#modalMostrarComunicado" data-id="<%= comunicado.id %>">
                           <u><%= comunicado.titulo %></u>
                         </a>
                       </td>
+
                       <td class="text-center align-middle">
                         <a id="editarComunicado<%= comunicado.id %>" class="text-primary text-decoration-none" data-target="#modalEditarComunicado"
                           data-id="<%= comunicado.id %>" title="Editar Comunicado">
@@ -91,7 +114,9 @@
                           <i class="fas fa-trash-alt"></i>
                         </a>
                       </td>
+
                     </tr>
+
                   <% }) %>
                 </tbody>
               </table>
@@ -109,7 +134,7 @@
     </main>
 
     <!-- Modal Notificações -->
-    <div class="modal fade" id="modalNotificacoes" tabindex="-1" role="dialog" aria-labelledby="modalNotificacoesTitle" aria-hidden="true">
+    <!-- <div class="modal fade" id="modalNotificacoes" tabindex="-1" role="dialog" aria-labelledby="modalNotificacoesTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header d-flex justify-content-center">
@@ -150,7 +175,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- /#modalNotificacoes -->
 
     <%- include('../../includes/scriptJS') %>
