@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <%- include('../includes/head', {titulo}) %>
+
+  <link rel="stylesheet" href="/css/backoffice/layout.css">
+  <link rel="stylesheet" href="/css/backoffice/sindicoPortaria.css">
+</head>
+
+<body>
+  <%- include('../includes/backoffice/header') %>
+  <%- include('../includes/backoffice/aside') %>
+
+  <main class="container-fluid mx-0 pt-2">
+
+    <h1 class="titulo">Correspondências</h1>
+
+    <div class="row">
+        <div class="col-10 col-md-8 offset-1 offset-md-2 mb-3 p-0">
+            <button id="btnCorrespondencias" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
+              data-toggle="modal" data-target="#modalNovaCorrespondencia">
+              Nova Correspondência
+            </button>
+        </div>
+    </div>
+
+    <section class="row">
+      <div class="card col-10 col-md-8 offset-1 offset-md-2 px-0">
+        <div class="card-header d-flex justify-content-center w-100 p-0">
+          <h5 class="m-0 p-1">Correspondências</h5>
+        </div>
+        <div class="card-body row">
+          <div class="col-12 d-flex align-items-center flex-column">
+            <% if (listaCorrespondencias.length > 0) { %>
+              <!-- <span id="obs" class="align-self-start ">* Para visualizar o comunicado completo basta clicar em seu título</span> -->
+              <table class="table table-borderless table-striped table-hover table-responsive-xl">
+                <caption>
+                  Correspondências
+                </caption>
+
+                <thead>
+                  <tr>
+                    <th class="text-center" scope="col">
+                      Morador
+                    </th>
+                    <th class="text-center" scope="col">
+                      Tipo
+                    </th>
+                    <th class="text-center" scope="col">
+                      Registrado Por
+                    </th>
+                    <th class="text-center" scope="col">
+                      Situação
+                    </th>
+                    <th class="text-center" scope="col">
+                      Data de Registro
+                    </th>
+                    <th class="text-center" scope="col">
+                      Retirado Por
+                    </th>
+                    <th class="text-center" scope="col">
+                      data de Retirada
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody id="tableBody">
+                  <% listaCorrespondencias.forEach(correspondencia => { %>
+                    <tr>
+                      <td class="text-center align-middle">
+                        <%= correspondencia.morador.nome %>
+                      </td>
+                      <td class="text-center align-middle">
+                        <%= correspondencia.tipo_correspondencia.tipo %>
+                      </td>
+                      <td class="text-center align-middle">
+                        <%= correspondencia.porteiro.nome %>
+                      </td>
+                      <td class="text-center align-middle">
+                        <%= correspondencia.status.situacao %>
+                      </td>
+                      <td class="text-center align-middle">
+                        <%= moment(correspondencia.created_at).format('DD/MM/YYYY') %>
+                      </td>
+                      <td class="text-center align-middle">
+                        <%= correspondencia.retirado_por ? correspondencia.retirado.nome : '-' %>
+                      </td>
+                      <td class="text-center align-middle">
+                        <%= moment(correspondencia.updated_at).format('DD/MM/YYYY') %>
+                      </td>
+                    </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            <% } else { %>
+              <h4 class="text-danger">Nenhum comunicado foi encontrado!</h4>
+            <% } %>
+          </div>
+          <!-- /.col-12 -->
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </section>
+
+  </main>
+
+  <%- include('../includes/scriptJS') %>
+</body>
+</html>

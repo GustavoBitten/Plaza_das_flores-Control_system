@@ -173,6 +173,16 @@ let resetBindings = () => {
   $("#modalExcluirComunicado").unbind('hide.bs.modal')
 }
 
+let formataData = (data) => {
+  data = data.split('T')[0]
+  let arrayData = data.split('-')
+  let dia = arrayData[2]
+  let mes = arrayData[1]
+  let ano = arrayData[0]
+
+  return dia + '/' + mes + '/' + ano
+}
+
 let reload = async () => {
   let resposta = await fetch(window.location.href + '/getComunicados')
 
@@ -187,11 +197,13 @@ let reload = async () => {
 
       let colData = document.createElement('td')
       colData.classList.add('text-center', 'align-middle')
-      colData.append(comunicado.created_at)
+      colData.append(formataData(comunicado.created_at))
 
       let colAtualizacao = document.createElement('td')
       colAtualizacao.classList.add('text-center', 'align-middle')
-      colAtualizacao.append(comunicado.updated_at)
+      colAtualizacao.append(
+        comunicado.created_at == comunicado.updated_at ? '-' : formataData(comunicado.updated_at)
+      )
 
       let colComunicado = document.createElement('td')
       colComunicado.classList.add('text-center', 'align-middle')

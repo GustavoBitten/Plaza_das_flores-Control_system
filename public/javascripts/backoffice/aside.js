@@ -18,8 +18,8 @@ const asideItens = {
         href:'ocorrencias',
         icon:'fas fa-exclamation'
     },{
-        nome:'Portaria',
-        href:'portaria',
+        nome:'Correspondências',
+        href:'correspondencias',
         icon:'fas fa-shipping-fast'
     },{
         nome:'Moradores',
@@ -53,7 +53,7 @@ asideItens.morador.forEach(item => {
      href="/backoffice/${typeUrl}/${item.href}">
     <i class="${item.icon} nav-icon mr-2 iconAside"></i>
     <span class="text-link">${item.nome}</span>
-    </a>`   
+    </a>`
 
 
 

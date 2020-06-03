@@ -9,6 +9,7 @@ const {
 
 const backofficePageController = require('../../controllers/backoffice/backofficePageController');
 const comunicadoController = require('../../controllers/backoffice/comunicadoController');
+const correspondenciaController = require('../../controllers/backoffice/correspondenciaController');
 
 
 let route = express.Router()
@@ -20,7 +21,7 @@ route.get('/moradores', moradorController.ListaMoradores)
 //route.get('/perfil', backofficePageController.sindicoPerfil)
 //route.get('/ocorrencias', backofficePageController.sindicoOcorrencias)
 route.get('/areas-comuns', backofficePageController.sindicoAreasComuns)
-route.get('/portaria', backofficePageController.sindicoPortaria)
+// route.get('/portaria', backofficePageController.sindicoPortaria)
 route.get('/financeiro', backofficePageController.sindicoFinanceiro)
 
 // Rotas para os Moradores
@@ -73,5 +74,8 @@ route.put('/comunicados/:id', [
     }).withMessage('A mensagem não pode estar vazia e deve conter ao máximo 1.000 caracteres!')
   ], comunicadoController.update)
 route.delete('/comunicados/:id', comunicadoController.destroy)
+
+// Rotas para as Correspondencias
+route.get('/correspondencias', correspondenciaController.index)
 
 module.exports = route

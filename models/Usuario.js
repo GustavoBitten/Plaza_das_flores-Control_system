@@ -60,7 +60,7 @@ module.exports = (sequelize, DataTypes) => {
       tipo_usuario_id: {
         type: DataTypes.INTEGER,
         allowNull: false
-      }, 
+      },
       status: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
@@ -84,34 +84,49 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-   Usuario.associate = (models) => {
-   Usuario.belongsToMany(models.Funcionario, {
-       through: models.Log_funcionario, 
-       foreignKey: "funcionario_id", //
-     });
-  //   Usuario.belongsToMany(models.Visitante, {
-  //     through: models.Visita, //tab intermediaria
-  //     foreignKey: "visitante_id", // 
-  //   });
-    Usuario.hasMany(models.Veiculo, { 
-      foreignKey: "morador_id", 
+  Usuario.associate = (models) => {
+    Usuario.belongsToMany(models.Funcionario, {
+      through: models.Log_funcionario,
+      foreignKey: "funcionario_id", //
+    });
+    //   Usuario.belongsToMany(models.Visitante, {
+    //     through: models.Visita, //tab intermediaria
+    //     foreignKey: "visitante_id", //
+    //   });
+    Usuario.hasMany(models.Veiculo, {
+      foreignKey: "morador_id",
     });
     Usuario.hasMany(models.Compromisso, {
-      foreignKey: "morador_id", 
+      foreignKey: "morador_id",
     });
-  //   Usuario.hasMany(models.Empresa, {
-  //     foreignKey: "morador_id", // 
-  //   });
+    //   Usuario.hasMany(models.Empresa, {
+    //     foreignKey: "morador_id", //
+    //   });
     Usuario.hasMany(models.Pet, {
-      foreignKey: "morador_id", 
-     });
+      foreignKey: "morador_id",
+    });
     Usuario.hasMany(models.Ocorrencia, {
-       foreignKey: "morador_id", 
+      foreignKey: "morador_id",
     });
     Usuario.hasMany(models.Notificacao, {
-      foreignKey: "morador_id", 
-   });
-    }
+      foreignKey: "morador_id",
+    });
+
+    Usuario.hasMany(models.Correspondencia, {
+      foreignKey: 'morador_id',
+      as: 'morador'
+    })
+
+    Usuario.hasMany(models.Correspondencia, {
+      foreignKey: 'porteiro_id',
+      as: 'porteiro'
+    })
+
+    Usuario.hasMany(models.Correspondencia, {
+      foreignKey: 'retirado_por',
+      as: 'retirado'
+    })
+  }
 
   return Usuario;
 };
