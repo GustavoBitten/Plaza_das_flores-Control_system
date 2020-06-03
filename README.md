@@ -1,11 +1,21 @@
-# Sistema para o condomínio 
+# Sistema para o condomínio
 
   Sistema desenvolvido pela equipe da turma 5 do Santander Coders by Digital House
 
-  4º sprint para ser entrege no dia 28/04/2020
+  5º sprint para ser entrege no dia 03/06/2020
 
-### DER na pasta otherFiles/DER
+## CRUD basico da aplicação + Autenticação por login:
 
-  Arquivos:
-  * DER-Sistema-de-Condominio v5.mwb
-  * DER-Sistema-de-Condominio v5.png
+Usuário disponíveis para login:
+
+  * Morador
+  Email: morador@teste.com
+  Senha: 11111111111
+  * Síndico
+  Email: sindico@teste.com
+  Senha: 22222222222
+  * Portaria
+  Email: portario@teste.com
+  Senha: 33333333333
+
+  ### Ainda nem todas as funções estão disponíveis!

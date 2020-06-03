@@ -45,13 +45,13 @@ const  loginPageController = {
     switch (usuario.tipo_usuario_id) {
 
       case 1:
-        res.redirect("/backoffice/morador/dashboard")
+        res.redirect("/backoffice/morador/perfil")
         break;
       case 2:
         res.redirect("/backoffice/sindico/moradores")
         break;
       case 3:
-        res.redirect("/backoffice/portaria/perfil")
+        res.redirect("/backoffice/portaria/moradores")
         break;
   
       default:

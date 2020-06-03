@@ -22,6 +22,10 @@ const asideItens = {
         href:'portaria',
         icon:'fas fa-shipping-fast'
     },{
+        nome:'Moradores',
+        href:'moradores',
+        icon:'fas fa-users'
+    },{
         nome:'Comunicados',
         href:'comunicados',
         icon:'fas fa-comment-dots'
