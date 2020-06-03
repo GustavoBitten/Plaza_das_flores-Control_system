@@ -9,13 +9,16 @@
 Usuário disponíveis para login:
 
   * Morador
-  Email: morador@teste.com
-  Senha: 11111111111
+
+  * Email: morador@teste.com
+  * Senha: 11111111111
+
   * Síndico
-  Email: sindico@teste.com
-  Senha: 22222222222
+  * Email: sindico@teste.com
+  * Senha: 22222222222
+  
   * Portaria
-  Email: portario@teste.com
-  Senha: 33333333333
+  * Email: portario@teste.com
+  * Senha: 33333333333
 
   ### Ainda nem todas as funções estão disponíveis!
