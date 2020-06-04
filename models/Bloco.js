@@ -15,7 +15,14 @@ module.exports = (sequelize, DataTypes) => {
       freezeTableName: true,
       tableName: "blocos"
     }
-  );
+  )
 
-  return Bloco;
-};
+  Bloco.associate = (models) => {
+    Bloco.hasMany(models.Usuario, {
+      foreignKey: 'bloco_id',
+      as: 'bl'
+    })
+  }
+
+  return Bloco
+}

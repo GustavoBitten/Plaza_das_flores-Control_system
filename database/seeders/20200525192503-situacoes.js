@@ -14,6 +14,10 @@ module.exports = {
       situacao: 'Reprovado',
       created_at: new Date(),
       updated_at: new Date()
+    }, {
+      situacao: 'Retirado',
+      created_at: new Date(),
+      updated_at: new Date()
     }], {})
   },
 

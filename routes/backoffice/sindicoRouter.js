@@ -78,4 +78,5 @@ route.delete('/comunicados/:id', comunicadoController.destroy)
 // Rotas para as Correspondencias
 route.get('/correspondencias', correspondenciaController.index)
 
+
 module.exports = route

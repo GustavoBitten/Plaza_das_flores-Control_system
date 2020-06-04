@@ -85,6 +85,16 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Usuario.associate = (models) => {
+    Usuario.belongsTo(models.Apartamento, {
+      foreignKey: 'apartamento_id',
+      as: 'ap'
+    })
+
+    Usuario.belongsTo(models.Bloco, {
+      foreignKey: 'bloco_id',
+      as: 'bl'
+    })
+
     Usuario.belongsToMany(models.Funcionario, {
       through: models.Log_funcionario,
       foreignKey: "funcionario_id", //

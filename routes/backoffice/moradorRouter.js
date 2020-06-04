@@ -19,6 +19,7 @@ const funcionarioController = require('../../controllers/backoffice/funcionarioC
 const ocorrenciaController = require("../../controllers/backoffice/ocorrenciaController");
 const financeiroController = require('../../controllers/backoffice/financeiroController')
 const comunicadoController = require('../../controllers/backoffice/comunicadoController')
+const correspondenciaController = require('../../controllers/backoffice/correspondenciaController')
 //const visitanteController = require("../../controllers/backoffice/visitanteController");
 //const dependenteController = require("../../controllers/backoffice/dependenteController");
 
@@ -32,7 +33,7 @@ route.get('/dashboard', backofficePageController.moradorDashboard)
 route.get('/perfil', backofficePageController.moradorPerfil)
 //route.get('/ocorrencias', backofficePageController.moradorOcorrencias)
 route.get('/areas-comuns', backofficePageController.moradorAreasComuns)
-route.get('/portaria', backofficePageController.moradorPortaria)
+// route.get('/portaria', backofficePageController.moradorPortaria)
 // route.get('/comunicados', backofficePageController.moradorComunicados)
 route.get('/financeiro', financeiroController.index)
 
@@ -98,5 +99,9 @@ route.put('/pets/editar/:petId',uploadPet.any(), petController.update)
 route.get('/comunicados', comunicadoController.index)
 route.get('/comunicados/getComunicados', comunicadoController.getComunicados)
 route.get('/comunicados/:id', comunicadoController.show)
+
+// Rotas para as Correspondencias
+route.get('/correspondencias', correspondenciaController.index)
+
 
 module.exports = route
