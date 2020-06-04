@@ -15,6 +15,7 @@ route.get('/moradores', backofficePageController.portariaMoradores)
 route.get('/areas-comuns', backofficePageController.portariaAreasComuns)
 // route.get('/correspondencias', backofficePageController.portariaCorrespondencias)
 // route.get('/comunicados', backofficePageController.portariaComunicados)
+route.get('/dashboard', backofficePageController.moradorDashboard)
 
 // rotas para os Comunicados
 route.get('/comunicados', comunicadoController.index)

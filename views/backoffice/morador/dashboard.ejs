@@ -21,7 +21,7 @@
         <div class="qtd col-1 col-md-2"><%=comunicados.length%></div>
       </span>
 
-      <div class="corpo row col-md-12" id="texto_comunicados"><%=comunicados[0].mensagem%></div>
+      <div class="corpo row col-md-12" id="texto_comunicados"><%=comunicados.length!=0?comunicados[0].mensagem:"Nenhum dado a ser exibido"%></div>
       <div class="row justify-content-center">
         <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
         
@@ -41,7 +41,7 @@
         <div class="qtd col-1 col-md-2"><%=ocorrencias.length%></div>
       </span>
 
-      <div class="corpo row col-md-12" id="texto_ocorrencias"><%=ocorrencias[0].mensagem%></div>
+      <div class="corpo row col-md-12" id="texto_ocorrencias"><%=ocorrencias.length!=0?ocorrencias[0].mensagem:"Nenhum dado a ser exibido"%></div>
       <div class="row justify-content-center">
         <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
         
@@ -61,7 +61,7 @@
         <div class="qtd col-1 col-md-2"><%=encomendas.length%></div>
       </span>
 
-      <div class="corpo row col-md-12" id="texto_encomendas"><%=encomendas[0].descricao%></div>
+      <div class="corpo row col-md-12" id="texto_encomendas"><%=encomendas.length!=0?encomendas[0].descricao:"Nenhum dado a ser exibido"%></div>
       <div class="row justify-content-center">
         <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
         
@@ -81,7 +81,7 @@
         <div class="qtd col-1 col-md-2"><%=multas.length%></div>
       </span>
 
-      <div class="corpo row col-md-12" id="texto_multas">Nenhum dado a ser exibido</div>
+      <div class="corpo row col-md-12" id="texto_multas"><%=multas.length!=0?multas[0].descricao:"Nenhum dado a ser exibido"%></div>
       <div class="row justify-content-center">
         <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
         
@@ -101,7 +101,7 @@
         <div class="qtd col-1 col-md-2"><%=notificacoes.length%></div>
       </span>
 
-      <div class="corpo row col-md-12" id="texto_notificacoes">Nenhum dado a ser exibido</div>
+      <div class="corpo row col-md-12" id="texto_notificacoes"><%=notificacoes.length!=0?notificacoes[0].descricao:"Nenhum dado a ser exibido"%></div>
       <div class="row justify-content-center">
         <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
         

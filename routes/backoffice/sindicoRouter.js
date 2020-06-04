@@ -23,6 +23,7 @@ route.get('/moradores', moradorController.ListaMoradores)
 route.get('/areas-comuns', backofficePageController.sindicoAreasComuns)
 // route.get('/portaria', backofficePageController.sindicoPortaria)
 route.get('/financeiro', backofficePageController.sindicoFinanceiro)
+route.get('/dashboard', backofficePageController.moradorDashboard)
 
 // Rotas para os Moradores
 route.post('/moradores', uploadMorador.any(), [
