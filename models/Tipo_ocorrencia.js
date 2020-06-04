@@ -20,14 +20,14 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
             allowNull: false
           },
-        
-      },
-      {
-        freezeTableName: true,
-        tablename: "tipos_ocorrencias",
-
-      }
-    );
+        },
+        {
+          freezeTableName: true,
+          tableName: "tipos_ocorrencias"
+          
+  
+        }
+        );
   
     Tipo_ocorrencia.associate = (models) => {
       Tipo_ocorrencia.hasMany(models.Ocorrencia, {

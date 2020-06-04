@@ -136,6 +136,13 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'retirado_por',
       as: 'retirado'
     })
+    Usuario.belongsTo(models.Apartamento, {
+      foreignKey: "apartamento_id",  
+      });
+
+    Usuario.belongsTo(models.Bloco, {
+      foreignKey: "bloco_id",  
+      });
   }
 
   return Usuario;

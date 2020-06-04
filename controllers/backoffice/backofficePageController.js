@@ -10,7 +10,9 @@ const {
   Log_funcionario,
   Comunicado,
   Ocorrencia,
-  Notificacao
+  Notificacao,
+  Bloco,
+  Apartamento,
   //Visitante, 
   //Dependente,
 } = require('../../models')
@@ -67,6 +69,16 @@ let backofficePageController = {
     })
 
     const usuarios = await Usuario.findByPk(req.session.user.id,{
+      include:[ {
+        model: Bloco,
+        required: true,
+      },
+      {
+        model: Apartamento,
+        required: true,
+      }
+      
+    ],
       order: [
         ['created_at', 'DESC']
       ]

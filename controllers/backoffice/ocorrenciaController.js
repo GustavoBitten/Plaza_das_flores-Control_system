@@ -3,7 +3,25 @@ const moment = require("moment");
 
 module.exports = ocorrenciaController = {
     index: async (req, res) => {
-        const listaOcorrencias = await Ocorrencia.findAll()
+        const listaOcorrencias = await Ocorrencia.findAll({
+            include: [{
+                model: Usuario,
+                required: true,
+                where:{id : req.session.user.id},
+               },
+               {
+                model: Status_ocorrencia,
+                required: true,
+               },
+               {
+                model: Tipo_ocorrencia,
+                required: true,
+               },
+            
+            ],
+               
+               
+            })
     
         return res.render("backoffice/morador/ocorrencias", {
             titulo: "Ocorrências",

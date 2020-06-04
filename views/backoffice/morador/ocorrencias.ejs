@@ -47,8 +47,8 @@
             <% listaOcorrencias.forEach(ocorrencia=>{ %>
             <tr>
               <td> <%= ocorrencia.titulo %> </td>
-              <td><%= ocorrencia.tipo %></td>
-              <td><%= ocorrencia.status %></td>
+              <td><%= ocorrencia.Tipo_ocorrencium.tipo %></td>
+              <td><%= ocorrencia.Status_ocorrencium.status %></td>
               <td><%= moment(ocorrencia.created_at).format('DD/MM/YYYY');  %></td>
               <td><button type="button" class="detalhes btn btn-primary" data-toggle="modal"
                   data-target="#detalhes1Modal">
