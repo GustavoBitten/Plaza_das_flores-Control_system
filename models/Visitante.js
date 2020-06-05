@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
           },
-          cpf: {
-            type: DataTypes.STRING(11),
-            allowNull: false
+          foto: {
+            type: DataTypes.STRING,
+            allowNull: true
           },
           rg: {
             type: DataTypes.STRING(15),

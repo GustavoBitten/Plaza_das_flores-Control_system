@@ -7,7 +7,7 @@ module.exports = {
       nome: 'Pet',
       especie: 'Dogue',
       porte: 'Pequeno',
-      foto: '',
+      foto: '/images/padrao/padrao.png',
       created_at: new Date(),
       updated_at: new Date()
     }, {
@@ -15,7 +15,7 @@ module.exports = {
       nome: 'Repete',
       especie: 'Papagaio',
       porte: 'Grande',
-      foto: '',
+      foto: '/images/padrao/padrao.png',
       created_at: new Date(),
       updated_at: new Date()
     }, {
@@ -23,7 +23,7 @@ module.exports = {
       nome: 'Miau',
       especie: 'Gato',
       porte: 'Pequeno',
-      foto: '',
+      foto: '/images/padrao/padrao.png',
       created_at: new Date(),
       updated_at: new Date()
     }], {})

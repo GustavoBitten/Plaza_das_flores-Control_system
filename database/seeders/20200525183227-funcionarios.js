@@ -9,7 +9,7 @@ module.exports = {
       empresa: 'Saraiva, Moraes and Nogueira',
       status: true,
       tipo: 'Pintor',
-      foto: '',
+      foto: '/images/padrao/padrao.png',
       created_at: new Date(),
       updated_at: new Date()
     }, {
@@ -19,7 +19,7 @@ module.exports = {
       empresa: 'Braga LTDA',
       status: true,
       tipo: 'Enfermeira',
-      foto: '',
+      foto: '/images/padrao/padrao.png',
       created_at: new Date(),
       updated_at: new Date()
     }, {
@@ -29,7 +29,7 @@ module.exports = {
       empresa: 'Oliveira e Associados',
       status: true,
       tipo: 'Eletricista',
-      foto: '',
+      foto: '/images/padrao/padrao.png',
       created_at: new Date(),
       updated_at: new Date()
     }], {})

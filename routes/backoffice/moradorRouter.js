@@ -20,7 +20,7 @@ const ocorrenciaController = require("../../controllers/backoffice/ocorrenciaCon
 const financeiroController = require('../../controllers/backoffice/financeiroController')
 const comunicadoController = require('../../controllers/backoffice/comunicadoController')
 const correspondenciaController = require('../../controllers/backoffice/correspondenciaController')
-//const visitanteController = require("../../controllers/backoffice/visitanteController");
+const visitanteController = require("../../controllers/backoffice/visitanteController");
 //const dependenteController = require("../../controllers/backoffice/dependenteController");
 
 
@@ -56,12 +56,12 @@ route.post('/dependentes',uploadDependente.any(), dependenteController.store)
 route.delete('/dependentes/delete/:dependenteId',uploadDependente.any(), dependenteController.delete)
 route.put('/dependentes/editar/:dependenteId',uploadDependente.any(), dependenteController.update)
 
+*/
 
 // Rotas para os Visitantes
 route.post('/visitantes',uploadVisitante.any(), visitanteController.store)
 route.delete('/visitantes/delete/:visitanteId',uploadVisitante.any(), visitanteController.delete)
 route.put('/visitantes/editar/:visitanteId',uploadVisitante.any(), visitanteController.update)
-*/
 
 // Rotas para os Funcionários
 route.post('/funcionarios',uploadFuncionario.any(), funcionarioController.store)

@@ -6,7 +6,7 @@ module.exports = {
       modelo: 'Toyota Etios',
       placa: 'SDF-7516',
       cor: 'Prata',
-      foto: '',
+      foto: '/images/padrao/padrao.png',
       morador_id: 1,
       created_at: new Date(),
       updated_at: new Date()
@@ -14,7 +14,7 @@ module.exports = {
       modelo: 'Honda Civic',
       placa: 'GEW-5832',
       cor: 'Preto',
-      foto: '',
+      foto: '/images/padrao/padrao.png',
       morador_id: 2,
       created_at: new Date(),
       updated_at: new Date()

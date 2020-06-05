@@ -3,8 +3,9 @@ const { Visitante, Visita, Usuario } = require('../../models')
 module.exports = visitanteController = {
     store: async (req, res) => {
         const { user } = req.session;
-        const { nome, rg, cpf, tipo } = req.body;
+        const { nomeVisitante, rgVisitante, tipoVisitante } = req.body;
         const [fotoVisitante] = req.files;
+
         let foto = null   
         if(foto == null){foto = `/images/padrao/padrao.png` } 
         if(fotoVisitante){foto = `/images/visitantes/${fotoVisitante.filename}` }  
@@ -13,14 +14,16 @@ module.exports = visitanteController = {
             const novoVisitante = await Visitante.create({
                 nome: nomeVisitante,
                 rg: rgVisitante,
-                cpf: cpfVistiante,
-                foto: foto,
+                tipo: tipoVisitante,
+                cpf: foto,
+                //foto: foto,
             })
 
-            const novaVisita =  await Visita.create({
-                morador_id = user.id,
-                visitante_id = novoVisitante.id
-            })
+             const novaVisita =  await Visita.create({
+                 visitante_id : novoVisitante.id,
+                 morador_id : user.id,
+                 tipo: true
+             })
             return res.status(201).redirect('/backoffice/morador/perfil')
         } catch (error) {
             return res.status(400).json(error);
@@ -46,7 +49,7 @@ module.exports = visitanteController = {
         const { user } = req.session;
         const { visitanteId } = req.params
         const [fotoVisitante] = req.files;
-        const { nome, rg, cpf, tipo } = req.body;
+        const { nomeVisitante, rgVisitante, tipoVisitante } = req.body;
         let foto = null   
         if(foto == null){foto = `/images/padrao/padrao.png` } 
         if(fotoVisitante){foto = `/images/visitantes/${fotoVisitante.filename}` } 
@@ -55,7 +58,8 @@ module.exports = visitanteController = {
             const editarVisitante = await Visitante.update({
                 nome: nomeVisitante,
                 rg: rgVisitante,
-                cpf: cpfVistiante,
+                tipo: tipoVisitante,
+                cpf: "vazio",
                 foto: foto,
             }, {
                 where: { id: visitanteId }

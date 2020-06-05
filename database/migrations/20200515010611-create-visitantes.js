@@ -13,9 +13,9 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      cpf: {
-        type: Sequelize.STRING(11),
-        allowNull: false
+      foto: {
+        type: Sequelize.STRING,
+        allowNull: true
       },
       rg: {
         type: Sequelize.STRING(15),

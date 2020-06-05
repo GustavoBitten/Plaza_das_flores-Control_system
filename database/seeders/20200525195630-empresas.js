@@ -7,7 +7,7 @@ module.exports = {
       nome: 'Saraiva',
       cnpj: '',
       rg: '',
-      foto: '',
+      foto: '/images/padrao/padrao.png',
       created_at: new Date(),
       updated_at: new Date()
     }, {
@@ -15,7 +15,7 @@ module.exports = {
       nome: 'Sindico ltda',
       cnpj: '174624853214978',
       rg: '',
-      foto: '',
+      foto: '/images/padrao/padrao.png',
       created_at: new Date(),
       updated_at: new Date()
     }], {})
