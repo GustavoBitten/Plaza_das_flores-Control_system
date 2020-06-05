@@ -97,7 +97,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Usuario.belongsToMany(models.Funcionario, {
       through: models.Log_funcionario,
-      foreignKey: "funcionario_id", //
+      foreignKey: "morador_id", //
     });
     //   Usuario.belongsToMany(models.Visitante, {
     //     through: models.Visita, //tab intermediaria

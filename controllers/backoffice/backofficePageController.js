@@ -1,4 +1,4 @@
-const moment = require("moment"); 
+const moment = require("moment");
 const session = require('express-session')
 const {
   Pet,
@@ -6,43 +6,48 @@ const {
   Veiculo,
   Compromisso,
   Empresa,
-  Funcionario, 
-  Log_funcionario,
+  Funcionario,
   Comunicado,
   Ocorrencia,
   Notificacao,
   Bloco,
   Apartamento,
+  Log_funcionario,
   //Visitante, 
   //Dependente,
 } = require('../../models')
 
 let backofficePageController = {
   moradorDashboard: async (req, res) => {
-    
+
     const comunicados = await Comunicado.findAll({
       order: [
         ['created_at', 'DESC']
-    ]})
+      ]
+    })
     const ocorrencias = await Ocorrencia.findAll({
       order: [
         ['created_at', 'DESC']
-    ]})
+      ]
+    })
     const encomendas = await Notificacao.findAll({
-      where:{morador_id:req.session.user.id, tipo_notificacoes_id:3 },
+      where: { morador_id: req.session.user.id, tipo_notificacoes_id: 3 },
       order: [
         ['created_at', 'DESC']
-    ]})
+      ]
+    })
     const notificacoes = await Notificacao.findAll({
-      where:{morador_id:req.session.user.id, tipo_notificacoes_id:1 },
+      where: { morador_id: req.session.user.id, tipo_notificacoes_id: 1 },
       order: [
         ['created_at', 'DESC']
-    ]})
+      ]
+    })
     const multas = await Notificacao.findAll({
-      where:{morador_id:req.session.user.id, tipo_notificacoes_id:2 },
+      where: { morador_id: req.session.user.id, tipo_notificacoes_id: 2 },
       order: [
         ['created_at', 'DESC']
-    ]})
+      ]
+    })
     res.render("backoffice/morador/dashboard", {
       titulo: "Morador - Dashboard",
       usuario: req.session.user,
@@ -56,70 +61,71 @@ let backofficePageController = {
   moradorPerfil: async (req, res) => {
 
     const pets = await Pet.findAll({
-      where:{morador_id:req.session.user.id },
+      where: { morador_id: req.session.user.id },
       order: [
         ['created_at', 'DESC']
       ]
     })
     const veiculos = await Veiculo.findAll({
-      where:{morador_id:req.session.user.id },
+      where: { morador_id: req.session.user.id },
       order: [
         ['created_at', 'DESC']
-      ],   
+      ],
     })
 
-    const usuarios = await Usuario.findByPk(req.session.user.id,{
-      include:[ {
-        model: Bloco,
-        required: true,
-      },
-      {
-        model: Apartamento,
-        required: true,
-      }
-      
-    ],
+    const usuarios = await Usuario.findByPk(req.session.user.id, {
+      include: [
+        {
+          model: Bloco,
+          required: true,
+        },
+        {
+          model: Apartamento,
+          required: true,
+        }],
       order: [
         ['created_at', 'DESC']
       ]
     })
-      
-   
-    
+
+
+
     const funcionarios = await Funcionario.findAll({
-      //include:{
-        //model: Usuario,
-       // required: true,
-        //through:{attributes:[]},
-        //where:{id : req.session.user.id},
-      //},  
-    })
-    
-    /*    
-  
-
-    const dependentes = await Depentende.findAll({
-      order: [
-        ['createdAt', 'DESC']
-      ]
-    })
-   
-    const visitantes = await Visitante.findAll({
+      include: {
+        model: Usuario,
+        where: { id: req.session.user.id },
+      },
       order: [
         ['created_at', 'DESC']
       ]
+
+    })
+
+    /*    
+    
+    
+    const dependentes = await Depentende.findAll({
+    order: [
+    ['createdAt', 'DESC']
+    ]
+    })
+    
+    const visitantes = await Visitante.findAll({
+    order: [
+    ['created_at', 'DESC']
+    ]
     })
     
     */
     const empresas = await Empresa.findAll({
-      where:{morador_id:req.session.user.id },
+      where: { morador_id: req.session.user.id },
       order: [
         ['created_at', 'DESC']
       ]
     })
 
     const compromissos = await Compromisso.findAll({
-      where:{morador_id:req.session.user.id },
+      where: { morador_id: req.session.user.id },
       order: [
         ['created_at', 'DESC']
       ]
@@ -141,11 +147,11 @@ let backofficePageController = {
     })
   },
   //moradorOcorrencias: (req, res) => {
-    //const listaOcorrencias = await Ocorrencia.findAll()
-    //res.render("backoffice/morador/ocorrencias", {
-      //titulo: "Morador - Ocorrências",
-      //usuario: req.session.user
-    //})
+  //const listaOcorrencias = await Ocorrencia.findAll()
+  //res.render("backoffice/morador/ocorrencias", {
+  //titulo: "Morador - Ocorrências",
+  //usuario: req.session.user
+  //})
   //},
   moradorAreasComuns: (req, res) => {
     res.render("backoffice/morador/areasComuns", {

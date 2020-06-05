@@ -320,21 +320,21 @@
                     <% funcionarios.forEach( (funcionario,index) => { %>
                       <% if(index == 0){ %>
                       <div class="carousel-item active">
-                      <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                      <img class="foto" src="<%= funcionario.foto %>"
                         alt="First slide" style=" width:120 ; height: 80px;">
 
-                      <p class="card-title" style="margin: 0;"> <%= funcionarios.nome %></p>
-                      <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= funcionarios.rg %></p>
-                      <p class="card-text" style="margin: 0;"><b>Cpf: </b> <%= funcionarios.cpf %></p>
+                      <p class="card-title" style="margin: 0;"> <%= funcionario.nome %></p>
+                      <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= funcionario.rg %></p>
+                      <p class="card-text" style="margin: 0;"><b>Cpf: </b> <%= funcionario.cpf %></p>
                     </div>
                     <% } else { %>
                     <div class="carousel-item">
-                      <img class="foto" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png"
+                      <img class="foto" src="<%= funcionario.foto %>"
                         alt="" style=" width:120 ; height: 80px;">
 
-                        <p class="card-title" style="margin: 0;"> <%= funcionarios.nome %></p>
-                        <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= funcionarios.rg %></p>
-                        <p class="card-text" style="margin: 0;"><b>Cpf: </b> <%= funcionarios.cpf %></p>
+                        <p class="card-title" style="margin: 0;"> <%= funcionario.nome %></p>
+                        <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= funcionario.rg %></p>
+                        <p class="card-text" style="margin: 0;"><b>Cpf: </b> <%= funcionario.cpf %></p>
                     </div>
                     <% } %>
 

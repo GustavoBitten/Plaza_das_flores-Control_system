@@ -19,8 +19,12 @@ module.exports = funcionarioController = {
                 tipo: tipoFuncionario,
                 status: true,
                 foto: foto,
-               // morador_id: user.id,
             })
+
+            const log = await Log_funcionario.create({
+                morador_id: user.id,
+                funcionario_id: novoFuncionario.id,
+             })
             return res.status(201).redirect('/backoffice/morador/perfil')
         } catch (error) {
             return res.status(400).json(error);
@@ -29,13 +33,14 @@ module.exports = funcionarioController = {
     },
     delete: async (req, res) => {
         const { funcionarioId } = req.params;
+        const { user } = req.session;
+        
 
         try {
             const deleteFuncionario = await Funcionario.destroy({
                 where: [{ id: funcionarioId },
                 ]
             });
-
             return res.redirect("/backoffice/morador/perfil");
         } catch (error) {
             return res.status(400).json(error);
@@ -63,7 +68,7 @@ module.exports = funcionarioController = {
                 foto: foto,
                 //morador_id: user.id,
             }, {
-                where: { id: FuncionarioId }
+                where: { id: funcionarioId }
             })
 
             return res.redirect("/backoffice/morador/perfil")

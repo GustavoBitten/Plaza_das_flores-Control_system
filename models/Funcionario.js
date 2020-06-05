@@ -83,7 +83,7 @@ module.exports = (sequelize, DataTypes) => {
   Funcionario.associate = (models) => {
     Funcionario.belongsToMany(models.Usuario, {
       through: models.Log_funcionario,
-      foreignKey: "morador_id",  // , as: "moradores"
+      foreignKey: "funcionario_id",  // , as: "moradores"
     });
 
   };
