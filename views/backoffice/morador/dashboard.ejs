@@ -6,6 +6,7 @@
 
   <link rel="stylesheet" href="/css/backoffice/layout.css">
   <link rel="stylesheet" href="/css/backoffice/dashboard.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
 </head>
 
 <body>
@@ -23,14 +24,14 @@
 
       <div class="corpo row col-md-12" id="texto_comunicados"><%=comunicados.length!=0?comunicados[0].mensagem:"Nenhum dado a ser exibido"%></div>
       <div class="row justify-content-center">
-        <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
+        <button type="button" class="btn btn-primary  col-md-5" onclick="location.href='/backoffice/morador/comunicados'">Detalhes</button>
         
       </div>
       <div class="rodape row ">
         
-        <div class="rotape col-1 col-md-4" id="regredir_comunicados"><a href="" onclick="return false;"><-</a></div>
-        <div class="rotape col-1 col-md-4" id="iniciar_comunicados"><a href="" onclick="return false;">O</a></div>
-        <div class="rotape col-1 col-md-4" id="avancar_comunicados"><a href="" onclick="return false;">></a></div>
+        <div class="rotape col-1 col-md-4" id="regredir_comunicados"><a href="" onclick="return false;"><i class="fa fa-chevron-left" style="font-size:36px"></i></a></div>
+        <div class="rotape col-1 col-md-4" id="iniciar_comunicados"><a href="" onclick="return false;"><i class="material-icons" style="font-size:36px">fiber_manual_record</i></a></div>
+        <div class="rotape col-1 col-md-4" id="avancar_comunicados"><a class= href="" onclick="return false;"><i class="fa fa-chevron-right" style="font-size:36px"></i></a></div>
       </div>
 
     </div>
@@ -43,14 +44,14 @@
 
       <div class="corpo row col-md-12" id="texto_ocorrencias"><%=ocorrencias.length!=0?ocorrencias[0].mensagem:"Nenhum dado a ser exibido"%></div>
       <div class="row justify-content-center">
-        <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
+        <button type="button" class="btn btn-primary  col-md-5" onclick="location.href='/backoffice/morador/ocorrencias'">Detalhes</button>
         
       </div>
       <div class="rodape row ">
         
-        <div class="rotape col-1 col-md-4 " id="regredir_ocorrencias"><a href="" onclick="return false;"><-</a></div>
-        <div class="rotape col-1 col-md-4" id="iniciar_ocorrencias"><a href="" onclick="return false;">O</a></div>
-        <div class="rotape col-1 col-md-4" id="avancar_ocorrencias"><a href="" onclick="return false;">></a></div>
+        <div class="rotape col-1 col-md-4 " id="regredir_ocorrencias"><a href="" onclick="return false;"><i class="fa fa-chevron-left" style="font-size:36px"></i></a></div>
+        <div class="rotape col-1 col-md-4" id="iniciar_ocorrencias"><a href="" onclick="return false;"><i class="material-icons" style="font-size:36px">fiber_manual_record</i></a></div>
+        <div class="rotape col-1 col-md-4" id="avancar_ocorrencias"><a href="" onclick="return false;"><i class="fa fa-chevron-right" style="font-size:36px"></i></a></div>
       </div>
 
     </div>
@@ -63,14 +64,14 @@
 
       <div class="corpo row col-md-12" id="texto_encomendas"><%=encomendas.length!=0?encomendas[0].descricao:"Nenhum dado a ser exibido"%></div>
       <div class="row justify-content-center">
-        <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
+        <button type="button" class="btn btn-primary  col-md-5" onclick="location.href='/backoffice/morador/correspondencias'">Detalhes</button>
         
       </div>
       <div class="rodape row ">
         
-        <div class="rotape col-1 col-md-4" id="regredir_encomendas"><a href="" onclick="return false;"><-</a></div>
-        <div class="rotape col-1 col-md-4" id="iniciar_encomendas"><a href="" onclick="return false;">O</a></div>
-        <div class="rotape col-1 col-md-4" id="avancar_encomendas"><a href="" onclick="return false;">></a></div>
+        <div class="rotape col-1 col-md-4" id="regredir_encomendas"><a href="" onclick="return false;"><i class="fa fa-chevron-left" style="font-size:36px"></i></a></div>
+        <div class="rotape col-1 col-md-4" id="iniciar_encomendas"><a href="" onclick="return false;"><i class="material-icons" style="font-size:36px">fiber_manual_record</i></a></div>
+        <div class="rotape col-1 col-md-4" id="avancar_encomendas"><a href="" onclick="return false;"><i class="fa fa-chevron-right" style="font-size:36px"></i></a></div>
       </div>
 
     </div>
@@ -83,14 +84,14 @@
 
       <div class="corpo row col-md-12" id="texto_multas"><%=multas.length!=0?multas[0].descricao:"Nenhum dado a ser exibido"%></div>
       <div class="row justify-content-center">
-        <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
+        <button type="button" class="btn btn-primary  col-md-5" onclick="location.href='/backoffice/morador/ocorrencias'">Detalhes</button>
         
       </div>
       <div class="rodape row ">
         
-        <div class="rotape col-1 col-md-4" id="regredir_multas"><a href="" onclick="return false;"><-</a></div>
-        <div class="rotape col-1 col-md-4 " id="iniciar_multas"><a href="" onclick="return false;">O</a></div>
-        <div class="rotape col-1 col-md-4" id="avancar_multas"><a href="" onclick="return false;">></a></div>
+        <div class="rotape col-1 col-md-4" id="regredir_multas"><a href="" onclick="return false;"><i class="fa fa-chevron-left" style="font-size:36px"></i></a></div>
+        <div class="rotape col-1 col-md-4 " id="iniciar_multas"><a href="" onclick="return false;"><i class="material-icons" style="font-size:36px">fiber_manual_record</i></a></div>
+        <div class="rotape col-1 col-md-4" id="avancar_multas"><a href="" onclick="return false;"><i class="fa fa-chevron-right" style="font-size:36px"></i></a></div>
       </div>
 
     </div>
@@ -103,14 +104,14 @@
 
       <div class="corpo row col-md-12" id="texto_notificacoes"><%=notificacoes.length!=0?notificacoes[0].descricao:"Nenhum dado a ser exibido"%></div>
       <div class="row justify-content-center">
-        <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
+        <button type="button" class="btn btn-primary  col-md-5" onclick="location.href='/backoffice/morador/ocorrencias'">Detalhes</button>
         
       </div>
       <div class="rodape row ">
         
-        <div class="rotape col-1 col-md-4" id="regredir_notificacoes"><a href="" onclick="return false;"><-</a></div>
-        <div class="rotape col-1 col-md-4" id="iniciar_notificacoes"><a href="" onclick="return false;">O</a></div>
-        <div class="rotape col-1 col-md-4" id="avancar_notificacoes"><a href="" onclick="return false;">></a></div>
+        <div class="rotape col-1 col-md-4" id="regredir_notificacoes"><a href="" onclick="return false;"><i class="fa fa-chevron-left" style="font-size:36px"></i></a></div>
+        <div class="rotape col-1 col-md-4" id="iniciar_notificacoes"><a href="" onclick="return false;"><i class="material-icons" style="font-size:36px">fiber_manual_record</i></a></div>
+        <div class="rotape col-1 col-md-4" id="avancar_notificacoes"><a href="" onclick="return false;"><i class="fa fa-chevron-right" style="font-size:36px"></i></a></div>
       </div>
 
     </div>
@@ -123,14 +124,14 @@
 
       <div class="corpo row col-md-12" id="texto_financeiro">Nenhum dado a ser exibido</div>
       <div class="row justify-content-center">
-        <button type="button" class="btn btn-primary  col-md-5">Detalhes</button>
+        <button type="button" class="btn btn-primary  col-md-5" onclick="location.href='/backoffice/morador/financeiro'">Detalhes</button>
         
       </div>
       <div class="rodape row ">
         
-        <div class="rotape col-1 col-md-4" id="regredir_financeiro"><a href="" onclick="return false;"><-</a></div>
-        <div class="rotape col-1 col-md-4"><a href="" onclick="return false;">O</a></div>
-        <div class="rotape col-1 col-md-4" id="avancar_financeiro"><a href="" onclick="return false;">></a></div>
+        <div class="rotape col-1 col-md-4" id="regredir_financeiro"><a href="" onclick="return false;"><i class="fa fa-chevron-left" style="font-size:36px"></i></a></div>
+        <div class="rotape col-1 col-md-4"><a href="" onclick="return false;"><i class="material-icons" style="font-size:36px">fiber_manual_record</i></a></div>
+        <div class="rotape col-1 col-md-4" id="avancar_financeiro"><a href="" onclick="return false;"><i class="fa fa-chevron-right" style="font-size:36px"></i></a></div>
       </div>
 
     </div>
