@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: { tablename: "moradores" },
+          model: { tablename: "usuarios" },
           key: 'id'
         },
         onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too

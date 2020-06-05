@@ -99,19 +99,19 @@ module.exports = (sequelize, DataTypes) => {
       through: models.Log_funcionario,
       foreignKey: "morador_id", //
     });
-    //   Usuario.belongsToMany(models.Visitante, {
-    //     through: models.Visita, //tab intermediaria
-    //     foreignKey: "visitante_id", //
-    //   });
+    Usuario.belongsToMany(models.Visitante, {
+         through: models.Visita,
+         foreignKey: "morador_id", 
+       });
     Usuario.hasMany(models.Veiculo, {
       foreignKey: "morador_id",
     });
     Usuario.hasMany(models.Compromisso, {
       foreignKey: "morador_id",
     });
-    //   Usuario.hasMany(models.Empresa, {
-    //     foreignKey: "morador_id", //
-    //   });
+       Usuario.hasMany(models.Empresa, {
+         foreignKey: "morador_id", 
+       });
     Usuario.hasMany(models.Pet, {
       foreignKey: "morador_id",
     });

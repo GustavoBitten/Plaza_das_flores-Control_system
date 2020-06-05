@@ -66,7 +66,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Empresa.associate = (models) => {
    Empresa.belongsTo(models.Usuario, {
-   foreignKey: "morador_id",  // , as: "moradores"
+   foreignKey: "morador_id",  
     });
 
   };

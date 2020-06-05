@@ -12,8 +12,8 @@ const {
   Notificacao,
   Bloco,
   Apartamento,
-  Log_funcionario,
-  //Visitante, 
+  Visitante,
+
   //Dependente,
 } = require('../../models')
 
@@ -109,14 +109,18 @@ let backofficePageController = {
     ['createdAt', 'DESC']
     ]
     })
-    
-    const visitantes = await Visitante.findAll({
-    order: [
-    ['created_at', 'DESC']
-    ]
-    })
-    
     */
+
+    const visitantes = await Visitante.findAll({
+      include: {
+        model: Usuario,
+        where: { id: req.session.user.id },
+       },
+      order: [
+        ['created_at', 'DESC']
+      ]
+    })
+
     const empresas = await Empresa.findAll({
       where: { morador_id: req.session.user.id },
       order: [
@@ -141,8 +145,8 @@ let backofficePageController = {
       empresas,
       funcionarios,
       moment,
+      visitantes,
       //dependentes,
-      //visitantes,
 
     })
   },

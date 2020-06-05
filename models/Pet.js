@@ -78,7 +78,7 @@ module.exports = (sequelize, DataTypes) => {
     
         Pet.associate = (models) => {
         Pet.belongsTo(models.Usuario, {
-        foreignKey: "morador_id",  // , as: "moradores"
+        foreignKey: "morador_id",  
         });
     
     };
