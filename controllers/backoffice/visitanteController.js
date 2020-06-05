@@ -15,8 +15,7 @@ module.exports = visitanteController = {
                 nome: nomeVisitante,
                 rg: rgVisitante,
                 tipo: tipoVisitante,
-                cpf: foto,
-                //foto: foto,
+                foto: foto,
             })
 
              const novaVisita =  await Visita.create({
@@ -59,7 +58,6 @@ module.exports = visitanteController = {
                 nome: nomeVisitante,
                 rg: rgVisitante,
                 tipo: tipoVisitante,
-                cpf: "vazio",
                 foto: foto,
             }, {
                 where: { id: visitanteId }
