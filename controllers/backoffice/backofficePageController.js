@@ -13,8 +13,9 @@ const {
   Bloco,
   Apartamento,
   Visitante,
-
-  //Dependente,
+  Dependente,
+  //Telefone,
+  //Tipos_Telefone
 } = require('../../models')
 
 let backofficePageController = {
@@ -58,6 +59,9 @@ let backofficePageController = {
       multas: multas
     })
   },
+
+
+
   moradorPerfil: async (req, res) => {
 
     const pets = await Pet.findAll({
@@ -82,7 +86,14 @@ let backofficePageController = {
         {
           model: Apartamento,
           required: true,
-        }],
+        },
+       // {
+        //  model:Telefone,
+        // required: true,
+       // },
+      
+      
+      ],
       order: [
         ['created_at', 'DESC']
       ]
@@ -100,16 +111,8 @@ let backofficePageController = {
       ]
 
     })
-
-    /*    
+       
     
-    
-    const dependentes = await Depentende.findAll({
-    order: [
-    ['createdAt', 'DESC']
-    ]
-    })
-    */
 
     const visitantes = await Visitante.findAll({
       include: {
@@ -135,6 +138,18 @@ let backofficePageController = {
       ]
     })
 
+    const dependentes = await Dependente.findAll({
+      where: {morador_id: req.session.user.id },
+      include: {
+        model: Usuario,
+        required: true,
+        where: {tipo_usuario_id: 1},
+      },
+    order: [
+    ['created_at', 'DESC']
+    ]
+    })
+
     res.render("backoffice/morador/perfil", {
       titulo: "Morador - Perfil",
       usuario: req.session.user,
@@ -146,7 +161,7 @@ let backofficePageController = {
       funcionarios,
       moment,
       visitantes,
-      //dependentes,
+      dependentes,
 
     })
   },

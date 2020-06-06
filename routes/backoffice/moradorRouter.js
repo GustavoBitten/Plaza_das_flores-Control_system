@@ -6,6 +6,7 @@ const uploadVisitante = require("../../config/uploadVisitante");
 const uploadEmpresa = require("../../config/uploadEmpresa");
 const uploadCompromisso = require("../../config/uploadCompromisso");
 const uploadOcorrencia = require("../../config/uploadocorrencia");
+const uploadDependente = require("../../config/uploadDependente");
 
 const backofficePageController = require('../../controllers/backoffice/backofficePageController');
 const blocoController = require('../../controllers/backoffice/blocoController');
@@ -21,7 +22,7 @@ const financeiroController = require('../../controllers/backoffice/financeiroCon
 const comunicadoController = require('../../controllers/backoffice/comunicadoController')
 const correspondenciaController = require('../../controllers/backoffice/correspondenciaController')
 const visitanteController = require("../../controllers/backoffice/visitanteController");
-//const dependenteController = require("../../controllers/backoffice/dependenteController");
+const dependenteController = require("../../controllers/backoffice/dependenteController");
 
 
 let route = express.Router()
@@ -50,13 +51,13 @@ route.post('/moradores', moradorController.store)
 
 
 
-/*
+
 // Rotas para os Dependentes
 route.post('/dependentes',uploadDependente.any(), dependenteController.store)
 route.delete('/dependentes/delete/:dependenteId',uploadDependente.any(), dependenteController.delete)
 route.put('/dependentes/editar/:dependenteId',uploadDependente.any(), dependenteController.update)
 
-*/
+
 
 // Rotas para os Visitantes
 route.post('/visitantes',uploadVisitante.any(), visitanteController.store)

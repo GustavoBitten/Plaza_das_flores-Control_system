@@ -23,10 +23,16 @@ module.exports = (sequelize, DataTypes) => {
         
       },
       {
-        timestamps: true, // utliza
+        freezeTableName: true,
         tablename: "tipos_telefones"
       }
     );
+
+    Tipos_telefone.associate = (models) => {
+      Tipos_telefone.hasMany(models.Telefone, {
+        foreignKey: 'tipo_telefone_id',
+      })
+    }
 
  
     return Tipos_telefone;
