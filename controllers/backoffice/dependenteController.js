@@ -13,7 +13,6 @@ module.exports = dependenteController = {
         if(foto == null){foto = `/images/padrao/padrao.png` } 
         if(fotoDependente){foto = `/images/dependentes/${fotoDependente.filename}` }  
         tokenD = generateId()
-        
         const senhaD = bcrypt.hashSync(cpfDependente, 10)
 
         try {
@@ -47,7 +46,7 @@ module.exports = dependenteController = {
 
         try {
             const deleteDependente= await Dependente.destroy({
-                where: [{ id: visitanteId },
+                where: [{ id: dependenteId },
                 ]
             });
 
@@ -59,16 +58,29 @@ module.exports = dependenteController = {
     },
     update: async (req, res) => {
         const { user } = req.session;
-        const {  } = req.body;
+        const {nomeDependente, emailDependente, cpfDependente, rgDependente  } = req.body;
         const [fotoDependente] = req.files;
+        const { dependenteId } = req.params;
 
         let foto = null   
         if(foto == null){foto = `/images/padrao/padrao.png` } 
         if(fotoDependente){foto = `/images/dependentes/${fotoDependente.filename}` }  
-        
+        tokenD = generateId()
+        const senhaD = bcrypt.hashSync(cpfDependente, 10)
 
         try {
             const editarDependente = await Usuario.update({
+                nome: nomeDependente,
+                email: emailDependente,
+                cpf: cpfDependente,
+                rg: rgDependente,
+                bloco_id: user.bloco_id,
+                apartamento_id: user.apartamento_id,
+                senha: senhaD,
+                foto: foto,
+                tipo_usuario_id: 1,
+                status: true,
+                token: tokenD,
                
             }, {
                 where: { id: dependenteId }

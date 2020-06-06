@@ -1053,9 +1053,9 @@
       </div>
       <div class="modal-body">
         <% dependentes.forEach(dependente =>{ %>
-
-          <form action="/backoffice/morador/dependentes/editar/<%=dependente.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+          <form action="/backoffice/morador/dependentes/editar/<%=dependente.Usuario.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
             <% }) %>
+              <div>
           <label for="nomeDependente" class="col-form-label">Editar Nome</label>
           <input type="text" class="form-control" name="nomeDependente" id="nomeDependente" placeholder="Nome">
         </div>
@@ -1080,12 +1080,12 @@
 
 
 
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-primary">Incluir</button>
+        </form>
+        
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary">Incluir</button>
-      </form>
-
       </div>
     </div>
   </div>
@@ -1109,7 +1109,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
         <% dependentes.forEach(dependente =>{ %>
-          <form action="/backoffice/morador/visitantes/delete/<%= dependente.id %>?_method=DELETE" method="POST"
+          <form action="/backoffice/morador/dependentes/delete/<%= dependente.id %>?_method=DELETE" method="POST"
             enctype="multipart/form-data">
             <% }) %>
         <button type="submit" class="btn btn-primary">Sim</button>
