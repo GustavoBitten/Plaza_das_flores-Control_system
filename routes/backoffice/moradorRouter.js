@@ -1,4 +1,5 @@
 const express = require('express')
+
 const uploadPet = require("../../config/uploadPet");
 const uploadVeiculo = require("../../config/uploadVeiculo");
 const uploadFuncionario = require("../../config/uploadFuncionario");
@@ -7,6 +8,8 @@ const uploadEmpresa = require("../../config/uploadEmpresa");
 const uploadCompromisso = require("../../config/uploadCompromisso");
 const uploadOcorrencia = require("../../config/uploadocorrencia");
 const uploadDependente = require("../../config/uploadDependente");
+const uploadMorador = require("../../config/uploadMorador");
+
 
 const backofficePageController = require('../../controllers/backoffice/backofficePageController');
 const blocoController = require('../../controllers/backoffice/blocoController');
@@ -23,6 +26,7 @@ const comunicadoController = require('../../controllers/backoffice/comunicadoCon
 const correspondenciaController = require('../../controllers/backoffice/correspondenciaController')
 const visitanteController = require("../../controllers/backoffice/visitanteController");
 const dependenteController = require("../../controllers/backoffice/dependenteController");
+const perfilController = require("../../controllers/backoffice/perfilController");
 
 
 let route = express.Router()
@@ -51,13 +55,14 @@ route.post('/moradores', moradorController.store)
 
 
 
+// Rotas para os Perfis
+route.put('/perfis/editar/:perfilId',uploadMorador.any(), perfilController.update)
+
 
 // Rotas para os Dependentes
 route.post('/dependentes',uploadDependente.any(), dependenteController.store)
 route.delete('/dependentes/delete/:dependenteId',uploadDependente.any(), dependenteController.delete)
 route.put('/dependentes/editar/:dependenteId',uploadDependente.any(), dependenteController.update)
-
-
 
 // Rotas para os Visitantes
 route.post('/visitantes',uploadVisitante.any(), visitanteController.store)

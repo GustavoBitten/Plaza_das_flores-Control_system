@@ -336,8 +336,8 @@
                         alt="First slide" style=" width:120 ; height: 80px;">
 
                       <p class="card-title" style="margin: 0;"> <%= funcionario.nome %></p>
-                      <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= funcionario.rg %></p>
-                      <p class="card-text" style="margin: 0;"><b>Empresa: </b> <%= funcionario.empresa %></p>
+                      <p class="card-text" style="margin: 0;"><b>Tipo: </b> <%= funcionario.tipo %></p>
+                      <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= funcionario.rg%></p>
                     </div>
                     <% } else { %>
                     <div class="carousel-item">
@@ -345,8 +345,8 @@
                         alt="" style=" width:120 ; height: 80px;">
 
                         <p class="card-title" style="margin: 0;"> <%= funcionario.nome %></p>
+                        <p class="card-text" style="margin: 0;"><b>Tipo: </b> <%= funcionario.tipo %></p>
                         <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= funcionario.rg %></p>
-                        <p class="card-text" style="margin: 0;"><b>Empresa: </b> <%= funcionario.empresa %></p>
                     </div>
                     <% } %>
 
@@ -896,25 +896,25 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="editarEmailPerfil" class="col-form-label">Novo Email</label>
-            <input type="email" class="form-control" name="editarEmailPerfil" id="editarEmailPerfil"
+            <label for="emailPerfil" class="col-form-label">Novo Email</label>
+            <input type="email" class="form-control" name="emailPerfil" id="emailPerfil"
               placeholder="Novo Email">
           </div>
           <div class="form-group">
-            <label for="editarTelPerfil" class="col-form-label">Novo Tel</label>
-            <input type="tel" class="form-control" name="editarTelPerfil" id="editarTelPerfil"
+            <label for="telPerfil" class="col-form-label">Novo Tel</label>
+            <input type="tel" class="form-control" name="telPerfil" id="telPerfil"
               placeholder="Novo Telefone">
           </div>
           <div class="form-group">
-            <label for="editarFotoPerfil">Foto</label>
-            <input type="file" class="form" name="editarFotoPerfil" id="editarFotoPerfil">
+            <label for="fotoPerfil">Foto</label>
+            <input type="file" class="form" name="fotoPerfil" id="fotoPerfil">
           </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary">Salvar</button>
-
+          
       </div>
     </div>
   </div>
@@ -932,22 +932,22 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+          <form action="/backoffice/morador/perfis/editar/<%=usuario.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
           <div class="form-group">
             <label for="novaSenha" class="col-form-label">Nova Senha</label>
             <input type="password" class="form-control" name="novaSenha" id="novaSenha" placeholder="Nova Senha">
           </div>
           <div class="form-group">
             <label for="senhaAtual" class="col-form-label">Senha Atual</label>
-            <input type="password" class="form-control" name="senhaAtuale" id="senhaAtual" placeholder="Senha Atual">
+            <input type="text" class="form-control" name="senhaAtual" id="senhaAtual" placeholder="Senha Atual">
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary">Salvar</button>
-
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+          
+        </div>
+      </form>
     </div>
   </div>
 </div>

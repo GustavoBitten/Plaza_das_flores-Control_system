@@ -9,17 +9,47 @@ module.exports = (sequelize, DataTypes) => {
       },
       nome: {
         type: DataTypes.STRING(192),
-        allowNull: false
+        allowNull: false,
+        validate:{
+          notEmpty: {
+              msg: "O campo Nome não pode ser vazio"
+          },
+          len:{
+              args: [0,192],
+              msg: "Máx de 192 caracteres"
+            } 
+
+      }
       },
       email: {
         type: DataTypes.STRING(192),
         unique: true,
-        allowNull: false
+        allowNull: false,
+        validate:{
+          notEmpty: {
+              msg: "O campo E-mail não pode ser vazio"
+          },
+          len:{
+              args: [0,192],
+              msg: "Máx de 192 caracteres"
+            } 
+
+      }
       },
       cpf: {
         type: DataTypes.STRING(11),
         unique: true,
-        allowNull: false
+        allowNull: false,
+        validate:{
+          notEmpty: {
+              msg: "O campo cpf não pode ser vazio"
+          },
+          len:{
+              args: [0,11],
+              msg: "Máx de 11 caracteres"
+            } 
+
+      }
       },
       rg: {
         type: DataTypes.STRING(15),
@@ -51,7 +81,17 @@ module.exports = (sequelize, DataTypes) => {
       },
       senha: {
         type: DataTypes.STRING(150),
-        allowNull: false
+        allowNull: false,
+        validate:{
+          notEmpty: {
+              msg: "O campo Senha não pode ser vazio"
+          },
+          len:{
+              args: [0,150],
+              msg: "Máx de 192 caracteres"
+            } 
+
+      }
       },
       foto: {
         type: DataTypes.STRING,
