@@ -37,39 +37,37 @@ module.exports = perfileController = {
        }else return res.status(400).json({msg: 'Senha errada'});
     },
 
-    updateFoto: async (req, res) => {
+    updatePerfil: async (req, res) => {
         const { user } = req.session;
-        const { senhaAtual, novaSenha  } = req.body;
-       // nomePerfil, emailPerfil, cpfPerfil, rgPerfil, novaSenha,
+        const { emailPerfil} = req.body;
         const [fotoPerfil] = req.files;
         const { perfilId } = req.params;
 
-        let foto = null   
-        if(foto == null){foto = `/images/padrao/padrao.png` } 
-        if(fotoPerfil){foto = `/images/moradores/${fotoPerfil.filename}` }  
-        tokenD = generateId()
 
-        const novaSenhaPerfil = bcrypt.hashSync(novaSenha, 10)
-        //const senhaPerfil = bcrypt.hashSync(cpfPerfil, 10)
+       let foto = null;
+        if(foto == null){ 
+            foto = await Usuario.findByPk(user.id)
+            foto = foto.foto } 
+        if(fotoPerfil){foto = `/images/moradores/${fotoPerfil.filename}` }  
+        //tokenD = generateId()
 
         
-
+        let emailP = emailPerfil
+        if(emailP == '') {
+            const email = await Usuario.findByPk(user.id)
+            emailP = email.email
+        }
 
         try {
             const editarPerfil = await Usuario.update({
-                /*
-                nome: user.nome,
-                email: user.email,
-                cpf: user.cpf,
-                rg: user.rg,
-                bloco_id: user.bloco_id,
-                apartamento_id: user.apartamento_id,
-                foto: user.foto,
-                tipo_usuario_id: user.tipo_usuario_id,
-                status: true,
-                token: tokenD, */
-                senha: novaSenhaPerfil,
-               
+                foto: foto,
+                email: emailP,
+                //nome: user.nome,
+               // cpf: user.cpf,
+               // rg: user.rg,
+                //bloco_id: user.bloco_id,
+               // apartamento_id: user.apartamento_id,
+                //tipo_usuario_id: user.tipo_usuario_id,
                
             }, {
                 where: { id: perfilId }

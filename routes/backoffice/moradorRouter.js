@@ -57,6 +57,7 @@ route.post('/moradores', moradorController.store)
 
 // Rotas para os Perfis
 route.put('/perfis/editar/:perfilId',uploadMorador.any(), perfilController.update)
+route.put('/perfis/editarPerfil/:perfilId',uploadMorador.any(), perfilController.updatePerfil)
 
 
 // Rotas para os Dependentes
