@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       bloco_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: {
             tablename: 'blocos'
@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       apartamento_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: {
             tablename: 'apartamentos'

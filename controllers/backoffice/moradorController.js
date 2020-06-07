@@ -15,42 +15,42 @@ const {
 module.exports = moradorController = {
   store: async (req, res) => {
 
-      let listaErrors = validationResult(req)
-      console.log(listaErrors)
+    let listaErrors = validationResult(req)
+    console.log(listaErrors)
 
 
-      if (listaErrors.isEmpty()) {
-        let {
-          nome,
-          email,
-          cpf,
-          rg,
-          bloco_id,
-          apartamento_id,
-          tipo,
-          status
-        } = req.body
-        console.log(req.body)
+    if (listaErrors.isEmpty()) {
+      let {
+        nome,
+        email,
+        cpf,
+        rg,
+        bloco_id,
+        apartamento_id,
+        tipo,
+        status
+      } = req.body
+      console.log(req.body)
 
-        const [fotoMorador] = req.files;
+      const [fotoMorador] = req.files;
 
-        //if verifica se tem foto se não tiver salva sem foto no banco
-        if (fotoMorador == undefined) {
-          foto = "SEM FOTO"
-        } else {
+      //if verifica se tem foto se não tiver salva sem foto no banco
+      if (fotoMorador == undefined) {
+        foto = `/images/padrao/padrao.png`
+      } else {
 
-          foto = `/images/moradores/${fotoMorador.filename}`
+        foto = `/images/moradores/${fotoMorador.filename}`
 
-        }
+      }
 
-        token = generateId()
-        bloco_id = 2
-        apartamento_id = 2
-        tipo_usuario_id = 2
-        const senha = bcrypt.hashSync(cpf, 10)
-        console.log(senha)
+      token = generateId()
+      bloco_id = 2
+      apartamento_id = 2
+      tipo_usuario_id = 1
+      const senha = bcrypt.hashSync(cpf, 10)
+      console.log(senha)
 
-        /* const VerificaEmail = await Usuario.findOne({ 
+      /* const VerificaEmail = await Usuario.findOne({ 
       where:{
          email: email } });
 if (project != null) {
@@ -58,50 +58,107 @@ if (project != null) {
 } else {
   
 } */
-        try {
-          const novoMorador = await Usuario
-            .create({
-              nome,
-              email,
-              cpf,
-              rg,
-              bloco_id,
-              token,
-              apartamento_id,
-              senha,
-              foto,
-              tipo_usuario_id
-            })
+      try {
+        const novoMorador = await Usuario
+          .create({
+            nome,
+            email,
+            cpf,
+            rg,
+            bloco_id,
+            token,
+            apartamento_id,
+            senha,
+            foto,
+            tipo_usuario_id
+          })
 
 
-          //return res.redirect("/backoffice/sindico/moradores")
-          return res.status(200).send("Cadastro efetuado com sucesso")
+        //return res.redirect("/backoffice/sindico/moradores")
+        return res.status(201).redirect('./moradores')
 
-        } catch (error) {
-          return res.status(400).json(error)
+      } catch (error) {
+        return res.status(400).json(error)
 
-        }
-      } else {
-        /* 
-              console.log(listaErrors.errors)
-              return res.redirect("/backoffice/sindico/moradores", {
-                errors: listaErrors.errors
-              }, 301)
-         */
-
-        //let {param,msg} = listaErrors
       }
+    } else {
+      /* 
+            console.log(listaErrors.errors)
+            return res.redirect("/backoffice/sindico/moradores", {
+              errors: listaErrors.errors
+            }, 301)
+       */
 
-
-
-      res.status(400).send({
-        error: listaErrors
-      })
-
-
+      //let {param,msg} = listaErrors
     }
 
-    ,
+
+
+    res.status(400).send({
+      error: listaErrors
+    })
+
+
+  },
+
+
+  buscaUsuario: async (req, res) => {
+   // console.log(req.query)
+    let {tipoBusca,valor} = req.query
+    //console.log(tipoBusca , valor)
+    const Sequelize = require("sequelize")
+   
+
+    const Op = Sequelize.Op; // biblioteca de operadores
+    //console.log(Op)
+    var query = `%${req.query.valor}%`;
+   console.log("query: " +query) 
+   
+   let result = {msg:"Não foi encontrado cadastros no resultado"}
+   
+  //const buscando = await function()=>{ 
+  if (tipoBusca == "nome") {
+
+       result = await Usuario.findAll(
+        { where: {nome: { [Op.like]: query } },
+        order: [
+          // Will escape title and validate DESC against a list of valid direction parameters
+          ['updated_at', 'DESC'],
+        ] })
+
+        console.log(result)
+      }
+
+       
+     else {
+      result = await Usuario.findAll(
+        { where: {cpf: { [Op.like]: query } },
+        order: [
+          // Will escape title and validate DESC against a list of valid direction parameters
+          ['updated_at', 'DESC'],
+        ] })
+
+        console.log(result)
+    }
+  
+  
+
+    const resultBloco = await Bloco.findAll()
+    const resultApartamento = await Apartamento.findAll()
+    msg = undefined
+    // console.log("id que trouxe é: "+ result)
+
+    return res.render('./backoffice/sindico/moradores', {
+      titulo: "Síndico - Moradores",
+      result,
+      resultBloco,
+      resultApartamento,
+      msg,
+      usuario: "FODÂO",
+      // quote: "padrão"
+    })
+
+  },
   ListaMoradores: async (req, res) => {
 
     const result = await Usuario.findAll({
@@ -115,6 +172,7 @@ if (project != null) {
     })
     const resultBloco = await Bloco.findAll()
     const resultApartamento = await Apartamento.findAll()
+    msg = undefined
     // console.log("id que trouxe é: "+ result)
 
     return res.render('./backoffice/sindico/moradores', {
@@ -122,6 +180,7 @@ if (project != null) {
       result,
       resultBloco,
       resultApartamento,
+      msg,
       usuario: "FODÂO",
       // quote: "padrão"
     })

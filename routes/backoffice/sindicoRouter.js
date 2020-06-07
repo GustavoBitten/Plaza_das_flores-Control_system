@@ -1,6 +1,8 @@
 const express = require('express')
+const porteiroCadController= require('../../controllers/backoffice/porteiroCadController');
 const moradorController = require('../../controllers/backoffice/moradorController');
 const uploadMorador = require("../../config/uploadMorador"); // multer
+const uploadPorteiro = require("../../config/uploadPorteiro"); // multer
 const {
     check,
     validationResult,
@@ -17,7 +19,8 @@ let route = express.Router()
 
 
 // Rotas para síndico
-route.get('/moradores', moradorController.ListaMoradores)
+route.get('/usuarios', moradorController.ListaMoradores)
+route.get('/moradores', moradorController.buscaUsuario)
 //route.get('/perfil', backofficePageController.sindicoPerfil)
 //route.get('/ocorrencias', backofficePageController.sindicoOcorrencias)
 route.get('/areas-comuns', backofficePageController.sindicoAreasComuns)
@@ -48,6 +51,31 @@ route.post('/moradores', uploadMorador.any(), [
 
 ], moradorController.store)
 
+//rota para cad porteiros
+route.post('/porteiros', uploadPorteiro.any(), [
+  check("nome").isString().withMessage("Formato de nome invalido"),
+  check("email").isEmail().withMessage("Formato de email invalido"),
+  check("cpf").isNumeric().isLength({
+      min: 11,
+      max: 11
+  }).withMessage("Formato de cpf invalido"),
+  check("rg").isNumeric().withMessage("Formato de rg invalido"),
+  body('email').custom(async function (value) {
+      //verifica email no DB, retorna erro se achar
+      const result = await porteiroCadController.existeEmail(value)
+      return result
+  }),
+  body('cpf').custom(async function (value) {
+      //verifica cpf no DB, retorna erro se achar
+      const result = await porteiroCadController.existeCPF(value)
+      return result
+  }),
+
+
+], porteiroCadController.store)
+//put de porteiro
+route.put('/porteiroMorador/:porteiroId', uploadMorador.any(), porteiroCadController.editar)
+//put de morador
 route.put('/editarMorador/:moradorId', uploadMorador.any(), moradorController.editar)
 
 // Rotas para os Comunicados

@@ -16,7 +16,6 @@
     <main class="conteudo container-flex justify-content-center">
       <h1 class="col-md-12">Gerenciamento de Moradores</h1>
 
-
       <div class="submenu row justify-content-center justify-content-md-center">
         <div id="msgError"> </div>
 
@@ -33,23 +32,36 @@
 
 
 
+      
       <table class="table table-striped justify-content-center">
-
         <thead class="tituloTabela justify-content-center">
           <tr>
-            <th class="thTitulo nome">Lista de usuarios</th>
-            <th class="thTitulo"></th>
-            <th class="thTitulo vazio"></th>
-            <th class="thTitulo vazio"></th>
-            <th class="thTitulo filtrar"><i class="fas fa-search"></i> Filtrar</th>
+            <th class="thTitulo">
+              <form class="form-inline my-2 my-lg-0" method="GET" action="./moradores"    >
+                <label for="busca">Filtrar por:  </label>
+                <select id="tipoBusca" name="tipoBusca" class="form-control busca" required >
+                  <option disabled selected>Informe</option>                  
+                  <option value="nome">Nome</option>
+                  <option value="CPF">CPF</option>              
+
+                </select>
+                
+              <input class="form-control mr-sm-2" type="search" id="valor" name="valor" placeholder="Pesquisar">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+            </form>
+          </th>
+          
+              
           </tr>
         </thead>
+        </table>
+        <table class="table table-striped justify-content-center">
         <thead class="justify-content-center">
           <tr>
             <th scope="col">Nome</th>
             <th scope="col" id="cpf">CPF</th>
-            <th scope="col" id="bloco">Bloco</th>
-            <th scope="col" id="ap">Ap</th>
+            <th scope="col" id="tipo">Tipo</th>
+            <th scope="col" id="ap">Status</th>
             <th scope="col" id="tipo">Ações</th>
           </tr>
         </thead>
@@ -59,8 +71,13 @@
 
             <th scope="row" class="nome"> <%= result.nome %></th>
             <td id="cpf"> <%= result.cpf %></td>
-            <td id="bloco"> <%= result.bloco %></td>
-            <td id="ap"> <%= result.apartamento %></td>
+            <td id="tipo"> <% if(result.tipo_usuario_id ==1) { %>
+               MORADOR <% }if(result.tipo_usuario_id ==2) {%> 
+               PORTEIRO <%} %></td>
+            
+            <td id="Status"> <% if(result.status ==true) { %>
+              Ativo <% }if(result.tipo_status ==false) {%> 
+              Cancelado <%} %></td>
             <td>
               <button type="button" class="acoes btn-warning" type="button" data-toggle="modal"
                 data-target="#exampleModal" data-id="<%= result.id %>" data-nome_morador="<%= result.nome %>"
@@ -109,7 +126,7 @@
         <div class="modal-body">
 
 
-          <form id="morador" method="POST" enctype="multipart/form-data">
+          <form id="morador" method="POST" action="/backoffice/sindico/Moradores" enctype="multipart/form-data">
 
             <div class="row">
               <div class="col">
@@ -314,7 +331,7 @@
         <div class="modal-body">
 
 
-          <form id="porteiro" method="post" enctype="multipart/form-data">
+          <form id="porteiro" method="POST" action="/backoffice/sindico/porteiros" enctype="multipart/form-data">
 
             <div class="row">
               <div class="col">
@@ -338,7 +355,7 @@
               <div class="col">
                 <label for="email">Email:</label>
                 <input required="required" id="email" name="email" type="email" class="form-control"
-                  placeholder="morador@email.com.br">
+                  placeholder="portaria@email.com.br">
               </div>
               <div class="col">
                 <label for="celular">Contato:</label>
@@ -349,13 +366,9 @@
 
             <div style="margin:10px" class="row">
               <div class="col">
-                <label for="fotoMorador">Foto</label>
-                <input type="file" class="form-control file" name="fotoMorador" id="fotoMorador">
+                <label for="fotoPorteiro">Foto</label>
+                <input type="file" class="form-control file" name="fotoPorteiro" id="fotoPorteiro">
               </div>
-              <!--   <div style="margin:5px" class="row custom-file">
-            <input type="file" class="custom-file-input" name="fotoMorador" id="fotoMorador">
-            <label class="custom-file-label" for="customFile">Escolher foto</label>
-          </div> -->
 
 
             </div>
@@ -363,7 +376,7 @@
 
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-              <button type="submit" id="novoMorador" value="Gravando morador" class="btn btn-primary">Gravar</button>
+              <button type="submit" id="novoPorteiro" value="Gravando porteiro" class="btn btn-primary">Gravar</button>
             </div>
           </form>
 
@@ -372,7 +385,7 @@
       </div>
     </div>
   </div>
-  <!-- fim do Modal cad morador -->
+  <!-- fim do Modal cad porteiro -->
 
 
 

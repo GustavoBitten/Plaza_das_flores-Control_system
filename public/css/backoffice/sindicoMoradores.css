@@ -5,6 +5,10 @@
     justify-content: center;
     max-width: 80vw;
 }
+.busca{
+    margin: 10px;
+
+}
 .acoes{
     background-color: #FFA62B;
     color: white;

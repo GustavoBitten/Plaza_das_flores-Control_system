@@ -30,7 +30,7 @@ module.exports = {
       },
       bloco_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'blocos',
           key: 'id'
@@ -40,7 +40,7 @@ module.exports = {
       },
       apartamento_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'apartamentos',
           key: 'id'
