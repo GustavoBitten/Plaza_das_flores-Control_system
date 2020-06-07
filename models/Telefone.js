@@ -8,17 +8,17 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false
           },
-          usuario_id: {
+          morador_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-              model: {tablename: 'usuarios'},
+              model: {tablename: "usuarios"},
               key: 'id'
             },
             onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too
             onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
           },
-          tipo_telefone_id: {
+          tipo_telefone: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
@@ -47,18 +47,18 @@ module.exports = (sequelize, DataTypes) => {
       {
        
         freezeTableName: true,
-        tablename: "telefones"
+        tableName: "telefones"
       }
     );
 
     
 
     Telefone.associate = (models) => {
-        Telefone.belongsTo(models.Tipos_telefone, {
-          foreignKey: 'tipo_telefone_id',
-        })
         Telefone.belongsTo(models.Usuario, {
-        foreignKey: 'usuario_id',
+        foreignKey: 'morador_id',
+      })
+      Telefone.belongsTo(models.Tipo_telefone, {
+        foreignKey: 'tipo_telefone',
       })
       
     }

@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-    const Tipos_telefone = sequelize.define(
-      "Tipos_telefone",
+    const Tipo_telefone = sequelize.define(
+      "Tipo_telefone",
       {
         id: {
         type: DataTypes.INTEGER,
@@ -24,16 +24,16 @@ module.exports = (sequelize, DataTypes) => {
       },
       {
         freezeTableName: true,
-        tablename: "tipos_telefones"
+        tableName: "tipos_telefones"
       }
     );
 
-    Tipos_telefone.associate = (models) => {
-      Tipos_telefone.hasMany(models.Telefone, {
-        foreignKey: 'tipo_telefone_id',
+    Tipo_telefone.associate = (models) => {
+      Tipo_telefone.hasMany(models.Telefone, {
+        foreignKey: 'tipo_telefone',
       })
     }
 
  
-    return Tipos_telefone;
+    return Tipo_telefone;
   };

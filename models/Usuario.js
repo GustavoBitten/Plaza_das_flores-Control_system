@@ -185,9 +185,9 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "bloco_id",  
       });
 
-    //  Usuario.hasMany(models.Telefone, {
-     //   foreignKey: 'usuario_id'
-     // })
+     Usuario.hasMany(models.Telefone, {
+        foreignKey: 'morador_id'
+      })
       Usuario.hasMany(models.Dependente, {
         foreignKey: 'dependente_id'
       })

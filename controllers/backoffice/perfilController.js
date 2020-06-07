@@ -61,7 +61,7 @@ module.exports = perfileController = {
         try {
             const editarPerfil = await Usuario.update({
                 foto: foto,
-                email: emailP,
+                email: emailP ,
                 //nome: user.nome,
                // cpf: user.cpf,
                // rg: user.rg,

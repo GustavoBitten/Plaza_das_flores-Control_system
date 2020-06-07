@@ -14,8 +14,8 @@ const {
   Apartamento,
   Visitante,
   Dependente,
-  //Telefone,
-  //Tipos_Telefone
+  Telefone,
+  Tipo_telefone,
 } = require('../../models')
 
 let backofficePageController = {
@@ -87,11 +87,6 @@ let backofficePageController = {
           model: Apartamento,
           required: true,
         },
-       // {
-        //  model:Telefone,
-        // required: true,
-       // },
-      
       
       ],
       order: [
@@ -150,6 +145,23 @@ let backofficePageController = {
     ]
     })
 
+     const telefones = await Telefone.findAll({
+        where: { morador_id: req.session.user.id },
+        include:[
+          {
+          model: Usuario
+          },
+          {
+          model: Tipo_telefone,
+          require: true,
+          }
+        ],
+        order: [
+          ['created_at', 'DESC']
+        ]
+      }
+     )
+
     res.render("backoffice/morador/perfil", {
       titulo: "Morador - Perfil",
       usuario: req.session.user,
@@ -162,6 +174,7 @@ let backofficePageController = {
       moment,
       visitantes,
       dependentes,
+      telefones,
 
     })
   },
