@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const RCobranca = sequelize.define(
+    const Cobranca = sequelize.define(
       "Cobranca",
       {
         id: {
@@ -16,8 +16,20 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false
           },
+          data: {
+            type: DataTypes.DATE()
+          },
+          titulo: {
+            type: DataTypes.STRING()
+          },
+          descricao: {
+            type: DataTypes.STRING()
+          },
           valor: {
             type: DataTypes.FLOAT(),
+          },
+          vencimento: {
+            type: DataTypes.DATE()
           },
           codigo: {
             type: DataTypes.STRING(50),
@@ -44,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
       Cobranca.belongsTo(models.Tipo_cobranca, {
         foreignKey: "tipo_cobranca_id"
       });
-      Ocorrencia.belongsTo(models.Usuario,{
+      Cobranca.belongsTo(models.Usuario,{
         foreignKey: "usuario_id"
     });
   
@@ -52,5 +64,5 @@ module.exports = (sequelize, DataTypes) => {
   
     
   
-    return Reserva;
+    return Cobranca;
   };

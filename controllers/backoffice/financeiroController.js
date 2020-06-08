@@ -1,4 +1,4 @@
-//const { Empresa , Usuario } = require('../../models')
+const {Cobranca } = require('../../models')
 const moment = require('moment')
 
 
@@ -23,14 +23,18 @@ const listaComunicados = [
 
 class Financeiro {
 
-    index = (req, res) => {
-        res.render("backoffice/morador/financeiro", {
-          titulo: "Morador - Financeiro",
-          usuario: req.session.user,
-          listaComunicados,
-          moment
-        })
-      }
+    index = async (req, res) => {
+
+      const listaCobrancas = await Cobranca.findAll()
+
+
+      res.render("backoffice/morador/financeiro", {
+      titulo: "Morador - Financeiro",
+      usuario: req.session.user,
+      listaCobrancas,
+      moment
+      })
+    }
 
 }
 

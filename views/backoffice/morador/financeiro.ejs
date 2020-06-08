@@ -47,7 +47,7 @@
         </div>
         <div class="card-body row">
           <div class="col-12 d-flex align-items-center flex-column">
-            <% if (listaComunicados.length > 0) { %>
+            <% if (listaCobrancas.length > 0) { %>
               <span id="obs" class="align-self-start ">* Para visualizar o comunicado completo basta clicar em seu título</span>
               <table class="table table-borderless table-striped table-hover table-responsive-sm">
                 <caption>
@@ -79,38 +79,35 @@
                 <!--------------------------- Colunas -------------------------------->
 
                 <tbody id="tableBody">
-                  <% listaComunicados.forEach(comunicado => { %>
+                  <% listaCobrancas.forEach(cobranca => { %>
                     <tr>
 
                       <td class="text-center align-middle">
-                        <%= moment(comunicado.created_at).format('DD/MM/YYYY') %>
+                        <%= moment(cobranca.data).format('DD/MM/YYYY') %>
                       </td>
 
                       <td class="text-center align-middle">
-                        <%= moment(comunicado.created_at).format('DD/MM/YYYY') %>
+                        <%= cobranca.tipo_cobranca_id %>
                       </td>
 
                       <td class="text-center align-middle">
-                        <%= moment(comunicado.created_at).format('DD/MM/YYYY') %>
+                        <%= cobranca.titulo %>
                       </td>
 
                       <td class="text-center align-middle">
-                        <%= moment(comunicado.created_at).format('DD/MM/YYYY') == moment(comunicado.updated_at).format('DD/MM/YYYY')
-                         ? '-' : moment(comunicado.updated_at).format('DD/MM/YYYY') %>
+                        <%= cobranca.valor %>
                       </td>
 
                       <td class="text-center align-middle">
-                        <a id="comunicado<%= comunicado.id %>" data-target="#modalMostrarComunicado" data-id="<%= comunicado.id %>">
-                          <u><%= comunicado.titulo %></u>
-                        </a>
+                        <%= moment(cobranca.vencimento).format('DD/MM/YYYY') %>
                       </td>
 
                       <td class="text-center align-middle">
-                        <a id="editarComunicado<%= comunicado.id %>" class="text-primary text-decoration-none" data-target="#modalEditarComunicado"
-                          data-id="<%= comunicado.id %>" title="Editar Comunicado">
+                        <a id="editarComunicado<%= 'comunicado.id' %>" class="text-primary text-decoration-none" data-target="#modalEditarComunicado"
+                          data-id="<%= 'comunicado.id' %>" title="Editar Comunicado">
                           <i class="fas fa-edit"></i>
                         </a>
-                        <a id="excluirComunicado<%= comunicado.id %>" class="text-danger ml-3" data-id="<%= comunicado.id %>" title="Excluir Comunicado">
+                        <a id="excluirComunicado<%= 'comunicado.id' %>" class="text-danger ml-3" data-id="<%= 'comunicado.id' %>" title="Excluir Comunicado">
                           <i class="fas fa-trash-alt"></i>
                         </a>
                       </td>

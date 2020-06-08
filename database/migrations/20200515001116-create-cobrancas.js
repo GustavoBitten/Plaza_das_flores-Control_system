@@ -29,12 +29,23 @@ module.exports = {
         onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too
         onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
       },
-      valor: {
+      data: {
+        type: Sequelize.DATE()
+      },
+      titulo: {
+        type: Sequelize.STRING()
+      },
+      descricao: {
+        type: Sequelize.STRING()
+      },valor: {
         type: Sequelize.FLOAT()
+      },
+      vencimento: {
+        type: Sequelize.DATE()
       },
       codigo: {
         type: Sequelize.STRING(50),
-        allowNull: false
+        allowNull: true
       },
       created_at: {
         type: Sequelize.DATE,
