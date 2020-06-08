@@ -79,12 +79,21 @@
               Ativo <% }if(result.tipo_status ==false) {%> 
               Cancelado <%} %></td>
             <td>
-              <button type="button" class="acoes btn-warning" type="button" data-toggle="modal"
+              <% if(result.tipo_usuario_id ==1) { %>
+                <button type="button" class="acoes btn-warning" type="button" data-toggle="modal"
                 data-target="#exampleModal" data-id="<%= result.id %>" data-nome_morador="<%= result.nome %>"
                 data-rg_morador="<%= result.rg %>" data-cpf_morador="<%= result.cpf %>"
                 data-email_morador="<%= result.email %>" data-bloco_morador="<%= result.bloco_id %>"
                 data-ap_morador="<%= result.apartamento_id %>" data-foto_morador="<%= result.foto %>">
-                Editar</button>
+                Editar</button> <% }if(result.tipo_usuario_id ==2) {%> 
+                  <button type="button" class="acoes btn-warning" type="button" data-toggle="modal"
+                  data-target="#porteiroModalEdit" data-id="<%= result.id %>"
+                   data-nome_porteiro="<%= result.nome %>"
+                  data-rg_porteiro="<%= result.rg %>" data-cpf_porteiro="<%= result.cpf %>"
+                  data-email_porteiro="<%= result.email %>" 
+                   data-foto_porteiro="<%= result.foto %>">
+                  Editar</button><%} %>
+              
 
               <!--               <button class="acoes" type="button"  data-toggle="modal"data-target="#exampleModal"><i class="fas fa-trash-alt"></i></button>
               <button type="button" class="btn col-4 col-md-auto" data-toggle="modal"
@@ -389,7 +398,83 @@
 
 
 
+  <!-- Modal edit porteiro -->
+  <div class="modal fade" id="porteiroModalEdit" tabindex="-1" role="dialog" aria-labelledby="porteiroModalEditLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="porteiroModalEditLabel">New message</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
 
+          <div class="row justify-content-md-center">
+            <div class="col-md-2 foto"><img
+                src="https://avatars2.githubusercontent.com/u/37584505?s=400&u=73100f3df6d155544e9bc50b7fb9f83410d0b308&v=4"
+                width="10" height="100" class="card-img" alt="..."></div>
+
+          </div>
+          <div class="formEditaPorteiro">
+            <form id="formEditaPorteiro" method='post' enctype='multipart/form-data'>
+
+
+              <div class="row">
+                <div class="col">
+                  <label for="nome">Nome:</label>
+                  <input required="required" id="nome" name="nome" type="text" class="form-control"
+                    placeholder="Nome completo">
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="rg">RG:</label>
+                  <input id="rg" name="rg" type="number" class="form-control" placeholder="RG">
+                </div>
+                <div class="col">
+                  <label for="cpf">CPF:</label>
+                  <input required="required" id="cpf" name="cpf" type="number" class="form-control" placeholder="CPF">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="email">Email:</label>
+                  <input required="required" id="email" name="email" type="email" class="form-control"
+                    placeholder="porteiro@email.com.br">
+                </div>
+                <div class="col">
+                  <label for="celular">Contato:</label>
+                  <input id="celular" name="celular" type="text" class="form-control" placeholder="(XX)XXXXX-XXXX">
+                </div>
+              </div>
+
+              <div style="margin:10px" class="row">
+                <div class="col">
+                  <label for="fotoPorteiro">Foto</label>
+                  <input type="file" class="form-control file" name="fotoPorteiro" id="fotoPorteiro">
+                </div>
+                
+              </div>
+
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-primary">Gravar</button>
+              </div>
+
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- fim do Modal edita morador -->
 
 
 
@@ -426,7 +511,32 @@
         " width='10' height='100' class='card-img' alt='...'>")
 
     })
-  </script>
+ 
+  $('#porteiroModalEdit').on('show.bs.modal', function (event) {
+    var button2 = $(event.relatedTarget) // Button that triggered the modal
+    var id_porteiro = button2.data('id')
+    var nome_porteiro = button2.data('nome_porteiro')
+    var rg_porteiro = button2.data('rg_porteiro')
+    var cpf_porteiro = button2.data('cpf_porteiro')
+    var email_porteiro = button2.data('email_porteiro')
+    // var contato_morador = button.data('contato')
+   
+    var foto_porteiro = button2.data('foto_porteiro') /// Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal2 = $(this)
+    modal2.find('.modal-title').text('Editando o Cadastro do Porteiro ' + nome_porteiro)
+    modal2.find('#nome').val(nome_porteiro)
+    modal2.find('#rg').val(rg_porteiro)
+    modal2.find('#cpf').val(cpf_porteiro)
+    modal2.find('#email').val(email_porteiro)
+    var formEdita2 = document.querySelector("#formEditaPorteiro")
+    formEdita2.setAttribute("action", "/backoffice/sindico/editarPorteiro/" + id_porteiro + "?_method=PUT")
+    modal2.find('.foto').html("<img src=" + foto_porteiro +
+      " width='10' height='100' class='card-img' alt='...'>")
+
+  })
+</script>
 
 
 
