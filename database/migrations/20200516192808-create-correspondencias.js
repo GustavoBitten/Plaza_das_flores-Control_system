@@ -40,6 +40,10 @@ module.exports = {
         onUpdate: 'CASCADE', // whenever there is an user id alteration, udpate the foreign key too
         onDelete: 'CASCADE' // if an user gets deleted, delete publications of this user
       },
+      rastreio: {
+        type: Sequelize.String(50),
+        allowNull: true
+      },
       situacao_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
