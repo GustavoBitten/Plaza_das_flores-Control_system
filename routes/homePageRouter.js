@@ -4,7 +4,8 @@ const homePageController = require('../controllers/homePageController');
 let route = express.Router()
 //rotas a partir daqui!
 
-route.get('/',homePageController.teste)
+route.get('/',homePageController.index)
+route.post('/',homePageController.create)
 
 
 

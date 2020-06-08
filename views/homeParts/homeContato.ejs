@@ -42,20 +42,21 @@
             <div class="col-12 col-sm-7 p-0 d-flex justify-content-center align-items-center ">
 
 
-                <form class=" d-flex w-75 flex-column justify-content-center pl-3 pr-3 pt-2 pb-2 contact-form " >
+                <form class=" d-flex w-75 flex-column justify-content-center pl-3 pr-3 pt-2 pb-2 contact-form "
+                    action="/" method="POST" >
                     
                     <h4  >Preencha com seus dados:</h4> 
                     
 
                     <div class="d-flex flex-row ">
                         <div class="form-group w-66 ">
-                            <label for="exampleFormControlInput1">Nome</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1"
-                                placeholder="seu nome">
+                            <label for="nome">Nome:</label>
+                            <input type="text" class="form-control" id="nome" name="nome"
+                                placeholder="Seu nome">
                         </div>
                         <div class="form-group w-34 ">
-                            <label for="exampleFormControlInput1">Telefone</label>
-                            <input type="number" class="form-control" id="exampleFormControlInput1"
+                            <label for="celular">Celular:</label>
+                            <input type="number" class="form-control" id="celular" name="celular"
                                 placeholder="Seu celular">
                         </div>
                     </div>
@@ -64,17 +65,18 @@
                     <div class="d-flex flex-row">
 
                         <div class="form-group w-66 ">
-                            <label for="exampleFormControlInput1">Email address</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                placeholder="name@example.com">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="seuemail@examplo.com">
                         </div>
                         <div class="form-group w-34">
-                            <label for="exampleFormControlSelect1">Assunto</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="assunto">Assunto:</label>
+                            <select class="form-control" id="assunto" name="assunto">
                                 <option>Dúvidas</option>
                                 <option>Apartamentos a venda</option>
                                 <option>Sugestões</option>
                                 <option>Comercial </option>
+                                <option>Outros </option>
                                 
                             </select>
                         </div>
@@ -82,8 +84,8 @@
 
 
                     <div class="form-group textarea">
-                        <label for="exampleFormControlTextarea1">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="descricao">Descrição:</label>
+                        <textarea class="form-control" id="descricao" name='descricao' rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Enviar</button>
                 </form>
