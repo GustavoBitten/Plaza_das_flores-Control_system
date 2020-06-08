@@ -2,10 +2,6 @@ $(() => {
   init()
 })
 
-// $(document).on('change', () => {
-//   init()
-// })
-
 let init = () => {
   resetBindings()
 
@@ -75,6 +71,7 @@ let init = () => {
 
     modal.find('#selectApartamento').text('')
     modal.find('#selectBloco').text('')
+    modal.find('#selectTipo').text('')
 
     modal.find('form')[0].reset()
   })
@@ -113,6 +110,36 @@ let init = () => {
     } else
       alert(resposta.status + ' - ' + resposta.statusText)
   })
+
+  $('a[id^=excluirCorrespondencia]').on('click', (event) => {
+    let element = $(event.target.closest('.text-danger'))
+    let id = element.data('id')
+
+    // Show confirmation modal
+    $('#modalExcluirCorrespondencia').modal('show')
+
+    // If confirmed, delete
+    $('a[id=btnDelete]').on('click', async (event) => {
+
+      let resposta = await fetch(window.location.href + '/' + id, {
+        method: 'DELETE'
+      })
+
+      if (resposta.status == 200) {
+        let resultado = await resposta.json()
+
+        reload()
+      } else {
+        alert(resposta.status + ' - ' + resposta.statusText)
+      }
+
+      $('#modalExcluirCorrespondencia').modal('hide')
+    })
+  })
+
+  $("#modalExcluirCorrespondencia").on('hide.bs.modal', () => {
+    init()
+  })
 }
 
 let resetBindings = () => {
@@ -122,6 +149,8 @@ let resetBindings = () => {
   $('#selectApartamento').unbind('change')
   $('#modalNovaCorrespondencia').unbind('hidden.bs.modal')
   $('#btnCadastrarCorrespondencia').unbind('click')
+  $('a[id^=excluirCorrespondencia]').unbind('click')
+  $("#modalExcluirCorrespondencia").unbind('hide.bs.modal')
 }
 
 let buscarNomeMorador = async () => {
@@ -224,7 +253,9 @@ let reload = async () => {
 
       let colunaDataRetirada = document.createElement('td')
       colunaDataRetirada.classList.add('text-center', 'align-middle')
-      colunaDataRetirada.append(formataData(correspondencia.updated_at))
+      colunaDataRetirada.append(
+        correspondencia.data_retirada ? formataData(correspondencia.data_retirada) : '-'
+      )
 
       let colunaAcoes = document.createElement('td')
       colunaAcoes.classList.add('text-center', 'align-middle')
@@ -241,9 +272,9 @@ let reload = async () => {
       editar.append(iconeEditar)
 
       let excluir = document.createElement('a')
-      excluir.setAttribute('id', 'excluir')
-      excluir.classList.add('text-danger', 'ml-3', 'mt-3')
-      excluir.setAttribute('data-id', '')
+      excluir.setAttribute('id', 'excluirCorrespondencia' + correspondencia.id)
+      excluir.classList.add('text-danger', 'ml-3')
+      excluir.setAttribute('data-id', correspondencia.id)
       excluir.setAttribute('title', 'Excluir')
 
       let iconeExcluir = document.createElement('i')
@@ -268,6 +299,8 @@ let reload = async () => {
       tr.append(colunaAcoes)
 
       tbody.append(tr)
+
+      init()
     })
   } else
     alert(resposta.status + ' - ' + resposta.statusText)

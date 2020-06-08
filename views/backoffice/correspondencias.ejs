@@ -40,7 +40,7 @@
                 <% if (listaCorrespondencias.length > 0) { %>
                   <table class="table table-borderless table-striped table-hover">
                     <caption>
-                      Correspondências
+                      Lista de Correspondências
                     </caption>
 
                     <thead>
@@ -61,7 +61,7 @@
                         </th>
                         <% if (usuario.tipo_usuario_id == 1) { %>
                           <th class="text-center" scope="col">
-                            Rastreio
+                            Código de Rastreio
                           </th>
                         <% } %>
                         <th class="text-center" scope="col">
@@ -108,21 +108,26 @@
                             <% if (correspondencia.retirado_por) { %>
                               <%= correspondencia.retirado.nome %>
                             <% } else { %>
-                              <button id="btnRetirada" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
-                                data-toggle="modal" data-target="#modal">
-                                Resgistrar
-                              </button>
+                              <% if (usuario.tipo_usuario_id == 1) { %>
+                                -
+                              <% } else { %>
+                                <button id="btnRetirada" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
+                                  data-toggle="modal" data-target="#modal">
+                                  Resgistrar
+                                </button>
+                              <% } %>
                             <% } %>
                           </td>
                           <td class="text-center align-middle">
-                            <%= moment(correspondencia.updated_at).format('DD/MM/YYYY') %>
+                            <%= correspondencia.data_retirada ? moment(correspondencia.data_retirada).format('DD/MM/YYYY') : '-' %>
                           </td>
                           <td class="text-center align-middle">
                             <a id="editar" class="text-primary text-decoration-none" data-target="#modal"
                               data-id="" title="Editar">
                               <i class="fas fa-edit"></i>
                             </a>
-                            <a id="excluir" class="text-danger ml-3 mt-3" data-id="" title="Excluir">
+                            <a id="excluirCorrespondencia<%= correspondencia.id %>" class="text-danger ml-3"
+                              data-id="<%= correspondencia.id %>" title="Excluir">
                               <i class="fas fa-trash-alt"></i>
                             </a>
                           </td>
@@ -131,7 +136,7 @@
                     </tbody>
                   </table>
                 <% } else { %>
-                  <h4 class="text-danger">Nenhuma correspondência foi cadastrada!</h4>
+                  <h4 class="text-danger">Nenhuma correspondência registrada!</h4>
                 <% } %>
               <% } %>
             </div>
@@ -186,7 +191,7 @@
               </select>
 
               <label class="pt-2" for="rastreio">Código de Rastreio</label>
-              <input id="rastreio" name="rastreio" class="form-control" type="text" placeholder="BR0000000000CN">
+              <input id="rastreio" name="rastreio" class="form-control" type="text" maxlength="50" placeholder="BR0000000000CN">
 
             </div>
           </form>
@@ -205,6 +210,30 @@
       </div>
     </div>
     <!-- /#modalNovaCorrespondencia -->
+
+    <%# Modal Excluir Correspondencia %>
+    <div class="modal fade" id="modalExcluirCorrespondencia" tabindex="-1" role="dialog"
+      aria-labelledby="modalExcluirCorrespondenciaTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header d-flex justify-content-center p-1">
+            <h5 class="modal-title" id="modalExcluirCorrespondenciaTitle">Tem certeza?</h5>
+          </div>
+
+          <div class="modal-body d-flex justify-content-center">
+            <a id="btnDelete" class="btn-sm btn-success border-0 rounded-pill font-weight-bold text-white px-3">
+              Sim
+            </a>
+            <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3 ml-2"
+              data-dismiss="modal">
+              Não
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- /#modalExcluirCorrespondencia -->
 
     <%- include('../includes/scriptJS') %>
     <script type="text/javascript" src="/javascripts/backoffice/correspondencias.js"></script>

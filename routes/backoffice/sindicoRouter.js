@@ -110,6 +110,7 @@ route.post('/correspondencias', correspondenciaController.store)
 route.get('/correspondencias/getComboValues', correspondenciaController.getComboValues)
 route.post('/correspondencias/getMoradorCombo', correspondenciaController.getMoradorCombo)
 route.get('/correspondencias/getCorrespondencias', correspondenciaController.getCorrespondencias)
+route.delete('/correspondencias/:id', correspondenciaController.destroy)
 
 
 module.exports = route

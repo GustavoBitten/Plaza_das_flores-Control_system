@@ -66,10 +66,35 @@ module.exports = comunicadoController = {
 
         return res.status(200).json(correspondencia)
       } else {
-        throw res.status(400).json({error: 'Erro de permissão!'})
+        throw 'Erro de permissão!'
       }
     } catch (error) {
-      console.log(error)
+      return res.status(400).json(error)
+    }
+  },
+  destroy: async (req, res) => {
+    const { user } = req.session
+
+    try {
+      const { id } = req.params
+
+      const correspondencia = await Correspondencia.findByPk(id)
+
+      if(!correspondencia)
+        throw `Correspondência com id '${id}' não existe!`
+
+      if (user.tipo_usuario_id == 1)
+        throw 'Erro de permissão ao excluir a correspondência, apenas síndicos e porteiros podem excluir correspondências!'
+
+      const destruirCorrespondencia = await Correspondencia.destroy({
+        where: [{id}]
+      })
+
+      if(!destruirCorrespondencia)
+        throw 'Erro ao excluir a correspondência!'
+
+      return res.status(200).json(destruirCorrespondencia)
+    } catch (error) {
       return res.status(400).json(error)
     }
   },
@@ -97,7 +122,7 @@ module.exports = comunicadoController = {
       })
 
       if (!morador)
-        throw res.status(200).json({error: 'Morador não cadastrado'}) // Apartamento a venda
+        return res.status(200).json({error: 'Morador não cadastrado'}) // Apartamento a venda
 
       return res.status(200).json(morador)
     } catch (error) {
@@ -134,7 +159,7 @@ module.exports = comunicadoController = {
       })
 
       if (!listaCorrespondencias)
-        throw res.status(400).json({error: 'Falha ao carregar os dados!'})
+        throw 'Falha ao carregar os dados!'
 
       return res.status(200).json({listaCorrespondencias, user})
     } catch (error) {
