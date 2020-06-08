@@ -44,7 +44,7 @@ module.exports = porteiroCadController = {
 
       token = generateId()
     
-      tipo_usuario_id = 2
+      tipo_usuario_id = 3
       const senha = bcrypt.hashSync(cpf, 10)
       console.log("senha: "+senha)
 
@@ -79,7 +79,7 @@ module.exports = porteiroCadController = {
   },
   editar: async (req, res) => {
     const {
-      moradorId
+      porteiroId
     } = req.params
     const {
       nome,
@@ -95,7 +95,7 @@ module.exports = porteiroCadController = {
       // foto = "SEM FOTO"
       const buscaFoto = await Usuario.findOne({
         where: {
-          id: PorteiroId
+          id: porteiroId
         }
       })
       foto = buscaFoto.foto
@@ -121,7 +121,7 @@ module.exports = porteiroCadController = {
     })
     console.log("execução da edição : " + result)
 
-    return res.redirect("/backoffice/sindico/moradores")
+    return res.redirect("/backoffice/sindico/usuarios")
   },
 
 

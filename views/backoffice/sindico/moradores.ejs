@@ -32,30 +32,30 @@
 
 
 
-      
+
       <table class="table table-striped justify-content-center">
         <thead class="tituloTabela justify-content-center">
           <tr>
             <th class="thTitulo">
-              <form class="form-inline my-2 my-lg-0" method="GET" action="./moradores"    >
-                <label for="busca">Filtrar por:  </label>
-                <select id="tipoBusca" name="tipoBusca" class="form-control busca" required >
-                  <option disabled selected>Informe</option>                  
+              <form class="form-inline my-2 my-lg-0" method="GET" action="./moradores">
+                <label for="busca">Filtrar por: </label>
+                <select id="tipoBusca" name="tipoBusca" class="form-control busca" required>
+                  <option disabled selected>Informe</option>
                   <option value="nome">Nome</option>
-                  <option value="CPF">CPF</option>              
+                  <option value="CPF">CPF</option>
 
                 </select>
-                
-              <input class="form-control mr-sm-2" type="search" id="valor" name="valor" placeholder="Pesquisar">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-            </form>
-          </th>
-          
-              
+
+                <input class="form-control mr-sm-2" type="search" id="valor" name="valor" placeholder="Pesquisar">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+              </form>
+            </th>
+
+
           </tr>
         </thead>
-        </table>
-        <table class="table table-striped justify-content-center">
+      </table>
+      <table class="table table-striped justify-content-center">
         <thead class="justify-content-center">
           <tr>
             <th scope="col">Nome</th>
@@ -72,41 +72,35 @@
             <th scope="row" class="nome"> <%= result.nome %></th>
             <td id="cpf"> <%= result.cpf %></td>
             <td id="tipo"> <% if(result.tipo_usuario_id ==1) { %>
-               MORADOR <% }if(result.tipo_usuario_id ==2) {%> 
-               PORTEIRO <%} %></td>
-            
+              MORADOR <% }if(result.tipo_usuario_id ==2) {%>
+              SINDICO <%} if(result.tipo_usuario_id ==3) {%> PORTEIRO <%} %></td>
+
             <td id="Status"> <% if(result.status ==true) { %>
-              Ativo <% }if(result.tipo_status ==false) {%> 
-              Cancelado <%} %></td>
+              Ativo <% }if(result.status ==false) {%>
+              Desativado <%} %></td>
             <td>
               <% if(result.tipo_usuario_id ==1) { %>
-                <button type="button" class="acoes btn-warning" type="button" data-toggle="modal"
+              <button type="button" class="acoes btn-warning" type="button" data-toggle="modal"
                 data-target="#exampleModal" data-id="<%= result.id %>" data-nome_morador="<%= result.nome %>"
                 data-rg_morador="<%= result.rg %>" data-cpf_morador="<%= result.cpf %>"
                 data-email_morador="<%= result.email %>" data-bloco_morador="<%= result.bloco_id %>"
                 data-ap_morador="<%= result.apartamento_id %>" data-foto_morador="<%= result.foto %>">
-                Editar</button> <% }if(result.tipo_usuario_id ==2) {%> 
-                  <button type="button" class="acoes btn-warning" type="button" data-toggle="modal"
-                  data-target="#porteiroModalEdit" data-id="<%= result.id %>"
-                   data-nome_porteiro="<%= result.nome %>"
-                  data-rg_porteiro="<%= result.rg %>" data-cpf_porteiro="<%= result.cpf %>"
-                  data-email_porteiro="<%= result.email %>" 
-                   data-foto_porteiro="<%= result.foto %>">
-                  Editar</button><%} %>
-              
-
-              <!--               <button class="acoes" type="button"  data-toggle="modal"data-target="#exampleModal"><i class="fas fa-trash-alt"></i></button>
-              <button type="button" class="btn col-4 col-md-auto" data-toggle="modal"
-          data-target="#editacaoMorador" data-whatever="@mdo">Novo cadastro</button>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
- -->
+                Editar</button> <% }if(result.tipo_usuario_id ==3) {%>
+              <button type="button" class="acoes btn-warning" type="button" data-toggle="modal"
+                data-target="#porteiroModalEdit" data-id="<%= result.id %>" data-nome_porteiro="<%= result.nome %>"
+                data-rg_porteiro="<%= result.rg %>" data-cpf_porteiro="<%= result.cpf %>"
+                data-email_porteiro="<%= result.email %>" data-foto_porteiro="<%= result.foto %>">
+                Editar</button><%} %>
+              <% if(result.tipo_usuario_id ==3 || result.tipo_usuario_id ==1) { %>
+              <button type="button" class="acoes btn-warning" type="button" data-toggle="modal"
+                data-target="#statusModal" data-id="<%= result.id %>" data-status="<%= result.status %>"
+                data-nome="<%= result.nome %>">
+                <%  if(result.status ==true){ %> Desabilitar
+                <%} else{ %> Habilitar <%
+                   } %></button> <% } %>
             </td>
-
-
           </tr>
           <% }); %>
-
-
         </tbody>
       </table>
 
@@ -456,7 +450,7 @@
                   <label for="fotoPorteiro">Foto</label>
                   <input type="file" class="form-control file" name="fotoPorteiro" id="fotoPorteiro">
                 </div>
-                
+
               </div>
 
 
@@ -475,6 +469,43 @@
   </div>
 
   <!-- fim do Modal edita morador -->
+
+
+  <!-- Modal status -->
+  <div class="modal fade" id="statusModal" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="statusModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="porteiroModalEditLabel">New message</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="formEditaStatus">
+
+            <form id="formEditaStatus" method="POST" action="/backoffice/sindico/Moradores">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button id="confirmarStatus" class="btn btn-primary">Confirmar</button>
+          </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fim do Modal status -->
+
+
+
+
+
+
 
 
 
@@ -511,32 +542,49 @@
         " width='10' height='100' class='card-img' alt='...'>")
 
     })
- 
-  $('#porteiroModalEdit').on('show.bs.modal', function (event) {
-    var button2 = $(event.relatedTarget) // Button that triggered the modal
-    var id_porteiro = button2.data('id')
-    var nome_porteiro = button2.data('nome_porteiro')
-    var rg_porteiro = button2.data('rg_porteiro')
-    var cpf_porteiro = button2.data('cpf_porteiro')
-    var email_porteiro = button2.data('email_porteiro')
-    // var contato_morador = button.data('contato')
-   
-    var foto_porteiro = button2.data('foto_porteiro') /// Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var modal2 = $(this)
-    modal2.find('.modal-title').text('Editando o Cadastro do Porteiro ' + nome_porteiro)
-    modal2.find('#nome').val(nome_porteiro)
-    modal2.find('#rg').val(rg_porteiro)
-    modal2.find('#cpf').val(cpf_porteiro)
-    modal2.find('#email').val(email_porteiro)
-    var formEdita2 = document.querySelector("#formEditaPorteiro")
-    formEdita2.setAttribute("action", "/backoffice/sindico/editarPorteiro/" + id_porteiro + "?_method=PUT")
-    modal2.find('.foto').html("<img src=" + foto_porteiro +
-      " width='10' height='100' class='card-img' alt='...'>")
 
-  })
-</script>
+    $('#porteiroModalEdit').on('show.bs.modal', function (event) {
+      var button2 = $(event.relatedTarget) // Button that triggered the modal
+      var id_porteiro = button2.data('id')
+      var nome_porteiro = button2.data('nome_porteiro')
+      var rg_porteiro = button2.data('rg_porteiro')
+      var cpf_porteiro = button2.data('cpf_porteiro')
+      var email_porteiro = button2.data('email_porteiro')
+      // var contato_morador = button.data('contato')
+
+      var foto_porteiro = button2.data('foto_porteiro') /// Extract info from data-* attributes
+      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+      var modal2 = $(this)
+      modal2.find('.modal-title').text('Editando o Cadastro do Porteiro ' + nome_porteiro)
+      modal2.find('#nome').val(nome_porteiro)
+      modal2.find('#rg').val(rg_porteiro)
+      modal2.find('#cpf').val(cpf_porteiro)
+      modal2.find('#email').val(email_porteiro)
+      var formEdita2 = document.querySelector("#formEditaPorteiro")
+      formEdita2.setAttribute("action", "/backoffice/sindico/editarPorteiro/" + id_porteiro + "?_method=PUT")
+      modal2.find('.foto').html("<img src=" + foto_porteiro +
+        " width='10' height='100' class='card-img' alt='...'>")
+
+    })
+
+    $('#statusModal').on('show.bs.modal', function (event) {
+      var button3 = $(event.relatedTarget) // Button that triggered the modal
+      var id = button3.data('id')
+      var nome = button3.data('nome')
+      var status = button3.data('status')
+      var modal3 = $(this)
+      modal3.find('.modal-title').text('Deseja alterar o Status do usuario : ' + nome + '  ?')
+      // modal3.find('#nome').text(nome)
+      modal3.find('#status').val(status)
+      // method="PUT"
+      var formEdita3 = document.querySelector("#formEditaStatus")
+      formEdita3.setAttribute("action", "./editaStatus/" + id + "/" + status + "?_method=PUT")
+      formEdita3.setAttribute("method", "post")
+      formEdita3.setAttribute("value", status)
+
+    })
+  </script>
 
 
 

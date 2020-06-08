@@ -103,45 +103,57 @@ if (project != null) {
 
 
   buscaUsuario: async (req, res) => {
-   // console.log(req.query)
-    let {tipoBusca,valor} = req.query
+    // console.log(req.query)
+    let {
+      tipoBusca,
+      valor
+    } = req.query
     //console.log(tipoBusca , valor)
     const Sequelize = require("sequelize")
-   
+
 
     const Op = Sequelize.Op; // biblioteca de operadores
     //console.log(Op)
     var query = `%${req.query.valor}%`;
-   console.log("query: " +query) 
-   
-   let result = {msg:"Não foi encontrado cadastros no resultado"}
-   
-  //const buscando = await function()=>{ 
-  if (tipoBusca == "nome") {
+    console.log("query: " + query)
 
-       result = await Usuario.findAll(
-        { where: {nome: { [Op.like]: query } },
-        order: [
-          // Will escape title and validate DESC against a list of valid direction parameters
-          ['updated_at', 'DESC'],
-        ] })
-
-        console.log(result)
-      }
-
-       
-     else {
-      result = await Usuario.findAll(
-        { where: {cpf: { [Op.like]: query } },
-        order: [
-          // Will escape title and validate DESC against a list of valid direction parameters
-          ['updated_at', 'DESC'],
-        ] })
-
-        console.log(result)
+    let result = {
+      msg: "Não foi encontrado cadastros no resultado"
     }
-  
-  
+
+    //const buscando = await function()=>{ 
+    if (tipoBusca == "nome") {
+
+      result = await Usuario.findAll({
+        where: {
+          nome: {
+            [Op.like]: query
+          }
+        },
+        order: [
+          // Will escape title and validate DESC against a list of valid direction parameters
+          ['updated_at', 'DESC'],
+        ]
+      })
+
+      console.log(result)
+    } else {
+      result = await Usuario.findAll({
+        where: {
+          cpf: {
+            [Op.like]: query
+          }
+        },
+        order: [
+          // Will escape title and validate DESC against a list of valid direction parameters
+          ['updated_at', 'DESC'],
+        ]
+      })
+
+      console.log(result)
+    }
+
+
 
     const resultBloco = await Bloco.findAll()
     const resultApartamento = await Apartamento.findAll()
@@ -235,6 +247,25 @@ if (project != null) {
     console.log("execução da edição : " + result)
 
     return res.redirect("/backoffice/sindico/moradores")
+  },
+  desativa: async (req, res) => {
+    let {
+      id,
+      status
+    } = req.params
+
+    let novostatus = !status
+
+    const result = await Usuario.update({
+      status: novostatus
+
+    }, {
+      where: {
+        id: id
+      }
+
+    })
+    return res.redirect("/backoffice/sindico/usuarios")
   },
 
 
