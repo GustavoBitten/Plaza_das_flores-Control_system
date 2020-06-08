@@ -43,6 +43,10 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
+      rastreio: {
+        type: DataTypes.STRING(50),
+        allowNull: true
+      },
       situacao_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -57,7 +61,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       retirado_por: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: {
             tablename: 'usuarios'
@@ -66,6 +70,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
+      },
+      data_retirada: {
+        type: DataTypes.DATE,
+        allowNull: true
       },
       created_at: {
         type: DataTypes.DATE,
