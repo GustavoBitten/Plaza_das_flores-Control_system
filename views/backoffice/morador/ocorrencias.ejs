@@ -3,7 +3,7 @@
 
 <head>
   <%- include('../../includes/head', {titulo: titulo}) %>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <link rel="stylesheet" href="/css/backoffice/layout.css">
   <link rel="stylesheet" href="/css/backoffice/ocorrenciasMorador.css">
 </head>
@@ -67,6 +67,7 @@
 
   </main>
   <%- include('../../includes/scriptJS') %>
+  <script src="/javascripts/backoffice/ocorrencias.js"></script>
 </body>
 
 </html>
@@ -99,28 +100,31 @@
             <div>
               <label for="tipoOcorrencia">Tipo:</label>
             </div>
+
+        
+
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="tipoOcorrencia" id="tipoOcorrencia" value="1">
+              <input class="checkgroup form-check-input" type="checkbox" name="tipoOcorrencia" id="tipoOcorrencia" value="1">
               <label class="form-check-label" for="tipoOcorrencia" style="font-weight: normal;">
                 Reclamação</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="tipoOcorrencia" id="tipoOcorrencia" value="3">
-              <label class="form-check-label" for="inlineCheckbox3" style="font-weight: normal;">
+              <input class="checkgroup form-check-input" type="checkbox" name="tipoOcorrencia" id="tipoOcorrencia" value="3">
+              <label class="checkgroup form-check-label" for="inlineCheckbox3" style="font-weight: normal;">
                 Manutenção</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="tipoOcorrencia" name="tipoOcorrencia" value="2">
-              <label class="form-check-label" for="tipoOcorrencia" style="font-weight: normal;">
+              <input class="checkgroup form-check-input" type="checkbox" id="tipoOcorrencia" name="tipoOcorrencia" value="2">
+              <label class="checkgroup form-check-label" for="tipoOcorrencia" style="font-weight: normal;">
                 Sugestão</label>
             </div>
-
-
+            
+            
             <div class="form-group">
               <label for="arquivoOcorrencia">Incluir Arquivos:</label>
               <input type="file" class="form-control-file" id="arquivoOcorrencia" name="arquivoOcorrencia">
             </div>
-
+            
             <div class="form-group">
               <label for="mensagemOcorrencia">Mensagem:</label>
               <textarea class="form-control" id="mensagemOcorrencia" name="mensagemOcorrencia" rows="3"></textarea>
@@ -165,7 +169,7 @@
               <option value="Em Andamento">Em Andamento</option>
               <option value="Em Análise">Em Análise</option>
               <option value="Concluído">Concluído</option>
-
+              
             </select>
           </div>
         </form>
@@ -180,8 +184,8 @@
 
 
 <% if(usuario.tipo_usuario_id != 2) {%>
-<!-- Detalhes Modal Morador/Porteiro -->
-<div class="modal fade" id="detalhes1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  <!-- Detalhes Modal Morador/Porteiro -->
+  <div class="modal fade" id="detalhes1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -191,76 +195,77 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-
+      
       <% listaOcorrencias.forEach((ocorrencia, index) =>{ %>
-      <div class="modal-body">
-        <h5>Imagem </h5>
-        <img
+        <div class="modal-body">
+          <h5>Imagem </h5>
+          <img
           src="<%= ocorrencia.foto %>"
           alt="" style="width: 100px; height: 100px; object-fit: cover; ">
-        <h5>Mensagem</h5>
-        <p><%= ocorrencia.titulo %></p>
-        <h5>Resposta do(a) Síndico(a)</h5>
-        <p><%= ocorrencia.resposta %></p>
-
-      </div>
-      <%})%>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <h5>Mensagem</h5>
+          <p><%= ocorrencia.titulo %></p>
+          <h5>Resposta do(a) Síndico(a)</h5>
+          <p><%= ocorrencia.resposta %></p>
+          
+        </div>
+        <%})%>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<%}%>
-
-
-
+  <%}%>
+  
+  
+  
   <% if(usuario.tipo_usuario_id == 2) {%>
-<!-- Modal Detalhes Sindico -->
-<div class="modal fade" id="detalhes1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="detalhes1Modal">Resposta</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <h5>Arquivo </h5>
-          <img src="https://media.istockphoto.com/photos/burnedout-light-bulb-isolated-on-white-background-with-shadow-burned-picture-id952090314" alt="" style="width: 100px; height: 100px; object-fit: cover; ">
-        </div>
-        
-        <div class="form-group">
-          <h5 >Mensagem Solicitante</h5>
-          <%listaOcorrencias.forEach(ocorrencia => {  %>
-            <p> <%= ocorrencia.mensagem %> </p>
-            <% })%>
+    <!-- Modal Detalhes Sindico -->
+    <div class="modal fade" id="detalhes1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="detalhes1Modal">Resposta</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          
-      <form method="POST" action="/backoffice/morador/ocorrenciasSindico" enctype="multipart/form-data">
-
-        <div class="form-group">
-          <label for="respostaOcorrencia" class="col-form-label"><h5>Resposta</h5></label>
-          <textarea class="form-control" name="respostaOcorrencia" id="respostaOcorrencia"></textarea>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" name="tipoOcorrencias" type="checkbox" id="tipoOcorrencias" value="1">
-          <label class="form-check-label" for="tipoOcorrencias">Registrado</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="tipoOcorrencias" id="tipoOcorrencias" value="3">
-          <label class="form-check-label" for="tipoOcorrencias">Pendente</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="tipoOcorrencias" id="tipoOcorrencias" value="2" >
-          <label class="form-check-label" for="tipoOcorrencias">Resolvido</label>
-          
-        </div>
-        <div class="modal-footer">
+          <div class="modal-body">
+            <div class="form-group">
+              <h5>Arquivo </h5>
+              <img src="https://media.istockphoto.com/photos/burnedout-light-bulb-isolated-on-white-background-with-shadow-burned-picture-id952090314" alt="" style="width: 100px; height: 100px; object-fit: cover; ">
+            </div>
+            
+            <div class="form-group">
+              <h5 >Mensagem Solicitante</h5>
+              <%listaOcorrencias.forEach(ocorrencia => {  %>
+                <p> <%= ocorrencia.mensagem %> </p>
+                <% })%>
+              </div>
+              
+              <form method="POST" action="/backoffice/morador/ocorrenciasSindico" enctype="multipart/form-data">
+                
+                
+                <div class="form-group">
+                  <label for="respostaOcorrencia" class="col-form-label"><h5>Resposta</h5></label>
+                  <textarea class="form-control" name="respostaOcorrencia" id="respostaOcorrencia"></textarea>
+                </div>
+                
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" name="tipoOcorrencias" type="checkbox" id="tipoOcorrencias" value="1">
+                  <label class="form-check-label" for="tipoOcorrencias">Registrado</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="tipoOcorrencias" id="tipoOcorrencias" value="3">
+                  <label class="form-check-label" for="tipoOcorrencias">Pendente</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="tipoOcorrencias" id="tipoOcorrencias" value="2" >
+                  <label class="form-check-label" for="tipoOcorrencias">Resolvido</label>
+                  
+                </div>
+                <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
           <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
