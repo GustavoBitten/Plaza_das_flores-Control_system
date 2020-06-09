@@ -1,4 +1,4 @@
-const {Cobranca } = require('../../models')
+const {Cobranca, Tipo_cobranca, Usuario } = require('../../models')
 const moment = require('moment')
 
 
@@ -6,8 +6,17 @@ class Financeiro {
 
     index = async (req, res) => {
 
-      const listaCobrancas = await Cobranca.findAll()
+      const listaCobrancas = await Cobranca.findAll(
+        {include: [{
+        association: 'tipo_cobranca'
+                  //Tipo_cobranca
+        }
+        
+        
+      ]})
 
+      //const Usuario2 = listaCobrancas
+      console.log(listaCobrancas)
 
       res.render("backoffice/morador/financeiro", {
       titulo: "Morador - Financeiro",
@@ -28,6 +37,7 @@ class Financeiro {
         where:{
           id
         }
+        
       })
 
 

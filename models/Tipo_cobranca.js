@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       {
         timestamps: true,
+        freezeTableName: true,
         tablename: "tipos_cobrancas"
 
       }
@@ -32,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     Tipo_cobranca.associate = (models) => {
       Tipo_cobranca.hasMany(models.Cobranca, {
         foreignKey: "tipo_cobranca_id",
+        as: 'tipo_cobranca'
       });
   
     };

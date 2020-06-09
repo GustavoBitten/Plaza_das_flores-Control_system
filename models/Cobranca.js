@@ -10,11 +10,23 @@ module.exports = (sequelize, DataTypes) => {
         },
         usuario_id: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            references: {
+              model: { 
+                tablename: 'usuarios'
+              },
+              key: 'id'
+            }
           },
           tipo_cobranca_id: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            references: {
+              model: { 
+                tablename: 'tipos_cobrancas' 
+              },
+              key: 'id'
+            }
           },
           data: {
             type: DataTypes.DATE()
@@ -47,6 +59,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       {
         timestamps: true, // utliza
+        freezeTableName: true,
         tablename: "cobrancas"
 
       }
@@ -54,10 +67,12 @@ module.exports = (sequelize, DataTypes) => {
   
     Cobranca.associate = (models) => {
       Cobranca.belongsTo(models.Tipo_cobranca, {
-        foreignKey: "tipo_cobranca_id"
+        foreignKey: "tipo_cobranca_id",
+        as: 'tipo_cobranca'
       });
       Cobranca.belongsTo(models.Usuario,{
-        foreignKey: "usuario_id"
+        foreignKey: "usuario_id",
+        as: 'batata'
     });
   
     };
