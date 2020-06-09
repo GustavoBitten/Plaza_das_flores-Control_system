@@ -10,6 +10,10 @@ h1{
     
 }
 
+.scroll-texto{
+    overflow:auto;
+}
+
 /* classe pai caixas da dashboard*/
 .caixa {
     border: 1px solid #E8751C;
