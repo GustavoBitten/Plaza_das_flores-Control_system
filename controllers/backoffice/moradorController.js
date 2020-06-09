@@ -267,6 +267,27 @@ if (project != null) {
     })
     return res.redirect("/backoffice/sindico/usuarios")
   },
+ reseteSenha: async (req, res) => {
+    let {
+      id,
+      cpf
+    } = req.params
+    const senha = bcrypt.hashSync(cpf, 10)
+
+   console.log("cpf:" +  cpf + "  Senha nova: " + senha)
+    const result = await Usuario.update({
+      senha: senha
+
+    }, {
+      where: {
+        id: id
+      }
+
+    })
+
+    console.log(result)
+    return res.redirect("/backoffice/sindico/usuarios")
+  },
 
 
   //Validações

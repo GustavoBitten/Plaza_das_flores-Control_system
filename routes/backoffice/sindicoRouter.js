@@ -81,6 +81,9 @@ route.put('/editarMorador/:moradorId', uploadMorador.any(), moradorController.ed
 //put status
 route.put('/editaStatus/:id/:status', moradorController.desativa)
 
+//put reseta senha
+route.put('/resetaSenha/:id/:cpf', moradorController.reseteSenha)
+
 // Rotas para os Comunicados
 route.get('/comunicados', comunicadoController.index)
 route.get('/comunicados/getComunicados', comunicadoController.getComunicados)

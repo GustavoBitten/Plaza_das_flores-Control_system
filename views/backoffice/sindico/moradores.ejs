@@ -80,34 +80,38 @@
               Desativado <%} %></td>
             <td>
               <% if(result.tipo_usuario_id ==1) { %>
-              <button type="button" class="acoes btn-warning" type="button" data-toggle="modal"
+              <a id="editarcad" class="text-primary text-decoration-none" title="Resetar Senha" data-toggle="modal"
                 data-target="#exampleModal" data-id="<%= result.id %>" data-nome_morador="<%= result.nome %>"
                 data-rg_morador="<%= result.rg %>" data-cpf_morador="<%= result.cpf %>"
                 data-email_morador="<%= result.email %>" data-bloco_morador="<%= result.bloco_id %>"
                 data-ap_morador="<%= result.apartamento_id %>" data-foto_morador="<%= result.foto %>">
-                Editar</button> <% }if(result.tipo_usuario_id ==3) {%>
-              <button type="button" class="acoes btn-warning" type="button" data-toggle="modal"
+                <i class="fas fa-user-edit"></i></a> <% }if(result.tipo_usuario_id ==3) {%>
+              <a id="editacao" class="text-primary text-decoration-none" title="Editar Cadastro" data-toggle="modal"
                 data-target="#porteiroModalEdit" data-id="<%= result.id %>" data-nome_porteiro="<%= result.nome %>"
                 data-rg_porteiro="<%= result.rg %>" data-cpf_porteiro="<%= result.cpf %>"
                 data-email_porteiro="<%= result.email %>" data-foto_porteiro="<%= result.foto %>">
-                Editar</button><%} %>
+                <i class="fas fa-user-edit"></i></a><%} %>
               <% if(result.tipo_usuario_id ==3 || result.tipo_usuario_id ==1) { %>
-              <button type="button" class="acoes btn-warning" type="button" data-toggle="modal"
-                data-target="#statusModal" data-id="<%= result.id %>" data-status="<%= result.status %>"
+              <a id="resetarSenha" class="text-primary text-decoration-none" title=" <%  if(result.status ==true){ %> Desabilitar
+                         <%} else{ %>Habilitar <%
+                         } %>" data-toggle="modal" data-target="#statusModal" data-id="<%= result.id %>"
+                data-status="<%= result.status %>" data-nome="<%= result.nome %>">
+                <%  if(result.status ==true){ %> <i class="fas fa-lock"></i>
+                <%} else{ %><i class="fas fa-lock-open"></i> <%
+                   } %></a> <% } %>
+
+              <% if(result.tipo_usuario_id ==3 || result.tipo_usuario_id ==1) { %>
+              <a id="resetarSenha" class="text-primary text-decoration-none" title="Resetar Senha" data-toggle="modal"
+                data-target="#senhaModal" data-id="<%= result.id %>" data-cpf="<%= result.cpf %>"
                 data-nome="<%= result.nome %>">
-                <%  if(result.status ==true){ %> Desabilitar
-                <%} else{ %> Habilitar <%
-                   } %></button> <% } %>
+                <i class="fas fa-user-edit"></i></a> <% } %>
+
+
             </td>
           </tr>
           <% }); %>
         </tbody>
       </table>
-
-
-
-
-
 
   </div>
 
@@ -503,6 +507,35 @@
 
 
 
+  <!-- Modal senha -->
+  <div class="modal fade" id="senhaModal" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="senhaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="senhaModalLabel">New message</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="formSenha">
+
+            <form id="formSenha" method="POST" action="/backoffice/sindico/Moradores">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button id="confirmarStatus" class="btn btn-primary">Confirmar</button>
+          </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fim do Modal senha -->
 
 
 
@@ -582,6 +615,21 @@
       formEdita3.setAttribute("action", "./editaStatus/" + id + "/" + status + "?_method=PUT")
       formEdita3.setAttribute("method", "post")
       formEdita3.setAttribute("value", status)
+
+    })
+
+
+    $('#senhaModal').on('show.bs.modal', function (event) {
+      var button4 = $(event.relatedTarget) // Button that triggered the modal
+      var id = button4.data('id')
+      var nome = button4.data('nome')
+      var cpf = button4.data('cpf')
+      var modal4 = $(this)
+      modal4.find('.modal-title').text('Deseja resetar a senha do usuario : ' + nome + '  ?')
+      var formEdita4 = document.querySelector("#formSenha")
+      formEdita4.setAttribute("action", "./resetaSenha/" + id + "/" + cpf + "?_method=PUT")
+      formEdita4.setAttribute("method", "post")
+      formEdita4.setAttribute("value", cpf)
 
     })
   </script>
