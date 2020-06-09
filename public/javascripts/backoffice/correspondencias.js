@@ -5,6 +5,50 @@ $(() => {
 let init = () => {
   resetBindings()
 
+  $('#modalInfoCorrespondencia').on('show.bs.modal', async (event) => {
+    let modal = $('#modalInfoCorrespondencia')
+    let id = $(event.relatedTarget).data('id')
+
+    let resposta = await fetch(window.location.href + '/' + id)
+
+    if (resposta.status == 200) {
+      let correspondencia = await resposta.json()
+
+      modal.find('#tipoRastreio').append(
+        correspondencia.rastreio ?
+        correspondencia.tipo_correspondencia.tipo + ' - ' + correspondencia.rastreio :
+        correspondencia.tipo_correspondencia.tipo
+      )
+      modal.find('#colData').append(formataData(correspondencia.created_at))
+      modal.find('#colPorteiro').append(correspondencia.porteiro.nome)
+      modal.find('#colNome').append(correspondencia.morador.nome)
+      modal.find('#colEndereco').append(
+        correspondencia.morador.ap.apartamento + '/' + correspondencia.morador.bl.bloco
+      )
+      modal.find('#colSituacao').append(correspondencia.status.situacao)
+      modal.find('#colRetiradoPor').append(
+        correspondencia.retirado_por_id ? correspondencia.retirado_por.nome : '-'
+      )
+      modal.find('#colDataRetirada').append(
+        correspondencia.data_retirada ? correspondencia.data_retirada : '-'
+      )
+    } else
+      alert(resposta.status + ' - ' + resposta.statusText)
+  })
+
+  $('#modalInfoCorrespondencia').on('hide.bs.modal', () => {
+    let modal = $('#modalInfoCorrespondencia')
+
+    modal.find('#tipoRastreio').text('')
+    modal.find('#colData').text('')
+    modal.find('#colPorteiro').text('')
+    modal.find('#colNome').text('')
+    modal.find('#colEndereco').text('')
+    modal.find('#colSituacao').text('')
+    modal.find('#colRetiradoPor').text('')
+    modal.find('#colDataRetirada').text('')
+  })
+
   $('#modalNovaCorrespondencia').on('show.bs.modal', async () => {
     let modal = $('#modalNovaCorrespondencia')
 
@@ -143,6 +187,8 @@ let init = () => {
 }
 
 let resetBindings = () => {
+  $('#modalInfoCorrespondencia').unbind('show.bs.modal')
+  $('#modalInfoCorrespondencia').unbind('hide.bs.modal')
   $('#modalNovaCorrespondencia').unbind('show.bs.modal')
   $('#modalNovaCorrespondencia').unbind('shown.bs.modal')
   $('#selectBloco').unbind('change')
@@ -260,9 +306,21 @@ let reload = async () => {
       let colunaAcoes = document.createElement('td')
       colunaAcoes.classList.add('text-center', 'align-middle')
 
+      let info = document.createElement('a')
+      info.setAttribute('id', 'info')
+      info.classList.add('text-info')
+      info.setAttribute('data-toggle', 'modal')
+      info.setAttribute('data-target', '#modalInfoCorrespondencia')
+      info.setAttribute('data-id', correspondencia.id)
+      info.setAttribute('title', 'Detalhes')
+
+      let iconeInfo = document.createElement('i')
+      iconeInfo.classList.add('fas', 'fa-info-circle')
+      info.append(iconeInfo)
+
       let editar = document.createElement('a')
       editar.setAttribute('id', 'editar')
-      editar.classList.add('text-primary', 'text-decoration-none')
+      editar.classList.add('text-primary', 'ml-3')
       editar.setAttribute('data-target', '#modal')
       editar.setAttribute('data-id', '')
       editar.setAttribute('title', 'Editar')
@@ -281,6 +339,7 @@ let reload = async () => {
       iconeExcluir.classList.add('fas', 'fa-trash-alt')
       excluir.append(iconeExcluir)
 
+      colunaAcoes.append(info)
       colunaAcoes.append(editar)
       colunaAcoes.append(excluir)
 

@@ -48,6 +48,37 @@ module.exports = comunicadoController = {
       })
     }
   },
+  show: async (req, res) => {
+    try {
+      const { id } = req.params
+
+      let correspondencia = await Correspondencia.findByPk(id, {
+        include: [{
+          association: 'morador',
+          include: [{
+            association: 'ap'
+          }, {
+            association: 'bl'
+          }]
+        }, {
+          association: 'porteiro'
+        }, {
+          association: 'tipo_correspondencia'
+        }, {
+          association: 'status'
+        }, {
+          association: 'retirado'
+        }]
+      })
+
+      if (!correspondencia)
+        throw 'Erro ao resgatar detalhes da correspondência'
+
+      return res.status(200).json(correspondencia)
+    } catch (error) {
+      return res.status(400).json(error)
+    }
+  },
   store: async (req, res) => {
     const { user } = req.session
     const { bloco_id, apartamento_id, tipo_correspondencia_id, rastreio, morador_id } = req.body
@@ -103,6 +134,15 @@ module.exports = comunicadoController = {
       const listaApartamentos = await Apartamento.findAll()
       const listaBlocos = await Bloco.findAll()
       const listaTipos = await Tipo_correspondencia.findAll()
+
+      if (!listaApartamentos)
+        throw 'Erro ao buscar os apartamentos!'
+
+      if (!listaBlocos)
+        throw 'Erro ao buscar os blocos!'
+
+      if (!listaTipos)
+        throw 'Erro ao buscar os tipos de correspondências!'
 
       return res.status(200).json({listaApartamentos, listaBlocos, listaTipos})
     } catch (error) {
