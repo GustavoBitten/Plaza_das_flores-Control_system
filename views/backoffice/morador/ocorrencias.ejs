@@ -51,7 +51,7 @@
               <td><%= ocorrencia.Status_ocorrencium.status %></td>
               <td><%= moment(ocorrencia.created_at).format('DD/MM/YYYY');  %></td>
               <td><button type="button" class="detalhes btn btn-primary" data-toggle="modal"
-                  data-target="#detalhes1Modal">
+                  data-target="#detalhes1Modal" data-id="<%= ocorrencia.id %>">
                   + </button></td>
             </tr>
           <% }) %>
@@ -135,6 +135,8 @@
     </div>
   </div>
 </div>
+
+
 <%}%>
 
 <!--Filtro Modal -->
@@ -189,23 +191,27 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
+      <% listaOcorrencias.forEach((ocorrencia, index) =>{ %>
       <div class="modal-body">
-        <h5>Imagem Cadastrada</h5>
+        <h5>Imagem </h5>
         <img
-          src="https://media.istockphoto.com/photos/burnedout-light-bulb-isolated-on-white-background-with-shadow-burned-picture-id952090314"
+          src="<%= ocorrencia.foto %>"
           alt="" style="width: 100px; height: 100px; object-fit: cover; ">
         <h5>Mensagem</h5>
-        <p>Lâmpada do corredor queimada. Por favor, realizar a manutenção</p>
+        <p><%= ocorrencia.titulo %></p>
         <h5>Resposta do(a) Síndico(a)</h5>
-        <p>A lampânda foi trocada, att síndico</p>
+        <p><%= ocorrencia.resposta %></p>
 
       </div>
+      <%})%>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
 </div>
+
 <%}%>
 
 

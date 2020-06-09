@@ -77,6 +77,7 @@ route.put('/funcionarios/editar/:funcionarioId',uploadFuncionario.any(), funcion
 
 // Rotas para as Ocorrências
 route.get('/ocorrencias', ocorrenciaController.index)
+//route.get('/ocorrencia/:idOcorrencia', ocorrenciaController.showOcorrencia)
 route.post('/ocorrenciasMorador',uploadOcorrencia.any(), ocorrenciaController.storeMorador)
 route.post('/ocorrenciasSindico',uploadOcorrencia.any(), ocorrenciaController.storeSindico)
 route.delete('/ocorrencias/delete/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.delete)
