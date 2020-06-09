@@ -58,21 +58,21 @@ module.exports = (sequelize, DataTypes) => {
         
       },
       {
-        timestamps: true, // utliza
+        // timestamps: true, // utliza
         freezeTableName: true,
-        tablename: "cobrancas"
+        tableName: "cobrancas"
 
       }
     );
   
     Cobranca.associate = (models) => {
       Cobranca.belongsTo(models.Tipo_cobranca, {
-        foreignKey: "tipo_cobranca_id",
+        foreignKey: 'tipo_cobranca_id',
         as: 'tipo_cobranca'
       });
       Cobranca.belongsTo(models.Usuario,{
         foreignKey: "usuario_id",
-        as: 'batata'
+        as: 'usuario'
     });
   
     };

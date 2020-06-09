@@ -23,9 +23,9 @@ module.exports = (sequelize, DataTypes) => {
         
       },
       {
-        timestamps: true,
+        //timestamps: true,
         freezeTableName: true,
-        tablename: "tipos_cobrancas"
+        tableName: "tipos_cobrancas"
 
       }
     );
@@ -40,5 +40,5 @@ module.exports = (sequelize, DataTypes) => {
   
     
   
-    return Tipo_cobranca;
+    return Tipo_cobranca
   };
