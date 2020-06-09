@@ -8,15 +8,13 @@ class Financeiro {
 
       const listaCobrancas = await Cobranca.findAll(
         {include: [{
-        association: 'tipo_cobranca'
-                  //Tipo_cobranca
+        model: Usuario,
+        as: 'batata'          //Tipo_cobranca
         }
-        
-        
       ]})
 
-      //const Usuario2 = listaCobrancas
-      console.log(listaCobrancas)
+      const Usuario2 = listaCobrancas[0].Usuario
+      console.log(Usuario2)
 
       res.render("backoffice/morador/financeiro", {
       titulo: "Morador - Financeiro",
