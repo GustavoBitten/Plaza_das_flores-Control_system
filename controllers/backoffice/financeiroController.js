@@ -2,25 +2,6 @@ const {Cobranca } = require('../../models')
 const moment = require('moment')
 
 
-const listaComunicados = [
-    {
-      id: 5,
-      sindico_id: 2,
-      titulo: 'Reforma da Piscina',
-      mensagem: 'A piscina vai estar interditada para realizarmos a reforma durante os dias 15 e 22',
-      created_at: '2020-05-29T19:38:45.600Z',
-      updated_at: '2020-05-29T19:38:45.600Z'
-    },
-    {
-      id: 6,
-      sindico_id: 2,
-      titulo: 'Teste',
-      mensagem: 'tessss',
-      created_at: '2020-05-29T19:38:45.600Z',
-      updated_at: '2020-05-29T19:42:36.613Z'
-    }
-  ]
-
 class Financeiro {
 
     index = async (req, res) => {
@@ -34,6 +15,23 @@ class Financeiro {
       listaCobrancas,
       moment
       })
+    }
+
+    show = (req, res) => {}
+    create = (req, res) => {}
+    update = (req, res) => {}
+    destroy = async (req, res) => {
+
+     const id = req.params.id
+
+       await Cobranca.destroy({
+        where:{
+          id
+        }
+      })
+
+
+      res.redirect('/backoffice/morador/financeiro')
     }
 
 }

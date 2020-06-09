@@ -48,7 +48,7 @@
         <div class="card-body row">
           <div class="col-12 d-flex align-items-center flex-column">
             <% if (listaCobrancas.length > 0) { %>
-              <span id="obs" class="align-self-start ">* Para visualizar o comunicado completo basta clicar em seu título</span>
+              
               <table class="table table-borderless table-striped table-hover table-responsive-sm">
                 <caption>
                   Comunicad
@@ -76,7 +76,7 @@
                   </th>
                 </tr>
               </thead>
-                <!--------------------------- Colunas -------------------------------->
+                <!--------------------------- Fim Colunas -------------------------------->
 
                 <tbody id="tableBody">
                   <% listaCobrancas.forEach(cobranca => { %>
@@ -103,22 +103,66 @@
                       </td>
 
                       <td class="text-center align-middle">
-                        <a id="editarComunicado<%= 'comunicado.id' %>" class="text-primary text-decoration-none" data-target="#modalEditarComunicado"
-                          data-id="<%= 'comunicado.id' %>" title="Editar Comunicado">
-                          <i class="fas fa-edit"></i>
-                        </a>
-                        <a id="excluirComunicado<%= 'comunicado.id' %>" class="text-danger ml-3" data-id="<%= 'comunicado.id' %>" title="Excluir Comunicado">
-                          <i class="fas fa-trash-alt"></i>
+                          <a type="button" data-toggle="modal" data-target=<%=`#modalDescricao${cobranca.id}`%>  >
+                              <i class="far fa-comment-alt"></i>
+                          </a>
+                          <a type="button" data-toggle="modal" data-target=<%=`#modalExcluir${cobranca.id}`%>  >
+                            <i class="far fa-trash-alt"></i>
                         </a>
                       </td>
 
                     </tr>
+                    <!-- Modal -->
+                    <div class="modal fade" id=<%=`modalDescricao${cobranca.id}`%> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><%= cobranca.titulo %></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <%= cobranca.descricao %> 
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id=<%=`modalExcluir${cobranca.id}`%>  tabindex="-1" role="dialog"
+                      aria-labelledby="modalExcluirComunicadoTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header d-flex justify-content-center p-1">
+                            <h5 class="modal-title" id="modalExcluirComunicadoTitle">Tem certeza?</h5>
+                          </div>
 
+                          <div class="modal-body d-flex justify-content-center">
+                            
+                            <!-- =`financeiro/${cobranca.id}?_method=DELETE"`%> -->
+
+                            <form method="post" action=<%="financeiro/" + cobranca.id +"?_method=DELETE"%> > 
+                              <button type="submit" class="btn-sm btn-sucess border-0 rounded-pill font-weight-bold px-3 ml-2">
+                              Sim
+                            </button>
+                            </form>
+                            <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3 ml-2"
+                              data-dismiss="modal">
+                              Não
+                            </button>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
                   <% }) %>
                 </tbody>
               </table>
             <% } else { %>
-              <h4 class="text-danger">Nenhum comunicado foi encontrado!</h4>
+              <h4 class="text-danger">Nenhuma cobrança foi encontrada!</h4>
             <% } %>
           </div>
           <!-- /.col-12 -->
@@ -129,51 +173,6 @@
     </section>
 
     </main>
-
-    <!-- Modal Notificações -->
-    <!-- <div class="modal fade" id="modalNotificacoes" tabindex="-1" role="dialog" aria-labelledby="modalNotificacoesTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header d-flex justify-content-center">
-            <h5 class="modal-title" id="modalNotificacoesTitle">Multas e Notificações</h5>
-          </div>
-
-          <div class="modal-body">
-            <h6>* <u>Multa - 26/04/20</u></h6>
-            <p class="pl-3">Multa referente ao mal uso dos elevadores sociais do condomínio.
-              Para descer com lixo até sua área de coleta é necessário utilizar os elevadores de serviços.
-            </p>
-            <hr>
-            <h6>* <u>Título da notificação</u></h6>
-            <p class="pl-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Eget est lorem ipsum dolor.
-               Sit amet est placerat in egestas erat imperdiet.
-               Faucibus et molestie ac feugiat.
-               Urna nec tincidunt praesent semper feugiat nibh sed pulvinar.
-               Enim neque volutpat ac tincidunt vitae semper quis.
-               Pulvinar neque laoreet suspendisse interdum.
-            </p>
-            <hr>
-            <h6>* <u>Título da notificação</u></h6>
-            <p class="pl-3">Semper feugiat nibh sed pulvinar proin.
-              Consectetur purus ut faucibus pulvinar elementum.
-              Mi proin sed libero enim sed faucibus turpis in.
-              Viverra tellus in hac habitasse platea dictumst vestibulum.
-              Ultrices dui sapien eget mi proin.
-              Euismod elementum nisi quis eleifend.
-              Tincidunt id aliquet risus feugiat in ante metus.
-            </p>
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold" data-dismiss="modal">
-              Voltar
-            </button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!-- /#modalNotificacoes -->
 
     <%- include('../../includes/scriptJS') %>
     <script type="text/javascript" src="/javascripts/backoffice/financeiro.js"></script>

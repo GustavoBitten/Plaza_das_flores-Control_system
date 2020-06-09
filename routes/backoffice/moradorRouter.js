@@ -40,7 +40,6 @@ route.get('/perfil', backofficePageController.moradorPerfil)
 route.get('/areas-comuns', backofficePageController.moradorAreasComuns)
 // route.get('/portaria', backofficePageController.moradorPortaria)
 // route.get('/comunicados', backofficePageController.moradorComunicados)
-route.get('/financeiro', financeiroController.index)
 
 
 // Rotas para os Blocos
@@ -111,5 +110,10 @@ route.get('/comunicados/:id', comunicadoController.show)
 // Rotas para as Correspondencias
 route.get('/correspondencias', correspondenciaController.index)
 
+// Rotas para as Financeiro
+route.get('/financeiro', financeiroController.index)
+route.delete('/financeiro/:id', financeiroController.destroy)
+//route.post('/financeiro/:id', financeiroController.destroy)
+//route.get('/financeiro/:id', financeiroController.destroy)
 
 module.exports = route
