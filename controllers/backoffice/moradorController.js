@@ -136,7 +136,7 @@ if (project != null) {
         ]
       })
 
-      console.log(result)
+      
     } else {
       result = await Usuario.findAll({
         where: {
@@ -150,7 +150,7 @@ if (project != null) {
         ]
       })
 
-      console.log(result)
+     
     }
 
 
@@ -253,9 +253,13 @@ if (project != null) {
       id,
       status
     } = req.params
-
-    let novostatus = !status
-
+     novostatus = false
+ 
+   
+    if(status == "false"){
+      novostatus = true
+      console.log("if 1")
+    }
     const result = await Usuario.update({
       status: novostatus
 
