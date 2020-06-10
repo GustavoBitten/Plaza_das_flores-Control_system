@@ -112,10 +112,10 @@
                               <% if (usuario.tipo_usuario_id == 1) { %>
                                 -
                               <% } else { %>
-                                <button id="btnRetirada" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
-                                  data-toggle="modal" data-target="#modal">
-                                  Resgistrar
-                                </button>
+                                <a id="btnRetirada<%= correspondencia.id %>" class="text-success" data-toggle="modal"
+                                  data-target="#modalRetiradaCorrespondencia" data-id="<%= correspondencia.id %>" title="Registrar retirada">
+                                  <i class="fas fa-plus-circle"></i>
+                                </a>
                               <% } %>
                             <% } %>
                           </td>
@@ -314,6 +314,42 @@
       </div>
     </div>
     <!-- /#modalExcluirCorrespondencia -->
+
+    <%# Modal Retirada Correspondencia %>
+    <div class="modal fade" id="modalRetiradaCorrespondencia" tabindex="-1" role="dialog"
+      aria-labelledby="modalRetiradaCorrespondenciaTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-header d-flex justify-content-center p-1">
+            <h5 class="modal-title" id="modalRetiradaCorrespondenciaTitle">
+              Retirada - Correspondência<span id="hiddenCorrespondenciaId" hidden></span>
+            </h5>
+          </div>
+
+          <div class="modal-body">
+            <form class="form-group m-0">
+              <label for="nomeRetirada">Nome do Morador/Dependente</label>
+              <select id="nomeRetirada" name="nomeRetirada" class="custom-select">
+                <%# Valores preenchidos via ajax %>
+              </select>
+            </form>
+          </div>
+          <!-- /div.modal-body -->
+
+          <div class="modal-footer border-0">
+            <button id="btnRegistrarRetirada" class="btn-sm btn-success border-0 rounded-pill font-weight-bold px-3 ml-2">
+              Registrar
+            </button>
+            <button type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
+              data-dismiss="modal">
+              Voltar
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- /#modalRetiradaCorrespondencia -->
 
     <%- include('../includes/scriptJS') %>
     <script type="text/javascript" src="/javascripts/backoffice/correspondencias.js"></script>

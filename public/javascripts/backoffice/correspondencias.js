@@ -184,6 +184,83 @@ let init = () => {
   $("#modalExcluirCorrespondencia").on('hide.bs.modal', () => {
     init()
   })
+
+  $('#modalRetiradaCorrespondencia').on('show.bs.modal', async (event) => {
+    let modal = $('#modalRetiradaCorrespondencia')
+
+    let idCorrespondencia = $(event.relatedTarget).data('id')
+
+    let resposta = await fetch(window.location.href + '/getMoradorDependentes', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        idCorrespondencia
+      })
+    })
+
+    if (resposta.status == 200) {
+      let moradores = await resposta.json()
+
+      let comboMoradores = modal.find('#nomeRetirada')
+
+      let defaultOption = document.createElement('option')
+      defaultOption.setAttribute('selected', 'selected')
+      defaultOption.append('-')
+
+      comboMoradores.append(defaultOption)
+
+      moradores.forEach(morador => {
+        let option = document.createElement('option')
+        option.setAttribute('value', morador.id)
+        option.append(morador.nome)
+
+        comboMoradores.append(option)
+      })
+
+      modal.find('#hiddenCorrespondenciaId').text(idCorrespondencia)
+    } else
+      alert(resposta.status + ' - ' + resposta.statusText)
+  })
+
+  $('#modalRetiradaCorrespondencia').on('hide.bs.modal', () => {
+    let modal = $('#modalRetiradaCorrespondencia')
+
+    modal.find('#nomeRetirada').text('')
+    modal.find('#hiddenCorrespondenciaId').text('')
+  })
+
+  $('#btnRegistrarRetirada').on('click', async () => {
+    let modal = $('#modalRetiradaCorrespondencia')
+
+    let idCorrespondencia = modal.find('#hiddenCorrespondenciaId').text()
+    // Recuperar o id do morador
+    let idMorador = modal.find('#nomeRetirada').val()
+
+    let resposta = await fetch(window.location.href + '/registrarRetirada?_method=PUT', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        idCorrespondencia,
+        idMorador
+      })
+    })
+
+    if (resposta.status == 200) {
+      let registro = await resposta.json()
+
+      // hide modal
+      modal.modal('hide')
+
+      reload()
+    } else
+      alert(resposta.status + ' - ' + resposta.statusText)
+  })
 }
 
 let resetBindings = () => {
@@ -196,7 +273,11 @@ let resetBindings = () => {
   $('#modalNovaCorrespondencia').unbind('hidden.bs.modal')
   $('#btnCadastrarCorrespondencia').unbind('click')
   $('a[id^=excluirCorrespondencia]').unbind('click')
+  $('a[id=btnDelete]').unbind('click')
   $("#modalExcluirCorrespondencia").unbind('hide.bs.modal')
+  $('#modalRetiradaCorrespondencia').unbind('show.bs.modal')
+  $('#modalRetiradaCorrespondencia').unbind('hide.bs.modal')
+  $('#btnRegistrarRetirada').unbind('click')
 }
 
 let buscarNomeMorador = async () => {
@@ -224,9 +305,10 @@ let buscarNomeMorador = async () => {
         let inputNome = modal.find('#nomeMorador')
         let inputId = modal.find('#idMorador')
 
-        if(morador.error)
+        if (morador.error) {
           inputNome.val(morador.error)
-        else {
+          inputId.val('')
+        } else {
           inputNome.val(morador.nome)
           inputId.val(morador.id)
         }
@@ -286,15 +368,20 @@ let reload = async () => {
       if (correspondencia.retirado_por)
         colunaRetiradoPor.append(correspondencia.retirado.nome)
       else {
-        let button = document.createElement('button')
-        button.setAttribute('id', 'btnRetirada')
-        button.setAttribute('type', 'button')
-        button.classList.add('btn-sm', 'btn-orange', 'border-0', 'rounded-pill', 'font-weight-bold')
-        button.setAttribute('data-toggle', 'modal')
-        button.setAttribute('data-target', '#modal')
-        button.append('Registrar')
+        let retirada = document.createElement('a')
+        retirada.setAttribute('id', 'btnRetirada' + correspondencia.id)
+        retirada.classList.add('text-success')
+        retirada.setAttribute('data-toggle', 'modal')
+        retirada.setAttribute('data-target', '#modalRetiradaCorrespondencia')
+        retirada.setAttribute('data-id', correspondencia.id)
+        retirada.setAttribute('title', 'Registrar retirada')
 
-        colunaRetiradoPor.append(button)
+        let iconeRetirada = document.createElement('i')
+        iconeRetirada.classList.add('fas', 'fa-plus-circle')
+
+        retirada.append(iconeRetirada)
+
+        colunaRetiradoPor.append(retirada)
       }
 
       let colunaDataRetirada = document.createElement('td')

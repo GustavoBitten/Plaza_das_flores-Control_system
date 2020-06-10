@@ -52,7 +52,7 @@ module.exports = comunicadoController = {
     try {
       const { id } = req.params
 
-      let correspondencia = await Correspondencia.findByPk(id, {
+      const correspondencia = await Correspondencia.findByPk(id, {
         include: [{
           association: 'morador',
           include: [{
@@ -135,14 +135,8 @@ module.exports = comunicadoController = {
       const listaBlocos = await Bloco.findAll()
       const listaTipos = await Tipo_correspondencia.findAll()
 
-      if (!listaApartamentos)
-        throw 'Erro ao buscar os apartamentos!'
-
-      if (!listaBlocos)
-        throw 'Erro ao buscar os blocos!'
-
-      if (!listaTipos)
-        throw 'Erro ao buscar os tipos de correspondências!'
+      if (!listaApartamentos || !listaBlocos || !listaTipos)
+        throw 'Erro ao buscar dados, tente novamente mais tarde!'
 
       return res.status(200).json({listaApartamentos, listaBlocos, listaTipos})
     } catch (error) {
@@ -202,6 +196,54 @@ module.exports = comunicadoController = {
         throw 'Falha ao carregar os dados!'
 
       return res.status(200).json({listaCorrespondencias, user})
+    } catch (error) {
+      return res.status(400).json(error)
+    }
+  },
+  getMoradorDependentes: async (req, res) => {
+    try {
+      const { idCorrespondencia } = req.body
+
+      const correspondencia = await Correspondencia.findByPk(idCorrespondencia, {
+        include: [{association: 'morador'}]
+      })
+
+      if (!correspondencia)
+        throw 'Correspondência não encontrada!'
+
+      const moradores = await Usuario.findAll({
+        where: {
+          bloco_id: correspondencia.morador.bloco_id,
+          apartamento_id: correspondencia.morador.apartamento_id
+        },
+        attributes: ['id', 'nome']
+      })
+
+      if(!moradores)
+        throw 'Nenhum morador encontrado'
+
+      return res.status(200).json(moradores)
+    } catch (error) {
+      return res.status(400).json(error)
+    }
+  },
+  registrarRetirada: async (req, res) => {
+    try {
+      const { idCorrespondencia, idMorador } = req.body
+
+      const updateCorrespondencia = await Correspondencia.update({
+        retirado_por: idMorador,
+        situacao_id: 4
+      }, {
+        where: {
+          id: idCorrespondencia
+        }
+      })
+
+      if (!updateCorrespondencia)
+        throw 'Erro ao registrar a retirada, tente novamente!'
+
+      return res.status(200).json(updateCorrespondencia)
     } catch (error) {
       return res.status(400).json(error)
     }
