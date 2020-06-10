@@ -1,9 +1,13 @@
+var lastCount, newCount
+
 $(() => {
   init()
 })
 
 let init = () => {
   resetBindings()
+
+  qtdCorrespondencias()
 
   $('#modalInfoCorrespondencia').on('show.bs.modal', async (event) => {
     let modal = $('#modalInfoCorrespondencia')
@@ -27,10 +31,10 @@ let init = () => {
       )
       modal.find('#colSituacao').append(correspondencia.status.situacao)
       modal.find('#colRetiradoPor').append(
-        correspondencia.retirado_por_id ? correspondencia.retirado_por.nome : '-'
+        correspondencia.retirado ? correspondencia.retirado.nome : '-'
       )
       modal.find('#colDataRetirada').append(
-        correspondencia.data_retirada ? correspondencia.data_retirada : '-'
+        correspondencia.data_retirada ? formataData(correspondencia.data_retirada) : '-'
       )
     } else
       alert(resposta.status + ' - ' + resposta.statusText)
@@ -327,127 +331,153 @@ let formataData = (data) => {
   return dia + '/' + mes + '/' + ano
 }
 
-let reload = async () => {
-  let tbody = $('#tableBody')
-  tbody.text('')
+let qtdCorrespondencias = async () => {
+  let resposta = await fetch(window.location.href + '/getCount')
 
+  if (resposta.status == 200) {
+    let resultado = await resposta.json()
+
+    lastCount = newCount
+    newCount = resultado.qtdCorrespondencias
+  } else
+    alert(resposta.status + ' - ' + resposta.statusText)
+}
+
+let reload = async () => {
   let resposta = await fetch(window.location.href + '/getCorrespondencias')
 
   if (resposta.status == 200) {
     const resultado = await resposta.json()
 
-    resultado.listaCorrespondencias.forEach(correspondencia => {
-      let tr = document.createElement('tr')
+    if (newCount == 0 && (lastCount == 0 || lastCount == undefined))
+      location.reload()
 
-      let colunaData = document.createElement('td')
-      colunaData.classList.add('text-center', 'align-middle')
-      colunaData.append(formataData(correspondencia.created_at))
+    if (resultado.listaCorrespondencias.length > 0) {
+      let tbody = $('#tableBody')
+      tbody.text('')
 
-      let colunaMorador = document.createElement('td')
-      colunaMorador.classList.add('text-center', 'align-middle', 'text-nowrap')
-      colunaMorador.append(correspondencia.morador.nome)
+      resultado.listaCorrespondencias.forEach(correspondencia => {
+        let tr = document.createElement('tr')
 
-      let colunaEndereco = document.createElement('td')
-      colunaEndereco.classList.add('text-center', 'align-middle', 'text-nowrap')
-      colunaEndereco.append(correspondencia.morador.ap.apartamento + '/' + correspondencia.morador.bl.bloco)
+        let colunaData = document.createElement('td')
+        colunaData.classList.add('text-center', 'align-middle')
+        colunaData.append(formataData(correspondencia.created_at))
 
-      let colunaTipo = document.createElement('td')
-      colunaTipo.classList.add('text-center', 'align-middle', 'text-nowrap')
-      colunaTipo.append(correspondencia.tipo_correspondencia.tipo)
+        let colunaMorador = document.createElement('td')
+        colunaMorador.classList.add('text-center', 'align-middle', 'text-nowrap')
+        colunaMorador.append(correspondencia.morador.nome)
 
-      let colunaRastreio = document.createElement('td')
-      colunaRastreio.classList.add('text-center', 'align-middle', 'text-nowrap')
-      colunaRastreio.append(correspondencia.rastreio ? correspondencia.rastreio : '-')
+        let colunaEndereco = document.createElement('td')
+        colunaEndereco.classList.add('text-center', 'align-middle', 'text-nowrap')
+        colunaEndereco.append(correspondencia.morador.ap.apartamento + '/' + correspondencia.morador.bl.bloco)
 
-      let colunaSituacao = document.createElement('td')
-      colunaSituacao.classList.add('text-center', 'align-middle')
-      colunaSituacao.append(correspondencia.status.situacao)
+        let colunaTipo = document.createElement('td')
+        colunaTipo.classList.add('text-center', 'align-middle', 'text-nowrap')
+        colunaTipo.append(correspondencia.tipo_correspondencia.tipo)
 
-      let colunaRetiradoPor = document.createElement('td')
-      colunaRetiradoPor.classList.add('text-center', 'align-middle', 'text-nowrap')
-      if (correspondencia.retirado_por)
-        colunaRetiradoPor.append(correspondencia.retirado.nome)
-      else {
-        let retirada = document.createElement('a')
-        retirada.setAttribute('id', 'btnRetirada' + correspondencia.id)
-        retirada.classList.add('text-success')
-        retirada.setAttribute('data-toggle', 'modal')
-        retirada.setAttribute('data-target', '#modalRetiradaCorrespondencia')
-        retirada.setAttribute('data-id', correspondencia.id)
-        retirada.setAttribute('title', 'Registrar retirada')
+        let colunaRastreio = document.createElement('td')
+        colunaRastreio.classList.add('text-center', 'align-middle', 'text-nowrap')
+        colunaRastreio.append(correspondencia.rastreio ? correspondencia.rastreio : '-')
 
-        let iconeRetirada = document.createElement('i')
-        iconeRetirada.classList.add('fas', 'fa-plus-circle')
+        let colunaSituacao = document.createElement('td')
+        colunaSituacao.classList.add('text-center', 'align-middle')
+        colunaSituacao.append(correspondencia.status.situacao)
 
-        retirada.append(iconeRetirada)
+        let colunaRetiradoPor = document.createElement('td')
+        colunaRetiradoPor.classList.add('text-center', 'align-middle', 'text-nowrap')
+        if (correspondencia.retirado_por)
+          colunaRetiradoPor.append(correspondencia.retirado.nome)
+        else {
+          let retirada = document.createElement('a')
+          retirada.setAttribute('id', 'btnRetirada' + correspondencia.id)
+          retirada.classList.add('text-success')
+          retirada.setAttribute('data-toggle', 'modal')
+          retirada.setAttribute('data-target', '#modalRetiradaCorrespondencia')
+          retirada.setAttribute('data-id', correspondencia.id)
+          retirada.setAttribute('title', 'Registrar retirada')
 
-        colunaRetiradoPor.append(retirada)
-      }
+          let iconeRetirada = document.createElement('i')
+          iconeRetirada.classList.add('fas', 'fa-plus-circle')
 
-      let colunaDataRetirada = document.createElement('td')
-      colunaDataRetirada.classList.add('text-center', 'align-middle')
-      colunaDataRetirada.append(
-        correspondencia.data_retirada ? formataData(correspondencia.data_retirada) : '-'
-      )
+          retirada.append(iconeRetirada)
 
-      let colunaAcoes = document.createElement('td')
-      colunaAcoes.classList.add('text-center', 'align-middle')
+          colunaRetiradoPor.append(retirada)
+        }
 
-      let info = document.createElement('a')
-      info.setAttribute('id', 'info')
-      info.classList.add('text-info')
-      info.setAttribute('data-toggle', 'modal')
-      info.setAttribute('data-target', '#modalInfoCorrespondencia')
-      info.setAttribute('data-id', correspondencia.id)
-      info.setAttribute('title', 'Detalhes')
+        let colunaDataRetirada = document.createElement('td')
+        colunaDataRetirada.classList.add('text-center', 'align-middle')
+        colunaDataRetirada.append(
+          correspondencia.data_retirada ? formataData(correspondencia.data_retirada) : '-'
+        )
 
-      let iconeInfo = document.createElement('i')
-      iconeInfo.classList.add('fas', 'fa-info-circle')
-      info.append(iconeInfo)
+        let colunaAcoes = document.createElement('td')
+        colunaAcoes.classList.add('text-center', 'align-middle')
 
-      let editar = document.createElement('a')
-      editar.setAttribute('id', 'editar')
-      editar.classList.add('text-primary', 'ml-3')
-      editar.setAttribute('data-target', '#modal')
-      editar.setAttribute('data-id', '')
-      editar.setAttribute('title', 'Editar')
+        let info = document.createElement('a')
+        info.setAttribute('id', 'info')
+        info.classList.add('text-info')
+        info.setAttribute('data-toggle', 'modal')
+        info.setAttribute('data-target', '#modalInfoCorrespondencia')
+        info.setAttribute('data-id', correspondencia.id)
+        info.setAttribute('title', 'Detalhes')
 
-      let iconeEditar = document.createElement('i')
-      iconeEditar.classList.add('fas', 'fa-edit')
-      editar.append(iconeEditar)
+        let iconeInfo = document.createElement('i')
+        iconeInfo.classList.add('fas', 'fa-info-circle')
+        info.append(iconeInfo)
 
-      let excluir = document.createElement('a')
-      excluir.setAttribute('id', 'excluirCorrespondencia' + correspondencia.id)
-      excluir.classList.add('text-danger', 'ml-3')
-      excluir.setAttribute('data-id', correspondencia.id)
-      excluir.setAttribute('title', 'Excluir')
+        let editar = document.createElement('a')
+        editar.setAttribute('id', 'editar')
+        editar.classList.add('text-primary', 'ml-3')
+        editar.setAttribute('data-target', '#modal')
+        editar.setAttribute('data-id', '')
+        editar.setAttribute('title', 'Editar')
 
-      let iconeExcluir = document.createElement('i')
-      iconeExcluir.classList.add('fas', 'fa-trash-alt')
-      excluir.append(iconeExcluir)
+        let iconeEditar = document.createElement('i')
+        iconeEditar.classList.add('fas', 'fa-edit')
+        editar.append(iconeEditar)
 
-      colunaAcoes.append(info)
-      colunaAcoes.append(editar)
-      colunaAcoes.append(excluir)
+        let excluir = document.createElement('a')
+        excluir.setAttribute('id', 'excluirCorrespondencia' + correspondencia.id)
+        excluir.classList.add('text-danger', 'ml-3')
+        excluir.setAttribute('data-id', correspondencia.id)
+        excluir.setAttribute('title', 'Excluir')
 
-      tr.append(colunaData)
-      if (user.tipo_usuario_id != 1) {
-        tr.append(colunaMorador)
-        tr.append(colunaEndereco)
-      }
-      tr.append(colunaTipo)
-      if (user.tipo_usuario_id == 1)
-        tr.append(colunaRastreio)
+        let iconeExcluir = document.createElement('i')
+        iconeExcluir.classList.add('fas', 'fa-trash-alt')
+        excluir.append(iconeExcluir)
 
-      tr.append(colunaSituacao)
-      tr.append(colunaRetiradoPor)
-      tr.append(colunaDataRetirada)
-      tr.append(colunaAcoes)
+        colunaAcoes.append(info)
+        colunaAcoes.append(editar)
+        colunaAcoes.append(excluir)
 
-      tbody.append(tr)
+        tr.append(colunaData)
+        if (user.tipo_usuario_id != 1) {
+          tr.append(colunaMorador)
+          tr.append(colunaEndereco)
+        }
+        tr.append(colunaTipo)
+        if (user.tipo_usuario_id == 1)
+          tr.append(colunaRastreio)
 
-      init()
-    })
+        tr.append(colunaSituacao)
+        tr.append(colunaRetiradoPor)
+        tr.append(colunaDataRetirada)
+        tr.append(colunaAcoes)
+
+        tbody.append(tr)
+      })
+    } else {
+      let div = $('.col-12.table-responsive')
+      div.text('')
+
+      let h4 = document.createElement('h4')
+      h4.classList.add('text-danger')
+      h4.append('Nenhuma correspondência registrada!')
+
+      div.append(h4)
+    }
+
+    init()
   } else
     alert(resposta.status + ' - ' + resposta.statusText)
 }

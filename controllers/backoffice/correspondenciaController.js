@@ -19,19 +19,32 @@ module.exports = comunicadoController = {
         include: [{
           association: 'morador',
           include: [{
-            association: 'ap'
+            association: 'ap',
+            attributes: ['id', 'apartamento']
           }, {
-            association: 'bl'
-          }]
+            association: 'bl',
+            attributes: ['id', 'bloco']
+          }],
+          attributes: ['id', 'nome']
         }, {
-          association: 'porteiro'
+          association: 'porteiro',
+          attributes: ['id', 'nome']
         }, {
-          association: 'tipo_correspondencia'
+          association: 'tipo_correspondencia',
+          attributes: ['id', 'tipo']
         }, {
-          association: 'status'
+          association: 'status',
+          attributes: ['id', 'situacao']
         }, {
-          association: 'retirado'
-        }]
+          association: 'retirado',
+          attributes: ['id', 'nome']
+        }],
+        attributes: {
+          exclude: ['updated_at']
+        },
+        order: [
+          ['data_retirada', 'DESC'],
+          ['created_at', 'DESC']]
       })
 
       return res.render("backoffice/correspondencias", {
@@ -56,19 +69,27 @@ module.exports = comunicadoController = {
         include: [{
           association: 'morador',
           include: [{
-            association: 'ap'
+            association: 'ap',
+            attributes: ['id', 'apartamento']
           }, {
-            association: 'bl'
-          }]
+            association: 'bl',
+            attributes: ['id', 'bloco']
+          }],
+          attributes: ['id', 'nome']
         }, {
-          association: 'porteiro'
+          association: 'porteiro',
+          attributes: ['id', 'nome']
         }, {
-          association: 'tipo_correspondencia'
+          association: 'tipo_correspondencia',
+          attributes: ['id', 'tipo']
         }, {
-          association: 'status'
+          association: 'status',
+          attributes: ['id', 'situacao']
         }, {
-          association: 'retirado'
-        }]
+          association: 'retirado',
+          attributes: ['id', 'nome']
+        }],
+        attributes: {exclude: ['updated_at']}
       })
 
       if (!correspondencia)
@@ -131,9 +152,15 @@ module.exports = comunicadoController = {
   },
   getComboValues: async (_req, res) => {
     try {
-      const listaApartamentos = await Apartamento.findAll()
-      const listaBlocos = await Bloco.findAll()
-      const listaTipos = await Tipo_correspondencia.findAll()
+      const listaApartamentos = await Apartamento.findAll({
+        attributes: ['id', 'apartamento']
+      })
+      const listaBlocos = await Bloco.findAll({
+        attributes: ['id', 'bloco']
+      })
+      const listaTipos = await Tipo_correspondencia.findAll({
+        attributes: ['id', 'tipo']
+      })
 
       if (!listaApartamentos || !listaBlocos || !listaTipos)
         throw 'Erro ao buscar dados, tente novamente mais tarde!'
@@ -152,7 +179,8 @@ module.exports = comunicadoController = {
           bloco_id,
           apartamento_id,
           status: true
-        }
+        },
+        attributes: ['id', 'nome']
       })
 
       if (!morador)
@@ -177,19 +205,30 @@ module.exports = comunicadoController = {
         include: [{
           association: 'morador',
           include: [{
-            association: 'ap'
+            association: 'ap',
+            attributes: ['id', 'apartamento']
           }, {
-            association: 'bl'
-          }]
+            association: 'bl',
+            attributes: ['id', 'bloco']
+          }],
+          attributes: ['id', 'nome']
         }, {
-          association: 'porteiro'
+          association: 'porteiro',
+          attributes: ['id', 'nome']
         }, {
-          association: 'tipo_correspondencia'
+          association: 'tipo_correspondencia',
+          attributes: ['id', 'tipo']
         }, {
-          association: 'status'
+          association: 'status',
+          attributes: ['id', 'situacao']
         }, {
-          association: 'retirado'
-        }]
+          association: 'retirado',
+          attributes: ['id', 'nome']
+        }],
+        attributes: {
+          exclude: ['updated_at']
+        },
+        order: [['data_retirada', 'DESC'], ['created_at', 'DESC']]
       })
 
       if (!listaCorrespondencias)
@@ -205,7 +244,11 @@ module.exports = comunicadoController = {
       const { idCorrespondencia } = req.body
 
       const correspondencia = await Correspondencia.findByPk(idCorrespondencia, {
-        include: [{association: 'morador'}]
+        include: [{
+          association: 'morador',
+          attributes: ['bloco_id', 'apartamento_id']
+        }],
+        attributes: ['id']
       })
 
       if (!correspondencia)
@@ -233,7 +276,8 @@ module.exports = comunicadoController = {
 
       const updateCorrespondencia = await Correspondencia.update({
         retirado_por: idMorador,
-        situacao_id: 4
+        situacao_id: 4,
+        data_retirada: new Date()
       }, {
         where: {
           id: idCorrespondencia
@@ -244,6 +288,27 @@ module.exports = comunicadoController = {
         throw 'Erro ao registrar a retirada, tente novamente!'
 
       return res.status(200).json(updateCorrespondencia)
+    } catch (error) {
+      return res.status(400).json(error)
+    }
+  },
+  getCount: async (req, res) => {
+    const { user } = req.session
+
+    try {
+      let where = {}
+
+      if (user.tipo_usuario_id == 1)
+        where['morador_id'] = user.id
+
+      const qtdCorrespondencias = await Correspondencia.count({
+        where
+      })
+
+      if (qtdCorrespondencias == undefined)
+        throw 'Falha ao carregar os dados!'
+
+      return res.status(200).json({qtdCorrespondencias})
     } catch (error) {
       return res.status(400).json(error)
     }
