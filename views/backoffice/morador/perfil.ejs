@@ -58,11 +58,11 @@
                     clip-rule="evenodd" />
                   <path
                     d="M6.752 8.932l.432-.252-.504-.864-.432.252.504.864zm-6 3.5l6-3.5-.504-.864-6 3.5.504.864zm8.496-3.5l-.432-.252.504-.864.432.252-.504.864zm6 3.5l-6-3.5.504-.864 6 3.5-.504.864z" />
-                
-                  </svg> <%= usuarios.email %> </span>
-             
-                  <% telefones.forEach( (telefone,index) => { %>
-                  <span id="tel"><svg class="bi bi-chat-dots" width="1em" height="1em" viewBox="0 0 16 16"
+
+                </svg> <%= usuarios.email %> </span>
+
+              <% telefones.forEach( (telefone,index) => { %>
+              <span id="tel"><svg class="bi bi-chat-dots" width="1em" height="1em" viewBox="0 0 16 16"
                   fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"
                     d="M2.678 11.894a1 1 0 01.287.801 10.97 10.97 0 01-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 01.71-.074A8.06 8.06 0 008 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 01-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 00.244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 01-2.347-.306c-.52.263-1.639.742-3.468 1.105z"
@@ -71,7 +71,7 @@
                     d="M5 8a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0z" />
                 </svg> <%= telefone.numero %> - <%= telefone.Tipo_telefone.tipo%> </span>
 
-              <% }) %> 
+              <% }) %>
 
 
 
@@ -122,7 +122,7 @@
                     Dependentes
                   </div>
                   <div class="contador">
-                    <%= dependentes.length %> 
+                    <%= dependentes.length %>
                   </div>
 
                 </div>
@@ -135,11 +135,10 @@
                   <div class="carousel-inner">
 
                     <% dependentes.forEach( (dependente,index) => { %>
-                      <% if(index == 0){ %>
+                    <% if(index == 0){ %>
                     <div class="carousel-item active">
-                      <img class="foto"
-                        src="<%= dependente.Usuario.foto %> "
-                        alt="First slide" style=" width:120 ; height: 80px;">
+                      <img class="foto" src="<%= dependente.Usuario.foto %> " alt="First slide"
+                        style=" width:120 ; height: 80px;">
 
                       <p class="card-title" style="margin: 0;"><%= dependente.Usuario.nome %></p>
                       <p class="card-text" style="margin: 0;"><b>Tipo: </b><%= dependente.Usuario.rg %></p>
@@ -147,16 +146,15 @@
                     </div>
                     <%} else { %>
                     <div class="carousel-item">
-                      <img class="foto" src="<%= dependente.Usuario.foto %>"
-                        alt="" style=" width:120 ; height: 80px;">
+                      <img class="foto" src="<%= dependente.Usuario.foto %>" alt="" style=" width:120 ; height: 80px;">
 
                       <p class="card-title" style="margin: 0;"><%= dependente.Usuario.nome %></p>
                       <p class="card-text" style="margin: 0;"><b>Tipo: </b><%= dependente.Usuario.rg %></p>
                       <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= dependente.Usuario.rg %></p>
                     </div>
                     <% } %>
-                  <% }) %>
-                    
+                    <% }) %>
+
                   </div>
 
 
@@ -225,7 +223,7 @@
                     Visitantes
                   </div>
                   <div class="contador">
-                   <%= visitantes.length %> 
+                    <%= visitantes.length %>
                   </div>
 
                 </div>
@@ -238,7 +236,7 @@
                   <div class="carousel-inner">
 
                     <% visitantes.forEach( (visitante,index) => { %>
-                      <% if(index == 0){ %>
+                    <% if(index == 0){ %>
                     <div class="carousel-item active">
                       <img class="foto" src="<%= visitante.foto %>" alt="" style=" width:120 ; height: 80px;">
 
@@ -246,18 +244,17 @@
                       <p class="card-text" style="margin: 0;"><b>Tipo:</b> <%= visitante.tipo %> </p>
                       <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= visitante.rg %> </p>
                     </div>
-                  <%} else { %>
+                    <%} else { %>
                     <div class="carousel-item">
-                      <img class="foto" src="<%= visitante.foto %>"
-                        alt="" style=" width:120 ; height: 80px;">
+                      <img class="foto" src="<%= visitante.foto %>" alt="" style=" width:120 ; height: 80px;">
 
                       <p class="card-title" style="margin: 0;"><%= visitante.nome %></p>
                       <p class="card-text" style="margin: 0;"><b>Tipo: </b> <%= visitante.tipo %></p>
                       <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= visitante.rg %></p>
                     </div>
-                  <% } %>
-                  <% }) %>
-                    </div>
+                    <% } %>
+                    <% }) %>
+                  </div>
 
 
 
@@ -338,10 +335,10 @@
                   <div class="carousel-inner">
 
                     <% funcionarios.forEach( (funcionario,index) => { %>
-                      <% if(index == 0){ %>
-                      <div class="carousel-item active">
-                      <img class="foto" src="<%= funcionario.foto %>"
-                        alt="First slide" style=" width:120 ; height: 80px;">
+                    <% if(index == 0){ %>
+                    <div class="carousel-item active">
+                      <img class="foto" src="<%= funcionario.foto %>" alt="First slide"
+                        style=" width:120 ; height: 80px;">
 
                       <p class="card-title" style="margin: 0;"> <%= funcionario.nome %></p>
                       <p class="card-text" style="margin: 0;"><b>Tipo: </b> <%= funcionario.tipo %></p>
@@ -349,18 +346,17 @@
                     </div>
                     <% } else { %>
                     <div class="carousel-item">
-                      <img class="foto" src="<%= funcionario.foto %>"
-                        alt="" style=" width:120 ; height: 80px;">
+                      <img class="foto" src="<%= funcionario.foto %>" alt="" style=" width:120 ; height: 80px;">
 
-                        <p class="card-title" style="margin: 0;"> <%= funcionario.nome %></p>
-                        <p class="card-text" style="margin: 0;"><b>Tipo: </b> <%= funcionario.tipo %></p>
-                        <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= funcionario.rg %></p>
+                      <p class="card-title" style="margin: 0;"> <%= funcionario.nome %></p>
+                      <p class="card-text" style="margin: 0;"><b>Tipo: </b> <%= funcionario.tipo %></p>
+                      <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= funcionario.rg %></p>
                     </div>
                     <% } %>
 
 
                     <% }) %>
-            
+
                   </div>
 
 
@@ -656,11 +652,9 @@
 
                     <% empresas.forEach( (empresa,index) => { %>
 
-                      <% if(index == 0){ %>
+                    <% if(index == 0){ %>
                     <div class="carousel-item active">
-                      <img class="foto"
-                        src="<%= empresa.foto %>"
-                        alt="First slide" style=" width:120 ; height: 80px;">
+                      <img class="foto" src="<%= empresa.foto %>" alt="First slide" style=" width:120 ; height: 80px;">
 
                       <p class="card-title" style="margin: 0;"><%= empresa.nome %></p>
                       <p class="card-text" style="margin: 0;"><b>Cnpj: </b><%= empresa.cnpj %></p>
@@ -669,8 +663,7 @@
 
                     <% } else { %>
                     <div class="carousel-item">
-                      <img class="foto" src="<%= empresa.foto %>"
-                        alt="" style=" width:120 ; height: 80px;">
+                      <img class="foto" src="<%= empresa.foto %>" alt="" style=" width:120 ; height: 80px;">
 
                       <p class="card-title" style="margin: 0;"><%= empresa.nome %></p>
                       <p class="card-text" style="margin: 0;"><b>CNPJ: </b><%= empresa.cnpj %></p>
@@ -749,7 +742,7 @@
                     Compromissos
                   </div>
                   <div class="contador">
-                    <%= compromissos.length %> 
+                    <%= compromissos.length %>
                   </div>
 
                 </div>
@@ -761,26 +754,27 @@
                 <div id="carouselComp" class="carousel slide" data-interval="0">
                   <div class="carousel-inner">
 
-                    
+
                     <% compromissos.forEach( (compromisso,index) => { %>
 
-                      <% if(index == 0){ %>
+                    <% if(index == 0){ %>
                     <div class="carousel-item active ">
-                      <img class="foto" src="<%= compromisso.foto %> "
-                        alt="First slide" style=" width:120 ; height: 80px;">
+                      <img class="foto" src="<%= compromisso.foto %> " alt="First slide"
+                        style=" width:120 ; height: 80px;">
 
                       <p class="card-title " style="margin: 0;"><%= compromisso.compromisso %> </p>
-                      <p class="card-text" style="margin: 0;"><b>Data: </b> <%= moment(compromisso.data).format('l  LT') %> </p>
+                      <p class="card-text" style="margin: 0;"><b>Data: </b>
+                        <%= moment(compromisso.data).format('l  LT') %> </p>
                       <p class="card-text" style="margin: 0;"><b>Local: </b> <%= compromisso.local %> </p>
                     </div>
                     <% } else { %>
                     <div class="carousel-item">
-                      <img class="foto" src="<%= compromisso.foto %>"
-                        alt="" style=" width:120 ; height: 80px;">
+                      <img class="foto" src="<%= compromisso.foto %>" alt="" style=" width:120 ; height: 80px;">
 
-                        <p class="card-title" style="margin: 0;"><%= compromisso.compromisso %> </p>
-                        <p class="card-text" style="margin: 0;"><b>Data: </b><%= moment(compromisso.data).format('l  LT') %></p>
-                        <p class="card-text" style="margin: 0;"><b>Local: </b><%= compromisso.local %> </p>
+                      <p class="card-title" style="margin: 0;"><%= compromisso.compromisso %> </p>
+                      <p class="card-text" style="margin: 0;"><b>Data:
+                        </b><%= moment(compromisso.data).format('l  LT') %></p>
+                      <p class="card-text" style="margin: 0;"><b>Local: </b><%= compromisso.local %> </p>
                     </div>
                     <% } %>
 
@@ -854,12 +848,12 @@
         <%}%>
 
 
-</section>
-</div>
-<!-- Container -->
-</main>
+      </section>
+    </div>
+    <!-- Container -->
+  </main>
 
-<%- include('../../includes/scriptJS')%>
+  <%- include('../../includes/scriptJS')%>
 </body>
 
 
@@ -902,23 +896,23 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/backoffice/morador/perfis/editarPerfil/<%=usuario.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/backoffice/morador/perfis/editarPerfil/<%=usuario.id%>?_method=PUT" method="POST"
+          enctype="multipart/form-data">
           <div class="form-group">
             <label for="emailPerfil" class="col-form-label">Novo Email</label>
-            <input type="email" class="form-control" name="emailPerfil" id="emailPerfil"
-            placeholder="Novo Email">
+            <input type="email" class="form-control" name="emailPerfil" id="emailPerfil" placeholder="Novo Email">
             <p>* Seu novo e-mail será seu novo login</p>
           </div>
           <div class="form-group">
             <label for="fotoPerfil">Foto</label>
             <input type="file" class="form" name="fotoPerfil" id="fotoPerfil">
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
         </form>
-          
+
       </div>
     </div>
   </div>
@@ -936,7 +930,8 @@
         </button>
       </div>
       <div class="modal-body">
-          <form action="/backoffice/morador/perfis/editar/<%=usuario.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/backoffice/morador/perfis/editar/<%=usuario.id%>?_method=PUT" method="POST"
+          enctype="multipart/form-data">
           <div class="form-group">
             <label for="novaSenha" class="col-form-label">Nova Senha</label>
             <input type="password" class="form-control" name="novaSenha" id="novaSenha" placeholder="Nova Senha">
@@ -945,12 +940,12 @@
             <label for="senhaAtual" class="col-form-label">Senha Atual</label>
             <input type="text" class="form-control" name="senhaAtual" id="senhaAtual" placeholder="Senha Atual">
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary">Salvar</button>
-          
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+
+      </div>
       </form>
     </div>
   </div>
@@ -1033,10 +1028,10 @@
             <label for="fotoDependente">Foto</label>
             <input type="file" class="form" name="fotoDependente" id="fotoDependente">
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary">Incluir</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Incluir</button>
         </form>
 
       </div>
@@ -1057,42 +1052,43 @@
       </div>
       <div class="modal-body">
         <% dependentes.forEach(dependente =>{ %>
-          <form action="/backoffice/morador/dependentes/editar/<%=dependente.Usuario.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-            <% }) %>
-              <div>
-          <label for="nomeDependente" class="col-form-label">Editar Nome</label>
-          <input type="text" class="form-control" name="nomeDependente" id="nomeDependente" placeholder="Nome">
-        </div>
-        <div class="form-group">
-          <label for="emailDependente" class="col-form-label">Editar E-mail</label>
-          <input type="email" class="form-control" name="emailDependente" id="emailDependente" placeholder="E-mail">
-          *login de acesso
-        </div>
-        <div class="form-group">
-          <label for="cpfDependente" class="col-form-label">Editar CPF</label>
-          <input type="text" class="form-control" name="cpfDependente" id="cpfDependente" placeholder="Cpf">
-          *senha de acesso padrão
-        </div>
-        <div class="form-group">
-          <label for="rgDependente" class="col-form-label">Editar RG</label>
-          <input type="text" class="form-control" name="rgDependente" id="rgDependente" placeholder="Rg">
-        </div>
-        <div class="form-group">
-          <label for="fotoDependente">Editar Foto</label>
-          <input type="file" class="form" name="fotoDependente" id="fotoDependente">
-        </div>
+        <form action="/backoffice/morador/dependentes/editar/<%=dependente.Usuario.id%>?_method=PUT" method="POST"
+          enctype="multipart/form-data">
+          <% }) %>
+          <div>
+            <label for="nomeDependente" class="col-form-label">Editar Nome</label>
+            <input type="text" class="form-control" name="nomeDependente" id="nomeDependente" placeholder="Nome">
+          </div>
+          <div class="form-group">
+            <label for="emailDependente" class="col-form-label">Editar E-mail</label>
+            <input type="email" class="form-control" name="emailDependente" id="emailDependente" placeholder="E-mail">
+            *login de acesso
+          </div>
+          <div class="form-group">
+            <label for="cpfDependente" class="col-form-label">Editar CPF</label>
+            <input type="text" class="form-control" name="cpfDependente" id="cpfDependente" placeholder="Cpf">
+            *senha de acesso padrão
+          </div>
+          <div class="form-group">
+            <label for="rgDependente" class="col-form-label">Editar RG</label>
+            <input type="text" class="form-control" name="rgDependente" id="rgDependente" placeholder="Rg">
+          </div>
+          <div class="form-group">
+            <label for="fotoDependente">Editar Foto</label>
+            <input type="file" class="form" name="fotoDependente" id="fotoDependente">
+          </div>
 
 
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary">Incluir</button>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="submit" class="btn btn-primary">Incluir</button>
         </form>
-        
-      </div>
+
       </div>
     </div>
   </div>
+</div>
 </div>
 <!-- Modal Editar Fim-->
 
@@ -1113,10 +1109,10 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
         <% dependentes.forEach(dependente =>{ %>
-          <form action="/backoffice/morador/dependentes/delete/<%= dependente.id %>?_method=DELETE" method="POST"
-            enctype="multipart/form-data">
-            <% }) %>
-        <button type="submit" class="btn btn-primary">Sim</button>
+        <form action="/backoffice/morador/dependentes/delete/<%= dependente.id %>?_method=DELETE" method="POST"
+          enctype="multipart/form-data">
+          <% }) %>
+          <button type="submit" class="btn btn-primary">Sim</button>
         </form>
       </div>
     </div>
@@ -1158,10 +1154,10 @@
             <label for="fotoVisitante">Foto</label>
             <input type="file" class="form" name="fotoVisitante" id="fotoVisitante">
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary">Incluir</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Incluir</button>
         </form>
 
       </div>
@@ -1183,8 +1179,9 @@
       <div class="modal-body">
         <% visitantes.forEach(visitante =>{ %>
 
-          <form action="/backoffice/morador/visitantes/editar/<%=visitante.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-            <% }) %>
+        <form action="/backoffice/morador/visitantes/editar/<%=visitante.id%>?_method=PUT" method="POST"
+          enctype="multipart/form-data">
+          <% }) %>
           <div class="form-group">
             <label for="nomeVisitante" class="col-form-label">Editar Nome</label>
             <input type="text" class="form-control" name="nomeVisitante" id="nomeVisitante" placeholder="Nome">
@@ -1202,10 +1199,10 @@
             <label for="fotoVisitante">Alterar Foto</label>
             <input type="file" class="form" name="fotoVisitante" id="fotoVisitante">
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary">Incluir</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Incluir</button>
         </form>
 
       </div>
@@ -1231,11 +1228,11 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
         <% visitantes.forEach(visitante =>{ %>
-          <form action="/backoffice/morador/visitantes/delete/<%= visitante.id %>?_method=DELETE" method="POST"
-            enctype="multipart/form-data">
-            <% }) %>
-            <button type="submit" class="btn btn-primary">Sim</button>
-          </form>
+        <form action="/backoffice/morador/visitantes/delete/<%= visitante.id %>?_method=DELETE" method="POST"
+          enctype="multipart/form-data">
+          <% }) %>
+          <button type="submit" class="btn btn-primary">Sim</button>
+        </form>
       </div>
     </div>
   </div>
@@ -1277,16 +1274,17 @@
           </div>
           <div class="form-group">
             <label for="empresaFuncionario" class="col-form-label"> Empresa</label>
-            <input type="text" class="form-control" name="empresaFuncionario" id="empresaFuncionario" placeholder="Empresa">
+            <input type="text" class="form-control" name="empresaFuncionario" id="empresaFuncionario"
+              placeholder="Empresa">
           </div>
           <div class="form-group">
             <label for="fotoFuncionario">Foto</label>
             <input type="file" class="form" name="fotoFuncionario" id="fotoFuncionario">
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary">Incluir</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Incluir</button>
         </form>
 
       </div>
@@ -1308,8 +1306,9 @@
       <div class="modal-body">
         <% funcionarios.forEach(funcionario =>{ %>
 
-          <form action="/backoffice/morador/funcionarios/editar/<%=funcionario.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-            <% }) %>
+        <form action="/backoffice/morador/funcionarios/editar/<%=funcionario.id%>?_method=PUT" method="POST"
+          enctype="multipart/form-data">
+          <% }) %>
           <div class="form-group">
             <label for="nomeFuncionario" class="col-form-label">Editar Nome</label>
             <input type="text" class="form-control" name="nomeFuncionario" id="nomeFuncionario" placeholder="Nome">
@@ -1329,16 +1328,17 @@
           </div>
           <div class="form-group">
             <label for="empresaFuncionario" class="col-form-label">Editar Empresa</label>
-            <input type="text" class="form-control" name="empresaFuncionario" id="empresaFuncionario" placeholder="Empresa">
+            <input type="text" class="form-control" name="empresaFuncionario" id="empresaFuncionario"
+              placeholder="Empresa">
           </div>
           <div class="form-group">
             <label for="fotoFuncionario">Alterar Foto</label>
             <input type="file" class="form" name="fotoFuncionario" id="fotoFuncionario">
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary">Incluir</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Incluir</button>
         </form>
 
       </div>
@@ -1362,14 +1362,14 @@
         Você tem certeza que deseja excluir este Funcionário?
       </div>
       <div class="modal-footer">
-        
+
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
         <% funcionarios.forEach(funcionario =>{ %>
-          <form action="/backoffice/morador/funcionarios/delete/<%= funcionario.id %>?_method=DELETE" method="POST"
-            enctype="multipart/form-data">
-            <% }) %>
-        <button type="submit" class="btn btn-primary">Sim</button>
-            </form>
+        <form action="/backoffice/morador/funcionarios/delete/<%= funcionario.id %>?_method=DELETE" method="POST"
+          enctype="multipart/form-data">
+          <% }) %>
+          <button type="submit" class="btn btn-primary">Sim</button>
+        </form>
       </div>
     </div>
   </div>
@@ -1553,7 +1553,8 @@
 
         <% pets.forEach(pet =>{ %>
 
-        <form action="/backoffice/morador/pets/editar/<%=pet.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/backoffice/morador/pets/editar/<%=pet.id%>?_method=PUT" method="POST"
+          enctype="multipart/form-data">
           <% }) %>
           <div class="form-group">
             <label for="nomePet" class="col-form-label">Editar Nome</label>
@@ -1579,7 +1580,7 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button type="submit" class="btn btn-primary">Incluir</button>
 
-      </form>
+        </form>
 
       </div>
     </div>
@@ -1646,21 +1647,21 @@
           </div>
           <div class="form-group">
             <label for="cnpjEmpresa" class="col-form-label">Cnpj da empresa</label>
-            <input type="text" class="form-control" name="cnpjEmpresa" id="cnpjEmpresa"
-              placeholder="Cnpj">
+            <input type="text" class="form-control" name="cnpjEmpresa" id="cnpjEmpresa" placeholder="Cnpj">
           </div>
           <div class="form-group">
             <label for="rgEmpresa" class="col-form-label">Rg do Responsável</label>
-            <input type="text" class="form-control" name="rgEmpresa" id="rgEmpresa" placeholder="RG do Responsável pelo serviço">
+            <input type="text" class="form-control" name="rgEmpresa" id="rgEmpresa"
+              placeholder="RG do Responsável pelo serviço">
           </div>
           <div class="form-group">
             <label for="fotoEmpresa">Foto</label>
             <input type="file" class="form" name="fotoEmpresa" id="fotoEmpresa">
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary">Incluir</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Incluir</button>
         </form>
 
       </div>
@@ -1682,8 +1683,9 @@
       <div class="modal-body">
         <% empresas.forEach(empresa =>{ %>
 
-          <form action="/backoffice/morador/empresas/editar/<%=empresa.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-            <% }) %>
+        <form action="/backoffice/morador/empresas/editar/<%=empresa.id%>?_method=PUT" method="POST"
+          enctype="multipart/form-data">
+          <% }) %>
           <div class="form-group">
             <label for="nomeEmpresa" class="col-form-label">Editar Empresa</label>
             <input type="text" class="form-control" name="nomeEmpresa" id="nomeEmpresa" placeholder="Nome Empresa">
@@ -1701,10 +1703,10 @@
             <label for="fotoEmpresa">Alterar Foto</label>
             <input type="file" class="form" name="fotoEmpresa" id="fotoEmpresa">
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary">Incluir</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Incluir</button>
         </form>
 
       </div>
@@ -1730,10 +1732,10 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
         <% empresas.forEach(empresa =>{ %>
-          <form action="/backoffice/morador/empresas/delete/<%= empresa.id %>?_method=DELETE" method="POST"
-            enctype="multipart/form-data">
-            <% }) %>
-        <button type="submit" class="btn btn-primary">Sim</button>
+        <form action="/backoffice/morador/empresas/delete/<%= empresa.id %>?_method=DELETE" method="POST"
+          enctype="multipart/form-data">
+          <% }) %>
+          <button type="submit" class="btn btn-primary">Sim</button>
       </div>
       </form>
     </div>
@@ -1777,10 +1779,10 @@
             <label for="fotoCompromisso">Foto</label>
             <input type="file" class="form" name="fotoCompromisso" id="fotoCompromisso">
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary">Incluir</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Incluir</button>
         </form>
 
       </div>
@@ -1802,8 +1804,9 @@
       <div class="modal-body">
         <% compromissos.forEach(compromisso =>{ %>
 
-          <form action="/backoffice/morador/compromissos/editar/<%=compromisso.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-            <% }) %>
+        <form action="/backoffice/morador/compromissos/editar/<%=compromisso.id%>?_method=PUT" method="POST"
+          enctype="multipart/form-data">
+          <% }) %>
           <div class="form-group">
             <label for="nomeCompromisso" class="col-form-label">Editar Compromisso</label>
             <input type="text" class="form-control" name="nomeCompromisso" id="nomeCompromisso" placeholder="Nome">
@@ -1822,10 +1825,10 @@
             <label for="fotoCompromisso">Alterar Foto</label>
             <input type="file" class="form" name="fotoCompromisso" id="fotoCompromisso">
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary">Incluir</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Incluir</button>
         </form>
 
       </div>
@@ -1851,11 +1854,11 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
         <% compromissos.forEach(compromisso =>{ %>
-          <form action="/backoffice/morador/compromissos/delete/<%= compromisso.id %>?_method=DELETE" method="POST"
-            enctype="multipart/form-data">
-            <% }) %>
-        <button type="submit" class="btn btn-primary">Sim</button>
-      </form>
+        <form action="/backoffice/morador/compromissos/delete/<%= compromisso.id %>?_method=DELETE" method="POST"
+          enctype="multipart/form-data">
+          <% }) %>
+          <button type="submit" class="btn btn-primary">Sim</button>
+        </form>
       </div>
     </div>
   </div>

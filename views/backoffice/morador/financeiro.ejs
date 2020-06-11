@@ -1,43 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <%- include('../../includes/head', {titulo: titulo}) %>
 
-    <link rel="stylesheet" href="/css/backoffice/layout.css">
-    <link rel="stylesheet" href="/css/backoffice/financeiro.css">
-  </head>
+<head>
+  <%- include('../../includes/head', {titulo: titulo}) %>
 
-  <body>
-    <%- include('../../includes/backoffice/header') %>
-    <%- include('../../includes/backoffice/aside') %>
+  <link rel="stylesheet" href="/css/backoffice/layout.css">
+  <link rel="stylesheet" href="/css/backoffice/financeiro.css">
+</head>
 
-    <main class="container-fluid mx-0 pt-2">
+<body>
+  <%- include('../../includes/backoffice/header') %>
+  <%- include('../../includes/backoffice/aside') %>
 
-      <div class="row">
-        <h1 class="pl-3">Financeiro</h1>
+  <main class="container-fluid mx-0 pt-2">
+
+    <div class="row">
+      <h1 class="pl-3">Financeiro</h1>
+    </div>
+    <div class="d-flex offset-md-2 offset-1 p-4">
+
+      <div class="row flex-nowrap">
+
+        <div class="col-3 p-0">
+          <button id="btnNotificacoes" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
+            data-toggle="modal" data-target="#modalNovaCobranca">Notificações</button>
+        </div>
+
       </div>
-      <div class="d-flex offset-md-2 offset-1 p-4">
 
-        <div class="row flex-nowrap">
-          <div class="col-3 offset-1 offset-md-2  p-0">
-            <button id="btnNotificacoes" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
-            data-toggle="modal" data-target="#modalNotificacoes">Geral </button>
-          </div>
-          <div class="col-6 offset-1  p-0">
-            <button id="btnNotificacoes" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
-            data-toggle="modal" data-target="#modalNotificacoes">Taxas de condomínio </button>
-          </div>
-          <div class="col-3 offset-1 p-0">
-            <button id="btnNotificacoes" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
-            data-toggle="modal" data-target="#modalNotificacoes">Multas</button>
-          </div>
-          <div class="col-3 offset-1 p-0">
-            <button id="btnNotificacoes" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
-            data-toggle="modal" data-target="#modalNotificacoes">Notificações</button>
-          </div>
-       
-      </div>
-      
     </div>
 
     <section class="row">
@@ -48,12 +38,12 @@
         <div class="card-body row">
           <div class="col-12 d-flex align-items-center flex-column">
             <% if (listaCobrancas.length > 0) { %>
-              
-              <table class="table table-borderless table-striped table-hover table-responsive-sm">
-                <caption>
-                  Comunicad
-                </caption>
- <!--------------------------- Colunas -------------------------------->
+
+            <table class="table table-borderless table-striped table-hover table-responsive-sm">
+              <caption>
+                Comunicad
+              </caption>
+              <!--------------------------- Colunas -------------------------------->
               <thead>
                 <tr>
                   <th class="text-center" scope="col">
@@ -76,93 +66,98 @@
                   </th>
                 </tr>
               </thead>
-                <!--------------------------- Fim Colunas -------------------------------->
+              <!--------------------------- Fim Colunas -------------------------------->
 
-                <tbody id="tableBody">
-                  <% listaCobrancas.forEach(cobranca => { %>
-                    <tr>
+              <tbody id="tableBody">
+                <% listaCobrancas.forEach(cobranca => { %>
+                <tr>
 
-                      <td class="text-center align-middle">
-                        <%= moment(cobranca.data).format('DD/MM/YYYY') %>
-                      </td>
+                  <td class="text-center align-middle">
+                    <%= moment(cobranca.data).format('DD/MM/YYYY') %>
+                  </td>
 
-                      <td class="text-center align-middle">
-                        <%= cobranca.tipo_cobranca_id %>
-                      </td>
+                  <td class="text-center align-middle">
+                    <%= cobranca.tipo_cobranca.tipo %>
+                  </td>
 
-                      <td class="text-center align-middle">
-                        <%= cobranca.titulo %>
-                      </td>
+                  <td class="text-center align-middle">
+                    <%= cobranca.titulo %>
+                  </td>
 
-                      <td class="text-center align-middle">
-                        <%= cobranca.valor %>
-                      </td>
+                  <td class="text-center align-middle">
+                    <%= cobranca.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }).replace('.',',') %>
+                  </td>
 
-                      <td class="text-center align-middle">
-                        <%= moment(cobranca.vencimento).format('DD/MM/YYYY') %>
-                      </td>
+                  <td class="text-center align-middle">
+                    <%= moment(cobranca.vencimento).format('DD/MM/YYYY') %>
+                  </td>
 
-                      <td class="text-center align-middle">
-                          <a type="button" data-toggle="modal" data-target=<%=`#modalDescricao${cobranca.id}`%>  >
-                              <i class="far fa-comment-alt"></i>
-                          </a>
-                          <a type="button" data-toggle="modal" data-target=<%=`#modalExcluir${cobranca.id}`%>  >
-                            <i class="far fa-trash-alt"></i>
-                        </a>
-                      </td>
+                  <td class="text-center align-middle">
+                    <a type="button" data-toggle="modal" data-target=<%=`#modalDescricao${cobranca.id}`%>>
+                      <i class="far fa-comment-alt"></i>
+                    </a>
+                    <a type="button" data-toggle="modal" data-target=<%=`#modalExcluir${cobranca.id}`%>>
+                      <i class="far fa-trash-alt"></i>
+                    </a>
+                  </td>
 
-                    </tr>
-                    <!-- Modal -->
-                    <div class="modal fade" id=<%=`modalDescricao${cobranca.id}`%> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel"><%= cobranca.titulo %></h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <%= cobranca.descricao %> 
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          </div>
-                        </div>
+                </tr>
+                <!-- Modal Descrição-->
+                <div class="modal fade" id=<%=`modalDescricao${cobranca.id}`%> tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><%= cobranca.titulo %></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <%= cobranca.descricao %>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       </div>
                     </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id=<%=`modalExcluir${cobranca.id}`%>  tabindex="-1" role="dialog"
-                      aria-labelledby="modalExcluirComunicadoTitle" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header d-flex justify-content-center p-1">
-                            <h5 class="modal-title" id="modalExcluirComunicadoTitle">Tem certeza?</h5>
-                          </div>
-
-                          <div class="modal-body d-flex justify-content-center">
-                            
-                            <!-- =`financeiro/${cobranca.id}?_method=DELETE"`%> -->
-
-                            <form method="post" action=<%="financeiro/" + cobranca.id +"?_method=DELETE"%> > 
-                              <button type="submit" class="btn-sm btn-sucess border-0 rounded-pill font-weight-bold px-3 ml-2">
-                              Sim
-                            </button>
-                            </form>
-                            <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3 ml-2"
-                              data-dismiss="modal">
-                              Não
-                            </button>
-                          </div>
-
-                        </div>
+                  </div>
+                </div>
+                <!-- Modal Descrição -->
+                <!-- Modal Exclui -->
+                <div class="modal fade" id=<%=`modalExcluir${cobranca.id}`%> tabindex="-1" role="dialog"
+                  aria-labelledby="modalExcluirComunicadoTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header d-flex justify-content-center p-1">
+                        <h5 class="modal-title" id="modalExcluirComunicadoTitle">Tem certeza?</h5>
                       </div>
+
+                      <div class="modal-body d-flex justify-content-center">
+
+                        <!-- =`financeiro/${cobranca.id}?_method=DELETE"`%> -->
+
+                        <form method="post" action=<%="financeiro/" + cobranca.id +"?_method=DELETE"%>>
+                          <button type="submit"
+                            class="btn-sm btn-sucess border-0 rounded-pill font-weight-bold px-3 ml-2">
+                            Sim
+                          </button>
+                        </form>
+                        <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3 ml-2"
+                          data-dismiss="modal">
+                          Não
+                        </button>
+                      </div>
+
                     </div>
-                  <% }) %>
-                </tbody>
-              </table>
+                  </div>
+                </div>
+
+                <!-- Modal Exclui -->
+                <% }) %>
+              </tbody>
+            </table>
             <% } else { %>
-              <h4 class="text-danger">Nenhuma cobrança foi encontrada!</h4>
+            <h4 class="text-danger">Nenhuma cobrança foi encontrada!</h4>
             <% } %>
           </div>
           <!-- /.col-12 -->
@@ -172,9 +167,55 @@
       <!-- /.card -->
     </section>
 
-    </main>
+     <!-- Modal Nova Cobrança -->
+     
+     <div class="modal fade" id="modalNovaCobranca" tabindex="-1" role="dialog"
+     aria-labelledby="modalNovoComunicadoTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header d-flex justify-content-center p-1">
+            <h5 class="modal-title" id="modalNovoComunicadoTitle"> Criar nova cobrança</h5>
+          </div>
+          
+          <form class="form-group m-0" action="/backoffice/sindico/comunicados" method="POST">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="nomeVisitante" class="col-form-label">Editar Nome</label>
+                <input type="text" class="form-control" name="nomeVisitante" id="nomeVisitante" placeholder="Nome">
+              </div>
+              <div class="form-group">
+                <label for="tipoVisitante" class="col-form-label">Editar Tipo</label>
+                <input type="text" class="form-control" name="tipoVisitante" id="tipoVisitante"
+                  placeholder="Ex: filho, mãe, etc.">
+              </div>
+              <div class="form-group">
+                <label for="rgVisitante" class="col-form-label">Editar RG</label>
+                <input type="text" class="form-control" name="rgVisitante" id="rgVisitante" placeholder="Rg">
+              </div>
 
-    <%- include('../../includes/scriptJS') %>
-    <script type="text/javascript" src="/javascripts/backoffice/financeiro.js"></script>
-  </body>
+            </div>
+            
+            <div class="modal-footer border-0">
+              <a id="btnCriarComunicado" class="btn-sm btn-success border-0 rounded-pill font-weight-bold text-white px-3 ml-2">
+                Criar
+              </a>
+              <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3"
+                data-dismiss="modal">
+                Voltar
+              </button>
+            </div>
+        </form>
+
+        </div>
+      </div>
+    </div>
+    <!-- Modal Nova Cobrança -->
+
+    
+  </main>
+
+  <%- include('../../includes/scriptJS') %>
+  <script type="text/javascript" src="/javascripts/backoffice/financeiro.js"></script>
+</body>
+
 </html>

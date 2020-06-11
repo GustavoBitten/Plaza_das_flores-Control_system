@@ -1,5 +1,6 @@
 const {Cobranca, Tipo_cobranca, Usuario } = require('../../models')
 const moment = require('moment')
+const numeral = require('numeral')
 
 
 class Financeiro {
@@ -11,7 +12,9 @@ class Financeiro {
          const listaCobrancas = await Cobranca.findAll(
            {include: [{
             association: 'tipo_cobranca',       //Tipo_cobranca
-            }
+            },{
+              association: 'usuario'       //Tipo_cobranca
+              }
             
             
             // ,
@@ -31,7 +34,8 @@ class Financeiro {
       titulo: "Morador - Financeiro",
       usuario: req.session.user,
       listaCobrancas,
-      moment
+      moment,
+      numeral
       })
     }
 
