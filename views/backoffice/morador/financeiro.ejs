@@ -19,11 +19,11 @@
     </div>
     <div class="d-flex offset-md-2 offset-1 p-4">
 
-      <div class="row flex-nowrap">
+      <div class="row flex-nowrap w-100">
 
-        <div class="col-3 p-0">
+        <div class="col-6 p-0">
           <button id="btnNotificacoes" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
-            data-toggle="modal" data-target="#modalNovaCobranca">Notificações</button>
+            data-toggle="modal" data-target="#modalNovaCobranca">Nova cobrança</button>
         </div>
 
       </div>
@@ -41,7 +41,7 @@
 
             <table class="table table-borderless table-striped table-hover table-responsive-sm">
               <caption>
-                Comunicad
+                Para pagamento utilize a ação de gerar boleto
               </caption>
               <!--------------------------- Colunas -------------------------------->
               <thead>
@@ -177,32 +177,81 @@
             <h5 class="modal-title" id="modalNovoComunicadoTitle"> Criar nova cobrança</h5>
           </div>
           
-          <form class="form-group m-0" action="/backoffice/sindico/comunicados" method="POST">
+          <form class="form-group m-0" action="/backoffice/morador/financeiro" method="POST">
             <div class="modal-body">
-              <div class="form-group">
-                <label for="nomeVisitante" class="col-form-label">Editar Nome</label>
-                <input type="text" class="form-control" name="nomeVisitante" id="nomeVisitante" placeholder="Nome">
+              <div class="row">
+                <div class="col">
+                  <label for="titulo">Título:</label>
+                  <input required="required" id="titulo" name="titulo" type="text" class="form-control"
+                    placeholder="Título">
+                </div>
+  
               </div>
-              <div class="form-group">
-                <label for="tipoVisitante" class="col-form-label">Editar Tipo</label>
-                <input type="text" class="form-control" name="tipoVisitante" id="tipoVisitante"
-                  placeholder="Ex: filho, mãe, etc.">
+              <div class="row">
+                <div class="col">
+                  <label for="data">Data do evento:</label>
+                  <input id="data" name="data" type="date" class="form-control" placeholder="Quando ocorreu o evento">
+                </div>
+                <div class="col">
+                  <label for="vencimento">Vencimento:</label>
+                  <input required="required" id="vencimento" name="vencimento" type="date" class="form-control" placeholder="Quando terá que pagar">
+                </div>
               </div>
-              <div class="form-group">
-                <label for="rgVisitante" class="col-form-label">Editar RG</label>
-                <input type="text" class="form-control" name="rgVisitante" id="rgVisitante" placeholder="Rg">
+              <div class="row">
+                <div class="col">
+                  <label for="tipo_cobranca_id">Tipo de cobrança:</label>
+                  <select id="tipo_cobranca_id" name="tipo_cobranca_id" class="form-control">
+                    
+                    <option disabled selected>Informe</option>
+                    <% resultTipo_cobranca.forEach(tipo_cobranca=> {  %>
+                    <option value="<%= tipo_cobranca.id %>"><%= tipo_cobranca.tipo %></option>
+                    <% }); %>
+  
+                  </select>
+                </div>
+                <div class="col">
+                  <label for="valor">Valor:</label>
+                  <input id="valor" name="valor" type="text" class="form-control" placeholder="Custo para o morador">
+                </div>
               </div>
-
-            </div>
-            
-            <div class="modal-footer border-0">
-              <a id="btnCriarComunicado" class="btn-sm btn-success border-0 rounded-pill font-weight-bold text-white px-3 ml-2">
-                Criar
-              </a>
-              <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3"
-                data-dismiss="modal">
-                Voltar
-              </button>
+  
+              <div class="row">
+                <div class="col">
+                  <label for="bloco_id">Bloco:</label>
+                  <select id="bloco_id" name="bloco_id" class="form-control">
+                    <option disabled selected>Informe</option>
+                    <% resultBloco.forEach(resultBloco => {  %>
+                    <option value="<%= resultBloco.id %>"><%= resultBloco.bloco %></option>
+                    <% }); %>
+  
+                  </select>
+                </div>
+  
+                <div class="col">
+                  <label for="apartamento_id">Ap</label>
+                  <select id="apartamento_id" name="apartamento_id" class="form-control">
+                    <option disabled selected>Informe</option>
+                    <% resultApartamento.forEach(resultApartamento => {  %>
+                    <option value="<%= resultApartamento.id %>"><%= resultApartamento.apartamento %></option>
+                    <% }); %>
+                  </select>
+                </div>
+              </div>
+  
+              <div style="margin:10px" class="row">
+                <div class="col">
+                  <label for="descricao">Descrição:</label>
+                  <textarea id="descricao" name="descricao" placeholder="Detalhe aqui o motivo dessa cobrança" class="form-control" rows="5" maxlength="1000"></textarea>
+                </div>       
+          
+        
+              </div>
+  
+  
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="submit" id="novoMorador" class="btn btn-primary">Gravar</button>
+              </div>
             </div>
         </form>
 
@@ -216,6 +265,11 @@
 
   <%- include('../../includes/scriptJS') %>
   <script type="text/javascript" src="/javascripts/backoffice/financeiro.js"></script>
+
+  <%  if(typeof(error) != 'undefined'){ %>
+    <%- include('../includes/utilities/errorAlert')%>
+   <%  }   %>
+
 </body>
 
 </html>

@@ -87,13 +87,8 @@
   <!-- Fim = Html de botões temporário -->
   <%- include('../includes/scriptJS')%>
 
-  <%  if(typeof(erro) != 'undefined'){ %>
-  <script>
-    const alerta = document.getElementById('alerta')
-      alerta.style.display = 'block'
-      alerta.style.color = 'black'
-      alerta.innerHTML = '<%= erro  %>'
-      </script>
+  <%  if(typeof(error) != 'undefined'){ %>
+    <%- include('../includes/utilities/errorAlert')%>
    <%  }   %>
  
 </body>

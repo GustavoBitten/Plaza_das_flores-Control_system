@@ -113,7 +113,7 @@ route.get('/correspondencias', correspondenciaController.index)
 // Rotas para as Financeiro
 route.get('/financeiro', financeiroController.index)
 route.delete('/financeiro/:id', financeiroController.destroy)
-//route.post('/financeiro/:id', financeiroController.destroy)
+route.post('/financeiro/', financeiroController.create)
 //route.get('/financeiro/:id', financeiroController.destroy)
 
 module.exports = route
