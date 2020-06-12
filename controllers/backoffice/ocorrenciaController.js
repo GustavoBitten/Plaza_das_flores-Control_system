@@ -10,7 +10,6 @@ module.exports = ocorrenciaController = {
             include: [{
                 model: Usuario,
                 required: true,
-                //where:{id : req.session.user.id},
                },
                {
                    model: Status_ocorrencia,
@@ -22,6 +21,9 @@ module.exports = ocorrenciaController = {
                 },
             
             ], 
+            order: [
+                ['created_at', 'DESC']
+              ]
             
         })
 
@@ -41,7 +43,9 @@ module.exports = ocorrenciaController = {
                 },
             
             ], 
-            
+            order: [
+                ['created_at', 'DESC']
+              ]
         })
     
         return res.render("backoffice/morador/ocorrencias", {
