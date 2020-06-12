@@ -10,6 +10,25 @@ module.exports = ocorrenciaController = {
             include: [{
                 model: Usuario,
                 required: true,
+                //where:{id : req.session.user.id},
+               },
+               {
+                   model: Status_ocorrencia,
+                   required: true,
+                },
+                {
+                    model: Tipo_ocorrencia,
+                    required: true,
+                },
+            
+            ], 
+            
+        })
+
+        const listaOcorrenciasMorador = await Ocorrencia.findAll({
+            include: [{
+                model: Usuario,
+                required: true,
                 where:{id : req.session.user.id},
                },
                {
@@ -29,6 +48,7 @@ module.exports = ocorrenciaController = {
             titulo: "Ocorrências",
             usuario: req.session.user,
             listaOcorrencias,
+            listaOcorrenciasMorador,
             moment,
         })}catch{
             return res.status(400).json(error);

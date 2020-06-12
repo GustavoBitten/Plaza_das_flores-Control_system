@@ -18,11 +18,11 @@
     <%- include('../../includes/utilities/subHeader') %>
 
     <div class="container-flex col-12 col-md-8 offset-1 offset-md-2 px-0">
-      <% if(usuario.tipo_usuario_id != 2) {%>
+     
       <button type="button" class="btnNova btn btn-primary" data-toggle="modal" data-target="#novaOcorrenciaModal"
         data-whatever="@mdo">
         Nova Ocorrência</button>
-    <% } %> 
+ 
 
       <div class="card-header r w-100 p-0">
         <h1></h1>
@@ -48,6 +48,24 @@
             </tr>
           </thead>
           <tbody>
+            <% if(usuario.tipo_usuario_id != 2) {%>
+              <% listaOcorrenciasMorador.forEach((ocorrencia, index)=>{ %>
+                <tr>
+                  <td> <%= ocorrencia.titulo %> </td>
+                  <td><%= ocorrencia.Tipo_ocorrencium.tipo %></td>
+                  <td><%= ocorrencia.Status_ocorrencium.status %></td>
+                  <td><%= moment(ocorrencia.created_at).format('DD/MM/YYYY');  %></td>
+                  <td>
+                    <button  type="button" class="detalhes btn btn-primary view_data" 
+                       id="<%= ocorrencia.id %>">
+                      + </button>
+                  </td>
+                </tr>
+                
+              <% }) %>
+              
+
+            <% }else{ %>
             <% listaOcorrencias.forEach((ocorrencia, index)=>{ %>
             <tr>
               <td> <%= ocorrencia.titulo %> </td>
@@ -62,6 +80,8 @@
             </tr>
             
           <% }) %>
+
+          <% } %>
            
 
 
@@ -84,7 +104,7 @@
 
 <!--Modais Estruturas -->
 
-<% if(usuario.tipo_usuario_id != 2) {%>
+
 <!--Nova Ocorrência Modal -->
 <div class="modal fade" id="novaOcorrenciaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -148,7 +168,8 @@
 </div>
 
 
-<%}%>
+
+
 
 <!--Filtro Modal -->
 <div class="modal fade" id="filtroModal" tabindex="-1" role="dialog" aria-labelledby="filtroModal" aria-hidden="true">
@@ -190,8 +211,8 @@
 </div>
 
 
-<% if(usuario.tipo_usuario_id != 2) {%>
-  <!-- Detalhes Modal Morador/Porteiro -->
+
+  <!-- Detalhes Modal Morador/Sindico/Porteiro -->
   <div  class="modal fade" id="viewDetalhes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -223,67 +244,8 @@
     </div>
   </div>
 
-  <%}%>
-  
-  
-  
-  <% if(usuario.tipo_usuario_id == 2) {%>
-    <!-- Modal Detalhes Sindico -->
-    <div class="modal fade" id="detalhes1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="detalhes1Modal">Resposta</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <h5>Arquivo </h5>
-              <img src="https://media.istockphoto.com/photos/burnedout-light-bulb-isolated-on-white-background-with-shadow-burned-picture-id952090314" alt="" style="width: 100px; height: 100px; object-fit: cover; ">
-            </div>
-            
-            <div class="form-group">
-              <h5 >Mensagem Solicitante</h5>
-              <%listaOcorrencias.forEach(ocorrencia => {  %>
-                <p> <%= ocorrencia.mensagem %> </p>
-                <% })%>
-              </div>
-              
-              <form method="POST" action="/backoffice/morador/ocorrenciasSindico" enctype="multipart/form-data">
-                
-                
-                <div class="form-group">
-                  <label for="respostaOcorrencia" class="col-form-label"><h5>Resposta</h5></label>
-                  <textarea class="form-control" name="respostaOcorrencia" id="respostaOcorrencia"></textarea>
-                </div>
-                
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" name="tipoOcorrencias" type="checkbox" id="tipoOcorrencias" value="1">
-                  <label class="form-check-label" for="tipoOcorrencias">Registrado</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" name="tipoOcorrencias" id="tipoOcorrencias" value="3">
-                  <label class="form-check-label" for="tipoOcorrencias">Pendente</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" name="tipoOcorrencias" id="tipoOcorrencias" value="2" >
-                  <label class="form-check-label" for="tipoOcorrencias">Resolvido</label>
-                  
-                </div>
-                <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary">Enviar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<%}%>
 
-
-
+  
 
 
 
