@@ -13,8 +13,9 @@
   <%- include('../../includes/backoffice/header') %>
   <%- include('../../includes/backoffice/aside') %>
 
-  <main>
-    <h1>Ocorrências</h1>
+  <main class="customMain">
+
+    <%- include('../../includes/utilities/subHeader') %>
 
     <div class="container-flex col-12 col-md-8 offset-1 offset-md-2 px-0">
       <% if(usuario.tipo_usuario_id != 2) {%>
