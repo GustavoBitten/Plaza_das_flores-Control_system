@@ -77,6 +77,21 @@ h1 {
   background-color: #FFA62B;
 }
 
+/* --------- custom elements start--------- */
+.customMain{
+  padding-top: .5rem!important;
+  margin: 0!important;
+  width: 100%!important;
+  padding-right: 15px!important;
+  padding-left: 15px!important;
+}
+
+
+
+
+/* --------- custom elements end--------- */
+
+
 @media (max-width: 678px){
   .hidden-xs-down {
       display: none !important;

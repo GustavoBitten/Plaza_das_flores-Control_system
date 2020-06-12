@@ -12,7 +12,8 @@ class Financeiro {
 
   index = async (req, res) => {
 
-
+    const {error} = req.query
+    console.log(error)
 
     const listaCobrancas = await Cobranca.findAll({
       include: [{
@@ -28,14 +29,15 @@ class Financeiro {
 
 
 
-    res.render("backoffice/morador/financeiro", {
+    res.render("backoffice/financeiro", {
       titulo: "Morador - Financeiro",
       usuario: req.session.user,
       listaCobrancas,
       moment,
       resultBloco,
       resultApartamento,
-      resultTipo_cobranca
+      resultTipo_cobranca,
+      error
 
     })
   }
@@ -73,7 +75,13 @@ class Financeiro {
       codigo: "fdgdfg34dfgedgf34gdfer"
     })
 
-    res.send(sucessCreate)
+    const error = "Deu erro a operação"
+
+    if(error){
+       return res.redirect('/backoffice/morador/financeiro?error='+ error)
+    }else{
+      
+    }
   }
 
 

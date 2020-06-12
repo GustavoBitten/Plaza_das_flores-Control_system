@@ -12,10 +12,9 @@
   <%- include('../includes/backoffice/header') %>
   <%- include('../includes/backoffice/aside') %>
 
-  <main class="container-fluid mx-0 pt-2">
-    <div class="row">
-      <h1 class="pl-3"><%= titulo %></h1>
-    </div>
+  <main class="customMain">
+
+    <%- include('../includes/utilities/subHeader') %>
 
     <% if (usuario.tipo_usuario_id == 2) { %>
       <div class="row">

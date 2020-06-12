@@ -2,21 +2,20 @@
 <html lang="pt-br">
 
 <head>
-  <%- include('../../includes/head', {titulo: titulo}) %>
+  <%- include('../includes/head', {titulo: titulo}) %>
 
   <link rel="stylesheet" href="/css/backoffice/layout.css">
   <link rel="stylesheet" href="/css/backoffice/financeiro.css">
 </head>
 
 <body>
-  <%- include('../../includes/backoffice/header') %>
-  <%- include('../../includes/backoffice/aside') %>
+  <%- include('../includes/backoffice/header') %>
+  <%- include('../includes/backoffice/aside') %>
 
-  <main class="container-fluid mx-0 pt-2">
+  <main class="customMain">
 
-    <div class="row">
-      <h1 class="pl-3">Financeiro</h1>
-    </div>
+    <%- include('../includes/utilities/subHeader') %>
+
     <div class="d-flex offset-md-2 offset-1 p-4">
 
       <div class="row flex-nowrap w-100">
@@ -263,7 +262,7 @@
     
   </main>
 
-  <%- include('../../includes/scriptJS') %>
+  <%- include('../includes/scriptJS') %>
   <script type="text/javascript" src="/javascripts/backoffice/financeiro.js"></script>
 
   <%  if(typeof(error) != 'undefined'){ %>
