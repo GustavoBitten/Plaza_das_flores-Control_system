@@ -76,7 +76,8 @@
               <% }) %>
 
 
-
+                
+            
               <span id="ap"><svg class="bi bi-house" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"
@@ -85,7 +86,12 @@
                   <path fill-rule="evenodd"
                     d="M7.293 1.5a1 1 0 011.414 0l6.647 6.646a.5.5 0 01-.708.708L8 2.207 1.354 8.854a.5.5 0 11-.708-.708L7.293 1.5z"
                     clip-rule="evenodd" />
+                    <% if(usuario.tipo_usuario_id != 3) {%>
                 </svg> <%= usuarios.Apartamento.apartamento%> <%= usuarios.Bloco.bloco %></span>
+              <% }else { %>
+              </svg> Portaria</span>
+
+              <%}%>
 
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
