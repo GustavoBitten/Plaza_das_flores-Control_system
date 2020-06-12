@@ -146,8 +146,7 @@ module.exports = ocorrenciaController = {
                 ]
             });
 
-            return res.redirect("/backoffice/morador/ocorrencias");
-
+            return res.status(200).json(deleteOcorrencia)
         } catch (error) {
             return res.status(400).json(error);
         }
