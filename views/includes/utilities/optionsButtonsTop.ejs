@@ -1,0 +1,14 @@
+<div class="row  p-4 flex-nowrap w-100">
+
+    <% optionsButtonsTop.forEach(button => { %>
+
+    <div class="col-2 p-0">
+
+        <button type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
+            data-toggle=<%=button.dataToggle %> data-target=<%= button.dataTarget %>> <%= button.name %></button>
+
+    </div>
+
+    <% });   %>
+
+</div>
