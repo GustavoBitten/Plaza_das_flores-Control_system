@@ -1,4 +1,4 @@
-const { Ocorrencia, Status_ocorrencia, Tipo_ocorrencia, Usuario } = require('../../models')
+const { Ocorrencia, Status_ocorrencia, Tipo_ocorrencia, Usuario, Bloco, Apartamento } = require('../../models')
 const moment = require("moment");
 
 module.exports = ocorrenciaController = {
@@ -10,6 +10,17 @@ module.exports = ocorrenciaController = {
             include: [{
                 model: Usuario,
                 required: true,
+                include: [
+                    {
+                      model: Bloco,
+                      required: true,
+                    },
+                    {
+                      model: Apartamento,
+                      required: true,
+                    },
+                  
+                  ],
                },
                {
                    model: Status_ocorrencia,

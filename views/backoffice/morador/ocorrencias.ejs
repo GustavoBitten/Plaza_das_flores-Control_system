@@ -40,6 +40,10 @@
 
           <thead>
             <tr class="info">
+              <% if(usuario.tipo_usuario_id == 2) {%>
+                <th scope="col">Morador</th>
+                <th scope="col">Ap/Bloco</th>
+                <% } %>
               <th scope="col">Título</th>
               <th scope="col">Tipo</th>
               <th scope="col">Status</th>
@@ -68,6 +72,9 @@
             <% }else{ %>
             <% listaOcorrencias.forEach((ocorrencia, index)=>{ %>
             <tr>
+              <td><%= ocorrencia.Usuario.nome %> </td>
+              <td> <%= ocorrencia.Usuario.Apartamento.apartamento %>/<%= ocorrencia.Usuario.Bloco.bloco %></td>
+             
               <td> <%= ocorrencia.titulo %> </td>
               <td><%= ocorrencia.Tipo_ocorrencium.tipo %></td>
               <td><%= ocorrencia.Status_ocorrencium.status %></td>
