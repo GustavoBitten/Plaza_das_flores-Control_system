@@ -4,6 +4,7 @@
 <head>
   <%- include('../../includes/head', {titulo: titulo}) %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/javascripts/backoffice/jquery.mask.min.js"></script>
   <link rel="stylesheet" href="/css/backoffice/layout.css">
   <link rel="stylesheet" href="/css/backoffice/ocorrenciasMorador.css">
 </head>
@@ -44,16 +45,19 @@
             </tr>
           </thead>
           <tbody>
-            <% listaOcorrencias.forEach(ocorrencia=>{ %>
+            <% listaOcorrencias.forEach((ocorrencia, index)=>{ %>
             <tr>
               <td> <%= ocorrencia.titulo %> </td>
               <td><%= ocorrencia.Tipo_ocorrencium.tipo %></td>
               <td><%= ocorrencia.Status_ocorrencium.status %></td>
               <td><%= moment(ocorrencia.created_at).format('DD/MM/YYYY');  %></td>
-              <td><button type="button" class="detalhes btn btn-primary" data-toggle="modal"
-                  data-target="#detalhes1Modal" data-id="<%= ocorrencia.id %>">
-                  + </button></td>
+              <td>
+                <button  type="button" class="detalhes btn btn-primary view_data" 
+                   id="<%= ocorrencia.id %>">
+                  + </button>
+              </td>
             </tr>
+            
           <% }) %>
            
 
@@ -67,7 +71,7 @@
 
   </main>
   <%- include('../../includes/scriptJS') %>
-  <script src="/javascripts/backoffice/ocorrencias.js"></script>
+  <script type="text/javascript"  src="/javascripts/backoffice/ocorrencias.js"></script>
 </body>
 
 </html>
@@ -133,7 +137,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" id ="btnCriarOcorrencia" class="btn btn-primary">Enviar</button>
         </div>
       </form>
     </div>
@@ -185,30 +189,30 @@
 
 <% if(usuario.tipo_usuario_id != 2) {%>
   <!-- Detalhes Modal Morador/Porteiro -->
-  <div class="modal fade" id="detalhes1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  <div  class="modal fade" id="viewDetalhes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="detalhes1Modal">Detalhes</h5>
+        <h5 class="modal-title" id="viewDetalhes">Detalhes</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       
-      <% listaOcorrencias.forEach((ocorrencia, index) =>{ %>
+    
         <div class="modal-body">
+          <h5> Ocorrência</h5>
+          <p id="ocorrenciaTitulo"></p>
           <h5>Imagem </h5>
-          <img
-          src="<%= ocorrencia.foto %>"
-          alt="" style="width: 100px; height: 100px; object-fit: cover; ">
+          <img id="ocorrenciaFoto" src="" alt="" style="width: 100px; height: 100px; object-fit: cover; ">
           <h5>Mensagem</h5>
-          <p><%= ocorrencia.titulo %></p>
+          <p id="ocorrenciaMensagem"></p>
           <h5>Resposta do(a) Síndico(a)</h5>
-          <p><%= ocorrencia.resposta %></p>
+          <p id="ocorrenciaRespostaSindico"></p>
           
         </div>
-        <%})%>
+  
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         </div>

@@ -3,6 +3,9 @@ const moment = require("moment");
 
 module.exports = ocorrenciaController = {
     index: async (req, res) => {
+
+
+        try{
         const listaOcorrencias = await Ocorrencia.findAll({
             include: [{
                 model: Usuario,
@@ -21,25 +24,33 @@ module.exports = ocorrenciaController = {
             ], 
             
         })
-        
-     //   const {idOcorrencia} = req.params
-      //  const ocorrencias = await Ocorrencia.findByPk(idOcorrencia)
-
-
+    
         return res.render("backoffice/morador/ocorrencias", {
             titulo: "Ocorrências",
             usuario: req.session.user,
             listaOcorrencias,
-            //ocorrencias,
             moment,
-        })
+        })}catch{
+            return res.status(400).json(error);
+        }
 
     },
-  
-
-   
-
+    show: async (req, res) => {
+        try {
+          const { ocorrenciaId } = req.params
     
+          const ocorrencia= await Ocorrencia.findByPk(ocorrenciaId)
+    
+          if(!ocorrencia)
+            throw {erro: 'Ocorrencia não existe!'}
+    
+          return res.status(200).json(ocorrencia)
+        } catch (error) {
+          return res.status(400).json(error)
+        }
+      },
+
+
     
     
     storeMorador: async (req, res) => {
