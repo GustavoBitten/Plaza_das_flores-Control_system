@@ -44,6 +44,7 @@
                   <th scope="col">Status</th>
                   <th scope="col">Data</th>
                   <th scope="col">Ações </th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -82,10 +83,8 @@
 
                     <a type="button" class="detalhes delete_data" id="<%= ocorrencia.id %>" title="Excluir">
                       <i class="fas fa-trash-alt" aria-hidden="true"></i> </a>
-                    <!-- 
-                    
-                        <a  type="button" class="detalhes view_data" id="<%= ocorrencia.id %>" title="Editar">
-                          <i class="fas fa-edit" aria-hidden="true"></i> </a> -->
+                      <a  type="button" class="detalhes put_data" id="<%= ocorrencia.id %>" title="Responder">
+                        <i class="fas fa-edit" aria-hidden="true"></i> </a> 
                   </td>
 
                 </tr>
@@ -284,3 +283,51 @@
 </div>
 
 <!--Fim Modal Delete -->
+
+      <!-- Modal Resposta Sindico -->
+
+      <div  class="modal fade" id="putResposta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="viewDetalhes">Detalhes</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          
+          <form id="formResposta" action="" method="POST"
+            enctype="multipart/form-data">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="respostaOcorrencia"><h5>Resposta do(a) Síndico(a)  </h5></label>
+                <textarea class="form-control" id="respostaOcorrencia" name="respostaOcorrencia" rows="3"></textarea>
+              </div>
+              <h5>Status</h5>
+              <div class="form-check form-check-inline">
+                <input class="checkgroup form-check-input" type="checkbox" name="statusOcorrencia" id="statusOcorrencia" value="3">
+                <label class="form-check-label" for="statusOcorrencia" style="font-weight: normal;">
+                  Resolvido</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="checkgroup form-check-input" type="checkbox" name="statusOcorrencia" id="statusOcorrencia" value="2">
+                <label class="form-check-label" for="statusOcorrencia" style="font-weight: normal;">
+                Pendente</label>
+              </div>
+              
+            </div>
+      
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+              <button type="submit" id="responderOcorrencia" class="btn btn-primary">Enviar</button>
+            </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
+        <!--Fim Modal Resposta Sindico -->

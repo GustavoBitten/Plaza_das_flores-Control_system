@@ -50,7 +50,9 @@ let init = () => {
 
 
       $(document).on('click', '#delete', function () {
-      fetch(window.location + '/delete/' + ocorrenciaId, { method: 'DELETE' })
+      fetch(window.location + '/delete/' + ocorrenciaId, {
+         method: 'DELETE' 
+        })
         .then(function (resultado) {
           resultado.json();
         })
@@ -62,7 +64,44 @@ let init = () => {
      })
 
    })
+   
 
+
+
+  
+   $(document).on('click', '.put_data', function () {
+    let ocorrenciaId = $(this).attr('id')
+    $('#putResposta').modal('show')
+
+
+    $(document).on('click', '#responderOcorrencia', function () {
+      
+    $('#formResposta').attr("action", `/backoffice/morador/ocorrencias/editar/${ocorrenciaId}?_method=PUT`)
+    
+    fetch(window.location + '/editar/' + ocorrenciaId + '?_method=PUT', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        status_ocorrencia_id: $('#statusOcorrencia').val(),
+        resposta: $('#respostaOcorrenai').val()
+      })
+    }) .then(function (resultado) {
+      resultado.json();
+    })
+    .then(function(ocorrencia){
+     $('#putResposta').modal('hide')
+    // location.reload()
+    })
+      
+     })
+
+ })
 
   })
 }
+
+
+

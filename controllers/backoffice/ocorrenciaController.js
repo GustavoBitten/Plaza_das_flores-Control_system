@@ -3,8 +3,6 @@ const moment = require("moment");
 
 module.exports = ocorrenciaController = {
     index: async (req, res) => {
-
-
         try{
         const listaOcorrencias = await Ocorrencia.findAll({
             include: [{
@@ -85,9 +83,6 @@ module.exports = ocorrenciaController = {
         }
       },
 
-
-    
-    
     storeMorador: async (req, res) => {
         const { user } = req.session;
         const {tituloOcorrencia, tipoOcorrencia,mensagemOcorrencia } = req.body;
@@ -115,28 +110,6 @@ module.exports = ocorrenciaController = {
         }
 
     },
-    storeSindico: async (req, res) => {
-        const { user } = req.session;
-        const {tituloOcorrencia, tipoOcorrencia,respostaOcorrencia } = req.body;
-        const [arquivoOcorrencia] = req.files;
-
-        try {
-            const novaOcorrencia = await Ocorrencia.create({
-                titulo: "vazio",
-                mensagem: "vazia",
-                resposta: respostaOcorrencia,
-                arquivo: null,
-                administrador_id: 2,	
-                status_ocorrencia_id: 2, // padrão cadastro: Registrado
-                tipo_ocorrencia_id: 1, // arrumar
-                morador_id: user.id,
-            })
-            return res.status(201).redirect('/backoffice/morador/ocorrencias')
-        } catch (error) {
-            return res.status(400).json(error);
-        }
-
-    },
     delete: async (req, res) => {
         const { ocorrenciaId } = req.params;
 
@@ -154,19 +127,25 @@ module.exports = ocorrenciaController = {
     update: async (req, res) => {
         const { user } = req.session;
         const { ocorrenciaId } = req.params
-        const [fotoOcorrencia] = req.files;
-        const { } = req.body;
+        //const [arquivoOcorrencia] = req.files;
+        const { respostaOcorrencia , statusOcorrencia} = req.body;
+
+      ////  let foto = null   
+      // if(foto == null){foto = `/images/padrao/padrao.png` } 
+      //  if(arquivoOcorrencia){foto = `/images/ocorrencias/${arquivoOcorrencia.filename}` } 
 
         try {
             const editarOcorrencia = await Ocorrencia.update({
-
-                morador_id: user.id,
+                resposta: respostaOcorrencia,
+                status_ocorrencia_id: parseInt(statusOcorrencia), 
+              //  arquivo: null,
             }, {
                 where: { id: ocorrenciaId }
             })
 
-            return res.redirect("/backoffice/morador/ocorrencia")
-
+                
+            //return res.status(200).json(editarOcorrencia)
+           return res.redirect('/backoffice/morador/ocorrencias')
         }
         catch (error) {
             return res.status(400).json(error);

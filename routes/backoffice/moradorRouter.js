@@ -78,7 +78,6 @@ route.put('/funcionarios/editar/:funcionarioId',uploadFuncionario.any(), funcion
 route.get('/ocorrencias', ocorrenciaController.index)
 route.get('/ocorrencias/:ocorrenciaId', ocorrenciaController.show)
 route.post('/ocorrenciasMorador',uploadOcorrencia.any(), ocorrenciaController.storeMorador)
-route.post('/ocorrenciasSindico',uploadOcorrencia.any(), ocorrenciaController.storeSindico)
 route.delete('/ocorrencias/delete/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.delete)
 route.put('/ocorrencias/editar/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.update)
 
