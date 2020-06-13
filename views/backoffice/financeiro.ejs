@@ -247,12 +247,12 @@
   </main>
 
   <%- include('../includes/scriptJS') %>
-  <script type="text/javascript" src="/javascripts/backoffice/financeiro.js"></script>
-
+  <%= error %> 
   <%  if(typeof(error) != 'undefined'){ %>
-  <%- include('../includes/utilities/errorAlert')%>
-  <%  }   %>
-
+    <%- include('../includes/utilities/errorAlert')%>
+    <%  }   %>
+    
+    <script type="text/javascript" src="/javascripts/backoffice/financeiro.js"></script>
 </body>
 
 </html>

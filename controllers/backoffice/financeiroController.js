@@ -12,7 +12,9 @@ class Financeiro {
 
   index = async (req, res) => {
 
-    const {error} = req.query
+    const {
+      error
+    } = req.query
     console.log(error)
 
     const listaCobrancas = await Cobranca.findAll({
@@ -55,16 +57,23 @@ class Financeiro {
       descricao
     } = req.body
 
-    const usuario = await Usuario.findOne({
-      where: {
-        bloco_id,
-        apartamento_id
-      }
-    })
+    
+      const usuario = await Usuario.findOne({
+        where: {
+          bloco_id,
+          apartamento_id
+        }
+      })
+      
+    if(!usuario){
+      const error = "Usuario para cadastro não encontrado"
+      return res.redirect('/backoffice/morador/financeiro?error=' + error)
+    }
 
     const usuario_id = usuario.id
-        
-    const sucessCreate = await Cobranca.create({
+
+    try{
+        await Cobranca.create({
       titulo,
       vencimento,
       tipo_cobranca_id: Number(tipo_cobranca_id),
@@ -74,14 +83,19 @@ class Financeiro {
       data,
       codigo: "fdgdfg34dfgedgf34gdfer"
     })
+    
+  }catch(err){
+    const error = "não foi possível cadastrar essa cobrança"
+    return res.redirect('/backoffice/morador/financeiro?error=' + error)
+  } 
+    
 
-    const error = "Deu erro a operação"
-
-    if(error){
-       return res.redirect('/backoffice/morador/financeiro?error='+ error)
-    }else{
+  
       
-    }
+    return res.redirect('/backoffice/morador/financeiro')
+  
+          
+   
   }
 
 
@@ -96,7 +110,7 @@ class Financeiro {
       }
 
     })
-
+    
 
     res.redirect('/backoffice/morador/financeiro')
   }

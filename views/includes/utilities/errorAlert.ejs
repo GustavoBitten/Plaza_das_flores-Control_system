@@ -1,13 +1,19 @@
+<div class="alert alert-danger" role="alert" id='alerta' style="
+position: absolute;
+display: block;
+color: black;
+top: 8px;
+z-index: 1031;
+left: 25%;
+text-align: center;
+right: 25%;
+padding: 8px;">
+</div>
 <script>
-
     const alerta = document.getElementById('alerta')
     alerta.style.display = 'block'
     alerta.style.color = 'black'
     alerta.innerHTML = '<%= error  %>'
 
     $('#alerta').delay(5000).fadeOut()
-
 </script>
-
-
-

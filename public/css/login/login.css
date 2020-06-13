@@ -49,13 +49,7 @@
      align-content: center;
  }
  
-#alerta{
-    display: none;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    text-align: center;
-}
+
  
  /* Inicio = CSS de botões temporário */
  
