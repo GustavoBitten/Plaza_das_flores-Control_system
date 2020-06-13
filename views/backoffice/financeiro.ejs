@@ -16,139 +16,135 @@
 
     <%- include('../includes/utilities/subHeader') %>
 
+    <section class="customSection">
 
-    <section style='width: fit-content; margin: 0 auto;'>
-
-
-      
-      <%const optionsButtonsTop = [{dataTarget:"#modalNovaCobranca", name:'Nova cobrança',dataToggle:"modal"}]  %> 
+      <%const optionsButtonsTop = [{dataTarget:"#modalNovaCobranca", name:'Nova cobrança',dataToggle:"modal"}]  %>
       <%- include('../includes/utilities/optionsButtonsTop',{optionsButtonsTop}) %>
 
 
-      <div class="row">
-        <div class="card mx-auto px-0">
+      <div class="card mx-auto px-0">
 
-          <%- include('../includes/utilities/cardHeader', {nameCardHeader:"Todas as cobranças"} ) %>
-          <div class="card-body row">
-            <div class="col-12 d-flex align-items-center flex-column">
-              <% if (listaCobrancas.length > 0) { %>
+        <%- include('../includes/utilities/cardHeader', {nameCardHeader:"Todas as cobranças"} ) %>
 
-              <table class="table table-borderless table-striped table-hover table-responsive-sm">
-                <caption>
-                  Para pagamento utilize a ação de gerar boleto
-                </caption>
-                <!--------------------------- Colunas -------------------------------->
-                <thead>
-                  <tr>
+        <div class="card-body row">
+          <div class="col-12 d-flex align-items-center flex-column">
+            <% if (listaCobrancas.length > 0) { %>
 
-                    <% const colums = ['Data', 'Tipo','Título','Valor','Vencimento','Ações' ] %>
-                    <%  colums.forEach(th => {%>
-                    <th class="text-center" scope="col"> <%= th %> </th>
-                    <%     }) %>
+            <table class="table table-borderless table-striped table-hover table-responsive-sm">
+              <caption>
+                Para pagamento utilize a ação de gerar boleto
+              </caption>
+              <!--------------------------- Columns -------------------------------->
+              <thead>
+                <tr>
 
-                  </tr>
-                </thead>
-                <!--------------------------- Fim Colunas -------------------------------->
+                  <% const colums = ['Data', 'Tipo','Título','Valor','Vencimento','Ações' ] %>
+                  <%  colums.forEach(th => {%>
+                  <th class="text-center" scope="col"> <%= th %> </th>
+                  <%     }) %>
 
-                <tbody id="tableBody">
-                  <% listaCobrancas.forEach(cobranca => { %>
-                  <tr>
+                </tr>
+              </thead>
+              <!--------------------------- End Columns -------------------------------->
 
-                    <td class="text-center align-middle">
-                      <%= moment(cobranca.data).format('DD/MM/YYYY') %>
-                    </td>
+              <tbody id="tableBody">
+                <% listaCobrancas.forEach(cobranca => { %>
+                <tr>
 
-                    <td class="text-center align-middle">
-                      <%= cobranca.tipo_cobranca.tipo %>
-                    </td>
+                  <td class="text-center align-middle">
+                    <%= moment(cobranca.data).format('DD/MM/YYYY') %>
+                  </td>
 
-                    <td class="text-center align-middle">
-                      <%= cobranca.titulo %>
-                    </td>
+                  <td class="text-center align-middle">
+                    <%= cobranca.tipo_cobranca.tipo %>
+                  </td>
 
-                    <td class="text-center align-middle">
-                      <%= cobranca.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }).replace('.',',') %>
-                    </td>
+                  <td class="text-center align-middle">
+                    <%= cobranca.titulo %>
+                  </td>
 
-                    <td class="text-center align-middle">
-                      <%= moment(cobranca.vencimento).format('DD/MM/YYYY') %>
-                    </td>
+                  <td class="text-center align-middle">
+                    <%= cobranca.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }).replace('.',',') %>
+                  </td>
 
-                    <td class="text-center align-middle">
-                      <a type="button" data-toggle="modal" data-target=<%=`#modalDescricao${cobranca.id}`%>>
-                        <i class="far fa-comment-alt"></i>
-                      </a>
-                      <a type="button" data-toggle="modal" data-target=<%=`#modalExcluir${cobranca.id}`%>>
-                        <i class="far fa-trash-alt"></i>
-                      </a>
-                    </td>
+                  <td class="text-center align-middle">
+                    <%= moment(cobranca.vencimento).format('DD/MM/YYYY') %>
+                  </td>
 
-                  </tr>
-                  <!-- Modal Descrição-->
-                  <div class="modal fade" id=<%=`modalDescricao${cobranca.id}`%> tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel"><%= cobranca.titulo %></h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <%= cobranca.descricao %>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
+                  <td class="text-center align-middle">
+                    <a type="button" data-toggle="modal" data-target=<%=`#modalDescricao${cobranca.id}`%>>
+                      <i class="far fa-comment-alt"></i>
+                    </a>
+                    <a type="button" data-toggle="modal" data-target=<%=`#modalExcluir${cobranca.id}`%>>
+                      <i class="far fa-trash-alt"></i>
+                    </a>
+                  </td>
+
+                </tr>
+                <!-- Modal Descrição-->
+                <div class="modal fade" id=<%=`modalDescricao${cobranca.id}`%> tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><%= cobranca.titulo %></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <%= cobranca.descricao %>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       </div>
                     </div>
                   </div>
-                  <!-- Modal Descrição -->
-                  <!-- Modal Exclui -->
-                  <div class="modal fade" id=<%=`modalExcluir${cobranca.id}`%> tabindex="-1" role="dialog"
-                    aria-labelledby="modalExcluirComunicadoTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header d-flex justify-content-center p-1">
-                          <h5 class="modal-title" id="modalExcluirComunicadoTitle">Tem certeza?</h5>
-                        </div>
-
-                        <div class="modal-body d-flex justify-content-center">
-
-                          <!-- =`financeiro/${cobranca.id}?_method=DELETE"`%> -->
-
-                          <form method="post" action=<%="financeiro/" + cobranca.id +"?_method=DELETE"%>>
-                            <button type="submit"
-                              class="btn-sm btn-sucess border-0 rounded-pill font-weight-bold px-3 ml-2">
-                              Sim
-                            </button>
-                          </form>
-                          <button type="button"
-                            class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3 ml-2"
-                            data-dismiss="modal">
-                            Não
-                          </button>
-                        </div>
-
+                </div>
+                <!-- Modal Descrição -->
+                <!-- Modal Exclui -->
+                <div class="modal fade" id=<%=`modalExcluir${cobranca.id}`%> tabindex="-1" role="dialog"
+                  aria-labelledby="modalExcluirComunicadoTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header d-flex justify-content-center p-1">
+                        <h5 class="modal-title" id="modalExcluirComunicadoTitle">Tem certeza?</h5>
                       </div>
+
+                      <div class="modal-body d-flex justify-content-center">
+
+                        <!-- =`financeiro/${cobranca.id}?_method=DELETE"`%> -->
+
+                        <form method="post" action=<%="financeiro/" + cobranca.id +"?_method=DELETE"%>>
+                          <button type="submit"
+                            class="btn-sm btn-sucess border-0 rounded-pill font-weight-bold px-3 ml-2">
+                            Sim
+                          </button>
+                        </form>
+                        <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3 ml-2"
+                          data-dismiss="modal">
+                          Não
+                        </button>
+                      </div>
+
                     </div>
                   </div>
+                </div>
 
-                  <!-- Modal Exclui -->
-                  <% }) %>
-                </tbody>
-              </table>
-              <% } else { %>
-              <h4 class="text-danger">Nenhuma cobrança foi encontrada!</h4>
-              <% } %>
-            </div>
-            <!-- /.col-12 -->
+                <!-- Modal Exclui -->
+                <% }) %>
+              </tbody>
+            </table>
+            <% } else { %>
+            <h4 class="text-danger">Nenhuma cobrança foi encontrada!</h4>
+            <% } %>
           </div>
-          <!-- /.card-body -->
+          <!-- /.col-12 -->
         </div>
-        <!-- /.card -->
+        <!-- /.card-body -->
       </div>
+      <!-- /.card -->
+
 
     </section>
 

@@ -15,18 +15,13 @@
 
       <%- include('../../includes/utilities/subHeader') %>
 
-      <div class="row">
-        <div class="col-10 col-md-8 offset-1 offset-md-2 mb-3 p-0">
-          <!-- <button id="btnNovaReserva" type="button" class="btn-sm border-0 rounded-pill">Nova Reserva</button> -->
-          <button id="btnMinhasReservas" type="button" class="btn-sm border-0 rounded-pill"
-           data-toggle="modal" data-target="#modalMinhasReservas">Minhas Reservas</button>
-          <!-- Caso for usar o outro btn adicionar a classe 'ml-5'-->
-        </div>
-      </div>
+      <section class="customSection">
 
-      <section class="row">
+        <%const optionsButtonsTop = [{dataTarget:"#modalMinhasReservas", name:'Minhas Reservas',dataToggle:"modal"}]  %>
+        <%- include('../../includes/utilities/optionsButtonsTop',{optionsButtonsTop}) %>
+      
 
-        <div class="card col-10 col-md-8 offset-1 offset-md-2 px-0">
+        <div class="card mx-auto px-0">
 
         <%- include('../../includes/utilities/cardHeader', {nameCardHeader:"Nova Reserva"} ) %>
 

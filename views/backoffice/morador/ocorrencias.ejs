@@ -17,97 +17,95 @@
 
     <%- include('../../includes/utilities/subHeader') %>
 
-    <div class="container-flex col-12 col-md-8 offset-1 offset-md-2 px-0">
-     
-      <button type="button" class="btnNova btn btn-primary" data-toggle="modal" data-target="#novaOcorrenciaModal"
-        data-whatever="@mdo">
-        Nova Ocorrência</button>
- 
+    <section class="customSection">
 
-      <div class="card-header r w-100 p-0">
-        <h1></h1>
-        <h5 class="m-0 p-1">Status/Histórico</h5>
+      <%const optionsButtonsTop = [{dataTarget:"#novaOcorrenciaModal", name:'Nova Ocorrência',dataToggle:"modal"}]  %>
+      <% optionsButtonsTop.push({dataTarget:"#filtroModal", name:'+Filtro',dataToggle:"modal"})  %>
+      <%- include('../../includes/utilities/optionsButtonsTop',{optionsButtonsTop}) %>
 
-        
-        <button type="button" class="btnFiltro btn-primary" data-toggle="modal" data-target="#filtroModal"
-          data-whatever="@mdo">
-          +Filtro
-        </button>
-      </div>
+      <div class="card mx-auto px-0">
 
-      <div class="table-responsive">
-        <table class="table table-borderless table-striped table-hover">
+        <%- include('../../includes/utilities/cardHeader', {nameCardHeader:"Status/Histórico"} ) %>
 
-          <thead>
-            <tr class="info">
-              <% if(usuario.tipo_usuario_id == 2) {%>
-                <th scope="col">Morador</th>
-                <th scope="col">Ap/Bloco</th>
-                <% } %>
-              <th scope="col">Título</th>
-              <th scope="col">Tipo</th>
-              <th scope="col">Status</th>
-              <th scope="col">Data</th>
-              <th scope="col">Ações </th>
-            </tr>
-          </thead>
-          <tbody>
-            <% if(usuario.tipo_usuario_id != 2) {%>
-              <% listaOcorrenciasMorador.forEach((ocorrencia, index)=>{ %>
+
+        <div class="card-body row">
+          <div class="col-12 d-flex align-items-center flex-column">
+
+            <table class="table table-borderless table-striped table-hover table-responsive-sm">
+
+              <thead>
+                <tr class="info">
+                  <% if(usuario.tipo_usuario_id == 2) {%>
+                  <th scope="col">Morador</th>
+                  <th scope="col">Ap/Bloco</th>
+                  <% } %>
+                  <th scope="col">Título</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Data</th>
+                  <th scope="col">Ações </th>
+                </tr>
+              </thead>
+              <tbody>
+                <% if(usuario.tipo_usuario_id != 2) {%>
+                <% listaOcorrenciasMorador.forEach((ocorrencia, index)=>{ %>
                 <tr>
                   <td> <%= ocorrencia.titulo %> </td>
                   <td><%= ocorrencia.Tipo_ocorrencium.tipo %></td>
                   <td><%= ocorrencia.Status_ocorrencium.status %></td>
                   <td><%= moment(ocorrencia.created_at).format('DD/MM/YYYY');  %></td>
                   <td>
-                    <a  type="button" class="detalhes view_data" id="<%= ocorrencia.id %>" title="Detalhes">
+                    <a type="button" class="detalhes view_data" id="<%= ocorrencia.id %>" title="Detalhes">
                       <i class="fa fa-plus-square" aria-hidden="true"></i> </a>
 
-                      <a  type="button" class="detalhes delete_data" id="<%= ocorrencia.id %>" title="Excluir">
-                        <i class="fas fa-trash-alt" aria-hidden="true"></i> </a>
+                    <a type="button" class="detalhes delete_data" id="<%= ocorrencia.id %>" title="Excluir">
+                      <i class="fas fa-trash-alt" aria-hidden="true"></i> </a>
                   </td>
                 </tr>
-                
-              <% }) %>
-              
 
-            <% }else{ %>
-            <% listaOcorrencias.forEach((ocorrencia, index)=>{ %>
-            <tr>
-              <td><%= ocorrencia.Usuario.nome %> </td>
-              <td> <%= ocorrencia.Usuario.Apartamento.apartamento %>/<%= ocorrencia.Usuario.Bloco.bloco %></td>
-             
-              <td> <%= ocorrencia.titulo %> </td>
-              <td><%= ocorrencia.Tipo_ocorrencium.tipo %></td>
-              <td><%= ocorrencia.Status_ocorrencium.status %></td>
-              <td><%= moment(ocorrencia.created_at).format('DD/MM/YYYY');  %></td>
-              <td>
-                  <a  type="button" class="detalhes view_data" id="<%= ocorrencia.id %>" title="Detalhes">
-                    <i class="fa fa-plus-square" aria-hidden="true"></i> </a>
+                <% }) %>
 
-                    <a  type="button" class="detalhes delete_data" id="<%= ocorrencia.id %>" title="Excluir">
-                    <i class="fas fa-trash-alt" aria-hidden="true"></i> </a>
+
+                <% }else{ %>
+                <% listaOcorrencias.forEach((ocorrencia, index)=>{ %>
+                <tr>
+                  <td><%= ocorrencia.Usuario.nome %> </td>
+                  <td> <%= ocorrencia.Usuario.Apartamento.apartamento %>/<%= ocorrencia.Usuario.Bloco.bloco %></td>
+
+                  <td> <%= ocorrencia.titulo %> </td>
+                  <td><%= ocorrencia.Tipo_ocorrencium.tipo %></td>
+                  <td><%= ocorrencia.Status_ocorrencium.status %></td>
+                  <td><%= moment(ocorrencia.created_at).format('DD/MM/YYYY');  %></td>
+                  <td>
+                    <a type="button" class="detalhes view_data" id="<%= ocorrencia.id %>" title="Detalhes">
+                      <i class="fa fa-plus-square" aria-hidden="true"></i> </a>
+
+                    <a type="button" class="detalhes delete_data" id="<%= ocorrencia.id %>" title="Excluir">
+                      <i class="fas fa-trash-alt" aria-hidden="true"></i> </a>
                     <!-- 
                     
                         <a  type="button" class="detalhes view_data" id="<%= ocorrencia.id %>" title="Editar">
                           <i class="fas fa-edit" aria-hidden="true"></i> </a> -->
-              </td>
-            
-            </tr>
-            
-          <% }) %>
+                  </td>
 
-          <% } %>
+                </tr>
 
-          </tbody>
-        </table>
+                <% }) %>
+
+                <% } %>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
 
-    </div>
+    </section>
 
   </main>
   <%- include('../../includes/scriptJS') %>
-  <script type="text/javascript"  src="/javascripts/backoffice/ocorrencias.js"></script>
+  <script type="text/javascript" src="/javascripts/backoffice/ocorrencias.js"></script>
 </body>
 
 </html>
@@ -134,47 +132,51 @@
           <div class="formulario">
             <div class="form-group">
               <label for="tituloOcorrencia">Título:</label>
-              <input type="text" class="form-control" name="tituloOcorrencia" id="tituloOcorrencia" placeholder="Ex: Lâmpada Queimada">
+              <input type="text" class="form-control" name="tituloOcorrencia" id="tituloOcorrencia"
+                placeholder="Ex: Lâmpada Queimada">
             </div>
 
             <div>
               <label for="tipoOcorrencia">Tipo:</label>
             </div>
 
-        
+
 
             <div class="form-check form-check-inline">
-              <input class="checkgroup form-check-input" type="checkbox" name="tipoOcorrencia" id="tipoOcorrencia" value="1">
+              <input class="checkgroup form-check-input" type="checkbox" name="tipoOcorrencia" id="tipoOcorrencia"
+                value="1">
               <label class="form-check-label" for="tipoOcorrencia" style="font-weight: normal;">
                 Reclamação</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="checkgroup form-check-input" type="checkbox" name="tipoOcorrencia" id="tipoOcorrencia" value="3">
+              <input class="checkgroup form-check-input" type="checkbox" name="tipoOcorrencia" id="tipoOcorrencia"
+                value="3">
               <label class="checkgroup form-check-label" for="inlineCheckbox3" style="font-weight: normal;">
                 Manutenção</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="checkgroup form-check-input" type="checkbox" id="tipoOcorrencia" name="tipoOcorrencia" value="2">
+              <input class="checkgroup form-check-input" type="checkbox" id="tipoOcorrencia" name="tipoOcorrencia"
+                value="2">
               <label class="checkgroup form-check-label" for="tipoOcorrencia" style="font-weight: normal;">
                 Sugestão</label>
             </div>
-            
-            
+
+
             <div class="form-group">
               <label for="arquivoOcorrencia">Incluir Arquivos:</label>
               <input type="file" class="form-control-file" id="arquivoOcorrencia" name="arquivoOcorrencia">
             </div>
-            
+
             <div class="form-group">
               <label for="mensagemOcorrencia">Mensagem:</label>
               <textarea class="form-control" id="mensagemOcorrencia" name="mensagemOcorrencia" rows="3"></textarea>
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" id ="btnCriarOcorrencia" class="btn btn-primary">Enviar</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" id="btnCriarOcorrencia" class="btn btn-primary">Enviar</button>
+      </div>
       </form>
     </div>
   </div>
@@ -210,7 +212,7 @@
               <option value="Em Andamento">Em Andamento</option>
               <option value="Em Análise">Em Análise</option>
               <option value="Concluído">Concluído</option>
-              
+
             </select>
           </div>
         </form>
@@ -225,8 +227,8 @@
 
 
 
-  <!-- Detalhes Modal Morador/Sindico/Porteiro -->
-  <div  class="modal fade" id="viewDetalhes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<!-- Detalhes Modal Morador/Sindico/Porteiro -->
+<div class="modal fade" id="viewDetalhes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -236,49 +238,49 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      
-    
-        <div class="modal-body">
-          <h5> Ocorrência</h5>
-          <p id="ocorrenciaTitulo"></p>
-          <h5>Imagem </h5>
-          <img id="ocorrenciaFoto" src="" alt="" style="width: 100px; height: 100px; object-fit: cover; ">
-          <h5>Mensagem</h5>
-          <p id="ocorrenciaMensagem"></p>
-          <h5>Resposta do(a) Síndico(a)</h5>
-          <p id="ocorrenciaRespostaSindico"></p>
-          
-        </div>
-  
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        </div>
+
+
+      <div class="modal-body">
+        <h5> Ocorrência</h5>
+        <p id="ocorrenciaTitulo"></p>
+        <h5>Imagem </h5>
+        <img id="ocorrenciaFoto" src="" alt="" style="width: 100px; height: 100px; object-fit: cover; ">
+        <h5>Mensagem</h5>
+        <p id="ocorrenciaMensagem"></p>
+        <h5>Resposta do(a) Síndico(a)</h5>
+        <p id="ocorrenciaRespostaSindico"></p>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
+</div>
 
 
-  
-  <!-- Detalhes Modal Delete -->
 
-  <div id="deleteOcorrencia" class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Excluir Ocorrência</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Você tem certeza que deseja excluir esta Ocorrência?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" id="delete" class="btn btn-primary">Deletar</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        </div>
+<!-- Detalhes Modal Delete -->
+
+<div id="deleteOcorrencia" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Excluir Ocorrência</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Você tem certeza que deseja excluir esta Ocorrência?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" id="delete" class="btn btn-primary">Deletar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
+</div>
 
-    <!--Fim Modal Delete -->
+<!--Fim Modal Delete -->

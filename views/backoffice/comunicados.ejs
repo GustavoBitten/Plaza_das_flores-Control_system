@@ -16,84 +16,89 @@
 
     <%- include('../includes/utilities/subHeader') %>
 
-    <% if (usuario.tipo_usuario_id == 2) { %>
+    <section class="customSection">
 
-      <div class="row">
-        <div class="col-10 col-md-8 offset-1 offset-md-2 mb-3 p-0">
-          <button id="btnNovoComunicado" type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold"
-            data-toggle="modal" data-target="#modalNovoComunicado">
-            Novo Comunicado
-          </button>
-        </div>
-      </div>
+      <% if (usuario.tipo_usuario_id == 2) { %>
+
+      <%const optionsButtonsTop = [{dataTarget:"#modalNovoComunicado", name:'Novo Comunicado',dataToggle:"modal"}]  %>
+      <%- include('../includes/utilities/optionsButtonsTop',{optionsButtonsTop}) %>
+
+
+      <% }else{  %>
       
-    <% } %>
+        <%const optionsButtonsTop = [{dataTarget:"", name:'Geral',dataToggle:""}]  %>
+        <%- include('../includes/utilities/optionsButtonsTop',{optionsButtonsTop}) %>
+    
+      
+      <%  } %>
 
 
-    <section class="row">
-      <div class="card col-10 col-md-8 offset-1 offset-md-2 px-0">
+      <div class="card mx-auto px-0">
 
         <%- include('../includes/utilities/cardHeader', {nameCardHeader:"Comunicados"} ) %>
 
         <div class="card-body row">
           <div class="col-12 table-responsive">
             <% if (listaComunicados.length > 0) { %>
-              <span id="obs" class="align-self-start ">* Para visualizar o comunicado completo basta clicar em seu título</span>
-              <table class="table table-borderless table-striped table-hover">
-                <caption>
-                  Comunicados
-                </caption>
+            <span id="obs" class="align-self-start ">* Para visualizar o comunicado completo basta clicar em seu
+              título</span>
+            <table class="table table-borderless table-striped table-hover">
+              <caption>
+                Comunicados
+              </caption>
 
-                <thead>
-                  <tr>
-                    <th class="text-center" scope="col">
-                      Data
-                    </th>
-                    <th class="text-center" scope="col">
-                      Atualização
-                    </th>
-                    <th class="text-center" scope="col">
-                      Título
-                    </th>
-                    <% if (usuario.tipo_usuario_id == 2) { %>
-                      <th class="text-center" scope="col">
-                        Ações
-                      </th>
-                    <% } %>
-                  </tr>
-                </thead>
+              <thead>
+                <tr>
+                  <th class="text-center" scope="col">
+                    Data
+                  </th>
+                  <th class="text-center" scope="col">
+                    Atualização
+                  </th>
+                  <th class="text-center" scope="col">
+                    Título
+                  </th>
+                  <% if (usuario.tipo_usuario_id == 2) { %>
+                  <th class="text-center" scope="col">
+                    Ações
+                  </th>
+                  <% } %>
+                </tr>
+              </thead>
 
-                <tbody id="tableBody">
-                  <% listaComunicados.forEach(comunicado => { %>
-                    <tr>
-                      <td class="text-center align-middle">
-                        <%= moment(comunicado.created_at).format('DD/MM/YYYY') %>
-                      </td>
-                      <td class="text-center align-middle">
-                        <%= String(comunicado.created_at) == String(comunicado.updated_at) ? '-' : moment(comunicado.updated_at).format('DD/MM/YYYY') %>
-                      </td>
-                      <td class="text-center align-middle">
-                        <a id="comunicado<%= comunicado.id %>" data-target="#modalMostrarComunicado" data-id="<%= comunicado.id %>" title="<%= comunicado.titulo %>">
-                          <u><%= comunicado.titulo.length > 50 ? truncate(comunicado.titulo, 47) : comunicado.titulo %></u>
-                        </a>
-                      </td>
-                      <% if (usuario.tipo_usuario_id == 2) { %>
-                        <td class="text-center align-middle">
-                          <a id="editarComunicado<%= comunicado.id %>" class="text-primary text-decoration-none" data-target="#modalEditarComunicado"
-                            data-id="<%= comunicado.id %>" title="Editar Comunicado">
-                            <i class="fas fa-edit"></i>
-                          </a>
-                          <a id="excluirComunicado<%= comunicado.id %>" class="text-danger ml-3" data-id="<%= comunicado.id %>" title="Excluir Comunicado">
-                            <i class="fas fa-trash-alt"></i>
-                          </a>
-                        </td>
-                      <% } %>
-                    </tr>
-                  <% }) %>
-                </tbody>
-              </table>
+              <tbody id="tableBody">
+                <% listaComunicados.forEach(comunicado => { %>
+                <tr>
+                  <td class="text-center align-middle">
+                    <%= moment(comunicado.created_at).format('DD/MM/YYYY') %>
+                  </td>
+                  <td class="text-center align-middle">
+                    <%= String(comunicado.created_at) == String(comunicado.updated_at) ? '-' : moment(comunicado.updated_at).format('DD/MM/YYYY') %>
+                  </td>
+                  <td class="text-center align-middle">
+                    <a id="comunicado<%= comunicado.id %>" data-target="#modalMostrarComunicado"
+                      data-id="<%= comunicado.id %>" title="<%= comunicado.titulo %>">
+                      <u><%= comunicado.titulo.length > 50 ? truncate(comunicado.titulo, 47) : comunicado.titulo %></u>
+                    </a>
+                  </td>
+                  <% if (usuario.tipo_usuario_id == 2) { %>
+                  <td class="text-center align-middle">
+                    <a id="editarComunicado<%= comunicado.id %>" class="text-primary text-decoration-none"
+                      data-target="#modalEditarComunicado" data-id="<%= comunicado.id %>" title="Editar Comunicado">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                    <a id="excluirComunicado<%= comunicado.id %>" class="text-danger ml-3"
+                      data-id="<%= comunicado.id %>" title="Excluir Comunicado">
+                      <i class="fas fa-trash-alt"></i>
+                    </a>
+                  </td>
+                  <% } %>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
             <% } else { %>
-              <h4 class="text-danger">Nenhum comunicado foi encontrado!</h4>
+            <h4 class="text-danger">Nenhum comunicado foi encontrado!</h4>
             <% } %>
           </div>
           <!-- /.col-12 -->
@@ -101,6 +106,7 @@
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
+
     </section>
   </main>
 
@@ -130,97 +136,100 @@
   <!-- /#modalMostrarComunicado -->
 
   <% if (usuario.tipo_usuario_id == 2) { %>
-    <%# Modal Novo Comunicado %>
-    <div class="modal fade" id="modalNovoComunicado" tabindex="-1" role="dialog"
-      aria-labelledby="modalNovoComunicadoTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header d-flex justify-content-center p-1">
-            <h5 class="modal-title" id="modalNovoComunicadoTitle">Novo Comunicado</h5>
-          </div>
-
-          <form class="form-group m-0" action="/backoffice/sindico/comunicados" method="POST">
-            <div class="modal-body">
-              <label for="titulo">Título</label>
-              <input id="titulo" name="titulo" class="form-control" type="text" maxlength="255">
-
-              <label for="mensagem" class="mt-3">Mensagem</label>
-              <textarea id="mensagem" name="mensagem" class="form-control" cols="30" rows="10" maxlength="1000"></textarea>
-            </div>
-
-            <div class="modal-footer border-0">
-              <a id="btnCriarComunicado" class="btn-sm btn-success border-0 rounded-pill font-weight-bold text-white px-3 ml-2">
-                Criar
-              </a>
-              <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3"
-                data-dismiss="modal">
-                Voltar
-              </button>
-            </div>
-        </form>
-
+  <%# Modal Novo Comunicado %>
+  <div class="modal fade" id="modalNovoComunicado" tabindex="-1" role="dialog"
+    aria-labelledby="modalNovoComunicadoTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-center p-1">
+          <h5 class="modal-title" id="modalNovoComunicadoTitle">Novo Comunicado</h5>
         </div>
-      </div>
-    </div>
-    <!-- /#modalNovoComunicado -->
 
-    <%# Modal Editar Comunicado %>
-    <div class="modal fade" id="modalEditarComunicado" tabindex="-1" role="dialog"
-      aria-labelledby="modalEditarComunicadoTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header d-flex justify-content-center p-1">
-            <h5 class="modal-title" id="modalEditarComunicadoTitle">Editar comunicado</h5>
-          </div>
-
+        <form class="form-group m-0" action="/backoffice/sindico/comunicados" method="POST">
           <div class="modal-body">
-            <form id="formEditar" class="form-group" action="">
-              <label for="tituloEditado">Título</label>
-              <input id="tituloEditado" name="tituloEditado" class="form-control" type="text" max="255">
+            <label for="titulo">Título</label>
+            <input id="titulo" name="titulo" class="form-control" type="text" maxlength="255">
 
-              <label for="mensagemEditada" class="mt-3">Mensagem</label>
-              <textarea id="mensagemEditada" name="mensagemEditada" class="form-control" cols="30" rows="10" maxlength="1000"></textarea>
-
-            </form>
+            <label for="mensagem" class="mt-3">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" class="form-control" cols="30" rows="10"
+              maxlength="1000"></textarea>
           </div>
 
           <div class="modal-footer border-0">
-            <a id="btnAtualizar" class="btn-sm btn-success text-white border-0 rounded-pill font-weight-bold px-3 ml-2">
-              Atualizar
+            <a id="btnCriarComunicado"
+              class="btn-sm btn-success border-0 rounded-pill font-weight-bold text-white px-3 ml-2">
+              Criar
             </a>
-            <button type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold px-3"
+            <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3"
               data-dismiss="modal">
               Voltar
             </button>
           </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <!-- /#modalNovoComunicado -->
+
+  <%# Modal Editar Comunicado %>
+  <div class="modal fade" id="modalEditarComunicado" tabindex="-1" role="dialog"
+    aria-labelledby="modalEditarComunicadoTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-center p-1">
+          <h5 class="modal-title" id="modalEditarComunicadoTitle">Editar comunicado</h5>
+        </div>
+
+        <div class="modal-body">
+          <form id="formEditar" class="form-group" action="">
+            <label for="tituloEditado">Título</label>
+            <input id="tituloEditado" name="tituloEditado" class="form-control" type="text" max="255">
+
+            <label for="mensagemEditada" class="mt-3">Mensagem</label>
+            <textarea id="mensagemEditada" name="mensagemEditada" class="form-control" cols="30" rows="10"
+              maxlength="1000"></textarea>
+
+          </form>
+        </div>
+
+        <div class="modal-footer border-0">
+          <a id="btnAtualizar" class="btn-sm btn-success text-white border-0 rounded-pill font-weight-bold px-3 ml-2">
+            Atualizar
+          </a>
+          <button type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold px-3"
+            data-dismiss="modal">
+            Voltar
+          </button>
         </div>
       </div>
     </div>
-    <!-- /#modalEditarComunicado -->
+  </div>
+  <!-- /#modalEditarComunicado -->
 
-    <%# Modal Excluir Comunicado %>
-    <div class="modal fade" id="modalExcluirComunicado" tabindex="-1" role="dialog"
-      aria-labelledby="modalExcluirComunicadoTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-header d-flex justify-content-center p-1">
-            <h5 class="modal-title" id="modalExcluirComunicadoTitle">Tem certeza?</h5>
-          </div>
-
-          <div class="modal-body d-flex justify-content-center">
-            <a id="btnDelete" class="btn-sm btn-success border-0 rounded-pill font-weight-bold text-white px-3">
-              Sim
-            </a>
-            <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3 ml-2"
-              data-dismiss="modal">
-              Não
-            </button>
-          </div>
-
+  <%# Modal Excluir Comunicado %>
+  <div class="modal fade" id="modalExcluirComunicado" tabindex="-1" role="dialog"
+    aria-labelledby="modalExcluirComunicadoTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-center p-1">
+          <h5 class="modal-title" id="modalExcluirComunicadoTitle">Tem certeza?</h5>
         </div>
+
+        <div class="modal-body d-flex justify-content-center">
+          <a id="btnDelete" class="btn-sm btn-success border-0 rounded-pill font-weight-bold text-white px-3">
+            Sim
+          </a>
+          <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3 ml-2"
+            data-dismiss="modal">
+            Não
+          </button>
+        </div>
+
       </div>
     </div>
-    <!-- /#modalExcluirComunicado -->
+  </div>
+  <!-- /#modalExcluirComunicado -->
   <% } %>
 
   <%- include('../includes/scriptJS') %>
