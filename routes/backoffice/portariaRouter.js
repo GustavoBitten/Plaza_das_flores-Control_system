@@ -1,4 +1,5 @@
 const express = require('express')
+const { check } = require('express-validator')
 
 
 const backofficePageController = require('../../controllers/backoffice/backofficePageController');
@@ -24,6 +25,20 @@ route.get('/comunicados/:id', comunicadoController.show)
 
 // Rotas para as Correspondencias
 route.get('/correspondencias', correspondenciaController.index)
+route.get('/correspondencias/getComboValues', correspondenciaController.getComboValues)
+route.post('/correspondencias/getMoradorCombo', correspondenciaController.getMoradorCombo)
+route.get('/correspondencias/getCorrespondencias', correspondenciaController.getCorrespondencias)
+route.post('/correspondencias/getMoradorDependentes', correspondenciaController.getMoradorDependentes)
+route.put('/correspondencias/registrarRetirada', correspondenciaController.registrarRetirada)
+route.get('/correspondencias/getCount', correspondenciaController.getCount)
+route.get('/correspondencias/:id', correspondenciaController.show)
+route.post('/correspondencias', [
+  check('bloco_id').isInt().withMessage('O campo bloco não pode estar vazio!'),
+  check('apartamento_id').isInt().withMessage('O campo apartamento não pode estar vazio!'),
+  check('morador_id').isInt().withMessage('Morador não cadastrado no sistema!'),
+  check('tipo_correspondencia_id').isInt().withMessage('O campo tipo da encomenda não pode estar vazio!')
+], correspondenciaController.store)
+route.delete('/correspondencias/:id', correspondenciaController.destroy)
 
 
 module.exports = route

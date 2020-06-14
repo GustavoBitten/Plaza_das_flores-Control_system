@@ -1,6 +1,5 @@
 const moment = require("moment")
-//const truncate = require('html-truncate')
-//const { validationResult } = require('express-validator')
+const { validationResult } = require('express-validator')
 
 const { Correspondencia, Apartamento, Bloco, Usuario, Tipo_correspondencia } = require("../../models")
 
@@ -11,7 +10,7 @@ module.exports = comunicadoController = {
     try {
       let where = {}
 
-      if (user.tipo_usuario_id == 1)
+      if (user.tipo_usuario_id != 3)
         where['morador_id'] = user.id
 
       const listaCorrespondencias = await Correspondencia.findAll({
@@ -93,7 +92,7 @@ module.exports = comunicadoController = {
       })
 
       if (!correspondencia)
-        throw 'Erro ao resgatar detalhes da correspondência'
+        throw {errors: [{msg: 'Correspondência não encontrada, caso o erro persistir contatar o administrador do sistema!'}]}
 
       return res.status(200).json(correspondencia)
     } catch (error) {
@@ -105,7 +104,10 @@ module.exports = comunicadoController = {
     const { bloco_id, apartamento_id, tipo_correspondencia_id, rastreio, morador_id } = req.body
 
     try {
-      if (user.tipo_usuario_id != 1) {
+      if (validationResult(req).errors.length > 0)
+        throw {errors: validationResult(req).errors.reverse()}
+
+      if (user.tipo_usuario_id == 3) {
         let correspondencia = await Correspondencia.create({
           bloco_id,
           apartamento_id,
@@ -116,9 +118,13 @@ module.exports = comunicadoController = {
           situacao_id: 1
         })
 
-        return res.status(200).json(correspondencia)
+        if (!correspondencia)
+          throw {errors: [{msg: 'Não foi possível cadastrar a correspondência, tente novamente mais tarde!'}]}
+
+        return res.status(200).json({msg: 'Correspondência cadastrada com sucesso!'})
       } else {
-        throw 'Erro de permissão!'
+        console.log('teste')
+        throw {errors: [{msg: 'Erro de permissão, apenas a portaria pode cadastrar novas correspondências!'}]}
       }
     } catch (error) {
       return res.status(400).json(error)
@@ -133,17 +139,17 @@ module.exports = comunicadoController = {
       const correspondencia = await Correspondencia.findByPk(id)
 
       if(!correspondencia)
-        throw `Correspondência com id '${id}' não existe!`
+        throw {errors: [{msg: `Correspondência com id '${id}' não existe!`}]}
 
       if (user.tipo_usuario_id == 1)
-        throw 'Erro de permissão ao excluir a correspondência, apenas síndicos e porteiros podem excluir correspondências!'
+        throw {errors: [{msg: 'Erro de permissão, apenas a portaria pode excluir correspondências!'}]}
 
       const destruirCorrespondencia = await Correspondencia.destroy({
         where: [{id}]
       })
 
       if(!destruirCorrespondencia)
-        throw 'Erro ao excluir a correspondência!'
+        throw {errors: [{msg: 'Erro ao excluir a correspondência!'}]}
 
       return res.status(200).json(destruirCorrespondencia)
     } catch (error) {
@@ -163,7 +169,7 @@ module.exports = comunicadoController = {
       })
 
       if (!listaApartamentos || !listaBlocos || !listaTipos)
-        throw 'Erro ao buscar dados, tente novamente mais tarde!'
+        throw {errors: [{msg: 'Erro ao buscar dados, tente novamente mais tarde!'}]}
 
       return res.status(200).json({listaApartamentos, listaBlocos, listaTipos})
     } catch (error) {
@@ -197,7 +203,7 @@ module.exports = comunicadoController = {
     try {
       let where = {}
 
-      if (user.tipo_usuario_id == 1)
+      if (user.tipo_usuario_id != 3)
         where['morador_id'] = user.id
 
       const listaCorrespondencias = await Correspondencia.findAll({
@@ -232,7 +238,7 @@ module.exports = comunicadoController = {
       })
 
       if (!listaCorrespondencias)
-        throw 'Falha ao carregar os dados!'
+        throw {errors: [{msg: 'Falha ao carregar os dados!'}]}
 
       return res.status(200).json({listaCorrespondencias, user})
     } catch (error) {
@@ -252,7 +258,7 @@ module.exports = comunicadoController = {
       })
 
       if (!correspondencia)
-        throw 'Correspondência não encontrada!'
+        throw {errors: [{msg: 'Correspondência não encontrada!'}]}
 
       const moradores = await Usuario.findAll({
         where: {
@@ -263,7 +269,7 @@ module.exports = comunicadoController = {
       })
 
       if(!moradores)
-        throw 'Nenhum morador encontrado'
+        throw {errors: [{msg: 'Nenhum morador encontrado'}]}
 
       return res.status(200).json(moradores)
     } catch (error) {
@@ -285,7 +291,7 @@ module.exports = comunicadoController = {
       })
 
       if (!updateCorrespondencia)
-        throw 'Erro ao registrar a retirada, tente novamente!'
+        throw {errors: [{msg: 'Erro ao registrar a retirada, tente novamente!'}]}
 
       return res.status(200).json(updateCorrespondencia)
     } catch (error) {
@@ -298,7 +304,7 @@ module.exports = comunicadoController = {
     try {
       let where = {}
 
-      if (user.tipo_usuario_id == 1)
+      if (user.tipo_usuario_id != 3)
         where['morador_id'] = user.id
 
       const qtdCorrespondencias = await Correspondencia.count({
@@ -306,7 +312,7 @@ module.exports = comunicadoController = {
       })
 
       if (qtdCorrespondencias == undefined)
-        throw 'Falha ao carregar os dados!'
+        throw {errors: [{msg: 'Falha ao carregar os dados!'}]}
 
       return res.status(200).json({qtdCorrespondencias})
     } catch (error) {

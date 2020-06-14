@@ -112,15 +112,8 @@ route.delete('/comunicados/:id', comunicadoController.destroy)
 
 // Rotas para as Correspondencias
 route.get('/correspondencias', correspondenciaController.index)
-route.get('/correspondencias/getComboValues', correspondenciaController.getComboValues)
-route.post('/correspondencias/getMoradorCombo', correspondenciaController.getMoradorCombo)
-route.get('/correspondencias/getCorrespondencias', correspondenciaController.getCorrespondencias)
-route.post('/correspondencias/getMoradorDependentes', correspondenciaController.getMoradorDependentes)
-route.put('/correspondencias/registrarRetirada', correspondenciaController.registrarRetirada)
 route.get('/correspondencias/getCount', correspondenciaController.getCount)
 route.get('/correspondencias/:id', correspondenciaController.show)
-route.post('/correspondencias', correspondenciaController.store)
-route.delete('/correspondencias/:id', correspondenciaController.destroy)
 
 
 module.exports = route

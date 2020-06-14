@@ -1,4 +1,5 @@
 var lastCount, newCount
+var hasError = false
 
 $(() => {
   init()
@@ -13,31 +14,45 @@ let init = () => {
     let modal = $('#modalInfoCorrespondencia')
     let id = $(event.relatedTarget).data('id')
 
+    $('body').addClass('loading')
     let resposta = await fetch(window.location.href + '/' + id)
 
-    if (resposta.status == 200) {
-      let correspondencia = await resposta.json()
+    let resultado = await resposta.json()
 
+    if (resposta.status == 200) {
       modal.find('#tipoRastreio').append(
-        correspondencia.rastreio ?
-        correspondencia.tipo_correspondencia.tipo + ' - ' + correspondencia.rastreio :
-        correspondencia.tipo_correspondencia.tipo
+        resultado.rastreio ?
+        resultado.tipo_correspondencia.tipo + ' - ' + resultado.rastreio :
+        resultado.tipo_correspondencia.tipo
       )
-      modal.find('#colData').append(formataData(correspondencia.created_at))
-      modal.find('#colPorteiro').append(correspondencia.porteiro.nome)
-      modal.find('#colNome').append(correspondencia.morador.nome)
+      modal.find('#colData').append(formataData(resultado.created_at))
+      modal.find('#colPorteiro').append(resultado.porteiro.nome)
+      modal.find('#colNome').append(resultado.morador.nome)
       modal.find('#colEndereco').append(
-        correspondencia.morador.ap.apartamento + '/' + correspondencia.morador.bl.bloco
+        resultado.morador.ap.apartamento + '/' + resultado.morador.bl.bloco
       )
-      modal.find('#colSituacao').append(correspondencia.status.situacao)
+      modal.find('#colSituacao').append(resultado.status.situacao)
       modal.find('#colRetiradoPor').append(
-        correspondencia.retirado ? correspondencia.retirado.nome : '-'
+        resultado.retirado ? resultado.retirado.nome : '-'
       )
       modal.find('#colDataRetirada').append(
-        correspondencia.data_retirada ? formataData(correspondencia.data_retirada) : '-'
+        resultado.data_retirada ? formataData(resultado.data_retirada) : '-'
       )
-    } else
-      alert(resposta.status + ' - ' + resposta.statusText)
+    } else {
+      hasError = true
+
+      resultado.errors.forEach(error => {
+        createToast(error.msg ? error.msg : error.message, 'Algo deu errado!', 'danger')
+      })
+    }
+    $('body').removeClass('loading')
+  })
+
+  $('#modalInfoCorrespondencia').on('shown.bs.modal', () => {
+    if (hasError)
+      $('#modalInfoCorrespondencia').modal('hide')
+
+    hasError = false
   })
 
   $('#modalInfoCorrespondencia').on('hide.bs.modal', () => {
@@ -56,11 +71,12 @@ let init = () => {
   $('#modalNovaCorrespondencia').on('show.bs.modal', async () => {
     let modal = $('#modalNovaCorrespondencia')
 
+    $('body').addClass('loading')
     let resposta = await fetch(window.location.href + '/getComboValues')
 
-    if (resposta.status == 200) {
-      let combos = await resposta.json()
+    let resultado = await resposta.json()
 
+    if (resposta.status == 200) {
       let comboBlocos = modal.find('#selectBloco')
       let comboApartamentos = modal.find('#selectApartamento')
       let comboTipos = modal.find('#selectTipo')
@@ -73,7 +89,7 @@ let init = () => {
       comboApartamentos.append(defaultOption.cloneNode(true))
       comboTipos.append(defaultOption.cloneNode(true))
 
-      combos.listaBlocos.forEach(bloco => {
+      resultado.listaBlocos.forEach(bloco => {
         let option = document.createElement('option')
         option.setAttribute('value', bloco.id)
         option.append(bloco.bloco)
@@ -81,7 +97,7 @@ let init = () => {
         comboBlocos.append(option)
       })
 
-      combos.listaApartamentos.forEach(apartamento => {
+      resultado.listaApartamentos.forEach(apartamento => {
         let option = document.createElement('option')
         option.setAttribute('value', apartamento.id)
         option.append(apartamento.apartamento)
@@ -89,15 +105,19 @@ let init = () => {
         comboApartamentos.append(option)
       })
 
-      combos.listaTipos.forEach(tipo => {
+      resultado.listaTipos.forEach(tipo => {
         let option = document.createElement('option')
         option.setAttribute('value', tipo.id)
         option.append(tipo.tipo)
 
         comboTipos.append(option)
       })
-    } else
-      alert(resposta.status + ' - ' + resposta.statusText)
+    } else {
+      resultado.errors.forEach(error => {
+        createToast(error.msg ? error.msg : error.message, 'Algo deu errado!', 'danger')
+      })
+    }
+    $('body').removeClass('loading')
   })
 
   $('#modalNovaCorrespondencia').on('shown.bs.modal', () => {
@@ -133,6 +153,7 @@ let init = () => {
     let morador_id = modal.find('#idMorador').val()
     let rastreio = modal.find('#rastreio').val()
 
+    $('body').addClass('loading')
     let resposta = await fetch(window.location.href, {
       method: 'POST',
       headers: {
@@ -148,15 +169,21 @@ let init = () => {
       })
     })
 
+    let resultado = await resposta.json()
+
     if (resposta.status == 200) {
-      let correspondencia = await resposta.json()
+      createToast('', resultado.msg, 'success')
 
       // hide modal
       modal.modal('hide')
 
       reload()
-    } else
-      alert(resposta.status + ' - ' + resposta.statusText)
+    } else {
+      resultado.errors.forEach(error => {
+        createToast(error.msg ? error.msg : error.message, 'Algo deu errado!', 'danger')
+      })
+    }
+    $('body').removeClass('loading')
   })
 
   $('a[id^=excluirCorrespondencia]').on('click', (event) => {
@@ -168,20 +195,24 @@ let init = () => {
 
     // If confirmed, delete
     $('a[id=btnDelete]').on('click', async (event) => {
+      $('#modalExcluirCorrespondencia').modal('hide')
+      $('body').addClass('loading')
 
       let resposta = await fetch(window.location.href + '/' + id, {
         method: 'DELETE'
       })
 
-      if (resposta.status == 200) {
-        let resultado = await resposta.json()
+      let resultado = await resposta.json()
 
+      if (resposta.status == 200) {
         reload()
       } else {
-        alert(resposta.status + ' - ' + resposta.statusText)
+        resultado.errors.forEach(error => {
+          createToast(error.msg ? error.msg : error.message, 'Algo deu errado!', 'danger')
+        })
       }
 
-      $('#modalExcluirCorrespondencia').modal('hide')
+      $('body').removeClass('loading')
     })
   })
 
@@ -194,6 +225,7 @@ let init = () => {
 
     let idCorrespondencia = $(event.relatedTarget).data('id')
 
+    $('body').addClass('loading')
     let resposta = await fetch(window.location.href + '/getMoradorDependentes', {
       method: 'POST',
       headers: {
@@ -205,9 +237,9 @@ let init = () => {
       })
     })
 
-    if (resposta.status == 200) {
-      let moradores = await resposta.json()
+    let resultado = await resposta.json()
 
+    if (resposta.status == 200) {
       let comboMoradores = modal.find('#nomeRetirada')
 
       let defaultOption = document.createElement('option')
@@ -216,7 +248,7 @@ let init = () => {
 
       comboMoradores.append(defaultOption)
 
-      moradores.forEach(morador => {
+      resultado.forEach(morador => {
         let option = document.createElement('option')
         option.setAttribute('value', morador.id)
         option.append(morador.nome)
@@ -225,8 +257,12 @@ let init = () => {
       })
 
       modal.find('#hiddenCorrespondenciaId').text(idCorrespondencia)
-    } else
-      alert(resposta.status + ' - ' + resposta.statusText)
+    } else {
+      resultado.errors.forEach(error => {
+        createToast(error.msg ? error.msg : error.message, 'Algo deu errado!', 'danger')
+      })
+    }
+    $('body').removeClass('loading')
   })
 
   $('#modalRetiradaCorrespondencia').on('hide.bs.modal', () => {
@@ -243,6 +279,8 @@ let init = () => {
     // Recuperar o id do morador
     let idMorador = modal.find('#nomeRetirada').val()
 
+    modal.modal('hide')
+    $('body').addClass('loading')
     let resposta = await fetch(window.location.href + '/registrarRetirada?_method=PUT', {
       method: 'POST',
       headers: {
@@ -255,20 +293,22 @@ let init = () => {
       })
     })
 
+    let resultado = await resposta.json()
+
     if (resposta.status == 200) {
-      let registro = await resposta.json()
-
-      // hide modal
-      modal.modal('hide')
-
       reload()
-    } else
-      alert(resposta.status + ' - ' + resposta.statusText)
+    } else {
+      resultado.errors.forEach(error => {
+        createToast(error.msg ? error.msg : error.message, 'Algo deu errado!', 'danger')
+      })
+    }
+    $('body').removeClass('loading')
   })
 }
 
 let resetBindings = () => {
   $('#modalInfoCorrespondencia').unbind('show.bs.modal')
+  $('#modalInfoCorrespondencia').unbind('shown.bs.modal')
   $('#modalInfoCorrespondencia').unbind('hide.bs.modal')
   $('#modalNovaCorrespondencia').unbind('show.bs.modal')
   $('#modalNovaCorrespondencia').unbind('shown.bs.modal')
@@ -291,6 +331,7 @@ let buscarNomeMorador = async () => {
     let apartamento_id = modal.find('#selectApartamento')[0].value
 
     if (bloco_id != '-' && apartamento_id != '-') {
+      $('body').addClass('loading')
       let resposta = await fetch(window.location.href + '/getMoradorCombo', {
         method: 'POST',
         headers: {
@@ -303,21 +344,25 @@ let buscarNomeMorador = async () => {
         })
       })
 
-      if (resposta.status == 200) {
-        let morador = await resposta.json()
+      let resultado = await resposta.json()
 
+      if (resposta.status == 200) {
         let inputNome = modal.find('#nomeMorador')
         let inputId = modal.find('#idMorador')
 
-        if (morador.error) {
-          inputNome.val(morador.error)
+        if (resultado.error) {
+          inputNome.val(resultado.error)
           inputId.val('')
         } else {
-          inputNome.val(morador.nome)
-          inputId.val(morador.id)
+          inputNome.val(resultado.nome)
+          inputId.val(resultado.id)
         }
-      } else
-        alert(resposta.status + ' - ' + resposta.statusText)
+      } else {
+        resultado.errors.forEach(error => {
+          createToast(error.msg ? error.msg : error.message, 'Algo deu errado!', 'danger')
+        })
+      }
+      $('body').removeClass('loading')
     }
 }
 
@@ -332,23 +377,29 @@ let formataData = (data) => {
 }
 
 let qtdCorrespondencias = async () => {
+  $('body').addClass('loading')
   let resposta = await fetch(window.location.href + '/getCount')
 
-  if (resposta.status == 200) {
-    let resultado = await resposta.json()
+  let resultado = await resposta.json()
 
+  if (resposta.status == 200) {
     lastCount = newCount
     newCount = resultado.qtdCorrespondencias
-  } else
-    alert(resposta.status + ' - ' + resposta.statusText)
+  } else {
+    resultado.errors.forEach(error => {
+      createToast(error.msg ? error.msg : error.message, 'Algo deu errado!', 'danger')
+    })
+  }
+  $('body').removeClass('loading')
 }
 
 let reload = async () => {
+  $('body').addClass('loading')
   let resposta = await fetch(window.location.href + '/getCorrespondencias')
 
-  if (resposta.status == 200) {
-    const resultado = await resposta.json()
+  let resultado = await resposta.json()
 
+  if (resposta.status == 200) {
     if (newCount == 0 && (lastCount == 0 || lastCount == undefined))
       location.reload()
 
@@ -425,16 +476,16 @@ let reload = async () => {
         iconeInfo.classList.add('fas', 'fa-info-circle')
         info.append(iconeInfo)
 
-        let editar = document.createElement('a')
-        editar.setAttribute('id', 'editar')
-        editar.classList.add('text-primary', 'ml-3')
-        editar.setAttribute('data-target', '#modal')
-        editar.setAttribute('data-id', '')
-        editar.setAttribute('title', 'Editar')
+        // let editar = document.createElement('a')
+        // editar.setAttribute('id', 'editar')
+        // editar.classList.add('text-primary', 'ml-3')
+        // editar.setAttribute('data-target', '#modal')
+        // editar.setAttribute('data-id', '')
+        // editar.setAttribute('title', 'Editar')
 
-        let iconeEditar = document.createElement('i')
-        iconeEditar.classList.add('fas', 'fa-edit')
-        editar.append(iconeEditar)
+        // let iconeEditar = document.createElement('i')
+        // iconeEditar.classList.add('fas', 'fa-edit')
+        // editar.append(iconeEditar)
 
         let excluir = document.createElement('a')
         excluir.setAttribute('id', 'excluirCorrespondencia' + correspondencia.id)
@@ -447,7 +498,7 @@ let reload = async () => {
         excluir.append(iconeExcluir)
 
         colunaAcoes.append(info)
-        colunaAcoes.append(editar)
+        // colunaAcoes.append(editar)
         colunaAcoes.append(excluir)
 
         tr.append(colunaData)
@@ -478,6 +529,10 @@ let reload = async () => {
     }
 
     init()
-  } else
-    alert(resposta.status + ' - ' + resposta.statusText)
+  } else {
+    resultado.errors.forEach(error => {
+      createToast(error.msg ? error.msg : error.message, 'Algo deu errado!', 'danger')
+    })
+  }
+  $('body').removeClass('loading')
 }

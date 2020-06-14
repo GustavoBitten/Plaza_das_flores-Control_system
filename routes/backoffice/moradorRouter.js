@@ -109,6 +109,8 @@ route.get('/comunicados/:id', comunicadoController.show)
 
 // Rotas para as Correspondencias
 route.get('/correspondencias', correspondenciaController.index)
+route.get('/correspondencias/getCount', correspondenciaController.getCount)
+route.get('/correspondencias/:id', correspondenciaController.show)
 
 // Rotas para as Financeiro
 route.get('/financeiro', financeiroController.index)

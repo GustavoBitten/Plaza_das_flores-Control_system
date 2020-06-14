@@ -1,0 +1,8 @@
+.jq-toast-wrap {
+  width: fit-content;
+  max-width: 50%;
+}
+
+.jq-toast-heading {
+  font-weight: bold;
+}

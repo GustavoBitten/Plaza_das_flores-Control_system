@@ -18,134 +18,137 @@
 
     <section class="customSection">
 
-      <%const optionsButtonsTop = [{dataTarget:"#modalNovaCorrespondencia", name:'Nova Correspondência',dataToggle:"modal"}]  %> 
-      <%- include('../includes/utilities/optionsButtonsTop',{optionsButtonsTop}) %>
+      <% if (usuario.tipo_usuario_id == 3) { %>
+        <% const optionsButtonsTop = [{dataTarget:"#modalNovaCorrespondencia", name:'Nova Correspondência',dataToggle:"modal"}] %>
+        <%- include('../includes/utilities/optionsButtonsTop',{optionsButtonsTop}) %>
+      <% } %>
 
-      
-        <div class="card mx-auto px-0">
+      <div class="card mx-auto px-0">
 
-          <%- include('../includes/utilities/cardHeader', {nameCardHeader:"Correspondencia"} ) %>
+        <%- include('../includes/utilities/cardHeader', {nameCardHeader:"Correspondencia"} ) %>
 
-          <div class="card-body row">
-            <div class="col-12 table-responsive">
-              <% if (typeof listaCorrespondencias == 'undefined') { %>
+        <div class="card-body row">
+          <div class="col-12 table-responsive">
+            <% if (typeof listaCorrespondencias == 'undefined') { %>
               <% if (typeof error != 'undefined') { %>
-              <%= error %>
+                <%= error %>
               <% } %>
-              <% } else { %>
+            <% } else { %>
               <% if (listaCorrespondencias.length > 0) { %>
-              <table class="table table-borderless table-striped table-hover">
-                <caption>
-                  Lista de Correspondências
-                </caption>
+                <table class="table table-borderless table-striped table-hover">
+                  <caption>
+                    Lista de Correspondências
+                  </caption>
 
-                <thead>
-                  <tr>
-                    <th class="text-center text-nowrap" scope="col">
-                      Data
-                    </th>
-                    <% if (usuario.tipo_usuario_id != 1) { %>
-                    <th class="text-center" scope="col">
-                      Destinatário
-                    </th>
-                    <th class="text-center" scope="col">
-                      Endereço
-                    </th>
-                    <% } %>
-                    <th class="text-center" scope="col">
-                      Tipo
-                    </th>
-                    <% if (usuario.tipo_usuario_id == 1) { %>
-                    <th class="text-center" scope="col">
-                      Código de Rastreio
-                    </th>
-                    <% } %>
-                    <th class="text-center" scope="col">
-                      Situação
-                    </th>
-                    <th class="text-center text-nowrap" scope="col">
-                      Retirado Por
-                    </th>
-                    <th class="text-center text-nowrap" scope="col">
-                      Data de Retirada
-                    </th>
-                    <th class="text-center text-nowrap" scope="col">
-                      Ações
-                    </th>
-                  </tr>
-                </thead>
+                  <thead>
+                    <tr>
+                      <th class="text-center text-nowrap" scope="col">
+                        Data
+                      </th>
+                      <% if (usuario.tipo_usuario_id == 3) { %>
+                      <th class="text-center" scope="col">
+                        Destinatário
+                      </th>
+                      <th class="text-center" scope="col">
+                        Endereço
+                      </th>
+                      <% } %>
+                      <th class="text-center" scope="col">
+                        Tipo
+                      </th>
+                      <% if (usuario.tipo_usuario_id != 3) { %>
+                      <th class="text-center" scope="col">
+                        Código de Rastreio
+                      </th>
+                      <% } %>
+                      <th class="text-center" scope="col">
+                        Situação
+                      </th>
+                      <th class="text-center text-nowrap" scope="col">
+                        Retirado Por
+                      </th>
+                      <th class="text-center text-nowrap" scope="col">
+                        Data de Retirada
+                      </th>
+                      <th class="text-center text-nowrap" scope="col">
+                        Ações
+                      </th>
+                    </tr>
+                  </thead>
 
-                <tbody id="tableBody">
-                  <% listaCorrespondencias.forEach(correspondencia => { %>
-                  <tr>
-                    <td class="text-center align-middle">
-                      <%= moment(correspondencia.created_at).format('DD/MM/YYYY') %>
-                    </td>
-                    <% if (usuario.tipo_usuario_id != 1) { %>
-                    <td class="text-center align-middle text-nowrap">
-                      <%= correspondencia.morador.nome %>
-                    </td>
-                    <td class="text-center align-middle text-nowrap">
-                      <%= correspondencia.morador.ap.apartamento + '/' + correspondencia.morador.bl.bloco %>
-                    </td>
-                    <% } %>
-                    <td class="text-center align-middle text-nowrap">
-                      <%= correspondencia.tipo_correspondencia.tipo %>
-                    </td>
-                    <% if (usuario.tipo_usuario_id == 1) { %>
-                    <td class="text-center align-middle text-nowrap">
-                      <%= correspondencia.rastreio ? correspondencia.rastreio : '-' %>
-                    </td>
-                    <% } %>
-                    <td class="text-center align-middle">
-                      <%= correspondencia.status.situacao %>
-                    </td>
-                    <td class="text-center align-middle text-nowrap">
-                      <% if (correspondencia.retirado_por) { %>
-                      <%= correspondencia.retirado.nome %>
-                      <% } else { %>
-                      <% if (usuario.tipo_usuario_id == 1) { %>
-                      -
-                      <% } else { %>
-                      <a id="btnRetirada<%= correspondencia.id %>" class="text-success" data-toggle="modal"
-                        data-target="#modalRetiradaCorrespondencia" data-id="<%= correspondencia.id %>"
-                        title="Registrar retirada">
-                        <i class="fas fa-plus-circle"></i>
-                      </a>
+                  <tbody id="tableBody">
+                    <% listaCorrespondencias.forEach(correspondencia => { %>
+                    <tr>
+                      <td class="text-center align-middle">
+                        <%= moment(correspondencia.created_at).format('DD/MM/YYYY') %>
+                      </td>
+                      <% if (usuario.tipo_usuario_id == 3) { %>
+                        <td class="text-center align-middle text-nowrap">
+                          <%= correspondencia.morador.nome %>
+                        </td>
+                        <td class="text-center align-middle text-nowrap">
+                          <%= correspondencia.morador.ap.apartamento + '/' + correspondencia.morador.bl.bloco %>
+                        </td>
                       <% } %>
+                      <td class="text-center align-middle text-nowrap">
+                        <%= correspondencia.tipo_correspondencia.tipo %>
+                      </td>
+                      <% if (usuario.tipo_usuario_id != 3) { %>
+                        <td class="text-center align-middle text-nowrap">
+                          <%= correspondencia.rastreio ? correspondencia.rastreio : '-' %>
+                        </td>
                       <% } %>
-                    </td>
-                    <td class="text-center align-middle">
-                      <%= correspondencia.data_retirada ? moment(correspondencia.data_retirada).format('DD/MM/YYYY') : '-' %>
-                    </td>
-                    <td class="text-center align-middle">
-                      <a id="info<%= correspondencia.id %>" class="text-info" data-toggle="modal"
-                        data-target="#modalInfoCorrespondencia" data-id="<%= correspondencia.id %>" title="Detalhes">
-                        <i class="fas fa-info-circle"></i>
-                      </a>
-                      <a id="editar" class="text-primary ml-3" data-target="#modal" data-id="" title="Editar">
-                        <i class="fas fa-edit"></i>
-                      </a>
-                      <a id="excluirCorrespondencia<%= correspondencia.id %>" class="text-danger ml-3"
-                        data-id="<%= correspondencia.id %>" title="Excluir">
-                        <i class="fas fa-trash-alt"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <% }) %>
-                </tbody>
-              </table>
+                      <td class="text-center align-middle">
+                        <%= correspondencia.status.situacao %>
+                      </td>
+                      <td class="text-center align-middle text-nowrap">
+                        <% if (correspondencia.retirado_por) { %>
+                          <%= correspondencia.retirado.nome %>
+                        <% } else { %>
+                          <% if (usuario.tipo_usuario_id != 3) { %>
+                            -
+                          <% } else { %>
+                            <a id="btnRetirada<%= correspondencia.id %>" class="text-success" data-toggle="modal"
+                              data-target="#modalRetiradaCorrespondencia" data-id="<%= correspondencia.id %>"
+                              title="Registrar retirada">
+                              <i class="fas fa-plus-circle"></i>
+                            </a>
+                          <% } %>
+                        <% } %>
+                      </td>
+                      <td class="text-center align-middle">
+                        <%= correspondencia.data_retirada ? moment(correspondencia.data_retirada).format('DD/MM/YYYY') : '-' %>
+                      </td>
+                      <td class="text-center align-middle">
+                        <a id="info<%= correspondencia.id %>" class="text-info" data-toggle="modal"
+                          data-target="#modalInfoCorrespondencia" data-id="<%= correspondencia.id %>" title="Detalhes">
+                          <i class="fas fa-info-circle"></i>
+                        </a>
+                        <% if (usuario.tipo_usuario_id == 3) { %>
+                          <%# <a id="editar" class="text-primary ml-3" data-target="#modal" data-id="" title="Editar">
+                            <i class="fas fa-edit"></i>
+                          </a> %>
+                          <a id="excluirCorrespondencia<%= correspondencia.id %>" class="text-danger ml-3"
+                            data-id="<%= correspondencia.id %>" title="Excluir">
+                            <i class="fas fa-trash-alt"></i>
+                          </a>
+                        <% } %>
+                      </td>
+                    </tr>
+                    <% }) %>
+                  </tbody>
+                </table>
               <% } else { %>
-              <h4 class="text-danger">Nenhuma correspondência registrada!</h4>
+                <h4 class="text-danger">Nenhuma correspondência registrada!</h4>
               <% } %>
-              <% } %>
-            </div>
-            <!-- /.col-12 -->
+            <% } %>
           </div>
-          <!-- /.card-body -->
+          <!-- /.col-12 -->
         </div>
-        <!-- /.card -->
-      
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+
 
     </section>
 
@@ -227,127 +230,132 @@
   </div>
   <!-- /#modalInfoCorrespondencia -->
 
-  <%# Modal Nova Correspondencia %>
-  <div class="modal fade" id="modalNovaCorrespondencia" tabindex="-1" role="dialog"
-    aria-labelledby="modalNovaCorrespondenciaTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md" role="document">
-      <div class="modal-content">
-        <div class="modal-header d-flex justify-content-center p-1">
-          <h5 class="modal-title" id="modalNovaCorrespondenciaTitle">Nova Correspondência</h5>
-        </div>
+  <% if (usuario.tipo_usuario_id == 3) { %>
+    <%# Modal Nova Correspondencia %>
+    <div class="modal fade" id="modalNovaCorrespondencia" tabindex="-1" role="dialog"
+      aria-labelledby="modalNovaCorrespondenciaTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-header d-flex justify-content-center p-1">
+            <h5 class="modal-title" id="modalNovaCorrespondenciaTitle">Nova Correspondência</h5>
+          </div>
 
-        <form class="form-group m-0" action="/backoffice/sindico/comunicados" method="POST">
-          <div class="modal-body">
-            <div class="row">
+          <form class="form-group m-0" action="/backoffice/sindico/comunicados" method="POST">
+            <div class="modal-body">
+              <div class="row">
 
-              <div class="col">
-                <label for="selectBloco">Bloco</label>
-                <select id="selectBloco" name="selectBloco" class="custom-select">
-                  <%# Valores preenchidos via ajax %>
-                </select>
+                <div class="col">
+                  <label for="selectBloco">Bloco</label>
+                  <select id="selectBloco" name="selectBloco" class="custom-select" required>
+                    <%# Valores preenchidos via ajax %>
+                  </select>
+                </div>
+
+                <div class="col">
+                  <label for="selectApartamento">Apartamento</label>
+                  <select id="selectApartamento" name="selectApartamento" class="custom-select" required>
+                    <%# Valores preenchidos via ajax %>
+                  </select>
+                </div>
+
               </div>
+              <!-- /div.row -->
 
-              <div class="col">
-                <label for="selectApartamento">Apartamento</label>
-                <select id="selectApartamento" name="selectApartamento" class="custom-select">
-                  <%# Valores preenchidos via ajax %>
-                </select>
-              </div>
+              <label class="pt-2" for="nomeMorador">Nome do Morador</label>
+              <input id="nomeMorador" class="form-control" type="text" placeholder="Selecione o bloco e o apartamento"
+                disabled>
+              <input id="idMorador" name="idMorador" type="text" disabled hidden>
+
+              <label class="pt-2" for="selectTipo">Tipo da Encomenda</label>
+              <select id="selectTipo" name="selectTipo" class="custom-select" required>
+                <%# Valores preenchidos via ajax %>
+              </select>
+
+              <label class="pt-2" for="rastreio">Código de Rastreio</label>
+              <input id="rastreio" name="rastreio" class="form-control" type="text" maxlength="50"
+                placeholder="BR0000000000CN">
 
             </div>
-            <!-- /div.row -->
-
-            <label class="pt-2" for="nomeMorador">Nome do Morador</label>
-            <input id="nomeMorador" class="form-control" type="text" placeholder="Selecione o bloco e o apartamento"
-              disabled>
-            <input id="idMorador" name="idMorador" type="text" disabled hidden>
-
-            <label class="pt-2" for="selectTipo">Tipo da Encomenda</label>
-            <select id="selectTipo" name="selectTipo" class="custom-select">
-              <%# Valores preenchidos via ajax %>
-            </select>
-
-            <label class="pt-2" for="rastreio">Código de Rastreio</label>
-            <input id="rastreio" name="rastreio" class="form-control" type="text" maxlength="50"
-              placeholder="BR0000000000CN">
-
-          </div>
-        </form>
-
-        <div class="modal-footer border-0">
-          <button id="btnCadastrarCorrespondencia"
-            class="btn-sm btn-success border-0 rounded-pill font-weight-bold px-3 ml-2">
-            Cadastrar
-          </button>
-          <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3"
-            data-dismiss="modal">
-            Voltar
-          </button>
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <!-- /#modalNovaCorrespondencia -->
-
-  <%# Modal Excluir Correspondencia %>
-  <div class="modal fade" id="modalExcluirCorrespondencia" tabindex="-1" role="dialog"
-    aria-labelledby="modalExcluirCorrespondenciaTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
-      <div class="modal-content">
-        <div class="modal-header d-flex justify-content-center p-1">
-          <h5 class="modal-title" id="modalExcluirCorrespondenciaTitle">Tem certeza?</h5>
-        </div>
-
-        <div class="modal-body d-flex justify-content-center">
-          <a id="btnDelete" class="btn-sm btn-success border-0 rounded-pill font-weight-bold text-white px-3">
-            Sim
-          </a>
-          <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3 ml-2"
-            data-dismiss="modal">
-            Não
-          </button>
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <!-- /#modalExcluirCorrespondencia -->
-
-  <%# Modal Retirada Correspondencia %>
-  <div class="modal fade" id="modalRetiradaCorrespondencia" tabindex="-1" role="dialog"
-    aria-labelledby="modalRetiradaCorrespondenciaTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md" role="document">
-      <div class="modal-content">
-        <div class="modal-header d-flex justify-content-center p-1">
-          <h5 class="modal-title" id="modalRetiradaCorrespondenciaTitle">
-            Retirada - Correspondência<span id="hiddenCorrespondenciaId" hidden></span>
-          </h5>
-        </div>
-
-        <div class="modal-body">
-          <form class="form-group m-0">
-            <label for="nomeRetirada">Nome do Morador/Dependente</label>
-            <select id="nomeRetirada" name="nomeRetirada" class="custom-select">
-              <%# Valores preenchidos via ajax %>
-            </select>
           </form>
-        </div>
-        <!-- /div.modal-body -->
 
-        <div class="modal-footer border-0">
-          <button id="btnRegistrarRetirada" class="btn-sm btn-success border-0 rounded-pill font-weight-bold px-3 ml-2">
-            Registrar
-          </button>
-          <button type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold" data-dismiss="modal">
-            Voltar
-          </button>
-        </div>
+          <div class="modal-footer border-0">
+            <button id="btnCadastrarCorrespondencia"
+              class="btn-sm btn-success border-0 rounded-pill font-weight-bold px-3 ml-2">
+              Cadastrar
+            </button>
+            <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3"
+              data-dismiss="modal">
+              Voltar
+            </button>
+          </div>
 
+        </div>
       </div>
     </div>
-  </div>
-  <!-- /#modalRetiradaCorrespondencia -->
+    <!-- /#modalNovaCorrespondencia -->
+
+    <%# Modal Excluir Correspondencia %>
+    <div class="modal fade" id="modalExcluirCorrespondencia" tabindex="-1" role="dialog"
+      aria-labelledby="modalExcluirCorrespondenciaTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header d-flex justify-content-center p-1">
+            <h5 class="modal-title" id="modalExcluirCorrespondenciaTitle">Tem certeza?</h5>
+          </div>
+
+          <div class="modal-body d-flex justify-content-center">
+            <a id="btnDelete" class="btn-sm btn-success border-0 rounded-pill font-weight-bold text-white px-3">
+              Sim
+            </a>
+            <button type="button" class="btn-sm btn-danger border-0 rounded-pill font-weight-bold px-3 ml-2"
+              data-dismiss="modal">
+              Não
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- /#modalExcluirCorrespondencia -->
+
+    <%# Modal Retirada Correspondencia %>
+    <div class="modal fade" id="modalRetiradaCorrespondencia" tabindex="-1" role="dialog"
+      aria-labelledby="modalRetiradaCorrespondenciaTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-header d-flex justify-content-center p-1">
+            <h5 class="modal-title" id="modalRetiradaCorrespondenciaTitle">
+              Retirada - Correspondência<span id="hiddenCorrespondenciaId" hidden></span>
+            </h5>
+          </div>
+
+          <div class="modal-body">
+            <form class="form-group m-0">
+              <label for="nomeRetirada">Nome do Morador/Dependente</label>
+              <select id="nomeRetirada" name="nomeRetirada" class="custom-select">
+                <%# Valores preenchidos via ajax %>
+              </select>
+            </form>
+          </div>
+          <!-- /div.modal-body -->
+
+          <div class="modal-footer border-0">
+            <button id="btnRegistrarRetirada" class="btn-sm btn-success border-0 rounded-pill font-weight-bold px-3 ml-2">
+              Registrar
+            </button>
+            <button type="button" class="btn-sm btn-orange border-0 rounded-pill font-weight-bold" data-dismiss="modal">
+              Voltar
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- /#modalRetiradaCorrespondencia -->
+  <% } %>
+
+  <%# Loading Modal %>
+  <div id="loading"></div>
 
   <%- include('../includes/scriptJS') %>
   <script type="text/javascript" src="/javascripts/backoffice/correspondencias.js"></script>

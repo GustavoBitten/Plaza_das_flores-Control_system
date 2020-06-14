@@ -22,6 +22,7 @@ app.use(cookieParser());
 app.use(express.static(__dirname + "/public"))
 app.use(express.static(__dirname + "/node_modules"))
 app.use(express.static(__dirname + "/source"))
+app.use(express.static(__dirname + "/utils"))
 
 app.use(express.json())
 app.use(express.urlencoded({
@@ -40,7 +41,7 @@ app.use('/', homePageRouter);
 app.use('/login', loginPageRouter);
 
 //Para desativar as autenticações só trocar para false o arquivo ativadorAuth.js
-app.use('/backoffice/sindico',auth, typeUserAuth, sindicoRouter); 
+app.use('/backoffice/sindico',auth, typeUserAuth, sindicoRouter);
 app.use('/backoffice/morador',auth, typeUserAuth, moradorRouter);
 app.use('/backoffice/portaria', auth, typeUserAuth, portariaRouter);
 
