@@ -12,22 +12,23 @@
   <%- include('../../includes/backoffice/header') %>
   <%- include('../../includes/backoffice/aside') %>
 
-  <div class="container-flex">
-    <main class="conteudo container-flex justify-content-center">
-      <h1 class="col-md-12">Gerenciamento de Moradores</h1>
+  <main class="customMain">
+
+    <%- include('../../includes/utilities/subHeader') %>
+    
+    <!-- name:'Gerenciamento de Moradores' -->
+
+    <section class="customSection">
+
+      <%const optionsButtonsTop = [{dataTarget:"#modalPorteiro", name:'Novo porteiro',dataToggle:"modal"}]  %>
+      <%optionsButtonsTop.push({dataTarget:"#staticBackdrop", name:'Novo Morador',dataToggle:"modal"})  %>
+      <%- include('../../includes/utilities/optionsButtonsTop',{optionsButtonsTop}) %>
+
 
       <div class="submenu row justify-content-center justify-content-md-center">
         <div id="msgError"> </div>
 
-        <button type="button" class="btn col-4 col-md-auto" data-toggle="modal" data-target="#modalPorteiro">Novo
-          porteiro</button>
-
-        <button type="button" class="btn col-4 col-md-auto" data-toggle="modal" data-target="#staticBackdrop">Novo
-          Morador</button>
-        <!-- <button class="btn col-4 col-md-auto">Mudanças</button>
-
-        <button class="btn col-4 col-md-auto">Alterações</button> -->
-      </div>
+      
 
 
 
@@ -113,132 +114,29 @@
         </tbody>
       </table>
 
-  </div>
 
 
 
-
-  <!-- Modal cad morador -->
-  <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">
-            <h2>Cadastro de novo Morador</h2</h5> <button type="button" class="close" data-dismiss="modal"
-                aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-              </button>
-        </div>
-        <div class="modal-body">
-
-
-          <form id="morador" method="POST" action="/backoffice/sindico/Moradores" enctype="multipart/form-data">
-
-            <div class="row">
-              <div class="col">
-                <label for="nome">Nome:</label>
-                <input required="required" id="nome" name="nome" type="text" class="form-control"
-                  placeholder="Nome completo">
-              </div>
-
-            </div>
-            <div class="row">
-              <div class="col">
-                <label for="rg">RG:</label>
-                <input id="rg" name="rg" type="number" class="form-control" placeholder="RG">
-              </div>
-              <div class="col">
-                <label for="cpf">CPF:</label>
-                <input required="required" id="cpf" name="cpf" type="number" class="form-control" placeholder="CPF">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <label for="email">Email:</label>
-                <input required="required" id="email" name="email" type="email" class="form-control"
-                  placeholder="morador@email.com.br">
-              </div>
-              <div class="col">
-                <label for="celular">Contato:</label>
-                <input id="celular" name="celular" type="text" class="form-control" placeholder="(XX)XXXXX-XXXX">
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col">
-                <label for="bloco">Bloco:</label>
-                <select id="bloco" name="bloco" class="form-control">
-                  <option disabled selected>Informe</option>
-                  <% resultBloco.forEach(resultBloco => {  %>
-                  <option value="<%= resultBloco.id %>"><%= resultBloco.bloco %></option>
-                  <% }); %>
-
-                </select>
-              </div>
-
-              <div class="col">
-                <label for="ap">Ap</label>
-                <select id="ap" name="ap" class="form-control">
-                  <option disabled selected>Informe</option>
-                  <% resultApartamento.forEach(resultApartamento => {  %>
-                  <option value="<%= resultApartamento.id %>"><%= resultApartamento.apartamento %></option>
-                  <% }); %>
-                </select>
-              </div>
-            </div>
-
-            <div style="margin:10px" class="row">
-              <div class="col">
-                <label for="fotoMorador">Foto</label>
-                <input type="file" class="form-control file" name="fotoMorador" id="fotoMorador">
-              </div>
-              <!--   <div style="margin:5px" class="row custom-file">
-                <input type="file" class="custom-file-input" name="fotoMorador" id="fotoMorador">
-                <label class="custom-file-label" for="customFile">Escolher foto</label>
-              </div> -->
-
-
-            </div>
-
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-              <button id="novoMorador" class="btn btn-primary">Gravar</button>
-            </div>
-          </form>
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- fim do Modal cad morador -->
+    </section>
 
 
 
-  <!-- Modal edit morador -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-
-          <div class="row justify-content-md-center">
-            <div class="col-md-2 foto"><img
-                src="https://avatars2.githubusercontent.com/u/37584505?s=400&u=73100f3df6d155544e9bc50b7fb9f83410d0b308&v=4"
-                width="10" height="100" class="card-img" alt="..."></div>
-
+    <!-- Modal cad morador -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">
+              <h2>Cadastro de novo Morador</h2</h5> <button type="button" class="close" data-dismiss="modal"
+                  aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
           </div>
-          <div class="formEdita">
-            <form id="formEdita" method='post' enctype='multipart/form-data'>
+          <div class="modal-body">
 
+
+            <form id="morador" method="POST" action="/backoffice/sindico/Moradores" enctype="multipart/form-data">
 
               <div class="row">
                 <div class="col">
@@ -309,115 +207,141 @@
 
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-primary">Gravar</button>
+                <button id="novoMorador" class="btn btn-primary">Gravar</button>
               </div>
-
-
             </form>
 
+
           </div>
         </div>
       </div>
     </div>
-  </div>
+    <!-- fim do Modal cad morador -->
 
-  <!-- fim do Modal edita morador -->
 
-  <!-- Modal cad porteiro -->
-  <div class="modal fade" id="modalPorteiro" data-backdrop="static" tabindex="-1" role="dialog"
-    aria-labelledby="modalPorteiroLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalPorteiroLabel">
-            <h2>Cadastro de novo Porteiro</h2</h5> <button type="button" class="close" data-dismiss="modal"
-                aria-label="Close">
+
+    <!-- Modal edit morador -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
-              </button>
-        </div>
-        <div class="modal-body">
+            </button>
+          </div>
+          <div class="modal-body">
 
-
-          <form id="porteiro" method="POST" action="/backoffice/sindico/porteiros" enctype="multipart/form-data">
-
-            <div class="row">
-              <div class="col">
-                <label for="nome">Nome:</label>
-                <input required="required" id="nome" name="nome" type="text" class="form-control"
-                  placeholder="Nome completo">
-              </div>
+            <div class="row justify-content-md-center">
+              <div class="col-md-2 foto"><img
+                  src="https://avatars2.githubusercontent.com/u/37584505?s=400&u=73100f3df6d155544e9bc50b7fb9f83410d0b308&v=4"
+                  width="10" height="100" class="card-img" alt="..."></div>
 
             </div>
-            <div class="row">
-              <div class="col">
-                <label for="rg">RG:</label>
-                <input id="rg" name="rg" type="number" class="form-control" placeholder="RG">
-              </div>
-              <div class="col">
-                <label for="cpf">CPF:</label>
-                <input required="required" id="cpf" name="cpf" type="number" class="form-control" placeholder="CPF">
-              </div>
+            <div class="formEdita">
+              <form id="formEdita" method='post' enctype='multipart/form-data'>
+
+
+                <div class="row">
+                  <div class="col">
+                    <label for="nome">Nome:</label>
+                    <input required="required" id="nome" name="nome" type="text" class="form-control"
+                      placeholder="Nome completo">
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="rg">RG:</label>
+                    <input id="rg" name="rg" type="number" class="form-control" placeholder="RG">
+                  </div>
+                  <div class="col">
+                    <label for="cpf">CPF:</label>
+                    <input required="required" id="cpf" name="cpf" type="number" class="form-control" placeholder="CPF">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="email">Email:</label>
+                    <input required="required" id="email" name="email" type="email" class="form-control"
+                      placeholder="morador@email.com.br">
+                  </div>
+                  <div class="col">
+                    <label for="celular">Contato:</label>
+                    <input id="celular" name="celular" type="text" class="form-control" placeholder="(XX)XXXXX-XXXX">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <label for="bloco">Bloco:</label>
+                    <select id="bloco" name="bloco" class="form-control">
+                      <option disabled selected>Informe</option>
+                      <% resultBloco.forEach(resultBloco => {  %>
+                      <option value="<%= resultBloco.id %>"><%= resultBloco.bloco %></option>
+                      <% }); %>
+
+                    </select>
+                  </div>
+
+                  <div class="col">
+                    <label for="ap">Ap</label>
+                    <select id="ap" name="ap" class="form-control">
+                      <option disabled selected>Informe</option>
+                      <% resultApartamento.forEach(resultApartamento => {  %>
+                      <option value="<%= resultApartamento.id %>"><%= resultApartamento.apartamento %></option>
+                      <% }); %>
+                    </select>
+                  </div>
+                </div>
+
+                <div style="margin:10px" class="row">
+                  <div class="col">
+                    <label for="fotoMorador">Foto</label>
+                    <input type="file" class="form-control file" name="fotoMorador" id="fotoMorador">
+                  </div>
+                  <!--   <div style="margin:5px" class="row custom-file">
+                <input type="file" class="custom-file-input" name="fotoMorador" id="fotoMorador">
+                <label class="custom-file-label" for="customFile">Escolher foto</label>
+              </div> -->
+
+
+                </div>
+
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-primary">Gravar</button>
+                </div>
+
+
+              </form>
+
             </div>
-            <div class="row">
-              <div class="col">
-                <label for="email">Email:</label>
-                <input required="required" id="email" name="email" type="email" class="form-control"
-                  placeholder="portaria@email.com.br">
-              </div>
-              <div class="col">
-                <label for="celular">Contato:</label>
-                <input id="celular" name="celular" type="text" class="form-control" placeholder="(XX)XXXXX-XXXX">
-              </div>
-            </div>
-
-
-            <div style="margin:10px" class="row">
-              <div class="col">
-                <label for="fotoPorteiro">Foto</label>
-                <input type="file" class="form-control file" name="fotoPorteiro" id="fotoPorteiro">
-              </div>
-
-
-            </div>
-
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-              <button type="submit" id="novoPorteiro" value="Gravando porteiro" class="btn btn-primary">Gravar</button>
-            </div>
-          </form>
-
-
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- fim do Modal cad porteiro -->
 
+    <!-- fim do Modal edita morador -->
 
-
-  <!-- Modal edit porteiro -->
-  <div class="modal fade" id="porteiroModalEdit" tabindex="-1" role="dialog" aria-labelledby="porteiroModalEditLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="porteiroModalEditLabel">New message</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-
-          <div class="row justify-content-md-center">
-            <div class="col-md-2 foto"><img
-                src="https://avatars2.githubusercontent.com/u/37584505?s=400&u=73100f3df6d155544e9bc50b7fb9f83410d0b308&v=4"
-                width="10" height="100" class="card-img" alt="..."></div>
-
+    <!-- Modal cad porteiro -->
+    <div class="modal fade" id="modalPorteiro" data-backdrop="static" tabindex="-1" role="dialog"
+      aria-labelledby="modalPorteiroLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalPorteiroLabel">
+              <h2>Cadastro de novo Porteiro</h2</h5> <button type="button" class="close" data-dismiss="modal"
+                  aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
           </div>
-          <div class="formEditaPorteiro">
-            <form id="formEditaPorteiro" method='post' enctype='multipart/form-data'>
+          <div class="modal-body">
 
+
+            <form id="porteiro" method="POST" action="/backoffice/sindico/porteiros" enctype="multipart/form-data">
 
               <div class="row">
                 <div class="col">
@@ -441,7 +365,7 @@
                 <div class="col">
                   <label for="email">Email:</label>
                   <input required="required" id="email" name="email" type="email" class="form-control"
-                    placeholder="porteiro@email.com.br">
+                    placeholder="portaria@email.com.br">
                 </div>
                 <div class="col">
                   <label for="celular">Contato:</label>
@@ -449,93 +373,173 @@
                 </div>
               </div>
 
+
               <div style="margin:10px" class="row">
                 <div class="col">
                   <label for="fotoPorteiro">Foto</label>
                   <input type="file" class="form-control file" name="fotoPorteiro" id="fotoPorteiro">
                 </div>
 
+
               </div>
 
 
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-primary">Gravar</button>
+                <button type="submit" id="novoPorteiro" value="Gravando porteiro"
+                  class="btn btn-primary">Gravar</button>
               </div>
-
-
             </form>
 
+
           </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- fim do Modal edita morador -->
+    <!-- fim do Modal cad porteiro -->
 
 
-  <!-- Modal status -->
-  <div class="modal fade" id="statusModal" data-backdrop="static" tabindex="-1" role="dialog"
-    aria-labelledby="statusModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="porteiroModalEditLabel">New message</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="formEditaStatus">
 
-            <form id="formEditaStatus" method="POST" action="/backoffice/sindico/Moradores">
-
+    <!-- Modal edit porteiro -->
+    <div class="modal fade" id="porteiroModalEdit" tabindex="-1" role="dialog" aria-labelledby="porteiroModalEditLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="porteiroModalEditLabel">New message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <button id="confirmarStatus" class="btn btn-primary">Confirmar</button>
+          <div class="modal-body">
+
+            <div class="row justify-content-md-center">
+              <div class="col-md-2 foto"><img
+                  src="https://avatars2.githubusercontent.com/u/37584505?s=400&u=73100f3df6d155544e9bc50b7fb9f83410d0b308&v=4"
+                  width="10" height="100" class="card-img" alt="..."></div>
+
+            </div>
+            <div class="formEditaPorteiro">
+              <form id="formEditaPorteiro" method='post' enctype='multipart/form-data'>
+
+
+                <div class="row">
+                  <div class="col">
+                    <label for="nome">Nome:</label>
+                    <input required="required" id="nome" name="nome" type="text" class="form-control"
+                      placeholder="Nome completo">
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="rg">RG:</label>
+                    <input id="rg" name="rg" type="number" class="form-control" placeholder="RG">
+                  </div>
+                  <div class="col">
+                    <label for="cpf">CPF:</label>
+                    <input required="required" id="cpf" name="cpf" type="number" class="form-control" placeholder="CPF">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="email">Email:</label>
+                    <input required="required" id="email" name="email" type="email" class="form-control"
+                      placeholder="porteiro@email.com.br">
+                  </div>
+                  <div class="col">
+                    <label for="celular">Contato:</label>
+                    <input id="celular" name="celular" type="text" class="form-control" placeholder="(XX)XXXXX-XXXX">
+                  </div>
+                </div>
+
+                <div style="margin:10px" class="row">
+                  <div class="col">
+                    <label for="fotoPorteiro">Foto</label>
+                    <input type="file" class="form-control file" name="fotoPorteiro" id="fotoPorteiro">
+                  </div>
+
+                </div>
+
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-primary">Gravar</button>
+                </div>
+
+
+              </form>
+
+            </div>
           </div>
-          </form>
-
-
         </div>
       </div>
     </div>
-  </div>
-  <!-- fim do Modal status -->
+
+    <!-- fim do Modal edita morador -->
 
 
+    <!-- Modal status -->
+    <div class="modal fade" id="statusModal" data-backdrop="static" tabindex="-1" role="dialog"
+      aria-labelledby="statusModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="porteiroModalEditLabel">New message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="formEditaStatus">
 
-  <!-- Modal senha -->
-  <div class="modal fade" id="senhaModal" data-backdrop="static" tabindex="-1" role="dialog"
-    aria-labelledby="senhaModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="senhaModalLabel">New message</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="formSenha">
+              <form id="formEditaStatus" method="POST" action="/backoffice/sindico/Moradores">
 
-            <form id="formSenha" method="POST" action="/backoffice/sindico/Moradores">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button id="confirmarStatus" class="btn btn-primary">Confirmar</button>
+            </div>
+            </form>
+
 
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <button id="confirmarStatus" class="btn btn-primary">Confirmar</button>
-          </div>
-          </form>
-
-
         </div>
       </div>
     </div>
-  </div>
-  <!-- fim do Modal senha -->
+    <!-- fim do Modal status -->
+
+
+
+    <!-- Modal senha -->
+    <div class="modal fade" id="senhaModal" data-backdrop="static" tabindex="-1" role="dialog"
+      aria-labelledby="senhaModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="senhaModalLabel">New message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="formSenha">
+
+              <form id="formSenha" method="POST" action="/backoffice/sindico/Moradores">
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button id="confirmarStatus" class="btn btn-primary">Confirmar</button>
+            </div>
+            </form>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- fim do Modal senha -->
 
 
 

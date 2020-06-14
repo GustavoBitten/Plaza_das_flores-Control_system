@@ -8,22 +8,22 @@ class Item {
     }
 }
 
-const dashboard = new Item('Dashboard', 'dashboard', 'fas fa-columns')
-const perfil = new Item('Perfil', 'perfil', 'fas fa-user-tie')
-const areas_comuns = new Item('Áreas Comuns', 'areas_comuns', 'fas fa-futbol')
-const ocorrencias = new Item('Ocorrências', 'ocorrencias', 'fas fa-exclamation')
-const correspondencias = new Item('Correspondências', 'correspondencias', 'fas fa-shipping-fast')
-const comunicados = new Item('Comunicados', 'comunicados', 'fas fa-comment-dots')
-const financeiro = new Item('Financeiro', 'financeiro', 'fas fa-dollar-sign')
+const itemDashboard = new Item('Dashboard', 'dashboard', 'fas fa-columns')
+const itemPerfil = new Item('Perfil', 'perfil', 'fas fa-user-tie')
+const itemAreas_comuns = new Item('Áreas Comuns', 'areas_comuns', 'fas fa-futbol')
+const itemOcorrencias = new Item('Ocorrências', 'ocorrencias', 'fas fa-exclamation')
+const itemCorrespondencias = new Item('Correspondências', 'correspondencias', 'fas fa-shipping-fast')
+const itemComunicados = new Item('Comunicados', 'comunicados', 'fas fa-comment-dots')
+const itemFinanceiro = new Item('Financeiro', 'financeiro', 'fas fa-dollar-sign')
 
-const moradores = new Item('Moradores', 'moradores', 'fas fa-users')
+const itemMoradores = new Item('Moradores', 'moradores', 'fas fa-users')
 
 //Para alterar as opções do aside, só alterar os arrays abaixo
 
-const comumItems = [dashboard, perfil, areas_comuns, ocorrencias, correspondencias, comunicados, financeiro]
+const comumItems = [itemDashboard, itemPerfil, itemAreas_comuns, itemOcorrencias, itemCorrespondencias, itemComunicados, itemFinanceiro]
 
 const moradorItems = [...comumItems]
-const sindicoItems = [...comumItems, moradores]
+const sindicoItems = [...comumItems, itemMoradores]
 const portariaItems = [...comumItems]
 
 
