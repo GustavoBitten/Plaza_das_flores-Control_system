@@ -7,6 +7,7 @@ let route = express.Router()
 
 route.get('/', loginPageController.login)
 route.post('/' , loginPageController.auth)
+route.get('/exit' , loginPageController.logout)
 
 
 
