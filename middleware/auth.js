@@ -29,9 +29,7 @@ const auth = async (req, res, next) => {
         }
 
     } else {
-
-        if (req.session.user == undefined) {
-
+    
             const url = req.originalUrl
             const urlParts = url.split('/')
             const typeRoute = urlParts[2]
@@ -66,10 +64,7 @@ const auth = async (req, res, next) => {
 
 
 
-        } else {
-            return next()
-        }
-
+       
     }
 
 
