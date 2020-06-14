@@ -17,7 +17,6 @@ const auth = async (req, res, next) => {
                     status: true
                 }
             })
-            console.log(user)
 
             if (user) {
                 req.session.user = user

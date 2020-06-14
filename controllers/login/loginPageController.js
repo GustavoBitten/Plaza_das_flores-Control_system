@@ -20,6 +20,7 @@ const loginPageController = {
       email,
       senha
     } = req.body
+
     const remember_me = req.body['remember-me']
 
     const usuario = await Usuario.findOne({
@@ -83,8 +84,11 @@ const loginPageController = {
   logout: (req, res) => {
 
     req.session.user = ''
-    res.redirect('/login')
-    
+    res.cookie('user','',{maxAge: 0})
+    return res.redirect('/login')
+
+
+
   }
 
 
