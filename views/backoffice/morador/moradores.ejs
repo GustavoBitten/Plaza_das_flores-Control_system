@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <%- include('../../includes/head', {titulo}) %>
+
+  <link rel="stylesheet" href="/css/backoffice/layout.css">
+  <link rel="stylesheet" href="/css/backoffice/moradores.css">
+</head>
+
+<body>
+  <%- include('../../includes/backoffice/header') %>
+  <%- include('../../includes/backoffice/aside') %>
+
+  <main class="customMain">
+
+    <%- include('../../includes/utilities/subHeader') %>
+
+    <section class="customSection">
+
+
+        <div class="row" id="caixaBotoes">
+          <div class="col-sm" id="caixaVisit">
+            <button type="button" class="btn btn-primary  col-md-12" id="botaoVisitantes">Visitantes</button>
+          </div>
+          <div class="col-sm" id="caixaFunc">
+            <button type="button" class="btn btn-primary  col-md-12" id="botaoFuncionarios">Funcionários</button>
+          </div>
+          <div class="col-sm">
+            <button type="button" class="btn btn-primary  col-md-12" style='display: none;'>Detalhes</button>
+          </div>
+        </div>
+        <div id="visitantes">  
+          <div class="card mx-auto px-0">
+
+            <%- include('../../includes/utilities/cardHeader', {nameCardHeader:"Visitantes"} ) %>
+
+            <div class="card-body row">
+              <div class="col-12 table-responsive">
+                <% if (typeof visitantes == 'undefined') { %>
+                <% if (typeof error != 'undefined') { %>
+                <%= error %>
+                <% } %>
+                <% } else { %>
+                <% if (visitantes.length > 0) { %>
+                <table class="table table-borderless table-striped table-hover">
+                  <caption>
+                    Lista de Visitantes
+                  </caption>
+
+                  <thead>
+                    <tr>
+                      <th class="text-center text-nowrap" scope="col">
+                        Nome
+                      </th>
+                      <th class="text-center" scope="col">
+                        RG
+                      </th>
+                      <th class="text-center" scope="col">
+                        Tipo
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="tableBody">
+                    <% visitantes.forEach(visitantes => { %>
+                    <tr>
+                      <td class="text-center align-middle">
+                        <%= visitantes.nome %>
+                      </td>
+                      <td class="text-center align-middle text-nowrap">
+                        <%= visitantes.rg %>
+                      </td>
+                      <td class="text-center align-middle text-nowrap">
+                        <%= visitantes.tipo %>
+                      </td> 
+
+                      <td class="text-center align-middle">
+                      </td>
+                    </tr>
+                    <% }) %>
+                  </tbody>
+                </table>
+                <% } else { %>
+                <h4 class="text-danger">Nenhum visitante cadastrado!</h4>
+                <% } %>
+                <% } %>
+              </div>
+              <!-- /.col-12 -->
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+
+        <div id="funcionarios">  
+          <div class="card mx-auto px-0">
+
+            <%- include('../../includes/utilities/cardHeader', {nameCardHeader:"Funcionarios"} ) %>
+
+            <div class="card-body row">
+              <div class="col-12 table-responsive">
+                <% if (typeof funcionarios == 'undefined') { %>
+                <% if (typeof error != 'undefined') { %>
+                <%= error %>
+                <% } %>
+                <% } else { %>
+                <% if (funcionarios.length > 0) { %>
+                <table class="table table-borderless table-striped table-hover">
+                  <caption>
+                    Lista de Funcionários
+                  </caption>
+
+                  <thead>
+                    <tr>
+                      <th class="text-center text-nowrap" scope="col">
+                        Nome
+                      </th>
+                      <th class="text-center" scope="col">
+                        RG
+                      </th>
+                      <th class="text-center" scope="col">
+                        Tipo
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="tableBody">
+                    <% funcionarios.forEach(funcionarios => { %>
+                    <tr>
+                      <td class="text-center align-middle">
+                        <%= funcionarios.nome %>
+                      </td>
+                      <td class="text-center align-middle text-nowrap">
+                        <%= funcionarios.cpf %>
+                      </td>
+                      <td class="text-center align-middle text-nowrap">
+                        <%= funcionarios.empresa %>
+                      </td> 
+                      <td class="text-center align-middle text-nowrap">
+                        <%= funcionarios.tipo %>
+                      </td> 
+                      <td class="text-center align-middle">
+                      </td>
+                    </tr>
+                    <% }) %>
+                  </tbody>
+                </table>
+                <% } else { %>
+                <h4 class="text-danger">Nenhum funcionario cadastrado!</h4>
+                <% } %>
+                <% } %>
+              </div>
+              <!-- /.col-12 -->
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+      
+
+    </section>
+
+  </main>
+
+  <span id="tipoUsuario" hidden><%= usuario.tipo_usuario_id %></span>
+
+  <%- include('../../includes/scriptJS') %>
+  <script type="text/javascript" src="/javascripts/backoffice/moradores.js"></script>
+</body>
+
+</html>

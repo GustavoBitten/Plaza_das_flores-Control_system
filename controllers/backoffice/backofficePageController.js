@@ -209,6 +209,26 @@ let backofficePageController = {
   //     usuario: req.session.user
   //   })
   // },
+  moradorMoradores: async (req, res) => {
+    const visitantes = await Visitante.findAll({
+      order: [
+        ['created_at', 'DESC']
+      ]
+    })
+
+    const funcionarios = await Funcionario.findAll({
+      order: [
+        ['created_at', 'DESC']
+      ]
+    })
+
+    res.render("backoffice/morador/moradores", {
+      titulo: "Morador - Visitantes",
+      usuario: req.session.user,
+      visitantes: visitantes,
+      funcionarios: funcionarios
+    })
+  },
 
 
 

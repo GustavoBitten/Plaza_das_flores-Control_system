@@ -50,6 +50,7 @@ route.post('/blocos', blocoController.store)
 route.post('/apartamentos', apartamentoController.store)
 
 // Rotas para os Moradores
+route.get('/moradores', backofficePageController.moradorMoradores)
 route.post('/moradores', moradorController.store)
 
 

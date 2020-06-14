@@ -1,0 +1,37 @@
+@media (max-width: 1665px) {
+    a#info {
+      padding-right: 3px;
+    }
+  
+    a[id^='excluirCorrespondencia'], a#editar {
+      margin-left: 0 !important;
+      margin-top: 5px !important;
+      display: block;
+    }
+  
+    a[id^='excluirCorrespondencia'] {
+      padding-right: 4px;
+    }
+  }
+  
+  .btn {
+    background-color: #E8751C;
+    color: white;
+    text-align: center;
+    border-radius: 18px;
+    border-color: #E8751C;
+    width: auto;
+}
+
+#funcionarios{
+  display: none;
+}
+
+.customSection{
+  margin-left: 9%;
+}
+
+#caixaBotoes{
+  margin-top:5%;
+  margin-bottom: 5%;
+}
