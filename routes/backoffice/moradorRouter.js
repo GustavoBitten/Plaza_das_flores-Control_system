@@ -37,7 +37,7 @@ let route = express.Router()
 route.get('/dashboard', backofficePageController.moradorDashboard)
 route.get('/perfil', backofficePageController.moradorPerfil)
 //route.get('/ocorrencias', backofficePageController.moradorOcorrencias)
-route.get('/areas-comuns', backofficePageController.moradorAreasComuns)
+route.get('/areas_comuns', backofficePageController.moradorAreasComuns)
 // route.get('/portaria', backofficePageController.moradorPortaria)
 // route.get('/comunicados', backofficePageController.moradorComunicados)
 
