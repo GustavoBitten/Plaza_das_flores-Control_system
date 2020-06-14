@@ -13,6 +13,7 @@ const backofficePageController = require('../../controllers/backoffice/backoffic
 const comunicadoController = require('../../controllers/backoffice/comunicadoController');
 const correspondenciaController = require('../../controllers/backoffice/correspondenciaController');
 const financeiroController = require('../../controllers/backoffice/financeiroController')
+const ocorrenciaController = require('../../controllers/backoffice/ocorrenciaController')
 
 
 
@@ -24,7 +25,7 @@ let route = express.Router()
 route.get('/usuarios', moradorController.ListaMoradores)
 route.get('/moradores', moradorController.buscaUsuario)
 //route.get('/perfil', backofficePageController.sindicoPerfil)
-//route.get('/ocorrencias', backofficePageController.sindicoOcorrencias)
+route.get('/ocorrencias', ocorrenciaController.index)
 route.get('/areas_comuns', backofficePageController.sindicoAreasComuns)
 // route.get('/portaria', backofficePageController.sindicoPortaria)
 //route.get('/financeiro', backofficePageController.sindicoFinanceiro)
