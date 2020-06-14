@@ -5,6 +5,8 @@ const { check } = require('express-validator')
 const backofficePageController = require('../../controllers/backoffice/backofficePageController');
 const comunicadoController = require('../../controllers/backoffice/comunicadoController');
 const correspondenciaController = require('../../controllers/backoffice/correspondenciaController');
+const financeiroController = require('../../controllers/backoffice/financeiroController')
+
 
 
 let route = express.Router()
@@ -40,5 +42,8 @@ route.post('/correspondencias', [
 ], correspondenciaController.store)
 route.delete('/correspondencias/:id', correspondenciaController.destroy)
 
+// Rotas para as Financeiro
+route.get('/financeiro', financeiroController.index)
+route.post('/financeiro/', financeiroController.create)
 
 module.exports = route

@@ -71,7 +71,7 @@ const loginPageController = {
         res.redirect("/backoffice/sindico/moradores")
         break;
       case 3:
-        res.redirect("/backoffice/portaria/moradores")
+        res.redirect("/backoffice/portaria/areas_comuns")
         break;
 
       default:

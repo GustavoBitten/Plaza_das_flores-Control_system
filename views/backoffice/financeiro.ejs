@@ -17,8 +17,15 @@
     <%- include('../includes/utilities/subHeader') %>
 
     <section class="customSection">
-
-      <%const optionsButtonsTop = [{dataTarget:"#modalNovaCobranca", name:'Nova cobrança',dataToggle:"modal"}]  %>
+      
+        <%const optionsButtonsTop = [{dataTarget:"", name:'Geral',dataToggle:"modal"}]  %>
+        
+        <% if(usuario.tipo_usuario_id == 2 ){ %>
+          
+          <%optionsButtonsTop.push({dataTarget:"#modalNovaCobranca", name:'Nova cobrança',dataToggle:"modal"})  %>
+          
+          <% } %> 
+      
       <%- include('../includes/utilities/optionsButtonsTop',{optionsButtonsTop}) %>
 
 
@@ -72,6 +79,9 @@
                   </td>
 
                   <td class="text-center align-middle">
+                    <a type="button" href=<%=`/backoffice/morador/financeiro/${cobranca.id}` %>  target="blank">
+                      <i class="fas fa-file-invoice-dollar"></i>
+                    </a>
                     <a type="button" data-toggle="modal" data-target=<%=`#modalDescricao${cobranca.id}`%>>
                       <i class="far fa-comment-alt"></i>
                     </a>

@@ -114,8 +114,8 @@ route.get('/correspondencias/:id', correspondenciaController.show)
 
 // Rotas para as Financeiro
 route.get('/financeiro', financeiroController.index)
+route.get('/financeiro/:id', financeiroController.show)
 route.delete('/financeiro/:id', financeiroController.destroy)
 route.post('/financeiro/', financeiroController.create)
-//route.get('/financeiro/:id', financeiroController.destroy)
 
 module.exports = route

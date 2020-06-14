@@ -12,6 +12,8 @@ const {
 const backofficePageController = require('../../controllers/backoffice/backofficePageController');
 const comunicadoController = require('../../controllers/backoffice/comunicadoController');
 const correspondenciaController = require('../../controllers/backoffice/correspondenciaController');
+const financeiroController = require('../../controllers/backoffice/financeiroController')
+
 
 
 let route = express.Router()
@@ -25,7 +27,7 @@ route.get('/moradores', moradorController.buscaUsuario)
 //route.get('/ocorrencias', backofficePageController.sindicoOcorrencias)
 route.get('/areas_comuns', backofficePageController.sindicoAreasComuns)
 // route.get('/portaria', backofficePageController.sindicoPortaria)
-route.get('/financeiro', backofficePageController.sindicoFinanceiro)
+//route.get('/financeiro', backofficePageController.sindicoFinanceiro)
 route.get('/dashboard', backofficePageController.moradorDashboard)
 
 // Rotas para os Moradores
@@ -114,6 +116,12 @@ route.delete('/comunicados/:id', comunicadoController.destroy)
 route.get('/correspondencias', correspondenciaController.index)
 route.get('/correspondencias/getCount', correspondenciaController.getCount)
 route.get('/correspondencias/:id', correspondenciaController.show)
+
+
+// Rotas para as Financeiro
+route.get('/financeiro', financeiroController.index)
+route.delete('/financeiro/:id', financeiroController.destroy)
+route.post('/financeiro/', financeiroController.create)
 
 
 module.exports = route
