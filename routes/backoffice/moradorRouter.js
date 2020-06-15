@@ -35,7 +35,6 @@ let route = express.Router()
 // Rotas para morador
 
 route.get('/dashboard', backofficePageController.moradorDashboard)
-route.get('/perfil', backofficePageController.moradorPerfil)
 //route.get('/ocorrencias', backofficePageController.moradorOcorrencias)
 route.get('/areas_comuns', backofficePageController.moradorAreasComuns)
 // route.get('/portaria', backofficePageController.moradorPortaria)
@@ -56,6 +55,7 @@ route.post('/moradores', moradorController.store)
 
 
 // Rotas para os Perfis
+route.get('/perfil', backofficePageController.moradorPerfil)
 route.put('/perfis/editar/:perfilId',uploadMorador.any(), perfilController.update)
 route.put('/perfis/editarPerfil/:perfilId',uploadMorador.any(), perfilController.updatePerfil)
 

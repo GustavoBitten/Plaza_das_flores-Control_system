@@ -162,7 +162,7 @@ let backofficePageController = {
       }
      )
 
-    res.render("backoffice/morador/perfil", {
+    res.render("backoffice/perfil", {
       titulo: "Morador - Perfil",
       usuario: req.session.user,
       pets,
