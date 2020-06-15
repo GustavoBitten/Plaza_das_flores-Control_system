@@ -47,4 +47,4 @@ app.use('/backoffice/portaria', auth, typeUserAuth, portariaRouter);
 
 
 
-app.listen(3000, () => console.log("Esse servidor funcionando corretamente"))
+app.listen(process.env.PORT || 3000, () => console.log("Esse servidor funcionando corretamente"))
