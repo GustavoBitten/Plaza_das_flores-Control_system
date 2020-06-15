@@ -8,6 +8,7 @@ module.exports = comunicadoController = {
     const { user } = req.session
 
     try {
+      let listaTodasCorrespondencias = undefined
       let where = {}
 
       if (user.tipo_usuario_id != 3)
@@ -46,10 +47,45 @@ module.exports = comunicadoController = {
           ['created_at', 'DESC']]
       })
 
+      if (user.tipo_usuario_id == 2) {
+        listaTodasCorrespondencias = await Correspondencia.findAll({
+          include: [{
+            association: 'morador',
+            include: [{
+              association: 'ap',
+              attributes: ['id', 'apartamento']
+            }, {
+              association: 'bl',
+              attributes: ['id', 'bloco']
+            }],
+            attributes: ['id', 'nome']
+          }, {
+            association: 'porteiro',
+            attributes: ['id', 'nome']
+          }, {
+            association: 'tipo_correspondencia',
+            attributes: ['id', 'tipo']
+          }, {
+            association: 'status',
+            attributes: ['id', 'situacao']
+          }, {
+            association: 'retirado',
+            attributes: ['id', 'nome']
+          }],
+          attributes: {
+            exclude: ['updated_at']
+          },
+          order: [
+            ['data_retirada', 'DESC'],
+            ['created_at', 'DESC']]
+        })
+      }
+
       return res.render("backoffice/correspondencias", {
         titulo: "Correspondências",
         usuario: user,
         listaCorrespondencias,
+        listaTodasCorrespondencias,
         moment
       })
     } catch (error) {

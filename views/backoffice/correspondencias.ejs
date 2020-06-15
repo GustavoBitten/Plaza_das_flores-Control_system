@@ -25,125 +25,238 @@
 
       <div class="card mx-auto px-0">
 
-        <%- include('../includes/utilities/cardHeader', {nameCardHeader:"Correspondencia"} ) %>
+        <%- include('../includes/utilities/cardHeader', {nameCardHeader:"Correspondências"} ) %>
 
-        <div class="card-body row">
-          <div class="col-12 table-responsive">
-            <% if (typeof listaCorrespondencias == 'undefined') { %>
-              <% if (typeof error != 'undefined') { %>
-                <%= error %>
-              <% } %>
-            <% } else { %>
-              <% if (listaCorrespondencias.length > 0) { %>
-                <table class="table table-borderless table-striped table-hover">
-                  <caption>
-                    Lista de Correspondências
-                  </caption>
+        <div class="card-body">
+          <%# Condicional para adicionar opcao de ver todas as correspondencias para o sindico %>
+          <% if (usuario.tipo_usuario_id == 2) { %>
+          <ul id="correspondenciasTab" class="nav nav-tabs card-header-tabs pb-3" role="tablist">
+            <li class="nav-item w-50 text-center" role="correspondencias">
+              <a id="minhasCorrespondencias" class="nav-link active" data-toggle="tab" href="#minhas" role="tab" aria-controls="minhas" aria-selected="true">Minhas</a>
+            </li>
+            <li id="todasCorrespondencias" class="nav-item w-50 text-center" role="correspondencias">
+              <a id="todasCorrespondencias" class="nav-link" data-toggle="tab" href="#todas" role="tab" aria-controls="todas" aria-selected="false">Todas</a>
+            </li>
+          </ul>
 
-                  <thead>
-                    <tr>
-                      <th class="text-center text-nowrap" scope="col">
-                        Data
-                      </th>
-                      <% if (usuario.tipo_usuario_id == 3) { %>
-                      <th class="text-center" scope="col">
-                        Destinatário
-                      </th>
-                      <th class="text-center" scope="col">
-                        Endereço
-                      </th>
-                      <% } %>
-                      <th class="text-center" scope="col">
-                        Tipo
-                      </th>
-                      <% if (usuario.tipo_usuario_id != 3) { %>
-                      <th class="text-center" scope="col">
-                        Código de Rastreio
-                      </th>
-                      <% } %>
-                      <th class="text-center" scope="col">
-                        Situação
-                      </th>
-                      <th class="text-center text-nowrap" scope="col">
-                        Retirado Por
-                      </th>
-                      <th class="text-center text-nowrap" scope="col">
-                        Data de Retirada
-                      </th>
-                      <th class="text-center text-nowrap" scope="col">
-                        Ações
-                      </th>
-                    </tr>
-                  </thead>
+          <div class="tab-content" id="correspondenciasTabContent">
 
-                  <tbody id="tableBody">
-                    <% listaCorrespondencias.forEach(correspondencia => { %>
-                    <tr>
-                      <td class="text-center align-middle">
-                        <%= moment(correspondencia.created_at).format('DD/MM/YYYY') %>
-                      </td>
-                      <% if (usuario.tipo_usuario_id == 3) { %>
-                        <td class="text-center align-middle text-nowrap">
-                          <%= correspondencia.morador.nome %>
-                        </td>
-                        <td class="text-center align-middle text-nowrap">
-                          <%= correspondencia.morador.ap.apartamento + '/' + correspondencia.morador.bl.bloco %>
-                        </td>
-                      <% } %>
-                      <td class="text-center align-middle text-nowrap">
-                        <%= correspondencia.tipo_correspondencia.tipo %>
-                      </td>
-                      <% if (usuario.tipo_usuario_id != 3) { %>
-                        <td class="text-center align-middle text-nowrap">
-                          <%= correspondencia.rastreio ? correspondencia.rastreio : '-' %>
-                        </td>
-                      <% } %>
-                      <td class="text-center align-middle">
-                        <%= correspondencia.status.situacao %>
-                      </td>
-                      <td class="text-center align-middle text-nowrap">
-                        <% if (correspondencia.retirado_por) { %>
-                          <%= correspondencia.retirado.nome %>
-                        <% } else { %>
-                          <% if (usuario.tipo_usuario_id != 3) { %>
-                            -
-                          <% } else { %>
-                            <a id="btnRetirada<%= correspondencia.id %>" class="text-success" data-toggle="modal"
-                              data-target="#modalRetiradaCorrespondencia" data-id="<%= correspondencia.id %>"
-                              title="Registrar retirada">
-                              <i class="fas fa-plus-circle"></i>
-                            </a>
+            <div class="tab-pane fade show active" id="minhas" role="tabpanel" aria-labelledby="minhas-tab">
+          <% } %>
+          <%# Fim da condicional para mostrar as nav-tabs %>
+              <div class="col-12 table-responsive">
+                <% if (typeof listaCorrespondencias == 'undefined') { %>
+                  <% if (typeof error != 'undefined') { %>
+                    <%= error %>
+                  <% } %>
+                <% } else { %>
+                  <% if (listaCorrespondencias.length > 0) { %>
+                    <table class="table table-borderless table-striped table-hover">
+                      <caption>
+                        Lista de Correspondências
+                      </caption>
+
+                      <thead>
+                        <tr>
+                          <th class="text-center text-nowrap" scope="col">
+                            Data
+                          </th>
+                          <% if (usuario.tipo_usuario_id == 3) { %>
+                          <th class="text-center" scope="col">
+                            Destinatário
+                          </th>
+                          <th class="text-center" scope="col">
+                            Endereço
+                          </th>
                           <% } %>
-                        <% } %>
-                      </td>
-                      <td class="text-center align-middle">
-                        <%= correspondencia.data_retirada ? moment(correspondencia.data_retirada).format('DD/MM/YYYY') : '-' %>
-                      </td>
-                      <td class="text-center align-middle">
-                        <a id="info<%= correspondencia.id %>" class="text-info" data-toggle="modal"
-                          data-target="#modalInfoCorrespondencia" data-id="<%= correspondencia.id %>" title="Detalhes">
-                          <i class="fas fa-info-circle"></i>
-                        </a>
-                        <% if (usuario.tipo_usuario_id == 3) { %>
-                          <%# <a id="editar" class="text-primary ml-3" data-target="#modal" data-id="" title="Editar">
-                            <i class="fas fa-edit"></i>
-                          </a> %>
-                          <a id="excluirCorrespondencia<%= correspondencia.id %>" class="text-danger ml-3"
-                            data-id="<%= correspondencia.id %>" title="Excluir">
-                            <i class="fas fa-trash-alt"></i>
-                          </a>
-                        <% } %>
-                      </td>
-                    </tr>
-                    <% }) %>
-                  </tbody>
-                </table>
-              <% } else { %>
-                <h4 class="text-danger">Nenhuma correspondência registrada!</h4>
-              <% } %>
-            <% } %>
+                          <th class="text-center" scope="col">
+                            Tipo
+                          </th>
+                          <% if (usuario.tipo_usuario_id != 3) { %>
+                          <th class="text-center" scope="col">
+                            Código de Rastreio
+                          </th>
+                          <% } %>
+                          <th class="text-center" scope="col">
+                            Situação
+                          </th>
+                          <th class="text-center text-nowrap" scope="col">
+                            Retirado Por
+                          </th>
+                          <th class="text-center text-nowrap" scope="col">
+                            Data de Retirada
+                          </th>
+                          <th class="text-center text-nowrap" scope="col">
+                            Ações
+                          </th>
+                        </tr>
+                      </thead>
+
+                      <tbody id="tableBody">
+                        <% listaCorrespondencias.forEach(correspondencia => { %>
+                        <tr>
+                          <td class="text-center align-middle">
+                            <%= moment(correspondencia.created_at).format('DD/MM/YYYY') %>
+                          </td>
+                          <% if (usuario.tipo_usuario_id == 3) { %>
+                            <td class="text-center align-middle text-nowrap">
+                              <%= correspondencia.morador.nome %>
+                            </td>
+                            <td class="text-center align-middle text-nowrap">
+                              <%= correspondencia.morador.ap.apartamento + '/' + correspondencia.morador.bl.bloco %>
+                            </td>
+                          <% } %>
+                          <td class="text-center align-middle text-nowrap">
+                            <%= correspondencia.tipo_correspondencia.tipo %>
+                          </td>
+                          <% if (usuario.tipo_usuario_id != 3) { %>
+                            <td class="text-center align-middle text-nowrap">
+                              <%= correspondencia.rastreio ? correspondencia.rastreio : '-' %>
+                            </td>
+                          <% } %>
+                          <td class="text-center align-middle">
+                            <%= correspondencia.status.situacao %>
+                          </td>
+                          <td class="text-center align-middle text-nowrap">
+                            <% if (correspondencia.retirado_por) { %>
+                              <%= correspondencia.retirado.nome %>
+                            <% } else { %>
+                              <% if (usuario.tipo_usuario_id != 3) { %>
+                                -
+                              <% } else { %>
+                                <a id="btnRetirada<%= correspondencia.id %>" class="text-success" data-toggle="modal"
+                                  data-target="#modalRetiradaCorrespondencia" data-id="<%= correspondencia.id %>"
+                                  title="Registrar retirada">
+                                  <i class="fas fa-plus-circle"></i>
+                                </a>
+                              <% } %>
+                            <% } %>
+                          </td>
+                          <td class="text-center align-middle">
+                            <%= correspondencia.data_retirada ? moment(correspondencia.data_retirada).format('DD/MM/YYYY') : '-' %>
+                          </td>
+                          <td class="text-center align-middle">
+                            <a id="info<%= correspondencia.id %>" class="text-info" data-toggle="modal"
+                              data-target="#modalInfoCorrespondencia" data-id="<%= correspondencia.id %>" title="Detalhes">
+                              <i class="fas fa-info-circle"></i>
+                            </a>
+                            <% if (usuario.tipo_usuario_id == 3) { %>
+                              <%# <a id="editar" class="text-primary ml-3" data-target="#modal" data-id="" title="Editar">
+                                <i class="fas fa-edit"></i>
+                              </a> %>
+                              <a id="excluirCorrespondencia<%= correspondencia.id %>" class="text-danger ml-3"
+                                data-id="<%= correspondencia.id %>" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
+                              </a>
+                            <% } %>
+                          </td>
+                        </tr>
+                        <% }) %>
+                      </tbody>
+                    </table>
+                  <% } else { %>
+                    <h4 class="text-danger">Nenhuma correspondência registrada!</h4>
+                  <% } %>
+                <% } %>
+              </div>
+              <!-- /.col-12 -->
+            <%# Condicional para mostrar conteudo das nav-tabs somente para sindicos %>
+            <% if (usuario.tipo_usuario_id == 2) { %>
+            </div>
+            <!-- /#minhas -->
+
+
+            <div class="tab-pane fade" id="todas" role="tabpanel" aria-labelledby="todas-tab">
+
+              <div class="col-12 table-responsive">
+                <% if (typeof listaTodasCorrespondencias == 'undefined') { %>
+                  <% if (typeof error != 'undefined') { %>
+                    <%= error %>
+                  <% } %>
+                <% } else { %>
+                  <% if (listaTodasCorrespondencias.length > 0) { %>
+                    <table class="table table-borderless table-striped table-hover">
+                      <caption>
+                        Lista de todas as Correspondências
+                      </caption>
+
+                      <thead>
+                        <tr>
+                          <th class="text-center text-nowrap" scope="col">
+                            Data
+                          </th>
+                          <th class="text-center" scope="col">
+                            Destinatário
+                          </th>
+                          <th class="text-center" scope="col">
+                            Endereço
+                          </th>
+                          <th class="text-center" scope="col">
+                            Tipo
+                          </th>
+                          <th class="text-center" scope="col">
+                            Situação
+                          </th>
+                          <th class="text-center text-nowrap" scope="col">
+                            Retirado Por
+                          </th>
+                          <th class="text-center text-nowrap" scope="col">
+                            Data de Retirada
+                          </th>
+                          <th class="text-center text-nowrap" scope="col">
+                            Ações
+                          </th>
+                        </tr>
+                      </thead>
+
+                      <tbody id="tableBody">
+                        <% listaTodasCorrespondencias.forEach(correspondencia => { %>
+                        <tr>
+                          <td class="text-center align-middle">
+                            <%= moment(correspondencia.created_at).format('DD/MM/YYYY') %>
+                          </td>
+                          <td class="text-center align-middle text-nowrap">
+                            <%= correspondencia.morador.nome %>
+                          </td>
+                          <td class="text-center align-middle text-nowrap">
+                            <%= correspondencia.morador.ap.apartamento + '/' + correspondencia.morador.bl.bloco %>
+                          </td>
+                          <td class="text-center align-middle text-nowrap">
+                            <%= correspondencia.tipo_correspondencia.tipo %>
+                          </td>
+                          <td class="text-center align-middle">
+                            <%= correspondencia.status.situacao %>
+                          </td>
+                          <td class="text-center align-middle text-nowrap">
+                            <%= correspondencia.retirado_por ? correspondencia.retirado.nome : '-' %>
+                          </td>
+                          <td class="text-center align-middle">
+                            <%= correspondencia.data_retirada ? moment(correspondencia.data_retirada).format('DD/MM/YYYY') : '-' %>
+                          </td>
+                          <td class="text-center align-middle">
+                            <a id="info<%= correspondencia.id %>" class="text-info" data-toggle="modal"
+                              data-target="#modalInfoCorrespondencia" data-id="<%= correspondencia.id %>" title="Detalhes">
+                              <i class="fas fa-info-circle"></i>
+                            </a>
+                          </td>
+                        </tr>
+                        <% }) %>
+                      </tbody>
+                    </table>
+                  <% } else { %>
+                    <h4 class="text-danger">Nenhuma correspondência registrada!</h4>
+                  <% } %>
+                <% } %>
+              </div>
+              <!-- /.col-12 -->
+
+            </div>
+            <!-- /#todas -->
+
           </div>
-          <!-- /.col-12 -->
+          <!-- /.tab-content -->
+          <%# Fim da condiconal para mostrar conteudo das nav-tabs para os sindicos %>
+          <% } %>
         </div>
         <!-- /.card-body -->
       </div>
