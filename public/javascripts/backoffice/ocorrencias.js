@@ -1,5 +1,6 @@
 
 
+
 $(() => {
   init()
 });
@@ -62,7 +63,7 @@ let init = () => {
          location.reload()
         })
      })
-
+      
    })
    
 
@@ -76,7 +77,7 @@ let init = () => {
 
     $(document).on('click', '#responderOcorrencia', function () {
       
-    $('#formResposta').attr("action", `/backoffice/morador/ocorrencias/editar/${ocorrenciaId}?_method=PUT`)
+    $('#formResposta').attr("action", `/backoffice/${typeUrl}/ocorrencias/editar/${ocorrenciaId}?_method=PUT`)
     
     fetch(window.location + '/editar/' + ocorrenciaId + '?_method=PUT', {
       method: 'POST',

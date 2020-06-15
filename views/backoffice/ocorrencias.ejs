@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-  <%- include('../../includes/head', {titulo: titulo}) %>
+  <%- include('../includes/head', {titulo: titulo}) %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript" src="/javascripts/backoffice/jquery.mask.min.js"></script>
   <link rel="stylesheet" href="/css/backoffice/layout.css">
@@ -10,22 +10,22 @@
 </head>
 
 <body>
-  <%- include('../../includes/backoffice/header') %>
-  <%- include('../../includes/backoffice/aside') %>
+  <%- include('../includes/backoffice/header') %>
+  <%- include('../includes/backoffice/aside') %>
 
   <main class="customMain">
 
-    <%- include('../../includes/utilities/subHeader') %>
+    <%- include('../includes/utilities/subHeader') %>
 
     <section class="customSection">
 
       <%const optionsButtonsTop = [{dataTarget:"#novaOcorrenciaModal", name:'Nova Ocorrência',dataToggle:"modal"}]  %>
       <% optionsButtonsTop.push({dataTarget:"#filtroModal", name:'+Filtro',dataToggle:"modal"})  %>
-      <%- include('../../includes/utilities/optionsButtonsTop',{optionsButtonsTop}) %>
+      <%- include('../includes/utilities/optionsButtonsTop',{optionsButtonsTop}) %>
 
       <div class="card mx-auto px-0">
 
-        <%- include('../../includes/utilities/cardHeader', {nameCardHeader:"Status/Histórico"} ) %>
+        <%- include('../includes/utilities/cardHeader', {nameCardHeader:"Status/Histórico"} ) %>
 
 
         <div class="card-body row">
@@ -103,7 +103,7 @@
     </section>
 
   </main>
-  <%- include('../../includes/scriptJS') %>
+  <%- include('../includes/scriptJS') %>
   <script type="text/javascript" src="/javascripts/backoffice/ocorrencias.js"></script>
 </body>
 
@@ -127,7 +127,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="/backoffice/morador/ocorrenciasMorador" enctype="multipart/form-data">
+        <form method="POST" action="/backoffice/<%=typeRoute%>/ocorrenciasMorador" enctype="multipart/form-data">
           <div class="formulario">
             <div class="form-group">
               <label for="tituloOcorrencia">Título:</label>

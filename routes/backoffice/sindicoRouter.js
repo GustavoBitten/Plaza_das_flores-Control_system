@@ -2,6 +2,7 @@ const express = require('express')
 const porteiroCadController = require('../../controllers/backoffice/porteiroCadController');
 const moradorController = require('../../controllers/backoffice/moradorController');
 const uploadMorador = require("../../config/uploadMorador"); // multer
+const uploadOcorrencia = require("../../config/uploadocorrencia");
 const uploadPorteiro = require("../../config/uploadPorteiro"); // multer
 const {
   check,
@@ -118,6 +119,12 @@ route.get('/correspondencias', correspondenciaController.index)
 route.get('/correspondencias/getCount', correspondenciaController.getCount)
 route.get('/correspondencias/:id', correspondenciaController.show)
 
+// Rotas para as Ocorrências
+route.get('/ocorrencias', ocorrenciaController.index)
+route.get('/ocorrencias/:ocorrenciaId', ocorrenciaController.show)
+route.post('/ocorrenciasMorador',uploadOcorrencia.any(), ocorrenciaController.storeMorador)
+route.delete('/ocorrencias/delete/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.delete)
+route.put('/ocorrencias/editar/:ocorrenciaId',uploadOcorrencia.any(), ocorrenciaController.update)
 
 // Rotas para as Financeiro
 route.get('/financeiro', financeiroController.index)
