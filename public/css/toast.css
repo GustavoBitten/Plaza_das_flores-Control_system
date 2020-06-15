@@ -1,8 +1,21 @@
 .jq-toast-wrap {
   width: fit-content;
+  min-width: 20%;
   max-width: 50%;
 }
 
+.jq-toast-single {
+  text-align-last: center;
+}
+
 .jq-toast-heading {
+  text-align: center;
   font-weight: bold;
+}
+
+@media (max-width: 500px) {
+  .jq-toast-wrap {
+    width: 100%;
+    max-width: 100%;
+  }
 }

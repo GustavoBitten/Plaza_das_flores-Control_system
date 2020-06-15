@@ -25,11 +25,11 @@
 
 
       <% }else{  %>
-      
+
         <%const optionsButtonsTop = [{dataTarget:"", name:'Geral',dataToggle:""}]  %>
         <%- include('../includes/utilities/optionsButtonsTop',{optionsButtonsTop}) %>
-    
-      
+
+
       <%  } %>
 
 
@@ -231,6 +231,9 @@
   </div>
   <!-- /#modalExcluirComunicado -->
   <% } %>
+
+  <%# Loading Modal %>
+  <div id="loading"></div>
 
   <%- include('../includes/scriptJS') %>
   <script type="text/javascript" src="/javascripts/backoffice/comunicados.js"></script>

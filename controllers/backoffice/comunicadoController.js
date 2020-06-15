@@ -6,15 +6,31 @@ const { Comunicado } = require("../../models")
 
 module.exports = comunicadoController = {
   index: async (req, res) => {
-    const listaComunicados = await Comunicado.findAll()
+    try {
+      const listaComunicados = await Comunicado.findAll({
+        attributes: ['id', 'titulo', 'created_at', 'updated_at'],
+        order: [
+          ['updated_at', 'DESC'],
+          ['created_at', 'DESC']]
+      })
 
-    return res.render("backoffice/comunicados", {
-      titulo: "Comunicados",
-      usuario: req.session.user,
-      listaComunicados,
-      moment,
-      truncate
-    })
+      return res.render("backoffice/comunicados", {
+        titulo: "Comunicados",
+        usuario: req.session.user,
+        listaComunicados,
+        moment,
+        truncate
+      })
+    } catch (error) {
+      return res.render("backoffice/comunicados", {
+        titulo: "Comunicados",
+        usuario: req.session.user,
+        listaComunicados,
+        moment,
+        truncate,
+        error
+      })
+    }
   },
   show: async (req, res) => {
     try {
@@ -36,13 +52,11 @@ module.exports = comunicadoController = {
     const sindico_id = user.id
 
     try{
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        throw res.status(422).json({ errors: errors.array() });
-      }
+      if (validationResult(req).errors.length > 0)
+        throw {errors: validationResult(req).errors.reverse()}
 
       if (user.tipo_usuario_id != 2)
-        throw res.status(400).json({error: 'Erro de permissão ao criar o comunicado, apenas síndicos podem criar novos comunicados!'})
+        throw {errors: [{msg: 'Erro de permissão, apenas síndicos podem criar novos comunicados!'}]}
 
       const createComunicado = await Comunicado.create({
         sindico_id,
@@ -51,7 +65,7 @@ module.exports = comunicadoController = {
       });
 
       if (!createComunicado)
-        throw res.status(400).json({error: 'Erro ao criar o comunicado, tente novamente mais tarde!'})
+        throw {errors: [{msg: 'Erro ao criar o comunicado, tente novamente mais tarde!'}]}
 
       return res.status(200).json(createComunicado)
     } catch (error) {
@@ -64,13 +78,16 @@ module.exports = comunicadoController = {
     const { titulo, mensagem } = req.body
 
     try {
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        throw res.status(422).json({ errors: errors.array() });
-      }
+      if (validationResult(req).errors.length > 0)
+        throw {errors: validationResult(req).errors.reverse()}
 
       if (user.tipo_usuario_id != 2)
-        throw res.status(400).json({error: 'Erro de permissão ao atualizar o comunicado, apenas síndicos podem autalizar comunicados!'})
+        throw {errors: [{msg: 'Erro de permissão, apenas síndicos podem atualizar comunicados!'}]}
+
+      const comunicado = await Comunicado.findByPk(id)
+
+      if (comunicado.titulo == titulo && comunicado.mensagem == mensagem)
+        throw {errors: [{msg: 'Não houve alteração no comunicado!'}]}
 
       const updateComunicado = await Comunicado.update({
         titulo,
@@ -80,7 +97,7 @@ module.exports = comunicadoController = {
       });
 
       if(!updateComunicado)
-        throw res.status(400).json({error: 'Erro ao atualizar o comunicado, tente novamente mais tarde!'})
+        throw {errors: [{msg: 'Erro ao atualizar o comunicado, tente novamente mais tarde!'}]}
 
       return res.status(200).json(updateComunicado)
     } catch (error) {
@@ -96,17 +113,17 @@ module.exports = comunicadoController = {
       const comunicado = await Comunicado.findByPk(id)
 
       if(!comunicado)
-        throw {error: 'Comunicado não existe!'}
+        throw {errors: [{msg: 'Comunicado não existe!'}]}
 
       if (user.tipo_usuario_id != 2)
-        throw res.status(400).json({error: 'Erro de permissão ao excluir o comunicado, apenas síndicos podem excluir comunicados!'})
+        throw {errors: [{msg: 'Erro de permissão, apenas síndicos podem excluir comunicados!'}]}
 
       const destruirComunicado = await Comunicado.destroy({
         where: [{id}]
       })
 
       if(!destruirComunicado)
-        throw {error: 'Erro ao excluir comunicado'}
+        throw {errors: [{msg: 'Erro ao excluir comunicado'}]}
 
       return res.status(200).json(destruirComunicado)
     } catch (error) {
@@ -115,7 +132,12 @@ module.exports = comunicadoController = {
   },
   getComunicados: async (req, res) => {
     try {
-      const listaComunicados = await Comunicado.findAll()
+      const listaComunicados = await Comunicado.findAll({
+        attributes: ['id', 'titulo', 'created_at', 'updated_at'],
+        order: [
+          ['updated_at', 'DESC'],
+          ['created_at', 'DESC']]
+      })
 
       return res.status(200).json(listaComunicados)
     } catch (error) {

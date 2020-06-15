@@ -10,12 +10,12 @@ let init = () => {
   resetBindings()
 
   $('#btnCriarComunicado').on('click', async () => {
-    //let element = $(document.getElementById('btnCriarComunicado')) // element that triggered event
     let modal = $('#modalNovoComunicado')
 
     let titulo = modal.find('#titulo').val()
     let mensagem = modal.find('#mensagem').val()
 
+    $('body').addClass('loading')
     let resposta = await fetch(window.location.href, {
       method: 'POST',
       headers: {
@@ -28,15 +28,21 @@ let init = () => {
       })
     })
 
-    if (resposta.status == 200) {
-      let comunicado = await resposta.json()
+    let resultado = await resposta.json()
 
+    if (resposta.status == 200) {
       // hide modal
       modal.modal('hide')
 
       reload()
-    } else
-      alert(resposta.status + ' - ' + resposta.statusText)
+
+      createToast('Comunicado criado com sucesso!', '', 'success')
+    } else {
+      resultado.errors.forEach(error => {
+        createToast(error.msg ? error.msg : error.message, 'Algo deu errado!', 'danger')
+      })
+    }
+    $('body').removeClass('loading')
   })
 
   $('#modalNovoComunicado').on('shown.bs.modal', () => {
@@ -52,19 +58,24 @@ let init = () => {
     let id = element.data('id') // get value from target data-id field
     let modal = $(element.data('target'))
 
+    $('body').addClass('loading')
     let resposta = await fetch(window.location.href + '/' + id) // get ajax response
 
-    if (resposta.status == 200) {
-      let comunicado = await resposta.json() // get json object from ajax response
+    let resultado = await resposta.json() // get json object from ajax response
 
+    if (resposta.status == 200) {
       // fill modal fields
-      modal.find('.body-title').text(comunicado.titulo)
-      modal.find('.body-content').text(comunicado.mensagem)
+      modal.find('.body-title').text(resultado.titulo)
+      modal.find('.body-content').text(resultado.mensagem)
 
       // show modal
       modal.modal('show')
-    } else
-      alert(resposta.status + ' - ' + resposta.statusText)
+    } else {
+      resultado.errors.forEach(error => {
+        createToast(error.msg ? error.msg : error.message, 'Algo deu errado!', 'danger')
+      })
+    }
+    $('body').removeClass('loading')
   })
 
   $('a[id^=editarComunicado]').on('click', async (event) => {
@@ -72,22 +83,27 @@ let init = () => {
     let id = element.data('id') // get value from target data-id field
     let modal = $(element.data('target'))
 
+    $('body').addClass('loading')
     let resposta = await fetch(window.location.href + '/' + id) // get ajax response
 
-    if (resposta.status == 200) {
-      let comunicado = await resposta.json() // get json object from ajax response
+    let resultado = await resposta.json() // get json object from ajax response
 
+    if (resposta.status == 200) {
       // fill modal fields
-      modal.find('#tituloEditado').val(comunicado.titulo)
-      modal.find('#mensagemEditada').val(comunicado.mensagem)
+      modal.find('#tituloEditado').val(resultado.titulo)
+      modal.find('#mensagemEditada').val(resultado.mensagem)
 
       // set data-temp
-      modal.find('#btnAtualizar').attr('data-temp', comunicado.id)
+      modal.find('#btnAtualizar').attr('data-temp', resultado.id)
 
       // show modal
       modal.modal('show')
-    } else
-      alert(resposta.status + ' - ' + resposta.statusText)
+    } else {
+      resultado.errors.forEach(error => {
+        createToast(error.msg ? error.msg : error.message, 'Algo deu errado!', 'danger')
+      })
+    }
+    $('body').removeClass('loading')
   })
 
   $("#modalEditarComunicado").on('shown.bs.modal', () => {
@@ -106,6 +122,7 @@ let init = () => {
     let tituloEditado = modal.find('#tituloEditado').val()
     let mensagemEditada = modal.find('#mensagemEditada').val()
 
+    $('body').addClass('loading')
     let resposta = await fetch(window.location.href + '/' + id + '?_method=PUT', {
       method: 'POST',
       headers: {
@@ -118,14 +135,20 @@ let init = () => {
       })
     })
 
-    if (resposta.status == 200) {
-      let resultado = await resposta.json()
+    let resultado = await resposta.json()
 
+    if (resposta.status == 200) {
       modal.modal('hide')
 
       reload()
-    } else
-      alert(resposta.status + ' - ' + resposta.statusText)
+
+      createToast('Comunicado atualizado com sucesso!', 'Tudo certo!', 'success')
+    } else {
+      resultado.errors.forEach(error => {
+        createToast(error.msg ? error.msg : error.message, 'Algo deu errado!', 'danger')
+      })
+    }
+    $('body').removeClass('loading')
   })
 
   $('a[id^=excluirComunicado]').on('click', (event) => {
@@ -138,17 +161,24 @@ let init = () => {
     // If confirmed, delete
     $('a[id=btnDelete]').on('click', async (event) => {
 
+      $('body').addClass('loading')
       let resposta = await fetch(window.location.href + '/' + id, {
         method: 'DELETE'
       })
 
-      if (resposta.status == 200) {
-        let resultado = await resposta.json()
+      let resultado = await resposta.json()
 
+      if (resposta.status == 200) {
         reload()
+
+        createToast('Comunicado excluído com sucesso!', 'Tudo certo', 'success')
       } else {
-        alert(resposta.status + ' - ' + resposta.statusText)
+        resultado.errors.forEach(error => {
+          createToast(error.msg ? error.msg : error.message, 'Algo deu errado!', 'danger')
+        })
       }
+
+      $('body').removeClass('loading')
 
       $('#modalExcluirComunicado').modal('hide')
     })
@@ -184,15 +214,16 @@ let formataData = (data) => {
 }
 
 let reload = async () => {
+  $('body').addClass('loading')
   let resposta = await fetch(window.location.href + '/getComunicados')
 
-  if (resposta.status == 200) {
-    let listaComunicados = await resposta.json()
+  let resultado = await resposta.json()
 
+  if (resposta.status == 200) {
     let tableBody = document.querySelector('#tableBody')
     tableBody.innerHTML = ''
 
-    listaComunicados.forEach(comunicado => {
+    resultado.forEach(comunicado => {
       let tableRow = document.createElement('tr')
 
       let colData = document.createElement('td')
@@ -253,6 +284,10 @@ let reload = async () => {
 
       $(document).trigger('change')
     })
-  } else
-    alert(resposta.status + ' - ' + resposta.statusText)
+  } else {
+    resultado.errors.forEach(error => {
+      createToast(error.msg ? error.msg : error.message, 'Algo deu errado!', 'danger')
+    })
+  }
+  $('body').removeClass('loading')
 }
