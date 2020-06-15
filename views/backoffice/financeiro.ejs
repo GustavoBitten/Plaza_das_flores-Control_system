@@ -79,15 +79,19 @@
                   </td>
 
                   <td class="text-center align-middle">
+                    <% if(usuario.tipo_usuario_id != 3 ){ %>
                     <a type="button" href=<%=`/backoffice/morador/financeiro/${cobranca.id}` %>  target="blank">
                       <i class="fas fa-file-invoice-dollar"></i>
                     </a>
+                    <% } %> 
                     <a type="button" data-toggle="modal" data-target=<%=`#modalDescricao${cobranca.id}`%>>
                       <i class="far fa-comment-alt"></i>
                     </a>
-                    <a type="button" data-toggle="modal" data-target=<%=`#modalExcluir${cobranca.id}`%>>
-                      <i class="far fa-trash-alt"></i>
-                    </a>
+                    <% if(usuario.tipo_usuario_id == 2 ){ %>
+                      <a type="button" data-toggle="modal" data-target=<%=`#modalExcluir${cobranca.id}`%>>
+                        <i class="far fa-trash-alt"></i>
+                      </a>
+                    <% } %> 
                   </td>
 
                 </tr>

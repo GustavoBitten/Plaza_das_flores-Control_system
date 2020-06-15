@@ -1,3 +1,4 @@
+const Sequelize = require('sequelize')
 const {
   Cobranca,
   Tipo_cobranca,
@@ -6,6 +7,7 @@ const {
   Apartamento
 } = require('../../models')
 const moment = require('moment')
+const Op = Sequelize.Op
 
 
 class Financeiro {
@@ -17,13 +19,35 @@ class Financeiro {
     } = req.query
     console.log(error)
 
+    const userTypeId = req.session.user.tipo_usuario_id
+    const userId = req.session.user.id
+
+    const verifyUser = (userTypeId) => {
+      if (userTypeId == 1) {
+        return {
+          usuario_id: userId
+        }
+      } else {
+        return {
+          id: {
+            [Op.gt]: 0
+          }
+        }
+      }
+
+    }
+
     const listaCobrancas = await Cobranca.findAll({
       include: [{
         association: 'tipo_cobranca',
       }, {
         association: 'usuario'
-      }]
+      }],
+
+      where: verifyUser(userTypeId)
     })
+
+
 
     const resultBloco = await Bloco.findAll()
     const resultApartamento = await Apartamento.findAll()
@@ -50,6 +74,7 @@ class Financeiro {
       id
     } = req.params
 
+
     const infoCobranca = await Cobranca.findByPk(id)
 
 
@@ -62,16 +87,16 @@ class Financeiro {
       local_pagamento: 'Pagavel em qualquer banco',
       cedente: 'Plaza das flores - Condominio',
       data_documento: moment(infoCobranca.data).format('DD/MM/YYYY'),
-      numero_documento:'DF 00113',
+      numero_documento: 'DF 00113',
       especie: 'S',
-      aceite:'N',
+      aceite: 'N',
       data_processamento: moment(infoCobranca.data).format('DD/MM/YYYY'),
       //uso_banco:'',
-      carteira:'179',
+      carteira: '179',
       especie_moeda: 'Real',
-      quantidade:'',
-      valor:'',
-      vencimento:  moment(infoCobranca.vencimento).format('DD/MM/YYYY'),
+      quantidade: '',
+      valor: '',
+      vencimento: moment(infoCobranca.vencimento).format('DD/MM/YYYY'),
       agencia: '0049',
       codigo_cedente: '10201-5',
       meunumero: '00010435',
@@ -90,7 +115,7 @@ class Financeiro {
     }
 
     return res.redirect(fullUrl)
-      
+
   }
 
   create = async (req, res) => {
@@ -148,6 +173,7 @@ class Financeiro {
 
 
   update = (req, res) => {}
+  
   destroy = async (req, res) => {
 
     const id = req.params.id
