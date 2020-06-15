@@ -12,13 +12,12 @@ ul.navbar-nav > li > a{
   border: none;
 
 }
-.fa-bars, ul.navbar-nav > li > a:hover, span#btnAcessar {
-  color: #E8751C !important;
+span#btnAcessar {
+  color: #ff903c !important;
 }
 
 footer > div.container-fluid, footer > section.container-fluid {
-  background-color: #078407;
-  height: 5vh
+  background-color: #ff903c;
 }
 
 #nav * , #nav {
@@ -30,22 +29,24 @@ footer > div.container-fluid, footer > section.container-fluid {
 }
 
 #nav{
-  border-bottom: 2px solid #06b600;
+  border-bottom: 2px solid #ff903c;
   height: 10vh;
   box-shadow: 0 -3px 20px 0px  rgba(0, 0, 0, 0.4);
+  transition: top 0.3s;
 
 }
 
 @media (min-width: 768px) {
   ul.navbar-nav > li {
-    border-top: 2px solid #06B600;
-    border-bottom: 2px solid #06B600;
-    height: 2em;
   }
 }
 
 
 @media (max-width: 767px){
+  #navCollapse {
+    height: 260%!important;
+  }
+
   #navCollapse ul{
     background-color: #f8f9fa;
     padding: 15px;
@@ -55,13 +56,16 @@ footer > div.container-fluid, footer > section.container-fluid {
   #navCollapse ul li{
     padding-top: 5px;
   }
+  .card {
+    width: 100%!important;
+  }
 
 }
 
 @media (min-width: 365px) and (max-width: 767px) {
   button#btnToggle > i {
     padding-left: 8px;
-    border-left: 1.5px solid #E8751C;
+    border-left: 1.5px solid #ff903c;
   }
 }
 
@@ -75,6 +79,21 @@ footer > div.container-fluid, footer > section.container-fluid {
   div#acessar {
     padding-left: 153px;
   }
+}
+
+@media (max-width: 575.98px) {
+  #mapDiv {
+    padding: 0px;
+    width: 100%;
+  }
+
+}
+
+@media (min-width: 1200px) {
+  #mapDiv {
+    padding-left: 3rem;
+  }
+
 }
 
 /* #imgInicial{
@@ -117,74 +136,166 @@ justify-content: center;
 } 
 */
 
-#main{
-  background-color:#078407;
+.headerPlaza {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  margin: 2px;
+}
+.headerPlaza a {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.headerPlaza:hover {
+ background-color: rgb(0,0,0,0.1);
 }
 
-.pFirst{
-  height: 80vh;
-  background-color: #078407;
+.headerPlaza a:active {
+  background-color: rgb(255, 97, 0, 0.2);
 }
 
+hr {
+  width:100%;
+  text-align: center;
+  height:22px;
+}
 
+#sessaoHome {
+  background-image: url(../../images/home/background-banner3.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(80%) blur(0.5px);
+  width: 100%;
+  height: 100vh;
+  border-style: none;
+  bottom: 82px;
+  position: relative;
+}
 
+.titleHome {
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
 
-.pFirst * {
-  background-color: #efefef;
+#titleHomeText {
+  font-weight: bold;
+  font-size: 10vh;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.75);
+}
+
+#titleSobre {
+  top: 50%;
+  left: 0%;
+  z-index: 2;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 10px;
+
+}
+#titleSobre h2 {
+  font-weight: lighter;
+  font-size: 2.5vh;
+
+}
+
+#contentSobre {
+  padding: 5px;
+
+}
+
+#subContentSobre {
+  top: 10%;
+
+}
+
+#carouselDeImgs {
+  width: 63%;
+  box-shadow: 2px 2px 11px 0.5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+
+}
+#imageApartamentoDiv {
+  width:85%
+}
+
+#imageApartamento {
+  width: 85%;
+  height: 100%;
+  box-shadow: 2px 2px 11px 0.5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+#buttonDiv {
+  border-radius: 3px;
+  margin: 12px;
   
 }
 
-
-.pFirst h1{
-  text-shadow: 2px 2px 1px #00000063;
-  color: #e8751c;
-  padding: 1px 14px;
-  border-left: 6px solid #06b600;
-  margin-top: 24px;
+.showButtons {
+  border-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 151px;
+  padding: 5% 5%;
 }
 
-.pFirst .part1{
-  height: 13vh
+.showButtons:focus{
+  border: none;
+  outline: none;
 }
 
-.pFirst div>h2{
-  margin:0
+.showButtons:hover {
+  filter: brightness(90%);
 }
 
-.pFirst .part2{
-  height: 67vh
-  
+.showButtons:active{
+  background-color: rgb(255, 97, 0, 0.2);
 }
 
-.pFirst .part2 p{
-  color: #000000
+#buttonText {
+  width: 80%;
 }
 
-.pFirst .part2 img{
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
+#sessaoLazer div div h2 {
+  font-weight: lighter;
+  font-size: 2.5vh;
 }
+.card {
+  width:47%
+}
+
+
+h2 {
+  font-weight: lighter;
+  font-size: 2.5vh;
+}
+
+#modalLazer div div img{
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+
 
 .pFirst .part3{
   height: 80vh;
 }
 
-
-#alertBox1,#alertBox2,#alertBox3,#alertBox4,#alertBox5{
-  box-shadow: 0px 3px 10px 0px  rgba(0, 0, 0, 0.5);
-  z-index: 10;
-  height: 10vh;
-  
-}
-
-#alertBox1,#alertBox2,#alertBox3,#alertBox4,#alertBox5{
-  background-color: rgba(232, 150, 28, 0.92);
-}
-
-#alertBox1 h2 ,#alertBox2 h2,#alertBox3 h2,#alertBox4 h2,#alertBox5 h2{
-  background-color: transparent;
-
-}
 
 
 #carouselDeImgs{
@@ -209,7 +320,7 @@ justify-content: center;
 }
 
 .card a{
-  border: 1px solid #06b600
+  border: 1px solid #ff903c
 }
 
 .card-body{
@@ -284,7 +395,7 @@ justify-content: center;
 
 #detalhesApartamento button{
   padding: 0 9px;
-  color: #06b600;
+  color: #ff903c;
 }
 
 .modalPiscina,.modalPiscina *{
@@ -311,6 +422,9 @@ justify-content: center;
   color: white;
 }
 
+#modalAlertMorador div div {
+  background-color: white;
+}
 
 
 @media  (max-width:576px){
@@ -342,7 +456,7 @@ justify-content: center;
     margin: 20px 0;
   } 
   #sessaoLazer #conteinerCardLazer .card{
-    width: 86%!important
+    width: 100%!important
   }
 
   #sessaoLocalizacao .part3{
@@ -358,9 +472,6 @@ justify-content: center;
 
   }
 
-  #sessaoContato p, #sessaoContato h5{
-    display: none;
-  }
   #sessaoContato form{
     margin-bottom: 7%;
     width: 90%!important;
@@ -386,6 +497,7 @@ justify-content: center;
   text-align: center;
   color: white;
   text-shadow: 0 0 13px black;
+  padding: 3px 8px;
 }
 
 /* @media (min-width: 577px)  */
@@ -396,9 +508,8 @@ justify-content: center;
 } */
 
 .modal-content{
-  background: white;
-  border-radius: 11px;
-  height: 86vh;
+  background: rgba(255, 255, 255, 0);
+  border: none;
 
 }
 .modal-dialog{

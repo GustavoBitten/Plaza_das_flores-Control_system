@@ -1,114 +1,44 @@
-<section id="pFirst" class="pFirst flex-column d-flex justify-content-between">
-  <div class="container   flex-fill">
-    <div class="row part3 flex-wrap">
+<section class="flex-column d-flex">
+  <div class="container flex-column d-flex align-items-center justify-content-center">
 
+    <hr id="headerScrollApartamento">
+    
+    <div class="d-flex flex-column align-items-center justify-content-center p-5 text-center">
+      <h1>Apartamento</h1>
+      <h2>Nossos apartamentos possuem 3 quartos, 2 banheiros e 1 suíte. 60m²</h2>
+    </div>
 
-      <div class="col-12  col-sm-7   ">
+    <div id="imageApartamentoDiv" class="d-flex align-items-center justify-content-center">
+      <img id="imageApartamento" src="images/home/Planta-apartamento.jpg" alt="Portaria">
+    </div>
 
+    <div id="contentApartamento" class="d-flex flex-column align-items-center justify-content-center">
 
-        
-        <div class="row part1">
-
-          <div class="col-12  d-flex part1 align-items-center pl-5 justify-content-start ">
-            <h1>Apartamento</h1>
+      <div class="d-flex flex-column align-items-center">
+        <div id="buttonDiv" class="d-flex flex-wrap align-items-center justify-content-center pt-3">
+          <div class="d-flex flex-wrap align-items-center justify-content-center">
+            <button id="showPlanta" class="showButtons" onclick="changeShowButtonsText('showPlanta')">Planta</button>
           </div>
-          
-        </div>
-
-        <div class="row part2">
-          <div class="col-12 d-flex justify-content-center align-items-center ">
-            <img src="images/home/Portaria.jpg" alt="Portaria" class="w-83 m-3">
+          <div class="d-flex flex-wrap align-items-center justify-content-center">
+            <button id="showQuartos" class="showButtons" onclick="changeShowButtonsText('showQuartos')">Quartos</button>
           </div>
-
+          <div class="d-flex flex-wrap align-items-center justify-content-center">
+            <button id="showBanheiro" class="showButtons" onclick="changeShowButtonsText('showBanheiro')">Banheiros</button>
+          </div>
+          <div class="d-flex flex-wrap align-items-center justify-content-center">
+            <button id="showCozinha" class="showButtons" onclick="changeShowButtonsText('showCozinha')">Cozinha</button>
+          </div>
+          <div class="d-flex flex-wrap align-items-center justify-content-center">
+            <button id="showSala" class="showButtons" onclick="changeShowButtonsText('showSala')">Sala</button>
+          </div>
+          <div class="d-flex flex-wrap align-items-center justify-content-center">
+            <button id="showVaranda" class="showButtons" onclick="changeShowButtonsText('showVaranda')">Varanda</button>
+          </div>
         </div>
-
-        
+        <div class="d-flex align-items-center text-center justify-content-center">
+          <p id="buttonText" class="font-weight-lighter">Planta do apartamento, possui 3 quartos, 2 banheiros, 1 suíte, 1 varanda, 1 sala e 1 cozinha.</p>
+        </div>
       </div>
-
-
-
-
-      <div class="col-12 col-sm-5 p-0 d-flex justify-content-center align-items-center ">
-        
-        <div class="accordion w-100 m-3" id="detalhesApartamento">
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <h2 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Quartos
-                </button>
-              </h2>
-            </div>
-        
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#detalhesApartamento">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute 
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="headingTwo">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Banheiros
-                </button>
-              </h2>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#detalhesApartamento">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute 
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Cozinha
-                </button>
-              </h2>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#detalhesApartamento">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute 
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="headingFour">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                  Sala de estar
-                </button>
-              </h2>
-            </div>
-            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#detalhesApartamento">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute 
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="headingFive">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                  Varanda
-                </button>
-              </h2>
-            </div>
-            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#detalhesApartamento">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute 
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
     </div>
   </div>
 </section>
-  <div class="container d-flex  align-items-center justify-content-center " id="alertBox3" >
-    <h2>3 Quartos, 2 banheiros e muito espaço para você</h2>
-  </div>

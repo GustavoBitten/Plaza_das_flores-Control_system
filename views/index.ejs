@@ -11,31 +11,10 @@
 
   <%- include('includes/home/header')%>
 
-  <main id="main" >
-    <section id="sessaoHome" class="pFirst flex-column d-flex justify-content-between">
-      <div class="container"  >
-        <div class="row part1">
-          <div class="col-12 d-flex part1 align-items-center justify-content-center    ">
-            <h1>Plaza das Flores, o residencial perfeito para você</h1>
-          </div>
-        </div>
-        <div class="row part2">
-          <div class="col-1   ">
-            
-          </div>
-          <div class="col-10 p-0 d-flex flex-fill justify-content-between flex-row-reverse  align-items-center   ">
-            <img src="images/home/Portaria.jpg" alt="Portaria" class="w-50 m-3">
-            <p class="m-0 p-3">Se está procurando um lar com conforto, segurança e lazer, o Plaza das Flores foi feito para você! Além do ótimo espaço, nosso condomínio residencial possui uma portaria 24h para te dar o suporte e tranquilidade que você precisa. Temos uma localização incrível para facilitar sua rotina e também uma lanchonete exclusiva para sua melhor comodidade e diversão! E não se preocupe, suas crianças e animais de estimação são muito bem-vindos e respeitados. A exclusividade que você sempre sonhou está aqui!
-            </p>
-          </div>
-          <div class="col-1   ">
-            
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="container d-flex  align-items-center justify-content-center " id="alertBox1" >
-      <h2>Se você já é morador, acesse sua área exclusiva</h2>
+  <main id="main" class="big-banner" >
+    <section id="sessaoHome" class="pFirst big-banner"></section>
+    <div class="titleHome position-absolute" >
+      <h1 id="titleHomeText"class="t text-light">Plaza das Flores</h1>
     </div>
     
     
@@ -51,12 +30,102 @@
    
   </main>
 
+  <div class="modal fade" id="modalAlertMorador" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Já é morador?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Se sim, use a área exclusiva para moradores. O acesso está localizado no canto superior direito da página.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
   
   <%- include('includes/footer')%>
 
   <script>
 
-   
+    //HIDE HEADER WHEN SCROLLING AND SHOW "JÁ É MORADOR MODAL"
+
+    var firstScroll = true;
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("nav").style.top = "0";
+      } else {
+        document.getElementById("nav").style.top = "-100%";
+      }
+    prevScrollpos = currentScrollPos;
+    
+    //MODAL========================================
+      while (firstScroll) {
+        $('#modalAlertMorador').modal('show')
+        firstScroll = false;
+      }
+    }
+
+
+    //CHANGE SHOWBUTTONS TEXT =======================
+    const insideText = {
+      showPlanta: 'Planta do apartamento, possui 3 quartos, 2 banheiros, 1 suíte, 1 varanda, 1 sala e 1 cozinha.',
+      showQuartos: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nam eius omnis sint. Recusandae error hic fugit harum earum itaque similique magnam! Ducimus debitis excepturi nam est unde aspernatur officia.',
+      showBanheiro: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nam eius omnis sint. Recusandae error hic fugit harum earum itaque similique magnam! Ducimus debitis excepturi nam est unde aspernatur officia.',
+      showCozinha: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nam eius omnis sint. Recusandae error hic fugit harum earum itaque similique magnam! Ducimus debitis excepturi nam est unde aspernatur officia.',
+      showSala: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nam eius omnis sint. Recusandae error hic fugit harum earum itaque similique magnam! Ducimus debitis excepturi nam est unde aspernatur officia.',
+      showVaranda: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nam eius omnis sint. Recusandae error hic fugit harum earum itaque similique magnam! Ducimus debitis excepturi nam est unde aspernatur officia.',
+    }
+
+
+    function changeShowButtonsText(id) {
+      const paragraph = document.getElementById("buttonText");
+      paragraph.innerHTML = '';
+      const text = document.createTextNode(insideText[id]);
+      paragraph.appendChild(text);
+
+      changeApartamentSectionImage(id)
+    }
+
+
+    //CHANGE APARTAMENTO SECTION IMAGES
+
+    const imagesSources = {
+      showPlanta: 'images/home/Planta-apartamento.jpg',
+      showQuartos: 'images/home/Planta-apartamento.jpg',
+      showBanheiro: 'images/home/Planta-apartamento.jpg',
+      showCozinha: 'images/home/Planta-apartamento.jpg',
+      showSala: 'images/home/Planta-apartamento.jpg',
+      showVaranda: 'images/home/Planta-apartamento.jpg',
+    }
+
+    function changeApartamentSectionImage(id) {
+      const image = document.getElementById('imageApartamento');
+      image.setAttribute('src', imagesSources[id])
+
+    }
+
+
+
+    //OPEN MODAL homeLazer.ejs
+
+    function openModal(id){
+      const image = document.getElementById(id);
+      const source = image.getAttribute('src');
+      const imageAlt = image.getAttribute('alt')
+
+      const modalImage = document.querySelector("#modalLazer div div img");
+      modalImage.setAttribute('src', source);
+      modalImage.setAttribute('alt', imageAlt);
+    }
+
 
 
   </script>

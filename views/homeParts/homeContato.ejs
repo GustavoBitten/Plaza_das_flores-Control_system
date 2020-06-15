@@ -1,103 +1,78 @@
 <section id="sessaoContato" class="pFirst flex-column d-flex justify-content-between">
-    <div class="container   flex-fill">
-        <div class="row part3">
+  <div class="container   flex-fill">
 
+    <hr id="headerScrollContato">
 
-            <div class="col-12 col-sm-5">
-
-
-
-                <div class="row part1">
-                    <div class="col-12 d-flex part1 align-items-center justify-content-start pl-5   ">
-                        <h1>Contate o Plaza</h1>
-                    </div>
-
-
-                </div>
-
-                <div class="row part2">
-                    <div class="col-12 pl-5 pt-4 d-flex flex-column justify-content-center  ">
-                        <h4>Para entrar em contato com a gente, preencha o formulário ao lado</h4>
-
-                        <div>
-
-                            <h5 class="font-weight-normal">Contatos</h5>
-                            <p class="mb-1">Telefone: 19 99843034</p>
-                            <p class="mb-1">Email: PlazadasFlores@condominio.com</p>
-                            <p class="mb-1">Síndico: Gustavo Duarte</p>
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-            <div class="col-12 col-sm-7 p-0 d-flex justify-content-center align-items-center ">
-
-
-                <form class=" d-flex w-75 flex-column justify-content-center pl-3 pr-3 pt-2 pb-2 contact-form "
-                    action="/" method="POST" >
-                    
-                    <h4  >Preencha com seus dados:</h4> 
-                    
-
-                    <div class="d-flex flex-row ">
-                        <div class="form-group w-66 ">
-                            <label for="nome">Nome:</label>
-                            <input type="text" class="form-control" id="nome" name="nome"
-                                placeholder="Seu nome">
-                        </div>
-                        <div class="form-group w-34 ">
-                            <label for="celular">Celular:</label>
-                            <input type="number" class="form-control" id="celular" name="celular"
-                                placeholder="Seu celular">
-                        </div>
-                    </div>
-
-
-                    <div class="d-flex flex-row">
-
-                        <div class="form-group w-66 ">
-                            <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="email" name="email"
-                                placeholder="seuemail@examplo.com">
-                        </div>
-                        <div class="form-group w-34">
-                            <label for="assunto">Assunto:</label>
-                            <select class="form-control" id="assunto" name="assunto">
-                                <option>Dúvidas</option>
-                                <option>Apartamentos a venda</option>
-                                <option>Sugestões</option>
-                                <option>Comercial </option>
-                                <option>Outros </option>
-                                
-                            </select>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group textarea">
-                        <label for="descricao">Descrição:</label>
-                        <textarea class="form-control" id="descricao" name='descricao' rows="3"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary mb-2">Enviar</button>
-                </form>
-
-
-
-
-
-
-            </div>
-
-
-        </div>
+    <div class="d-flex flex-column align-items-center justify-content-start pt-5 text-center">
+      <h1>Contate o Plaza</h1>
+      <h2>Para entrar em contato com a gente, preencha o formulário ao lado</h2>
     </div>
+
+    <div class="d-flex flex-row justify-content-center p-5 flex-wrap">
+
+      <div class="d-flex flex-column pl-5 pr-5 pb-5">
+        <h5 class="font-weight-bold">Contatos</h5>
+        <p class="mb-1">Telefone: 19 99843034</p>
+        <p class="mb-1">Email: PlazadasFlores@condominio.com</p>
+        <p class="mb-1">Síndico: Gustavo Duarte</p>
+      </div>
+
+
+
+
+      <form class=" d-flex w-45 flex-column justify-content-center pl-3 pr-3 pt-2 pb-2 contact-form " action="/"
+        method="POST">
+
+        <h4>Preencha com seus dados:</h4>
+
+
+        <div class="d-flex flex-row flex-wrap">
+          <div class="form-group pr-3" style="width: 260px;">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome">
+          </div>
+          <div class="form-group" style="width: 135px;">
+            <label for="celular">Celular:</label>
+            <input type="number" class="form-control" id="celular" name="celular" placeholder="Seu celular">
+          </div>
+        </div>
+
+
+        <div class="d-flex flex-row flex-wrap">
+
+          <div class="form-group pr-3" style="width: 260px;">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="seuemail@exemplo.com">
+          </div>
+          <div class="form-group" style="width: 135px;">
+            <label for="assunto">Assunto:</label>
+            <select class="form-control" id="assunto" name="assunto">
+              <option>Dúvidas</option>
+              <option>Apartamentos a venda</option>
+              <option>Sugestões</option>
+              <option>Comercial </option>
+              <option>Outros </option>
+
+            </select>
+          </div>
+        </div>
+
+
+        <div class="form-group textarea">
+          <label for="descricao">Descrição:</label>
+          <textarea class="form-control" id="descricao" name='descricao' rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Enviar</button>
+      </form>
+
+
+
+
+
+
+
+    </div>
+
+
+  </div>
 </section>
