@@ -1,5 +1,6 @@
 const moment = require("moment");
 const session = require('express-session')
+const axios = require('axios')
 const {
   Pet,
   Usuario,
@@ -185,10 +186,19 @@ let backofficePageController = {
   //usuario: req.session.user
   //})
   //},
-  moradorAreasComuns: (req, res) => {
+  moradorAreasComuns: async (req, res) => {
+    
+    const {data} = await axios.get('https://api.hgbrasil.com/weather?key=e33cd20e&city_name=Campinas,SP')
+
+    const datas = (data.results.forecast)
+    datas.pop()
+    const listForecast = datas
+
+    //console.log(listForecast)
     res.render("backoffice/morador/areasComuns", {
       titulo: "Morador - Áreas Comuns",
-      usuario: req.session.user
+      usuario: req.session.user,
+      listForecast
     })
   },
   moradorPortaria: (req, res) => {

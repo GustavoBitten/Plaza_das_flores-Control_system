@@ -72,3 +72,17 @@ p {
 } */
 
 /* Fim Moradores */
+
+
+@media (min-width: 576px){
+  #modalWeatherForecast .card{
+    min-width: auto;
+    width: 33%;
+    text-align: center;
+  }
+}
+
+#modalWeatherForecast .card p {
+
+  font-size: 1.2rem
+}
