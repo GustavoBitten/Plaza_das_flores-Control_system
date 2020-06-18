@@ -28,16 +28,21 @@ const homePageController = {
         }
   
        await transporter.sendMail(message,(err,info)=>{
+         
           if(err){
-            res.send('Problemas com o contato, envie um email diretamento para "plazadasfloresdh@gmail.com"')
+
+            return res.render("index",{titulo:"Plaza das Flores",error})
+
           }else{
-            res.send('Contato enviado com sucesso')
+            //return res.send('Contato enviado com sucesso')
+            const error = "Contato enviado com sucesso"
+            return res.render("index",{titulo:"Plaza das Flores",error})
           }
   
       })
       
        
-        res.render("index",{titulo:"Plaza das Flores"})
+        //res.render("index",{titulo:"Plaza das Flores"})
   
       
       }

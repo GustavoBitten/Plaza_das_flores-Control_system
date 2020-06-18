@@ -46,13 +46,12 @@
     </div>
   </div>
 
-
-
+  
   
   <%- include('includes/footer')%>
-
+  
   <script>
-
+    
     //HIDE HEADER WHEN SCROLLING AND SHOW "JÁ É MORADOR MODAL"
 
     var firstScroll = true;
@@ -84,7 +83,7 @@
       showVaranda: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nam eius omnis sint. Recusandae error hic fugit harum earum itaque similique magnam! Ducimus debitis excepturi nam est unde aspernatur officia.',
     }
 
-
+    
     function changeShowButtonsText(id) {
       const paragraph = document.getElementById("buttonText");
       paragraph.innerHTML = '';
@@ -94,7 +93,7 @@
       changeApartamentSectionImage(id)
     }
 
-
+    
     //CHANGE APARTAMENTO SECTION IMAGES
 
     const imagesSources = {
@@ -109,10 +108,10 @@
     function changeApartamentSectionImage(id) {
       const image = document.getElementById('imageApartamento');
       image.setAttribute('src', imagesSources[id])
-
+      
     }
 
-
+    
 
     //OPEN MODAL homeLazer.ejs
 
@@ -129,7 +128,10 @@
 
 
   </script>
-  
-    <%- include('includes/scriptJS')%>
+      <script type="text/javascript" src="/javascripts/home/home.js"></script>
+      <%- include('includes/scriptJS')%>
+      <%  if(typeof(error) != 'undefined'){ %>
+        <%- include('./includes/utilities/errorAlert')%>
+       <%  }   %>
 </body>
 </html>
