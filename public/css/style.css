@@ -15,13 +15,6 @@ a.text-dark-orange:hover {
   color: #FFA62B;
 }
 
-.modal {
-  z-index: 100;
-}
-
-.modal-backdrop {
-  z-index: 99;
-}
 
 /* Start by setting display:none to make this hidden.
    Then we position it in relation to the viewport window
