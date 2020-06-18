@@ -20,9 +20,9 @@ const itemMoradores = new Item('Moradores', 'moradores', 'fas fa-users')
 
 //Para alterar as opções do aside, só alterar os arrays abaixo
 
-const comumItems = [itemDashboard, itemPerfil, itemAreas_comuns, itemOcorrencias, itemCorrespondencias, itemComunicados, itemFinanceiro]
+const comumItems = [itemDashboard,  itemAreas_comuns, itemOcorrencias, itemCorrespondencias, itemComunicados, itemFinanceiro]
 
-const moradorItems = [...comumItems]
+const moradorItems = [...comumItems,itemPerfil]
 const sindicoItems = [...comumItems, itemMoradores]
 const portariaItems = [...comumItems]
 
