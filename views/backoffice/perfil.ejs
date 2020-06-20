@@ -41,7 +41,7 @@
 
           <div class="col-md-6">
             <div class="card-body">
-              <h5 class="card-title"><%= usuarios.nome %></h5>
+              <h5 class="card-title" style="text-transform: capitalize"><%= usuarios.nome %></h5>
              <span><svg class="bi bi-card-heading" width="1em" height="1em" viewBox="0 0 16 16"
                   fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"
@@ -73,7 +73,7 @@
                     clip-rule="evenodd" />
                   <path
                     d="M5 8a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0z" />
-                </svg><span class="tel">  <%= telefone.numero %></span> - <%= telefone.Tipo_telefone.tipo%> </span>
+                </svg><span class="tel" >  <%= telefone.numero %></span> - <span style="text-transform: capitalize"><%= telefone.Tipo_telefone.tipo%></span> </span>
 
               <% }) %>
 
@@ -95,7 +95,7 @@
 
               <%}%>
 
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              
             </div>
           </div>
 
@@ -159,8 +159,8 @@
                       <img class="foto" src="<%= dependente.Usuario.foto %>" alt="" style=" width:120 ; height: 80px;">
 
                       <p class="card-title" style="margin: 0;"><%= dependente.Usuario.nome %></p>
-                      <p class="card-text" style="margin: 0;"><b>Tipo: </b><%= dependente.Usuario.rg %></p>
-                      <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= dependente.Usuario.rg %></p>
+                      <p class="card-text" style="margin: 0;"><b>Tipo: </b>Dependente</p>
+                      <p class="card-text" style="margin: 0;"><b>Rg: </b> <span class="rgDependente"><%= dependente.Usuario.rg%> </span</p>
                     </div>
                     <% } %>
                     <% }) %>
@@ -252,7 +252,7 @@
 
                       <p class="card-title" style="margin: 0;"><%= visitante.nome %> </p>
                       <p class="card-text" style="margin: 0;"><b>Tipo:</b> <%= visitante.tipo %> </p>
-                      <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= visitante.rg %> </p>
+                      <p class="card-text" style="margin: 0;"><b>Rg: </b> <span class="rgVisitante"><%= visitante.rg %></span>  </p>
                     </div>
                     <%} else { %>
                     <div class="carousel-item">
@@ -260,7 +260,7 @@
 
                       <p class="card-title" style="margin: 0;"><%= visitante.nome %></p>
                       <p class="card-text" style="margin: 0;"><b>Tipo: </b> <%= visitante.tipo %></p>
-                      <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= visitante.rg %></p>
+                      <p class="card-text" style="margin: 0;"><b>Rg: </b> <span class="rgVisitante"><%= visitante.rg %></span></p>
                     </div>
                     <% } %>
                     <% }) %>
@@ -352,7 +352,7 @@
 
                       <p class="card-title" style="margin: 0;"> <%= funcionario.nome %></p>
                       <p class="card-text" style="margin: 0;"><b>Tipo: </b> <%= funcionario.tipo %></p>
-                      <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= funcionario.rg%></p>
+                      <p class="card-text" style="margin: 0;"><b>Rg: </b> <span class="rgFuncionario"><%= funcionario.rg%></span></p>
                     </div>
                     <% } else { %>
                     <div class="carousel-item">
@@ -360,7 +360,7 @@
 
                       <p class="card-title" style="margin: 0;"> <%= funcionario.nome %></p>
                       <p class="card-text" style="margin: 0;"><b>Tipo: </b> <%= funcionario.tipo %></p>
-                      <p class="card-text" style="margin: 0;"><b>Rg: </b> <%= funcionario.rg %></p>
+                      <p class="card-text" style="margin: 0;"><b>Rg: </b> <span class="rgFuncionario"><%= funcionario.rg%></span></p>
                     </div>
                     <% } %>
 
@@ -455,7 +455,7 @@
                       <img class="foto" src="<%= veiculo.foto %>" alt="" style=" width:120 ; height: 80px;">
 
                       <p class="card-title" style="margin: 0;"><%= veiculo.modelo %> </p>
-                      <p class="card-text" style="margin: 0;"><b>Placa: </b><%= veiculo.placa %></p>
+                      <p class="card-text"   style="margin: 0;"><b>Placa: </b> <span class="placaVeiculo" style="text-transform: uppercase" ><%= veiculo.placa %></span></p>
                       <p class="card-text" style="margin: 0;"><b>Cor: </b> <%= veiculo.cor %></p>
                     </div>
                     <% } else { %>
@@ -463,7 +463,7 @@
                       <img class="foto" src="<%= veiculo.foto %>" alt="" style=" width:120 ; height: 80px;">
 
                       <p class="card-title" style="margin: 0;"><%= veiculo.modelo %> </p>
-                      <p class="card-text" style="margin: 0;"><b>Placa: </b><%= veiculo.placa %></p>
+                      <p class="card-text"  style="margin: 0;"><b>Placa: </b><span class="placaVeiculo" style="text-transform: uppercase" ><%= veiculo.placa %></span></p>
                       <p class="card-text" style="margin: 0;"><b>Cor: </b> <%= veiculo.cor %></p>
                     </div>
                     <% } %>
@@ -667,8 +667,8 @@
                       <img class="foto" src="<%= empresa.foto %>" alt="First slide" style=" width:120 ; height: 80px;">
 
                       <p class="card-title" style="margin: 0;"><%= empresa.nome %></p>
-                      <p class="card-text" style="margin: 0;"><b>Cnpj: </b><%= empresa.cnpj %></p>
-                      <p class="card-text" style="margin: 0;"><b>Rg Resp.: </b><%= empresa.rg %></p>
+                      <p class="card-text" style="margin: 0;"><b>Cnpj: </b> <span class="cnpjEmpresa"><%= empresa.cnpj %></span></p>
+                      <p class="card-text" style="margin: 0;"><b>Rg Resp.: </b> <span class="rgEmpresa"><%= empresa.rg %></span></p>
                     </div>
 
                     <% } else { %>
@@ -676,8 +676,8 @@
                       <img class="foto" src="<%= empresa.foto %>" alt="" style=" width:120 ; height: 80px;">
 
                       <p class="card-title" style="margin: 0;"><%= empresa.nome %></p>
-                      <p class="card-text" style="margin: 0;"><b>CNPJ: </b><%= empresa.cnpj %></p>
-                      <p class="card-text" style="margin: 0;"><b>Rg Resp.: </b><%= empresa.rg %></p>
+                      <p class="card-text" style="margin: 0;"><b>Cnpj: </b> <span class="cnpjEmpresa"><%= empresa.cnpj %></span></p>
+                      <p class="card-text" style="margin: 0;"><b>Rg Resp.: </b> <span class="rgEmpresa"><%= empresa.rg %></span></p>
                     </div>
                     <% } %>
 
@@ -912,7 +912,7 @@
           enctype="multipart/form-data">
           <div class="form-group">
             <label for="emailPerfil" class="col-form-label">Novo Email</label>
-            <input type="email" class="form-control" name="emailPerfil" id="emailPerfil" placeholder="Novo Email">
+            <input type="email" style="text-transform: none" class="form-control" name="emailPerfil" id="emailPerfil" placeholder="Novo Email">
             <p>* Seu novo e-mail será seu novo login</p>
           </div>
           <div class="form-group">
@@ -946,11 +946,11 @@
           enctype="multipart/form-data">
           <div class="form-group">
             <label for="novaSenha" class="col-form-label">Nova Senha</label>
-            <input type="password" class="form-control" name="novaSenha" id="novaSenha" placeholder="Nova Senha">
+            <input type="password" style="text-transform: none" class="form-control" name="novaSenha" id="novaSenha" placeholder="Nova Senha">
           </div>
           <div class="form-group">
             <label for="senhaAtual" class="col-form-label">Senha Atual</label>
-            <input type="password" class="form-control" name="senhaAtual" id="senhaAtual" placeholder="Senha Atual">
+            <input type="password" style="text-transform: none" class="form-control" name="senhaAtual" id="senhaAtual" placeholder="Senha Atual">
           </div>
       </div>
       <div class="modal-footer">
@@ -980,7 +980,7 @@
         <form>
           <div class="form-group">
             <label for="emailNovoSindico" class="col-form-label">Email Cadastrado</label>
-            <input type="email" class="form-control" name="emailNovoSindico" id="emailNovoSindico"
+            <input type="email" class="form-control" style="text-transform: none;" name="emailNovoSindico" id="emailNovoSindico"
               placeholder="Email Cadastrado">
           </div>
           <div class="form-group">
@@ -1024,7 +1024,7 @@
           </div>
           <div class="form-group">
             <label for="emailDependente" class="col-form-label">E-mail</label>
-            <input type="email" class="form-control" name="emailDependente" id="emailDependente" placeholder="E-mail">
+            <input type="email" class="form-control" style="text-transform: none;" name="emailDependente" id="emailDependente" placeholder="E-mail">
             *login de acesso
           </div>
           <div class="form-group">
@@ -1073,7 +1073,7 @@
           </div>
           <div class="form-group">
             <label for="emailDependente" class="col-form-label">Editar E-mail</label>
-            <input type="email" class="form-control" name="emailDependente" id="emailDependente" placeholder="E-mail">
+            <input type="email" class="form-control" style="text-transform: none;" name="emailDependente" id="emailDependente" placeholder="E-mail">
             *login de acesso
           </div>
           <div class="form-group">
@@ -1160,7 +1160,7 @@
           </div>
           <div class="form-group">
             <label for="rgVisitante" class="col-form-label">RG</label>
-            <input type="text" class="form-control" name="rgVisitante" id="rgVisitante" placeholder="Rg">
+            <input type="text" class="form-control rgVisitante" name="rgVisitante" id="rgVisitante" placeholder="Rg">
           </div>
           <div class="form-group">
             <label for="fotoVisitante">Foto</label>
@@ -1169,7 +1169,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary">Incluir</button>
+        <button type="submit" class="btn btn-primary addVisitante">Incluir</button>
         </form>
 
       </div>
@@ -1205,7 +1205,7 @@
           </div>
           <div class="form-group">
             <label for="rgVisitante" class="col-form-label">Editar RG</label>
-            <input type="text" class="form-control" name="rgVisitante" id="rgVisitante" placeholder="Rg">
+            <input type="text" class="form-control rgVisitante" name="rgVisitante" id="rgVisitante" placeholder="Rg">
           </div>
           <div class="form-group">
             <label for="fotoVisitante">Alterar Foto</label>
@@ -1214,7 +1214,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary">Incluir</button>
+        <button type="submit" class="btn btn-primary addVisitante">Incluir</button>
         </form>
 
       </div>
@@ -1278,11 +1278,11 @@
           </div>
           <div class="form-group">
             <label for="rgFuncionario" class="col-form-label"> RG</label>
-            <input type="text" class="form-control" name="rgFuncionario" id="rgFuncionario" placeholder="Rg">
+            <input type="text" class="form-control rgFuncionario" name="rgFuncionario" id="rgFuncionario" placeholder="Rg">
           </div>
           <div class="form-group">
             <label for="cpfFuncionario" class="col-form-label"> CPF</label>
-            <input type="text" class="form-control" name="cpfFuncionario" id="cpfFuncionario" placeholder="CPF">
+            <input type="text" class="form-control cpfFuncionario" name="cpfFuncionario" id="cpfFuncionario" placeholder="CPF">
           </div>
           <div class="form-group">
             <label for="empresaFuncionario" class="col-form-label"> Empresa</label>
@@ -1296,7 +1296,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary">Incluir</button>
+        <button type="submit" class="btn btn-primary addFuncionario">Incluir</button>
         </form>
 
       </div>
@@ -1332,11 +1332,11 @@
           </div>
           <div class="form-group">
             <label for="rgFuncionario" class="col-form-label">Editar RG</label>
-            <input type="text" class="form-control" name="rgFuncionario" id="rgFuncionario" placeholder="Rg">
+            <input type="text" class="form-control rgFuncionario" name="rgFuncionario" id="rgFuncionario" placeholder="Rg">
           </div>
           <div class="form-group">
-            <label for="cpfFuncionario" class="col-form-label">Editar CPF</label>
-            <input type="text" class="form-control" name="cpfFuncionario" id="cpfFuncionario" placeholder="CPF">
+            <label for="cpfFuncionario" class="col-form-label ">Editar CPF</label>
+            <input type="text" class="form-control cpfFuncionario" name="cpfFuncionario" id="cpfFuncionario" placeholder="CPF">
           </div>
           <div class="form-group">
             <label for="empresaFuncionario" class="col-form-label">Editar Empresa</label>
@@ -1350,7 +1350,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary">Incluir</button>
+        <button type="submit" class="btn btn-primary addFuncionario">Incluir</button>
         </form>
 
       </div>
@@ -1410,7 +1410,7 @@
           </div>
           <div class="form-group">
             <label for="placaVeiculo" class="col-form-label">Placa</label>
-            <input type="text" class="form-control" name="placaVeiculo" id="placaVeiculo" placeholder="Ex: AAA-XXXX">
+            <input type="text" style="text-transform: uppercase"  class="form-control placaVeiculo" name="placaVeiculo" id="placaVeiculo" placeholder="Ex: AAA-XXXX">
           </div>
           <div class="form-group">
             <label for="corVeiculo" class="col-form-label">Cor</label>
@@ -1424,7 +1424,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary">Incluir</button>
+        <button type="submit" class="btn btn-primary addVeiculo">Incluir</button>
         </form>
       </div>
     </div>
@@ -1454,7 +1454,7 @@
           </div>
           <div class="form-group">
             <label for="placaVeiculo" class="col-form-label">Editar Placa</label>
-            <input type="text" class="form-control" name="placaVeiculo" id="placaVeiculo" placeholder="Ex: AAA-XXXX">
+            <input type="text" style="text-transform: uppercase"   class="form-control placaVeiculo" name="placaVeiculo" id="placaVeiculo" placeholder="Ex: AAA-XXXX">
           </div>
           <div class="form-group">
             <label for="corVeiculo" class="col-form-label">Editar Cor</label>
@@ -1468,7 +1468,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary">Incluir</button>
+        <button type="submit" class="btn btn-primary addVeiculo">Incluir</button>
       </div>
       </form>
     </div>
@@ -1659,11 +1659,11 @@
           </div>
           <div class="form-group">
             <label for="cnpjEmpresa" class="col-form-label">Cnpj da empresa</label>
-            <input type="text" class="form-control" name="cnpjEmpresa" id="cnpjEmpresa" placeholder="Cnpj">
+            <input type="text" class="form-control cnpjEmpresa" name="cnpjEmpresa" id="cnpjEmpresa" placeholder="Cnpj">
           </div>
           <div class="form-group">
             <label for="rgEmpresa" class="col-form-label">Rg do Responsável</label>
-            <input type="text" class="form-control" name="rgEmpresa" id="rgEmpresa"
+            <input type="text" class="form-control rgEmpresa" name="rgEmpresa" id="rgEmpresa"
               placeholder="RG do Responsável pelo serviço">
           </div>
           <div class="form-group">
@@ -1673,7 +1673,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary">Incluir</button>
+        <button type="submit" class="btn btn-primary addEmpresa>Incluir</button>
         </form>
 
       </div>
@@ -1704,11 +1704,11 @@
           </div>
           <div class="form-group">
             <label for="cnpjEmpresa" class="col-form-label">Cnpj</label>
-            <input type="text" class="form-control" name="cnpjEmpresa" id="cnpjEmpresa" placeholder="CNPJ">
+            <input type="text" class="form-control cnpjEmpresa" name="cnpjEmpresa" id="cnpjEmpresa" placeholder="CNPJ">
           </div>
           <div class="form-group">
             <label for="rgEmpresa" class="col-form-label">Rg</label>
-            <input type="text" class="form-control" name="rgEmpresa" id="rgEmpresa"
+            <input type="text" class="form-control rgEmpresa" name="rgEmpresa" id="rgEmpresa"
               placeholder="Rg - Responsável pelo Serviço">
           </div>
           <div class="form-group">
@@ -1718,7 +1718,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary">Incluir</button>
+        <button type="submit" class="btn btn-primary addEmpresa">Incluir</button>
         </form>
 
       </div>

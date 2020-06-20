@@ -1,8 +1,13 @@
+
 .card{
     width: 281px;
     height: 300px;
     margin: 20px 20px 0px 20px;
  
+}
+
+input{
+    text-transform: capitalize;
 }
 
 
@@ -91,9 +96,8 @@ section {
 
 .cardsAll{
     margin-left: 135px;
+    text-transform: capitalize;
 }
-
-
 
 .titulo{
     color: #E8751C;
@@ -128,6 +132,7 @@ section {
 
 
 .card-body{
+   
     display: flex;
     flex-wrap: wrap;
     flex-direction: column ;
@@ -192,6 +197,8 @@ section {
         margin-left: 20px;
         margin-right: 20px;
     }
+
+
     
 }
 
