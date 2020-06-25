@@ -87,7 +87,8 @@ h1 {
 }
 
 .customSection{
-  width: fit-content; 
+  width: fit-content;
+  min-width: 75%; 
   margin: 0 auto
 }
 

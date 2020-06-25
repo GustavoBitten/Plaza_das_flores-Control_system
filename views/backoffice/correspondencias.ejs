@@ -17,11 +17,12 @@
     <%- include('../includes/utilities/subHeader') %>
 
     <section class="customSection">
-
+      
+      <% const optionsButtonsTop = [{dataTarget:"", name:'Geral',dataToggle:"modal"}] %>
       <% if (usuario.tipo_usuario_id == 3) { %>
-        <% const optionsButtonsTop = [{dataTarget:"#modalNovaCorrespondencia", name:'Nova Correspondência',dataToggle:"modal"}] %>
+        <% optionsButtonsTop.push({dataTarget:"#modalNovaCorrespondencia", name:'Nova Correspondência',dataToggle:"modal"}) %>
+        <% } %>
         <%- include('../includes/utilities/optionsButtonsTop',{optionsButtonsTop}) %>
-      <% } %>
 
       <div class="card mx-auto px-0">
 
