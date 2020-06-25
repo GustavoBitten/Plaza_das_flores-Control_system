@@ -1,5 +1,10 @@
 .corpo {
-    background-color: #06B600;
+    /* background-color: #06B600; */
+    background-image: url('../../images/home/piscina3.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 100vh;
+    padding-top: 26vh;
      
  }
  .form-control {
@@ -18,7 +23,8 @@
      width:400px;
      height:358px;
      border-radius: 20px;
-     margin-top: 18vh;
+     box-shadow: 0 0 20px 2px;
+     
  }
  .btn {
      display: flex;
