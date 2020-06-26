@@ -65,7 +65,7 @@ const loginPageController = {
     switch (usuario.tipo_usuario_id) {
 
       case 1:
-        res.redirect("/backoffice/morador/perfil")
+        res.redirect("/backoffice/morador/dashboard")
         break;
       case 2:
         res.redirect("/backoffice/sindico/moradores")
